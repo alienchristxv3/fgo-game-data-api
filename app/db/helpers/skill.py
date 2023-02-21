@@ -1,9 +1,9 @@
-from typing import Any, Iterable, Optional
+from typing import Iterable, Optional
 
 from sqlalchemy.dialects.postgresql import aggregate_order_by, array_agg
 from sqlalchemy.exc import DBAPIError
 from sqlalchemy.ext.asyncio import AsyncConnection
-from sqlalchemy.sql import and_, func, select
+from sqlalchemy.sql import and_, func, or_, select
 
 from ...models.raw import (
     mstAi,
@@ -13,10 +13,12 @@ from ...models.raw import (
     mstSkill,
     mstSkillAdd,
     mstSkillDetail,
+    mstSkillGroup,
+    mstSkillGroupOverwrite,
     mstSkillLv,
     mstSvtSkill,
 )
-from ...schemas.raw import MstSkill, SkillEntityNoReverse
+from ...schemas.raw import MstSkill, MstSvtSkill, SkillEntityNoReverse
 from .utils import sql_jsonb_agg
 
 
@@ -62,14 +64,25 @@ async def get_skillEntity(
     )
 
     JOINED_SKILL_TABLES = (
-        mstSkill.outerjoin(mstSkillDetail, mstSkillDetail.c.id == mstSkill.c.id)
-        .outerjoin(mstSvtSkill, mstSvtSkill.c.skillId == mstSkill.c.id)
+        mstSkill.outerjoin(mstSvtSkill, mstSvtSkill.c.skillId == mstSkill.c.id)
         .outerjoin(mstSkillAdd, mstSkillAdd.c.skillId == mstSkill.c.id)
         .outerjoin(
             mstCommonRelease, mstSkillAdd.c.commonReleaseId == mstCommonRelease.c.id
         )
         .outerjoin(mstSkillLvJson, mstSkillLvJson.c.skillId == mstSkill.c.id)
         .outerjoin(aiIds, aiIds.c.skillId == mstSkill.c.id)
+        .outerjoin(mstSkillGroup, mstSkillGroup.c.skillId == mstSkill.c.id)
+        .outerjoin(
+            mstSkillGroupOverwrite,
+            mstSkillGroupOverwrite.c.skillGroupId == mstSkillGroup.c.id,
+        )
+        .outerjoin(
+            mstSkillDetail,
+            or_(
+                mstSkillDetail.c.id == mstSkill.c.id,
+                mstSkillDetail.c.id == mstSkillGroupOverwrite.c.skillDetailId,
+            ),
+        )
     )
 
     SELECT_SKILL_ENTITY = [
@@ -78,6 +91,8 @@ async def get_skillEntity(
         sql_jsonb_agg(mstSvtSkill),
         sql_jsonb_agg(mstSkillAdd),
         sql_jsonb_agg(mstCommonRelease),
+        sql_jsonb_agg(mstSkillGroup),
+        sql_jsonb_agg(mstSkillGroupOverwrite),
         mstSkillLvJson.c.mstSkillLv,
         aiIds.c.aiIds,
     ]
@@ -101,10 +116,10 @@ async def get_skillEntity(
     return sorted(skill_entities, key=lambda skill: order[skill.mstSkill.id])
 
 
-async def get_mstSvtSkill(conn: AsyncConnection, svt_id: int) -> list[Any]:
+async def get_mstSvtSkill(conn: AsyncConnection, svt_id: int) -> list[MstSvtSkill]:
     mstSvtSkill_stmt = select(mstSvtSkill).where(mstSvtSkill.c.svtId == svt_id)
-    fetched: list[Any] = (await conn.execute(mstSvtSkill_stmt)).fetchall()
-    return fetched
+    fetched = (await conn.execute(mstSvtSkill_stmt)).fetchall()
+    return [MstSvtSkill.from_orm(svt_skill) for svt_skill in fetched]
 
 
 async def get_skill_search(
@@ -115,6 +130,8 @@ async def get_skill_search(
     strengthStatus: Optional[Iterable[int]],
     lvl1coolDown: Optional[Iterable[int]],
     numFunctions: Optional[Iterable[int]],
+    svalsContain: str | None,
+    triggerSkillId: Iterable[int] | None,
 ) -> list[MstSkill]:
     where_clause = [mstSkillLv.c.lv == 1]
     if skillType:
@@ -129,6 +146,13 @@ async def get_skill_search(
         where_clause.append(mstSkillLv.c.chargeTurn.in_(lvl1coolDown))
     if numFunctions:
         where_clause.append(func.array_length(mstSkillLv.c.funcId, 1).in_(numFunctions))
+    if svalsContain:
+        where_clause.append(
+            func.array_to_string(mstSkillLv.c.svals, "|").like(f"%{svalsContain}%")
+        )
+    if triggerSkillId:
+        for skill_id in triggerSkillId:
+            where_clause.append(mstSkillLv.c.relatedSkillIds.contains([skill_id]))
 
     skill_search_stmt = (
         select(mstSkill)

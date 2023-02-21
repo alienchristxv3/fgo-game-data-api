@@ -15,6 +15,7 @@
       1000,
       2001,
       2008,
+      2780,
       2631
     ],
     "classPassive": [
@@ -86,6 +87,7 @@
       ],
       "mstSvtSkill": [
         {
+          "script": {},
           "strengthStatus": 0,
           "svtId": 202300,
           "num": 1,
@@ -99,6 +101,7 @@
           "flag": 0
         },
         {
+          "script": {},
           "strengthStatus": 0,
           "svtId": 9939010,
           "num": 1,
@@ -112,6 +115,7 @@
           "flag": 0
         },
         {
+          "script": {},
           "strengthStatus": 0,
           "svtId": 9939020,
           "num": 1,
@@ -332,6 +336,7 @@
       ],
       "mstSvtSkill": [
         {
+          "script": {},
           "strengthStatus": 0,
           "svtId": 9939010,
           "num": 2,
@@ -345,6 +350,7 @@
           "flag": 0
         },
         {
+          "script": {},
           "strengthStatus": 0,
           "svtId": 9939020,
           "num": 2,
@@ -358,6 +364,7 @@
           "flag": 0
         },
         {
+          "script": {},
           "strengthStatus": 1,
           "svtId": 202300,
           "num": 2,
@@ -638,6 +645,7 @@
       ],
       "mstSvtSkill": [
         {
+          "script": {},
           "strengthStatus": 0,
           "svtId": 202300,
           "num": 3,
@@ -651,6 +659,7 @@
           "flag": 0
         },
         {
+          "script": {},
           "strengthStatus": 0,
           "svtId": 9939010,
           "num": 3,
@@ -664,6 +673,7 @@
           "flag": 0
         },
         {
+          "script": {},
           "strengthStatus": 0,
           "svtId": 9939020,
           "num": 3,
@@ -864,6 +874,7 @@
       ],
       "mstSvtSkill": [
         {
+          "script": {},
           "strengthStatus": 99,
           "svtId": 202300,
           "num": 2,
@@ -1190,6 +1201,7 @@
           ],
           "treaureDeviceId": 202300,
           "lv": 1,
+          "script": {},
           "gaugeCount": 1,
           "detailId": 202300,
           "tdPoint": 38,
@@ -1227,6 +1239,7 @@
           ],
           "treaureDeviceId": 202300,
           "lv": 2,
+          "script": {},
           "gaugeCount": 2,
           "detailId": 202300,
           "tdPoint": 38,
@@ -1264,6 +1277,7 @@
           ],
           "treaureDeviceId": 202300,
           "lv": 3,
+          "script": {},
           "gaugeCount": 2,
           "detailId": 202300,
           "tdPoint": 38,
@@ -1301,6 +1315,7 @@
           ],
           "treaureDeviceId": 202300,
           "lv": 4,
+          "script": {},
           "gaugeCount": 2,
           "detailId": 202300,
           "tdPoint": 38,
@@ -1338,6 +1353,7 @@
           ],
           "treaureDeviceId": 202300,
           "lv": 5,
+          "script": {},
           "gaugeCount": 3,
           "detailId": 202300,
           "tdPoint": 38,
@@ -1436,6 +1452,7 @@
           ],
           "treaureDeviceId": 202301,
           "lv": 1,
+          "script": {},
           "gaugeCount": 1,
           "detailId": 202301,
           "tdPoint": 38,
@@ -1473,6 +1490,7 @@
           ],
           "treaureDeviceId": 202301,
           "lv": 2,
+          "script": {},
           "gaugeCount": 2,
           "detailId": 202301,
           "tdPoint": 38,
@@ -1510,6 +1528,7 @@
           ],
           "treaureDeviceId": 202301,
           "lv": 3,
+          "script": {},
           "gaugeCount": 2,
           "detailId": 202301,
           "tdPoint": 38,
@@ -1547,6 +1566,7 @@
           ],
           "treaureDeviceId": 202301,
           "lv": 4,
+          "script": {},
           "gaugeCount": 2,
           "detailId": 202301,
           "tdPoint": 38,
@@ -1584,6 +1604,7 @@
           ],
           "treaureDeviceId": 202301,
           "lv": 5,
+          "script": {},
           "gaugeCount": 3,
           "detailId": 202301,
           "tdPoint": 38,
@@ -1606,7 +1627,10 @@
       ],
       "svtId": 202300,
       "idx": 1,
-      "limitCount": -1
+      "limitCount": -1,
+      "condType": 0,
+      "condId": 0,
+      "condNum": 0
     },
     {
       "individuality": [
@@ -1616,7 +1640,10 @@
       ],
       "svtId": 202300,
       "idx": 8027301,
-      "limitCount": -1
+      "limitCount": -1,
+      "condType": 0,
+      "condId": 0,
+      "condNum": 0
     }
   ],
   "mstSvtCard": [
@@ -1787,6 +1814,7 @@
       "attackType": 1
     }
   ],
+  "mstSvtCardAdd": [],
   "mstSvtLimit": [
     {
       "weaponColor": 16777215,
@@ -2716,6 +2744,126 @@
       "lv": 100,
       "value": 15990,
       "createdAt": 946684800
+    },
+    {
+      "id": 5,
+      "lv": 101,
+      "value": 16000,
+      "createdAt": 946684800
+    },
+    {
+      "id": 5,
+      "lv": 102,
+      "value": 16010,
+      "createdAt": 946684800
+    },
+    {
+      "id": 5,
+      "lv": 103,
+      "value": 16020,
+      "createdAt": 946684800
+    },
+    {
+      "id": 5,
+      "lv": 104,
+      "value": 16030,
+      "createdAt": 946684800
+    },
+    {
+      "id": 5,
+      "lv": 105,
+      "value": 16040,
+      "createdAt": 946684800
+    },
+    {
+      "id": 5,
+      "lv": 106,
+      "value": 16050,
+      "createdAt": 946684800
+    },
+    {
+      "id": 5,
+      "lv": 107,
+      "value": 16060,
+      "createdAt": 946684800
+    },
+    {
+      "id": 5,
+      "lv": 108,
+      "value": 16070,
+      "createdAt": 946684800
+    },
+    {
+      "id": 5,
+      "lv": 109,
+      "value": 16080,
+      "createdAt": 946684800
+    },
+    {
+      "id": 5,
+      "lv": 110,
+      "value": 16090,
+      "createdAt": 946684800
+    },
+    {
+      "id": 5,
+      "lv": 111,
+      "value": 16100,
+      "createdAt": 946684800
+    },
+    {
+      "id": 5,
+      "lv": 112,
+      "value": 16110,
+      "createdAt": 946684800
+    },
+    {
+      "id": 5,
+      "lv": 113,
+      "value": 16120,
+      "createdAt": 946684800
+    },
+    {
+      "id": 5,
+      "lv": 114,
+      "value": 16130,
+      "createdAt": 946684800
+    },
+    {
+      "id": 5,
+      "lv": 115,
+      "value": 16140,
+      "createdAt": 946684800
+    },
+    {
+      "id": 5,
+      "lv": 116,
+      "value": 16150,
+      "createdAt": 946684800
+    },
+    {
+      "id": 5,
+      "lv": 117,
+      "value": 16160,
+      "createdAt": 946684800
+    },
+    {
+      "id": 5,
+      "lv": 118,
+      "value": 16170,
+      "createdAt": 946684800
+    },
+    {
+      "id": 5,
+      "lv": 119,
+      "value": 16180,
+      "createdAt": 946684800
+    },
+    {
+      "id": 5,
+      "lv": 120,
+      "value": 16190,
+      "createdAt": 946684800
     }
   ],
   "mstSvtLimitAdd": [
@@ -2771,8 +2919,10 @@
       "priority": 98,
       "flag": 0,
       "costumeCollectionNo": 17,
+      "iconId": 0,
       "openedAt": 1615176000,
-      "endedAt": 1893628799
+      "endedAt": 1893628799,
+      "script": ""
     }
   ],
   "mstSvtScript": [
@@ -2842,6 +2992,7 @@
       "condFriendshipRank": 5,
       "eventId": 80038,
       "flag": 0,
+      "commonReleaseId": 0,
       "startedAt": 1482415200,
       "endedAt": 1893456000
     },
@@ -2857,6 +3008,7 @@
       "condFriendshipRank": 6,
       "eventId": 80038,
       "flag": 0,
+      "commonReleaseId": 0,
       "startedAt": 1482415200,
       "endedAt": 1893456000
     },
@@ -2872,6 +3024,7 @@
       "condFriendshipRank": 7,
       "eventId": 80038,
       "flag": 0,
+      "commonReleaseId": 0,
       "startedAt": 1482415200,
       "endedAt": 1893456000
     },
@@ -2887,6 +3040,7 @@
       "condFriendshipRank": 8,
       "eventId": 80038,
       "flag": 0,
+      "commonReleaseId": 0,
       "startedAt": 1482415200,
       "endedAt": 1893456000
     },
@@ -2902,6 +3056,7 @@
       "condFriendshipRank": 9,
       "eventId": 80038,
       "flag": 0,
+      "commonReleaseId": 0,
       "startedAt": 1482415200,
       "endedAt": 1893456000
     },
@@ -2917,6 +3072,7 @@
       "condFriendshipRank": 10,
       "eventId": 80038,
       "flag": 0,
+      "commonReleaseId": 0,
       "startedAt": 1482415200,
       "endedAt": 1893456000
     },
@@ -2932,6 +3088,7 @@
       "condFriendshipRank": 0,
       "eventId": 80044,
       "flag": 0,
+      "commonReleaseId": 0,
       "startedAt": 1487944800,
       "endedAt": 1893456000
     },
@@ -2947,19 +3104,190 @@
       "condFriendshipRank": 0,
       "eventId": 80072,
       "flag": 0,
+      "commonReleaseId": 0,
       "startedAt": 1508018400,
       "endedAt": 1893456000
     }
   ],
-  "mstSvtAppendPassiveSkill": [],
-  "mstSvtAppendPassiveSkillUnlock": [],
-  "mstCombineAppendPassiveSkill": [],
+  "mstSvtAppendPassiveSkill": [
+    {
+      "svtId": 202300,
+      "num": 100,
+      "priority": 1,
+      "skillId": 3001000
+    },
+    {
+      "svtId": 202300,
+      "num": 101,
+      "priority": 1,
+      "skillId": 3002000
+    },
+    {
+      "svtId": 202300,
+      "num": 102,
+      "priority": 1,
+      "skillId": 3007000
+    }
+  ],
+  "mstSvtAppendPassiveSkillUnlock": [
+    {
+      "svtId": 202300,
+      "num": 100,
+      "itemIds": [
+        20230001
+      ],
+      "itemNums": [
+        120
+      ]
+    },
+    {
+      "svtId": 202300,
+      "num": 101,
+      "itemIds": [
+        20230001
+      ],
+      "itemNums": [
+        120
+      ]
+    },
+    {
+      "svtId": 202300,
+      "num": 102,
+      "itemIds": [
+        20230001
+      ],
+      "itemNums": [
+        120
+      ]
+    }
+  ],
+  "mstCombineAppendPassiveSkill": [
+    {
+      "svtId": 202300,
+      "num": 0,
+      "skillLv": 1,
+      "qp": 200000,
+      "itemIds": [
+        6002
+      ],
+      "itemNums": [
+        5
+      ]
+    },
+    {
+      "svtId": 202300,
+      "num": 0,
+      "skillLv": 2,
+      "qp": 400000,
+      "itemIds": [
+        6002
+      ],
+      "itemNums": [
+        12
+      ]
+    },
+    {
+      "svtId": 202300,
+      "num": 0,
+      "skillLv": 3,
+      "qp": 1200000,
+      "itemIds": [
+        6102
+      ],
+      "itemNums": [
+        5
+      ]
+    },
+    {
+      "svtId": 202300,
+      "num": 0,
+      "skillLv": 4,
+      "qp": 1600000,
+      "itemIds": [
+        6102,
+        6507
+      ],
+      "itemNums": [
+        12,
+        3
+      ]
+    },
+    {
+      "svtId": 202300,
+      "num": 0,
+      "skillLv": 5,
+      "qp": 4000000,
+      "itemIds": [
+        6202,
+        6507
+      ],
+      "itemNums": [
+        5,
+        6
+      ]
+    },
+    {
+      "svtId": 202300,
+      "num": 0,
+      "skillLv": 6,
+      "qp": 5000000,
+      "itemIds": [
+        6202,
+        6525
+      ],
+      "itemNums": [
+        12,
+        2
+      ]
+    },
+    {
+      "svtId": 202300,
+      "num": 0,
+      "skillLv": 7,
+      "qp": 10000000,
+      "itemIds": [
+        6525,
+        6534
+      ],
+      "itemNums": [
+        4,
+        18
+      ]
+    },
+    {
+      "svtId": 202300,
+      "num": 0,
+      "skillLv": 8,
+      "qp": 12000000,
+      "itemIds": [
+        6534,
+        6542
+      ],
+      "itemNums": [
+        54,
+        10
+      ]
+    },
+    {
+      "svtId": 202300,
+      "num": 0,
+      "skillLv": 9,
+      "qp": 20000000,
+      "itemIds": [
+        6999
+      ],
+      "itemNums": [
+        1
+      ]
+    }
+  ],
   "mstItem": [
     {
       "individuality": [],
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6530,
       "name": "Mystic Spinal Fluid",
       "detail": "\"Skill Up & Ascension Material\"\nA potion to turn an ordinary human into a mage. When injected into the spine, it creates temporary artificial Magical Circuits.",
@@ -2975,14 +3303,19 @@
       "startedAt": 946684800,
       "endedAt": 1910908800,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": true,
-      "useCostume": true
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [],
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6531,
       "name": "Mysterious Divine Wine",
       "detail": "\"Skill Up & Ascension Material\"\nThis precious wine was brewed over a long period of time to be offered to the gods. It can intoxicate even monsters and demonic beasts.",
@@ -2993,42 +3326,24 @@
       "value": 0,
       "sellQp": 2500,
       "isSell": true,
-      "priority": 243,
+      "priority": 245,
       "dropPriority": 8505,
       "startedAt": 946684800,
       "endedAt": 1910908800,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": true,
-      "useCostume": true
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [],
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
-      "id": 6202,
-      "name": "Secret Gem of Archer",
-      "detail": "\"Skill Up Material\"\nA bright stone glimmering with the immense power of an Archer.",
-      "imageId": 6202,
-      "bgImageId": 3,
-      "type": 11,
-      "unit": "",
-      "value": 0,
-      "sellQp": 2500,
-      "isSell": true,
-      "priority": 115,
-      "dropPriority": 6299,
-      "startedAt": 946684800,
-      "endedAt": 1910908800,
-      "useSkill": true,
-      "useAscension": false,
-      "useCostume": false
-    },
-    {
-      "individuality": [],
-      "script": {},
-      "eventId": 0,
-      "eventGroupId": 0,
+      "isPresent": false,
       "id": 6533,
       "name": "Stake of Wailing Night",
       "detail": "\"Skill Up & Ascension Material\"\nA stake driven into a corpse to prevent its reanimation.\nIt never rusts, and retains its luster by absorbing blood.\nIt can even pierce otherworldly beings that lurk in the dark of night.",
@@ -3044,14 +3359,47 @@
       "startedAt": 946684800,
       "endedAt": 1910908800,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": true,
-      "useCostume": true
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [],
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
+      "id": 6534,
+      "name": "Mystic Gunpowder",
+      "detail": "\"Skill Up & Ascension Material\"\nCustom made gunpowder that ignites when the user focuses magical energy into it.\nSince it can generate a massive amount of firepower with only a small amount of magical energy, it's widely utilized as ammunition to hunt Demonic Beasts.",
+      "imageId": 6534,
+      "bgImageId": 1,
+      "type": 11,
+      "unit": "",
+      "value": 0,
+      "sellQp": 2500,
+      "isSell": true,
+      "priority": 208,
+      "dropPriority": 8105,
+      "startedAt": 946684800,
+      "endedAt": 1910908800,
+      "useSkill": true,
+      "useAppendSkill": true,
+      "useAscension": true,
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
+    },
+    {
+      "individuality": [],
+      "script": {},
+      "eventId": 0,
+      "eventGroupId": 0,
+      "isPresent": false,
       "id": 6535,
       "name": "Eternal Ice",
       "detail": "\"Skill Up & Ascension Material\"\nIce that does not melt, even at room temperature.\nSome see a lovely crystalline flower, but those with no appreciation of beauty see only a piece of ice.",
@@ -3062,253 +3410,80 @@
       "value": 0,
       "sellQp": 2500,
       "isSell": true,
-      "priority": 223,
+      "priority": 225,
       "dropPriority": 8311,
       "startedAt": 946684800,
       "endedAt": 1910908800,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": true,
-      "useCostume": true
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [],
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
-      "id": 6505,
-      "name": "Void's Dust",
-      "detail": "\"Skill Up & Ascension Material\"\nDust that disperses when hollow shadows disappear.",
-      "imageId": 6505,
-      "bgImageId": 1,
-      "type": 11,
-      "unit": "",
-      "value": 0,
-      "sellQp": 2500,
-      "isSell": true,
-      "priority": 203,
-      "dropPriority": 8201,
-      "startedAt": 946684800,
-      "endedAt": 1910908800,
-      "useSkill": true,
-      "useAscension": true,
-      "useCostume": true
-    },
-    {
-      "individuality": [],
-      "script": {},
-      "eventId": 0,
-      "eventGroupId": 0,
-      "id": 6507,
-      "name": "Claw of Chaos",
-      "detail": "\"Skill Up & Ascension Material\"\nThose wounded by this claw become prisoners of chaos.",
-      "imageId": 6507,
+      "isPresent": false,
+      "id": 6542,
+      "name": "Egg of Truth",
+      "detail": "\"Skill Up & Ascension Material\"\nA sacred egg that is said to contain the truth of the world. Its shell is so tough that no being can break it.",
+      "imageId": 6542,
       "bgImageId": 3,
       "type": 11,
       "unit": "",
       "value": 0,
       "sellQp": 2500,
       "isSell": true,
-      "priority": 232,
-      "dropPriority": 8400,
+      "priority": 248,
+      "dropPriority": 8507,
       "startedAt": 946684800,
       "endedAt": 1910908800,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": true,
-      "useCostume": true
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [],
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
-      "id": 6511,
-      "name": "Forbidden Page",
-      "detail": "\"Skill Up & Ascension Material\"\nA page which nobody should ever read.\nUsually mixed in as the first or last page.",
-      "imageId": 6511,
-      "bgImageId": 2,
+      "isPresent": false,
+      "id": 6202,
+      "name": "Secret Gem of Archer",
+      "detail": "\"Skill Up Material\"\nA bright stone glimmering with the immense power of an Archer.",
+      "imageId": 6202,
+      "bgImageId": 3,
       "type": 11,
       "unit": "",
       "value": 0,
       "sellQp": 2500,
       "isSell": true,
-      "priority": 216,
-      "dropPriority": 8303,
+      "priority": 115,
+      "dropPriority": 6299,
       "startedAt": 946684800,
       "endedAt": 1910908800,
       "useSkill": true,
-      "useAscension": true,
-      "useCostume": false
-    },
-    {
-      "individuality": [],
-      "script": {},
-      "eventId": 0,
-      "eventGroupId": 0,
-      "id": 6002,
-      "name": "Gem of Archer",
-      "detail": "\"Skill Up Material\"\nA bright stone glimmering with the power of an Archer.",
-      "imageId": 6002,
-      "bgImageId": 1,
-      "type": 11,
-      "unit": "",
-      "value": 0,
-      "sellQp": 100,
-      "isSell": true,
-      "priority": 101,
-      "dropPriority": 6099,
-      "startedAt": 946684800,
-      "endedAt": 1910908800,
-      "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": false,
-      "useCostume": false
-    },
-    {
-      "individuality": [],
-      "script": {
-        "effectId": 2
-      },
-      "eventId": 0,
-      "eventGroupId": 0,
-      "id": 7999,
-      "name": "Holy Grail",
-      "detail": "A container said to grant any wish.\nCreated by the Third Magic, it is said \nthat it can materialize those that do not possess forms. ",
-      "imageId": 7999,
-      "bgImageId": 3,
-      "type": 12,
-      "unit": "",
-      "value": 0,
-      "sellQp": 100000,
-      "isSell": true,
-      "priority": 400,
-      "dropPriority": 5500,
-      "startedAt": 946684800,
-      "endedAt": 1910908800,
-      "useSkill": false,
-      "useAscension": false,
-      "useCostume": false
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [],
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
-      "id": 6102,
-      "name": "Magic Gem of Archer",
-      "detail": "\"Skill Up Material\"\nA bright stone glimmering with the great power of an Archer.",
-      "imageId": 6102,
-      "bgImageId": 2,
-      "type": 11,
-      "unit": "",
-      "value": 0,
-      "sellQp": 500,
-      "isSell": true,
-      "priority": 108,
-      "dropPriority": 6199,
-      "startedAt": 946684800,
-      "endedAt": 1910908800,
-      "useSkill": true,
-      "useAscension": false,
-      "useCostume": false
-    },
-    {
-      "individuality": [],
-      "script": {
-        "effectId": 1
-      },
-      "eventId": 0,
-      "eventGroupId": 0,
-      "id": 6999,
-      "name": "Crystallized Lore",
-      "detail": "\"Skill Up & Ascension Material\"\nA highly pure crystal of magic created\nwhen human history crosses a stream of Mana.\nIt can be said that it is the ingredient for materializing Heroic Spirits.",
-      "imageId": 6999,
-      "bgImageId": 3,
-      "type": 11,
-      "unit": "",
-      "value": 0,
-      "sellQp": 10000,
-      "isSell": true,
-      "priority": 299,
-      "dropPriority": 8900,
-      "startedAt": 946684800,
-      "endedAt": 1910908800,
-      "useSkill": true,
-      "useAscension": false,
-      "useCostume": false
-    },
-    {
-      "individuality": [],
-      "script": {},
-      "eventId": 0,
-      "eventGroupId": 0,
-      "id": 6520,
-      "name": "Tearstone of Blood",
-      "detail": "\"Skill Up & Ascension Material\"\nThe crystal of the tear shed by a giant eyeball-like creature when it dies.\nA strong curse is residing within this crystal.",
-      "imageId": 6520,
-      "bgImageId": 3,
-      "type": 11,
-      "unit": "",
-      "value": 0,
-      "sellQp": 2500,
-      "isSell": true,
-      "priority": 237,
-      "dropPriority": 8402,
-      "startedAt": 946684800,
-      "endedAt": 1910908800,
-      "useSkill": true,
-      "useAscension": true,
-      "useCostume": true
-    },
-    {
-      "individuality": [],
-      "script": {},
-      "eventId": 0,
-      "eventGroupId": 0,
-      "id": 7002,
-      "name": "Archer Piece",
-      "detail": "\"Ascension Material\"\nA piece signifying the Archer class.",
-      "imageId": 7002,
-      "bgImageId": 2,
-      "type": 12,
-      "unit": "",
-      "value": 0,
-      "sellQp": 500,
-      "isSell": true,
-      "priority": 301,
-      "dropPriority": 5199,
-      "startedAt": 946684800,
-      "endedAt": 1910908800,
-      "useSkill": false,
-      "useAscension": true,
-      "useCostume": false
-    },
-    {
-      "individuality": [],
-      "script": {},
-      "eventId": 0,
-      "eventGroupId": 0,
-      "id": 6525,
-      "name": "Scarab of Wisdom",
-      "detail": "\"Skill Up & Ascension Material\"\nA sacred ornament that symbolizes rebirth and regeneration.\nGiven only to the truly wise who can solve complex problems.",
-      "imageId": 6525,
-      "bgImageId": 3,
-      "type": 11,
-      "unit": "",
-      "value": 0,
-      "sellQp": 2500,
-      "isSell": true,
-      "priority": 240,
-      "dropPriority": 8503,
-      "startedAt": 946684800,
-      "endedAt": 1910908800,
-      "useSkill": true,
-      "useAscension": true,
-      "useCostume": true
-    },
-    {
-      "individuality": [],
-      "script": {},
-      "eventId": 0,
-      "eventGroupId": 0,
+      "isPresent": false,
       "id": 7102,
       "name": "Archer Monument",
       "detail": "\"Ascension Material\"\nA monument in glory of the Archer class.",
@@ -3324,14 +3499,331 @@
       "startedAt": 946684800,
       "endedAt": 1910908800,
       "useSkill": false,
+      "useAppendSkill": false,
       "useAscension": true,
-      "useCostume": false
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
+    },
+    {
+      "individuality": [],
+      "script": {
+        "effectId": 2
+      },
+      "eventId": 0,
+      "eventGroupId": 0,
+      "isPresent": false,
+      "id": 7999,
+      "name": "Holy Grail",
+      "detail": "A container said to grant any wish.\nCreated by the Third Magic, it is said \nthat it can materialize those that do not possess forms. ",
+      "imageId": 7999,
+      "bgImageId": 3,
+      "type": 12,
+      "unit": "",
+      "value": 0,
+      "sellQp": 100000,
+      "isSell": true,
+      "priority": 400,
+      "dropPriority": 5500,
+      "startedAt": 946684800,
+      "endedAt": 1910908800,
+      "useSkill": false,
+      "useAppendSkill": false,
+      "useAscension": false,
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [],
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
+      "id": 6102,
+      "name": "Magic Gem of Archer",
+      "detail": "\"Skill Up Material\"\nA bright stone glimmering with the great power of an Archer.",
+      "imageId": 6102,
+      "bgImageId": 2,
+      "type": 11,
+      "unit": "",
+      "value": 0,
+      "sellQp": 500,
+      "isSell": true,
+      "priority": 108,
+      "dropPriority": 6199,
+      "startedAt": 946684800,
+      "endedAt": 1910908800,
+      "useSkill": true,
+      "useAppendSkill": true,
+      "useAscension": false,
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
+    },
+    {
+      "individuality": [],
+      "script": {
+        "effectId": 1
+      },
+      "eventId": 0,
+      "eventGroupId": 0,
+      "isPresent": false,
+      "id": 6999,
+      "name": "Crystallized Lore",
+      "detail": "\"Skill Up & Ascension Material\"\nA highly pure crystal of magic created\nwhen human history crosses a stream of Mana.\nIt can be said that it is the ingredient for materializing Heroic Spirits.",
+      "imageId": 6999,
+      "bgImageId": 3,
+      "type": 11,
+      "unit": "",
+      "value": 0,
+      "sellQp": 10000,
+      "isSell": true,
+      "priority": 299,
+      "dropPriority": 8900,
+      "startedAt": 946684800,
+      "endedAt": 1910908800,
+      "useSkill": true,
+      "useAppendSkill": true,
+      "useAscension": false,
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
+    },
+    {
+      "individuality": [],
+      "script": {},
+      "eventId": 0,
+      "eventGroupId": 0,
+      "isPresent": false,
+      "id": 7002,
+      "name": "Archer Piece",
+      "detail": "\"Ascension Material\"\nA piece signifying the Archer class.",
+      "imageId": 7002,
+      "bgImageId": 2,
+      "type": 12,
+      "unit": "",
+      "value": 0,
+      "sellQp": 500,
+      "isSell": true,
+      "priority": 301,
+      "dropPriority": 5199,
+      "startedAt": 946684800,
+      "endedAt": 1910908800,
+      "useSkill": false,
+      "useAppendSkill": false,
+      "useAscension": true,
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
+    },
+    {
+      "individuality": [],
+      "script": {},
+      "eventId": 0,
+      "eventGroupId": 0,
+      "isPresent": false,
+      "id": 6505,
+      "name": "Void's Dust",
+      "detail": "\"Skill Up & Ascension Material\"\nDust that disperses when hollow shadows disappear.",
+      "imageId": 6505,
+      "bgImageId": 1,
+      "type": 11,
+      "unit": "",
+      "value": 0,
+      "sellQp": 2500,
+      "isSell": true,
+      "priority": 203,
+      "dropPriority": 8201,
+      "startedAt": 946684800,
+      "endedAt": 1910908800,
+      "useSkill": true,
+      "useAppendSkill": true,
+      "useAscension": true,
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
+    },
+    {
+      "individuality": [],
+      "script": {},
+      "eventId": 0,
+      "eventGroupId": 0,
+      "isPresent": false,
+      "id": 6507,
+      "name": "Claw of Chaos",
+      "detail": "\"Skill Up & Ascension Material\"\nThose wounded by this claw become prisoners of chaos.",
+      "imageId": 6507,
+      "bgImageId": 3,
+      "type": 11,
+      "unit": "",
+      "value": 0,
+      "sellQp": 2500,
+      "isSell": true,
+      "priority": 234,
+      "dropPriority": 8400,
+      "startedAt": 946684800,
+      "endedAt": 1910908800,
+      "useSkill": true,
+      "useAppendSkill": true,
+      "useAscension": true,
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
+    },
+    {
+      "individuality": [],
+      "script": {},
+      "eventId": 0,
+      "eventGroupId": 0,
+      "isPresent": false,
+      "id": 6511,
+      "name": "Forbidden Page",
+      "detail": "\"Skill Up & Ascension Material\"\nA page which nobody should ever read.\nUsually mixed in as the first or last page.",
+      "imageId": 6511,
+      "bgImageId": 2,
+      "type": 11,
+      "unit": "",
+      "value": 0,
+      "sellQp": 2500,
+      "isSell": true,
+      "priority": 218,
+      "dropPriority": 8303,
+      "startedAt": 946684800,
+      "endedAt": 1910908800,
+      "useSkill": true,
+      "useAppendSkill": true,
+      "useAscension": true,
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
+    },
+    {
+      "individuality": [],
+      "script": {},
+      "eventId": 0,
+      "eventGroupId": 0,
+      "isPresent": false,
+      "id": 20230001,
+      "name": "Servant Coin",
+      "detail": "\"Servant Enhancement Material\"\n A shard of a Servant's Spirit Origin",
+      "imageId": 202300,
+      "bgImageId": 2,
+      "type": 29,
+      "unit": "",
+      "value": 202300,
+      "sellQp": -1,
+      "isSell": false,
+      "priority": 57,
+      "dropPriority": 1003,
+      "startedAt": 946684800,
+      "endedAt": 1910908800,
+      "useSkill": false,
+      "useAppendSkill": false,
+      "useAscension": false,
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
+    },
+    {
+      "individuality": [],
+      "script": {},
+      "eventId": 0,
+      "eventGroupId": 0,
+      "isPresent": false,
+      "id": 6002,
+      "name": "Gem of Archer",
+      "detail": "\"Skill Up Material\"\nA bright stone glimmering with the power of an Archer.",
+      "imageId": 6002,
+      "bgImageId": 1,
+      "type": 11,
+      "unit": "",
+      "value": 0,
+      "sellQp": 100,
+      "isSell": true,
+      "priority": 101,
+      "dropPriority": 6099,
+      "startedAt": 946684800,
+      "endedAt": 1910908800,
+      "useSkill": true,
+      "useAppendSkill": true,
+      "useAscension": false,
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
+    },
+    {
+      "individuality": [],
+      "script": {},
+      "eventId": 0,
+      "eventGroupId": 0,
+      "isPresent": false,
+      "id": 6520,
+      "name": "Tearstone of Blood",
+      "detail": "\"Skill Up & Ascension Material\"\nThe crystal of the tear shed by a giant eyeball-like creature when it dies.\nA strong curse is residing within this crystal.",
+      "imageId": 6520,
+      "bgImageId": 3,
+      "type": 11,
+      "unit": "",
+      "value": 0,
+      "sellQp": 2500,
+      "isSell": true,
+      "priority": 239,
+      "dropPriority": 8402,
+      "startedAt": 946684800,
+      "endedAt": 1910908800,
+      "useSkill": true,
+      "useAppendSkill": true,
+      "useAscension": true,
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
+    },
+    {
+      "individuality": [],
+      "script": {},
+      "eventId": 0,
+      "eventGroupId": 0,
+      "isPresent": false,
+      "id": 6525,
+      "name": "Scarab of Wisdom",
+      "detail": "\"Skill Up & Ascension Material\"\nA sacred ornament that symbolizes rebirth and regeneration.\nGiven only to the truly wise who can solve complex problems.",
+      "imageId": 6525,
+      "bgImageId": 3,
+      "type": 11,
+      "unit": "",
+      "value": 0,
+      "sellQp": 2500,
+      "isSell": true,
+      "priority": 242,
+      "dropPriority": 8503,
+      "startedAt": 946684800,
+      "endedAt": 1910908800,
+      "useSkill": true,
+      "useAppendSkill": true,
+      "useAscension": true,
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
+    },
+    {
+      "individuality": [],
+      "script": {},
+      "eventId": 0,
+      "eventGroupId": 0,
+      "isPresent": false,
       "id": 6527,
       "name": "Deadly Poisonous Needle",
       "detail": "\"Skill Up & Ascension Material\"\nIt is said that anyone who is infected by this poison will not die immediately, but experience multiple deaths until their soul itself rots away. ",
@@ -3347,11 +3839,20 @@
       "startedAt": 946684800,
       "endedAt": 1910908800,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": true,
-      "useCostume": true
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     }
   ],
   "mstCommonRelease": [],
+  "mstSvtCoin": {
+    "svtId": 202300,
+    "summonNum": 90,
+    "itemId": 20230001
+  },
   "mstCv": {
     "id": 65,
     "name": "Takaya Hashi",
@@ -3966,8 +4467,128 @@
     {
       "type": 10,
       "lv": 100,
-      "exp": 21988000,
+      "exp": 40623000,
       "curve": 1112
+    },
+    {
+      "type": 10,
+      "lv": 101,
+      "exp": 60934500,
+      "curve": 1123
+    },
+    {
+      "type": 10,
+      "lv": 102,
+      "exp": 81246000,
+      "curve": 1134
+    },
+    {
+      "type": 10,
+      "lv": 103,
+      "exp": 101557500,
+      "curve": 1146
+    },
+    {
+      "type": 10,
+      "lv": 104,
+      "exp": 121869000,
+      "curve": 1157
+    },
+    {
+      "type": 10,
+      "lv": 105,
+      "exp": 142180500,
+      "curve": 1168
+    },
+    {
+      "type": 10,
+      "lv": 106,
+      "exp": 162492000,
+      "curve": 1179
+    },
+    {
+      "type": 10,
+      "lv": 107,
+      "exp": 182803500,
+      "curve": 1191
+    },
+    {
+      "type": 10,
+      "lv": 108,
+      "exp": 203115000,
+      "curve": 1202
+    },
+    {
+      "type": 10,
+      "lv": 109,
+      "exp": 223426500,
+      "curve": 1213
+    },
+    {
+      "type": 10,
+      "lv": 110,
+      "exp": 243738000,
+      "curve": 1224
+    },
+    {
+      "type": 10,
+      "lv": 111,
+      "exp": 264049500,
+      "curve": 1235
+    },
+    {
+      "type": 10,
+      "lv": 112,
+      "exp": 284361000,
+      "curve": 1247
+    },
+    {
+      "type": 10,
+      "lv": 113,
+      "exp": 304672500,
+      "curve": 1258
+    },
+    {
+      "type": 10,
+      "lv": 114,
+      "exp": 324984000,
+      "curve": 1269
+    },
+    {
+      "type": 10,
+      "lv": 115,
+      "exp": 345295500,
+      "curve": 1280
+    },
+    {
+      "type": 10,
+      "lv": 116,
+      "exp": 365607000,
+      "curve": 1292
+    },
+    {
+      "type": 10,
+      "lv": 117,
+      "exp": 385918500,
+      "curve": 1303
+    },
+    {
+      "type": 10,
+      "lv": 118,
+      "exp": 406230000,
+      "curve": 1314
+    },
+    {
+      "type": 10,
+      "lv": 119,
+      "exp": 426541500,
+      "curve": 1325
+    },
+    {
+      "type": 10,
+      "lv": 120,
+      "exp": 426541500,
+      "curve": 1337
     }
   ],
   "mstFriendship": [
@@ -4150,6 +4771,7 @@
       "condValues": [
         0
       ],
+      "script": {},
       "svtId": 202300,
       "id": 1,
       "priority": 0,
@@ -4162,6 +4784,7 @@
       "condValues": [
         2000110
       ],
+      "script": {},
       "svtId": 202300,
       "id": 2,
       "priority": 0,
@@ -4174,6 +4797,7 @@
       "condValues": [
         2000110
       ],
+      "script": {},
       "svtId": 202300,
       "id": 3,
       "priority": 0,
@@ -4186,6 +4810,7 @@
       "condValues": [
         2000110
       ],
+      "script": {},
       "svtId": 202300,
       "id": 4,
       "priority": 0,
@@ -4198,6 +4823,7 @@
       "condValues": [
         2000110
       ],
+      "script": {},
       "svtId": 202300,
       "id": 5,
       "priority": 0,
@@ -4210,6 +4836,7 @@
       "condValues": [
         2000110
       ],
+      "script": {},
       "svtId": 202300,
       "id": 6,
       "priority": 0,
@@ -4222,6 +4849,7 @@
       "condValues": [
         91202301
       ],
+      "script": {},
       "svtId": 202300,
       "id": 7,
       "priority": 0,
@@ -4303,6 +4931,7 @@
     {
       "scriptJson": [
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4337,9 +4966,11 @@
               "value": 0,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4366,9 +4997,11 @@
               "value": 0,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4381,9 +5014,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4404,9 +5039,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4435,9 +5072,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4466,9 +5105,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4497,9 +5138,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4528,9 +5171,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4549,9 +5194,11 @@
               "value": 1,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4570,9 +5217,11 @@
               "value": 2,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4599,9 +5248,11 @@
               "value": 3,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4628,9 +5279,11 @@
               "value": 4,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4681,7 +5334,8 @@
               "value": 5,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         }
       ],
       "id": 202310,
@@ -4691,6 +5345,7 @@
     {
       "scriptJson": [
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4709,9 +5364,11 @@
               "value": 0,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4730,9 +5387,11 @@
               "value": 0,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4767,9 +5426,11 @@
               "value": 1,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4796,9 +5457,11 @@
               "value": 0,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4833,9 +5496,11 @@
               "value": 3,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4870,7 +5535,8 @@
               "value": 0,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         }
       ],
       "id": 202310,
@@ -4880,6 +5546,7 @@
     {
       "scriptJson": [
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4924,7 +5591,8 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         }
       ],
       "id": 202310,
@@ -4934,6 +5602,7 @@
     {
       "scriptJson": [
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4946,9 +5615,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4961,9 +5632,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4976,9 +5649,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -4991,9 +5666,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -5006,9 +5683,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -5021,9 +5700,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -5036,9 +5717,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -5051,9 +5734,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -5066,9 +5751,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -5081,9 +5768,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -5096,9 +5785,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -5111,9 +5802,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -5126,9 +5819,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -5141,9 +5836,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -5156,9 +5853,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -5171,9 +5870,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -5186,9 +5887,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "",
           "overwritePriority": 0,
           "infos": [
@@ -5201,7 +5904,8 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         }
       ],
       "id": 202310,
@@ -5211,6 +5915,7 @@
     {
       "scriptJson": [
         {
+          "summonScript": "",
           "overwritePriority": 0,
           "infos": [
             {
@@ -5248,7 +5953,8 @@
               "value": 0,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         }
       ],
       "id": 202310,
@@ -5258,6 +5964,7 @@
     {
       "scriptJson": [
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 1",
           "overwritePriority": 0,
           "infos": [
@@ -5284,9 +5991,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 2",
           "overwritePriority": 0,
           "infos": [
@@ -5321,9 +6030,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 3",
           "overwritePriority": 0,
           "infos": [
@@ -5355,9 +6066,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 4",
           "overwritePriority": 0,
           "infos": [
@@ -5397,9 +6110,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 5",
           "overwritePriority": 0,
           "infos": [
@@ -5431,9 +6146,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 6",
           "overwritePriority": 0,
           "infos": [
@@ -5468,9 +6185,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 7",
           "overwritePriority": 0,
           "infos": [
@@ -5497,9 +6216,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 8",
           "overwritePriority": 0,
           "infos": [
@@ -5550,9 +6271,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 9",
           "overwritePriority": 0,
           "infos": [
@@ -5611,9 +6334,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 10",
           "overwritePriority": 0,
           "infos": [
@@ -5648,9 +6373,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 11",
           "overwritePriority": 0,
           "infos": [
@@ -5690,9 +6417,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 12",
           "overwritePriority": 0,
           "infos": [
@@ -5735,9 +6464,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 13",
           "overwritePriority": 0,
           "infos": [
@@ -5772,9 +6503,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 14",
           "overwritePriority": 0,
           "infos": [
@@ -5833,9 +6566,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 15",
           "overwritePriority": 0,
           "infos": [
@@ -5883,9 +6618,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 16",
           "overwritePriority": 0,
           "infos": [
@@ -5949,9 +6686,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 17",
           "overwritePriority": 0,
           "infos": [
@@ -6007,9 +6746,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 18",
           "overwritePriority": 0,
           "infos": [
@@ -6073,9 +6814,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 19",
           "overwritePriority": 0,
           "infos": [
@@ -6139,9 +6882,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 20",
           "overwritePriority": 0,
           "infos": [
@@ -6205,9 +6950,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 21",
           "overwritePriority": 0,
           "infos": [
@@ -6263,7 +7010,8 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         }
       ],
       "id": 202310,
@@ -6273,6 +7021,7 @@
     {
       "scriptJson": [
         {
+          "summonScript": "",
           "overwriteName": "About Spiritron Dress Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -6301,7 +7050,8 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         }
       ],
       "id": 202310,
@@ -6311,6 +7061,7 @@
     {
       "scriptJson": [
         {
+          "summonScript": "",
           "overwriteName": "Level Up Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -6329,9 +7080,11 @@
               "value": 0,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Level Up Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -6350,9 +7103,11 @@
               "value": 0,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Unlock Wardrobe Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -6395,7 +7150,8 @@
               "value": 11,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         }
       ],
       "id": 202310,
@@ -6405,6 +7161,7 @@
     {
       "scriptJson": [
         {
+          "summonScript": "",
           "overwriteName": "Battle Start 1 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -6417,9 +7174,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Battle Start 2 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -6432,9 +7191,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Skill 1 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -6447,9 +7208,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Skill 2 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -6462,9 +7225,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Command Card 1 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -6477,9 +7242,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Command Card 2 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -6492,9 +7259,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Command Card 3 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -6507,9 +7276,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Noble Phantasm Card Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -6522,9 +7293,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Attack 1 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -6537,9 +7310,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Attack 2 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -6552,9 +7327,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Attack 3 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -6567,9 +7344,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Extra Attack Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -6582,9 +7361,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Damage 1 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -6597,9 +7378,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Damage 2 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -6612,9 +7395,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Incapacitated 1 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -6627,9 +7412,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Incapacitated 2 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -6642,9 +7429,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Victory 1 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -6657,9 +7446,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Victory 2 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -6672,7 +7463,8 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         }
       ],
       "id": 202310,
@@ -6682,6 +7474,7 @@
     {
       "scriptJson": [
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 1",
           "overwritePriority": 0,
           "infos": [
@@ -6708,9 +7501,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 2",
           "overwritePriority": 0,
           "infos": [
@@ -6745,9 +7540,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 3",
           "overwritePriority": 0,
           "infos": [
@@ -6779,9 +7576,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 4",
           "overwritePriority": 0,
           "infos": [
@@ -6821,9 +7620,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 5",
           "overwritePriority": 0,
           "infos": [
@@ -6855,9 +7656,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 6",
           "overwritePriority": 0,
           "infos": [
@@ -6897,9 +7700,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 6",
           "overwritePriority": 0,
           "infos": [
@@ -6934,9 +7739,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 7",
           "overwritePriority": 0,
           "infos": [
@@ -6963,9 +7770,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 8",
           "overwritePriority": 0,
           "infos": [
@@ -7016,9 +7825,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 9",
           "overwritePriority": 0,
           "infos": [
@@ -7077,9 +7888,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 10",
           "overwritePriority": 0,
           "infos": [
@@ -7114,9 +7927,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 11",
           "overwritePriority": 0,
           "infos": [
@@ -7156,9 +7971,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 12",
           "overwritePriority": 0,
           "infos": [
@@ -7201,9 +8018,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 13",
           "overwritePriority": 0,
           "infos": [
@@ -7238,9 +8057,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 14",
           "overwritePriority": 0,
           "infos": [
@@ -7299,9 +8120,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 15",
           "overwritePriority": 0,
           "infos": [
@@ -7349,9 +8172,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 16",
           "overwritePriority": 0,
           "infos": [
@@ -7415,9 +8240,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 17",
           "overwritePriority": 0,
           "infos": [
@@ -7473,9 +8300,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 18",
           "overwritePriority": 0,
           "infos": [
@@ -7539,9 +8368,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 19",
           "overwritePriority": 0,
           "infos": [
@@ -7605,9 +8436,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 20",
           "overwritePriority": 0,
           "infos": [
@@ -7671,9 +8504,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 21",
           "overwritePriority": 0,
           "infos": [
@@ -7729,7 +8564,8 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         }
       ],
       "id": 202310,
@@ -7739,6 +8575,7 @@
     {
       "scriptJson": [
         {
+          "summonScript": "",
           "overwriteName": "Birthday (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -7765,9 +8602,11 @@
               "value": 0,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "During an Event (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -7794,9 +8633,11 @@
               "value": 0,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Conversation 1 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -7809,9 +8650,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Conversation 2 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -7832,9 +8675,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Conversation 3 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -7863,9 +8708,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Likes (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -7886,9 +8733,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Dislikes (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -7909,9 +8758,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "About the Holy Grail (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -7932,9 +8783,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Bond Level 1 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -7953,9 +8806,11 @@
               "value": 1,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Bond Level 2 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -7974,9 +8829,11 @@
               "value": 2,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Bond Level 3 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8003,9 +8860,11 @@
               "value": 3,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Bond Level 4 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8040,9 +8899,11 @@
               "value": 4,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Bond Level 5 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8077,9 +8938,11 @@
               "value": 5,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Conversation 4 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8106,9 +8969,11 @@
               "value": 1100500,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Conversation 5 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8143,9 +9008,11 @@
               "value": 1100200,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Conversation 6 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8180,9 +9047,11 @@
               "value": 600700,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Conversation 7 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8209,7 +9078,8 @@
               "value": 900500,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         }
       ],
       "id": 202300,
@@ -8219,6 +9089,7 @@
     {
       "scriptJson": [
         {
+          "summonScript": "",
           "overwriteName": "Level up (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8237,9 +9108,11 @@
               "value": 0,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Ascension 2 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8266,9 +9139,11 @@
               "value": 0,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Ascension 1 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8311,9 +9186,11 @@
               "value": 1,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Ascension 3 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8348,9 +9225,11 @@
               "value": 3,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Ascension 4 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8385,7 +9264,8 @@
               "value": 0,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         }
       ],
       "id": 202300,
@@ -8395,6 +9275,7 @@
     {
       "scriptJson": [
         {
+          "summonScript": "",
           "overwriteName": "Summon (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8431,7 +9312,8 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         }
       ],
       "id": 202300,
@@ -8441,6 +9323,7 @@
     {
       "scriptJson": [
         {
+          "summonScript": "",
           "overwriteName": "Attack 1 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8453,9 +9336,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Attack 2 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8468,9 +9353,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Attack 3 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8483,9 +9370,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Extra Attack (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8498,9 +9387,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Skill 1 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8513,9 +9404,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Skill 2 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8528,9 +9421,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Battle Start 1 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8543,9 +9438,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Battle Start 2 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8558,9 +9455,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Victory 1 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8573,9 +9472,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Victory 2 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8588,9 +9489,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Damage 2 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8603,9 +9506,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Damage 1 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8618,9 +9523,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Incapacitated 1 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8633,9 +9540,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Incapacitated 2 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8648,9 +9557,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Command Card 1 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8663,9 +9574,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Command Card 2 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8678,9 +9591,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Command Card 3 (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8693,9 +9608,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Noble Phantasm Card (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8708,7 +9625,8 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         }
       ],
       "id": 202300,
@@ -8718,6 +9636,7 @@
     {
       "scriptJson": [
         {
+          "summonScript": "",
           "overwriteName": "Noble Phantasm (True Name Known)",
           "overwritePriority": 0,
           "infos": [
@@ -8756,7 +9675,8 @@
               "value": 0,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         }
       ],
       "id": 202300,
@@ -8766,6 +9686,7 @@
     {
       "scriptJson": [
         {
+          "summonScript": "",
           "overwriteName": "About Spiritron Dress Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -8794,7 +9715,8 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         }
       ],
       "id": 202300,
@@ -8804,6 +9726,7 @@
     {
       "scriptJson": [
         {
+          "summonScript": "",
           "overwriteName": "Level Up Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -8822,9 +9745,11 @@
               "value": 0,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Unlock Wardrobe Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -8867,7 +9792,8 @@
               "value": 11,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         }
       ],
       "id": 202300,
@@ -8877,6 +9803,7 @@
     {
       "scriptJson": [
         {
+          "summonScript": "",
           "overwriteName": "Battle Start 1 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -8889,9 +9816,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Battle Start 2 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -8904,9 +9833,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Skill 1 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -8919,9 +9850,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Skill 2 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -8934,9 +9867,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Command Card 1 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -8949,9 +9884,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Command Card 2 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -8964,9 +9901,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Command Card 3 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -8979,9 +9918,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Noble Phantasm Card Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -8994,9 +9935,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Attack 1 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -9009,9 +9952,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Attack 2 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -9024,9 +9969,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Attack 3 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -9039,9 +9986,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Extra Attack Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -9054,9 +10003,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Damage 1 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -9069,9 +10020,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Damage 2 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -9084,9 +10037,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Incapacitated 1 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -9099,9 +10054,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Incapacitated 2 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -9114,9 +10071,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Victory 1 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -9129,9 +10088,11 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Victory 2 Grey Collar",
           "overwritePriority": 0,
           "infos": [
@@ -9144,7 +10105,8 @@
               "changeEffect": 0
             }
           ],
-          "conds": []
+          "conds": [],
+          "condAddItem": 0
         }
       ],
       "id": 202300,
@@ -9154,6 +10116,7 @@
     {
       "scriptJson": [
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 1",
           "overwritePriority": 0,
           "infos": [
@@ -9180,9 +10143,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 2",
           "overwritePriority": 0,
           "infos": [
@@ -9217,9 +10182,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 3",
           "overwritePriority": 0,
           "infos": [
@@ -9251,9 +10218,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 4",
           "overwritePriority": 0,
           "infos": [
@@ -9293,9 +10262,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 5",
           "overwritePriority": 0,
           "infos": [
@@ -9327,9 +10298,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 6",
           "overwritePriority": 0,
           "infos": [
@@ -9369,9 +10342,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 6",
           "overwritePriority": 0,
           "infos": [
@@ -9406,9 +10381,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 7",
           "overwritePriority": 0,
           "infos": [
@@ -9435,9 +10412,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 8",
           "overwritePriority": 0,
           "infos": [
@@ -9488,9 +10467,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 9",
           "overwritePriority": 0,
           "infos": [
@@ -9549,9 +10530,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 10",
           "overwritePriority": 0,
           "infos": [
@@ -9586,9 +10569,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 11",
           "overwritePriority": 0,
           "infos": [
@@ -9628,9 +10613,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 12",
           "overwritePriority": 0,
           "infos": [
@@ -9673,9 +10660,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 13",
           "overwritePriority": 0,
           "infos": [
@@ -9710,9 +10699,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 14",
           "overwritePriority": 0,
           "infos": [
@@ -9771,9 +10762,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 15",
           "overwritePriority": 0,
           "infos": [
@@ -9821,9 +10814,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 16",
           "overwritePriority": 0,
           "infos": [
@@ -9887,9 +10882,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 17",
           "overwritePriority": 0,
           "infos": [
@@ -9945,9 +10942,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 18",
           "overwritePriority": 0,
           "infos": [
@@ -10011,9 +11010,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 19",
           "overwritePriority": 0,
           "infos": [
@@ -10077,9 +11078,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 20",
           "overwritePriority": 0,
           "infos": [
@@ -10143,9 +11146,11 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "An Old Spider Spins Webs of Memory 21",
           "overwritePriority": 0,
           "infos": [
@@ -10201,7 +11206,8 @@
               "value": 80237,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         }
       ],
       "id": 202300,
@@ -10211,6 +11217,7 @@
     {
       "scriptJson": [
         {
+          "summonScript": "",
           "overwriteName": "Dead Heat Summer Race!\r\nTeam Conversation 1",
           "overwritePriority": 0,
           "infos": [
@@ -10229,9 +11236,11 @@
               "value": 80108,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Dead Heat Summer Race!\r\nTeam Conversation 2",
           "overwritePriority": 0,
           "infos": [
@@ -10250,9 +11259,11 @@
               "value": 80108,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Dead Heat Summer Race!\r\nTeam Conversation 3",
           "overwritePriority": 0,
           "infos": [
@@ -10271,9 +11282,11 @@
               "value": 80108,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Dead Heat Summer Race!\r\nTeam Conversation 4",
           "overwritePriority": 0,
           "infos": [
@@ -10292,9 +11305,11 @@
               "value": 80109,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Dead Heat Summer Race!\r\nTeam Conversation 5",
           "overwritePriority": 0,
           "infos": [
@@ -10313,9 +11328,11 @@
               "value": 80109,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Dead Heat Summer Race!\r\nTeam Conversation 6",
           "overwritePriority": 0,
           "infos": [
@@ -10334,9 +11351,11 @@
               "value": 80109,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Dead Heat Summer Race!\r\nTeam Conversation 7",
           "overwritePriority": 0,
           "infos": [
@@ -10371,9 +11390,11 @@
               "value": 80108,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Dead Heat Summer Race!\r\nTeam Conversation 8",
           "overwritePriority": 0,
           "infos": [
@@ -10408,9 +11429,11 @@
               "value": 80108,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Dead Heat Summer Race!\r\nTeam Conversation 9",
           "overwritePriority": 0,
           "infos": [
@@ -10453,9 +11476,11 @@
               "value": 80108,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Dead Heat Summer Race!\r\nTeam Conversation 10",
           "overwritePriority": 0,
           "infos": [
@@ -10482,9 +11507,11 @@
               "value": 80109,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Dead Heat Summer Race!\r\nTeam Conversation 11",
           "overwritePriority": 0,
           "infos": [
@@ -10535,9 +11562,11 @@
               "value": 80109,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Dead Heat Summer Race!\r\nTeam Conversation 12",
           "overwritePriority": 0,
           "infos": [
@@ -10588,9 +11617,11 @@
               "value": 80109,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         },
         {
+          "summonScript": "",
           "overwriteName": "Dead Heat Summer Race!\r\nTeam Conversation 13",
           "overwritePriority": 0,
           "infos": [
@@ -10625,7 +11656,8 @@
               "value": 80109,
               "eventId": 0
             }
-          ]
+          ],
+          "condAddItem": 0
         }
       ],
       "id": 9010001,

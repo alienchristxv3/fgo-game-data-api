@@ -10,7 +10,7 @@ from sqlalchemy import (
     text,
 )
 from sqlalchemy.dialects.postgresql import ARRAY, JSONB, TEXT
-from sqlalchemy.sql import func
+from sqlalchemy.sql import cast, func
 
 from .base import metadata
 
@@ -64,6 +64,19 @@ mstClassRelationOverwrite = Table(
     Column("defClass", Integer),
     Column("damageRate", Integer),
     Column("type", Integer),
+)
+
+
+mstBuffConvert = Table(
+    "mstBuffConvert",
+    metadata,
+    Column("targetIds", ARRAY(Integer)),
+    Column("convertBuffIds", ARRAY(Integer)),
+    Column("script", JSONB),
+    Column("buffId", Integer, index=True),
+    Column("convertType", Integer),
+    Column("targetLimit", Integer),
+    Column("effectId", Integer),
 )
 
 
@@ -177,8 +190,14 @@ mstSkillLv = Table(
     Column("skillDetailId", Integer),
     Column("priority", Integer),
     Column("expandedFuncId", JSONB),
+    Column("relatedSkillIds", ARRAY(Integer)),
 )
 
+Index(
+    "ix_mstSkillLv_relatedSkillIds_GIN",
+    mstSkillLv.c.relatedSkillIds,
+    postgresql_using="gin",
+)
 
 Index("ix_mstSkillLv_funcId_length", func.array_length(mstSkillLv.c.funcId, 1))
 
@@ -191,6 +210,30 @@ mstSkillAdd = Table(
     Column("commonReleaseId", Integer, index=True),
     Column("name", String),
     Column("ruby", String),
+)
+
+
+mstSkillGroup = Table(
+    "mstSkillGroup",
+    metadata,
+    Column("id", Integer, index=True),
+    Column("skillId", Integer, index=True),
+    Column("lv", Integer),
+)
+
+
+mstSkillGroupOverwrite = Table(
+    "mstSkillGroupOverwrite",
+    metadata,
+    Column("funcId", ARRAY(Integer)),
+    Column("svals", ARRAY(String)),
+    Column("skillGroupId", Integer, index=True),
+    Column("startedAt", BigInteger),
+    Column("endedAt", BigInteger),
+    Column("iconId", Integer),
+    Column("vals", String),
+    Column("skillDetailId", Integer),
+    Column("expandedFuncId", JSONB),
 )
 
 
@@ -267,8 +310,14 @@ mstTreasureDeviceLv = Table(
     Column("tdPointDef", Integer),
     Column("qp", Integer),
     Column("expandedFuncId", JSONB),
+    Column("relatedSkillIds", ARRAY(Integer)),
 )
 
+Index(
+    "ix_mstTreasureDeviceLv_relatedSkillIds_GIN",
+    mstTreasureDeviceLv.c.relatedSkillIds,
+    postgresql_using="gin",
+)
 
 Index(
     "ix_mstTreasureDeviceLv_funcId_length",
@@ -364,6 +413,15 @@ mstSvtCard = Table(
 )
 
 
+mstSvtCardAdd = Table(
+    "mstSvtCardAdd",
+    metadata,
+    Column("svtId", Integer, index=True),
+    Column("cardId", Integer),
+    Column("script", String),
+)
+
+
 mstCombineLimit = Table(
     "mstCombineLimit",
     metadata,
@@ -451,6 +509,7 @@ mstVoicePlayCond = Table(
     "mstVoicePlayCond",
     metadata,
     Column("svtId", Integer, index=True),
+    Column("script", JSONB),
     Column("voicePrefix", Integer),
     Column("voiceId", String),
     Column("idx", Integer),
@@ -616,7 +675,7 @@ mstSvtScript = Table(
 )
 
 
-Index("ix_mstSvtScript_svtId", mstSvtScript.c.id / 10)
+Index("ix_mstSvtScript_svtId", mstSvtScript.c.id // 10)
 
 
 mstSvtComment = Table(
@@ -775,6 +834,7 @@ mstItem = Table(
     Column("script", JSONB),
     Column("eventId", Integer, default=0),
     Column("eventGroupId", Integer, default=0),
+    Column("isPresent", Boolean),
     Column("id", Integer, primary_key=True),
     Column("name", String),
     Column("detail", String),
@@ -790,8 +850,12 @@ mstItem = Table(
     Column("startedAt", Integer),
     Column("endedAt", Integer),
     Column("useSkill", Boolean),
+    Column("useAppendSkill", Boolean),
     Column("useAscension", Boolean),
     Column("useCostume", Boolean),
+    Column("mstItemSelect", JSONB),
+    Column("mstGift", JSONB),
+    Column("mstGiftAdd", JSONB),
 )
 
 
@@ -851,6 +915,7 @@ mstIllustrator = Table(
 mstGift = Table(
     "mstGift",
     metadata,
+    Column("sort_id", Integer),
     Column("id", Integer, index=True),
     Column("type", Integer),
     Column("objectId", Integer),
@@ -860,6 +925,29 @@ mstGift = Table(
     Column("limitCount", Integer),
 )
 
+
+mstGiftAdd = Table(
+    "mstGiftAdd",
+    metadata,
+    Column("priorGiftIconIds", ARRAY(Integer)),
+    Column("giftId", Integer, index=True),
+    Column("priority", Integer),
+    Column("condType", Integer),
+    Column("targetId", Integer),
+    Column("targetNum", Integer),
+    Column("priorGiftId", Integer, index=True),
+    Column("script", String),
+)
+
+mstItemSelect = Table(
+    "mstItemSelect",
+    metadata,
+    Column("itemId", Integer, index=True),
+    Column("idx", Integer),
+    Column("candidateGiftId", Integer),
+    Column("requireNum", Integer),
+    Column("detail", String),
+)
 
 mstSetItem = Table(
     "mstSetItem",
@@ -1061,6 +1149,18 @@ mstMasterMission = Table(
 )
 
 
+mstEventRandomMission = Table(
+    "mstEventRandomMission",
+    metadata,
+    Column("missionId", Integer),
+    Column("eventId", Integer, index=True),
+    Column("missionRank", Integer),
+    Column("condType", Integer),
+    Column("condId", Integer),
+    Column("condNum", Integer),
+)
+
+
 mstEventMission = Table(
     "mstEventMission",
     metadata,
@@ -1168,6 +1268,194 @@ mstTreasureBoxGift = Table(
     Column("collateralUpperLimit", Integer),
 )
 
+mstEventDigging = Table(
+    "mstEventDigging",
+    metadata,
+    Column("eventId", Integer, index=True),
+    Column("sizeX", Integer),
+    Column("sizeY", Integer),
+    Column("bgImageId", Integer),
+    Column("eventPointItemId", Integer),
+    Column("resettableDiggedNum", Integer),
+    Column("script", JSONB),
+)
+
+mstEventDiggingBlock = Table(
+    "mstEventDiggingBlock",
+    metadata,
+    Column("id", Integer, index=True),
+    Column("eventId", Integer, index=True),
+    Column("imageId", Integer),
+    Column("commonConsumeId", Integer),
+    Column("objectId", Integer),
+    Column("diggingEventPoint", Integer),
+    Column("script", JSONB),
+    Column("consumeHintImageIds", ARRAY(Integer)),
+    Column("consumeHintItemNums", ARRAY(Integer)),
+    Column("hintEventPoints", ARRAY(Integer)),
+)
+
+mstEventDiggingReward = Table(
+    "mstEventDiggingReward",
+    metadata,
+    Column("id", Integer, index=True),
+    Column("eventId", Integer, index=True),
+    Column("giftId", Integer),
+    Column("iconId", Integer),
+    Column("rewardSize", Integer),
+    Column("script", JSONB),
+)
+
+
+mstEventCooltimeReward = Table(
+    "mstEventCooltimeReward",
+    metadata,
+    Column("eventId", Integer, index=True),
+    Column("spotId", Integer, index=True),
+    Column("lv", Integer),
+    Column("name", String),
+    Column("commonReleaseId", Integer),
+    Column("cooltime", Integer),
+    Column("addEventPointRate", Integer),
+    Column("giftId", Integer),
+    Column("upperLimitGiftNum", Integer),
+)
+
+
+mstEventQuestCooltime = Table(
+    "mstEventQuestCooltime",
+    metadata,
+    Column("eventId", Integer, index=True),
+    Column("questId", Integer, index=True),
+    Column("phase", Integer),
+    Column("cooltime", Integer),
+    Column("isEnabledInitial", Boolean),
+)
+
+
+mstEventQuest = Table(
+    "mstEventQuest",
+    metadata,
+    Column("eventId", Integer, index=True),
+    Column("questId", Integer),
+    Column("phase", Integer),
+    Column("createdAt", Integer),
+)
+
+
+mstEventCampaign = Table(
+    "mstEventCampaign",
+    metadata,
+    Column("targetIds", ARRAY(Integer)),
+    Column("warIds", ARRAY(Integer)),
+    Column("eventId", Integer, index=True),
+    Column("target", Integer),
+    Column("idx", Integer),
+    Column("value", Integer),
+    Column("calcType", Integer),
+    Column("entryCondMessage", String),
+    Column("createdAt", Integer),
+)
+
+
+mstEventBulletinBoard = Table(
+    "mstEventBulletinBoard",
+    metadata,
+    Column("id", Integer, index=True),
+    Column("eventId", Integer, index=True),
+    Column("message", String),
+    Column("probability", Integer),
+)
+
+mstEventBulletinBoardRelease = Table(
+    "mstEventBulletinBoardRelease",
+    metadata,
+    Column("bulletinBoardId", Integer, index=True),
+    Column("condType", Integer),
+    Column("condTargetId", Integer),
+    Column("condNum", Integer),
+    Column("condGroup", Integer),
+)
+
+
+mstEventRecipe = Table(
+    "mstEventRecipe",
+    metadata,
+    Column("voiceIds", ARRAY(String)),
+    Column("id", Integer, index=True),
+    Column("eventId", Integer, index=True),
+    Column("iconId", Integer),
+    Column("name", String),
+    Column("maxNum", Integer),
+    Column("eventPointItemId", Integer),
+    Column("eventPointNum", Integer),
+    Column("commonConsumeId", Integer),
+    Column("commonReleaseId", Integer),
+    Column("closedMessage", String),
+)
+
+
+mstEventRecipeGift = Table(
+    "mstEventRecipeGift",
+    metadata,
+    Column("recipeId", Integer, index=True),
+    Column("idx", Integer),
+    Column("eventId", Integer, index=True),
+    Column("giftId", Integer),
+    Column("displayOrder", Integer),
+    Column("topIconId", Integer),
+)
+
+
+mstEventFortification = Table(
+    "mstEventFortification",
+    metadata,
+    Column("eventId", Integer, index=True),
+    Column("idx", Integer),
+    Column("name", String),
+    Column("x", Integer),
+    Column("y", Integer),
+    Column("rewardSceneX", Integer),
+    Column("rewardSceneY", Integer),
+    Column("maxFortificationPoint", Integer),
+    Column("workType", Integer),
+    Column("giftId", Integer),
+    Column("commonReleaseId", Integer),
+)
+
+
+mstEventFortificationDetail = Table(
+    "mstEventFortificationDetail",
+    metadata,
+    Column("eventId", Integer, index=True),
+    Column("fortificationIdx", Integer),
+    Column("position", Integer),
+    Column("name", String),
+    Column("classId", Integer),
+    Column("commonReleaseId", Integer),
+)
+
+
+mstEventFortificationSvt = Table(
+    "mstEventFortificationSvt",
+    metadata,
+    Column("eventId", Integer, index=True),
+    Column("fortificationIdx", Integer),
+    Column("position", Integer),
+    Column("type", Integer),
+    Column("svtId", Integer),
+    Column("limitCount", Integer),
+    Column("lv", Integer),
+    Column("commonReleaseId", Integer),
+)
+
+mstEventAlloutBattle = Table(
+    "mstEventAlloutBattle",
+    metadata,
+    Column("eventId", Integer, index=True),
+    Column("alloutBattleId", Integer),
+    Column("warId", Integer),
+)
 
 mstCommonConsume = Table(
     "mstCommonConsume",
@@ -1255,6 +1543,7 @@ mstBgm = Table(
     Column("flag", Integer),
     Column("shopId", Integer),
     Column("logoId", Integer),
+    Column("script", String),
 )
 
 
@@ -1371,6 +1660,20 @@ mstSpot = Table(
 )
 
 
+mstSpotAdd = Table(
+    "mstSpotAdd",
+    metadata,
+    Column("spotId", Integer, index=True),
+    Column("priority", Integer),
+    Column("overrideType", Integer),
+    Column("targetId", Integer),
+    Column("targetText", String),
+    Column("condType", Integer),
+    Column("condTargetId", Integer),
+    Column("condNum", Integer),
+)
+
+
 mstSpotRoad = Table(
     "mstSpotRoad",
     metadata,
@@ -1410,6 +1713,16 @@ mstWarAdd = Table(
 )
 
 
+mstWarQuestSelection = Table(
+    "mstWarQuestSelection",
+    metadata,
+    Column("warId", Integer, index=True),
+    Column("questId", Integer),
+    Column("shortCutBannerId", Integer),
+    Column("priority", Integer),
+)
+
+
 mstQuest = Table(
     "mstQuest",
     metadata,
@@ -1423,7 +1736,7 @@ mstQuest = Table(
     Column("actConsume", Integer),
     Column("chaldeaGateCategory", Integer),
     Column("spotId", Integer, index=True),
-    Column("giftId", Integer),
+    Column("giftId", Integer, index=True),
     Column("priority", Integer),
     Column("bannerType", Integer),
     Column("bannerId", Integer),
@@ -1450,8 +1763,8 @@ mstQuest = Table(
 mstQuestMessage = Table(
     "mstQuestMessage",
     metadata,
-    Column("questId", Integer),
-    Column("phase", Integer),
+    Column("questId", Integer, index=True),
+    Column("phase", Integer, index=True),
     Column("idx", Integer),
     Column("message", String),
     Column("condType", Integer),
@@ -1511,6 +1824,11 @@ mstQuestPhase = Table(
     Column("encountSvtIds", ARRAY(Integer)),
 )
 
+Index(
+    "ix_mstQuestPhase_script_aiNpc_npcId",
+    cast(mstQuestPhase.c.script["aiNpc"]["npcId"], Integer),
+)
+
 
 mstQuestPhaseDetail = Table(
     "mstQuestPhaseDetail",
@@ -1525,6 +1843,40 @@ mstQuestPhaseDetail = Table(
     Column("actConsume", Integer),
     Column("flag", BigInteger),
     Column("recommendLv", String),
+)
+
+
+mstQuestRestriction = Table(
+    "mstQuestRestriction",
+    metadata,
+    Column("questId", Integer, index=True),
+    Column("phase", Integer, index=True),
+    Column("restrictionId", Integer),
+    Column("frequencyType", Integer),
+    Column("dialogMessage", String),
+    Column("noticeMessage", String),
+    Column("title", String),
+)
+
+mstQuestRestrictionInfo = Table(
+    "mstQuestRestrictionInfo",
+    metadata,
+    Column("script", JSONB),
+    Column("questId", Integer, index=True),
+    Column("phase", Integer, index=True),
+    Column("flag", Integer),
+)
+
+
+mstRestriction = Table(
+    "mstRestriction",
+    metadata,
+    Column("targetVals", ARRAY(Integer)),
+    Column("targetVals2", ARRAY(Integer)),
+    Column("id", Integer, index=True),
+    Column("name", String),
+    Column("type", Integer),
+    Column("rangeType", Integer),
 )
 
 
@@ -1568,7 +1920,7 @@ npcFollower = Table(
     Column("questId", Integer, index=True),
     Column("questPhase", Integer, index=True),
     Column("priority", Integer),
-    Column("leaderSvtId", Integer),
+    Column("leaderSvtId", Integer, index=True),
     Column("svtEquipIds", ARRAY(Integer)),
     Column("flag", Integer),
     Column("npcScript", String),
@@ -1576,6 +1928,9 @@ npcFollower = Table(
     Column("openedAt", Integer, default=0),
     Column("closedAt", Integer, default=0),
 )
+
+
+Index("ix_npcFollower_svtEquipIds_first", npcFollower.c.svtEquipIds[1])
 
 
 npcFollowerRelease = Table(
@@ -1709,98 +2064,89 @@ AssetStorage = Table(
 )
 
 TABLES_TO_BE_LOADED = [
-    mstCommonRelease,
-    mstSkill,
-    mstTreasureDevice,
-    mstSvt,
-    mstVoice,
-    mstEquip,
-    mstCommandCode,
-    mstCv,
-    mstIllustrator,
-    mstShop,
-    mstShopRelease,
-    mstShopScript,
-    mstBgm,
-    mstBgmRelease,
-    mstMap,
-    mstMapGimmick,
-    mstSpot,
-    mstSpotRoad,
-    mstQuest,
-    mstQuestMessage,
-    mstClosedMessage,
-    mstAiAct,
-    mstEventMission,
-    mstEventMissionConditionDetail,
-    mstConstant,
-    mstClassRelationOverwrite,
-    mstSkillDetail,
-    mstSvtSkill,
-    mstSvtPassiveSkill,
-    mstSkillAdd,
-    mstTreasureDeviceDetail,
-    mstSvtTreasureDevice,
-    mstSvtIndividuality,
-    mstSvtCard,
-    mstSvtLimit,
-    mstCombineLimit,
-    mstCombineSkill,
-    mstCombineCostume,
-    mstSvtLimitAdd,
-    mstSvtLimitImage,
-    mstSvtChange,
-    mstSvtCostume,
-    mstSvtVoice,
-    mstSvtVoiceRelation,
-    mstVoicePlayCond,
-    mstSvtComment,
-    mstSvtCommentAdd,
-    mstSvtGroup,
-    mstSvtScript,
-    mstSvtExp,
-    mstFriendship,
-    mstCombineMaterial,
-    mstSvtAdd,
-    mstSvtAppendPassiveSkill,
-    mstSvtAppendPassiveSkillUnlock,
-    mstCombineAppendPassiveSkill,
-    mstSvtCoin,
-    mstSvtMultiPortrait,
-    mstEquipExp,
-    mstEquipSkill,
-    mstEquipAdd,
-    mstCommandCodeSkill,
-    mstCommandCodeComment,
-    mstGift,
-    mstSetItem,
-    mstMasterMission,
-    mstEventReward,
-    mstEventRewardSet,
-    mstEventPointGroup,
-    mstEventPointBuff,
-    mstEventMissionCondition,
-    mstEventTower,
-    mstEventTowerReward,
-    mstEventRewardScene,
-    mstEventVoicePlay,
-    mstTreasureBox,
-    mstTreasureBoxGift,
-    mstCommonConsume,
-    mstBoxGacha,
-    mstBoxGachaBase,
-    mstBoxGachaTalk,
-    mstWarAdd,
-    mstQuestRelease,
-    mstQuestConsumeItem,
-    mstQuestPhase,
-    mstQuestPhaseDetail,
-    mstStage,
-    mstStageRemap,
-    npcFollower,
-    npcFollowerRelease,
-    npcSvtFollower,
-    npcSvtEquip,
-    mstAi,
-    mstAiField,
+    [mstAiAct],
+    [mstAi],
+    [mstAiField],
+    [mstBgm, mstBgmRelease],
+    [mstBoxGacha, mstBoxGachaBase, mstBoxGachaTalk],
+    [mstClassRelationOverwrite, mstBuffConvert],
+    [mstClosedMessage],
+    [mstCombineAppendPassiveSkill],
+    [mstCombineCostume],
+    [mstCombineLimit],
+    [mstCombineMaterial],
+    [mstCombineSkill],
+    [mstCommandCode, mstCommandCodeComment, mstCommandCodeSkill],
+    [mstCommonConsume],
+    [mstCommonRelease],
+    [mstConstant],
+    [mstCv],
+    [mstEquip, mstEquipAdd, mstEquipExp, mstEquipSkill],
+    [mstEventMission, mstEventMissionCondition, mstEventMissionConditionDetail],
+    [mstEventPointBuff],
+    [mstEventPointGroup],
+    [mstEventReward, mstEventRewardScene, mstEventRewardSet],
+    [mstEventTower, mstEventTowerReward],
+    [mstEventVoicePlay],
+    [mstFriendship],
+    [mstGiftAdd],
+    [mstIllustrator],
+    [mstMasterMission],
+    [mstEventRandomMission],
+    [mstQuestConsumeItem],
+    [mstQuestMessage],
+    [mstQuestPhaseDetail],
+    [mstQuestRelease],
+    [mstQuestRestriction, mstQuestRestrictionInfo, mstRestriction],
+    [mstStage],
+    [mstStageRemap],
+    [npcFollower],
+    [npcFollowerRelease],
+    [npcSvtEquip],
+    [npcSvtFollower],
+    [mstQuest],
+    [mstQuestPhase],
+    [mstSetItem],
+    [mstShop, mstShopRelease, mstShopScript],
+    [mstSkill, mstSkillAdd, mstSkillDetail, mstSkillGroup],
+    [mstSvtAdd],
+    [mstSvtAppendPassiveSkill, mstSvtAppendPassiveSkillUnlock],
+    [mstSvtCard, mstSvtCardAdd],
+    [mstSvtChange],
+    [mstSvtCoin],
+    [mstSvtComment],
+    [mstSvtCommentAdd],
+    [mstSvtCostume],
+    [mstSvtExp],
+    [mstSvtGroup],
+    [mstSvtIndividuality],
+    [mstSvtLimit],
+    [mstSvtLimitAdd],
+    [mstSvtLimitImage],
+    [mstSvtMultiPortrait],
+    [mstSvtPassiveSkill],
+    [mstSvtScript],
+    [mstSvtSkill],
+    [mstSvtTreasureDevice],
+    [mstSvtVoice],
+    [mstSvtVoiceRelation],
+    [mstTreasureBox],
+    [mstTreasureBoxGift],
+    [mstTreasureDevice, mstTreasureDeviceDetail],
+    [mstEventDigging, mstEventDiggingBlock, mstEventDiggingReward],
+    [mstEventCooltimeReward, mstEventQuestCooltime],
+    [mstEventBulletinBoard, mstEventBulletinBoardRelease],
+    [mstEventRecipe, mstEventRecipeGift],
+    [mstEventFortification, mstEventFortificationDetail, mstEventFortificationSvt],
+    [mstVoice],
+    [mstVoicePlayCond],
+    [mstSvt],
+    [mstMap],
+    [mstSpot, mstSpotAdd, mstSpotRoad],
+    [mstMapGimmick],
+    [mstWarAdd],
+    [mstWarQuestSelection],
+    [mstEventCampaign],
+    [mstEventQuest],
+    [mstEventAlloutBattle],
 ]

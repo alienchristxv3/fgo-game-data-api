@@ -15,7 +15,7 @@ from pydantic import (
 )
 from pydantic.main import BaseModel
 from pydantic.tools import parse_obj_as
-from uvicorn.logging import DefaultFormatter  # type: ignore
+from uvicorn.logging import DefaultFormatter
 
 from .schemas.common import Region
 
@@ -40,13 +40,11 @@ class RegionSettings(BaseModel):
     postgresdsn: PostgresDsn
 
 
-# pylint: disable=no-self-argument, no-self-use
 class Settings(BaseSettings):
     data: dict[Region, RegionSettings] = Field(default=...)
     redisdsn: RedisDsn = Field(default=...)
     redis_prefix: str = "fgoapi"
     clear_redis_cache: bool = True
-    rate_limit_per_5_sec: int = 100
     rayshift_api_key: SecretStr = SecretStr("")
     rayshift_api_url: HttpUrl = parse_obj_as(HttpUrl, "https://rayshift.io/api/v1/")
     quest_cache_length: int = 3600

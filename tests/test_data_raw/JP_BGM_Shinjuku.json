@@ -7,7 +7,8 @@
     "detail": "",
     "flag": 0,
     "shopId": 7000138,
-    "logoId": 23
+    "logoId": 23,
+    "script": ""
   },
   "mstBgmRelease": [
     {
@@ -96,6 +97,7 @@
     "script": {},
     "eventId": 0,
     "eventGroupId": 0,
+    "isPresent": false,
     "id": 7106,
     "name": "アサシンモニュメント",
     "detail": "【霊基再臨素材】\nアサシンクラスを称えるモニュメント",
@@ -111,7 +113,11 @@
     "startedAt": 946652400,
     "endedAt": 1910876400,
     "useSkill": false,
+    "useAppendSkill": false,
     "useAscension": true,
-    "useCostume": false
+    "useCostume": false,
+    "mstItemSelect": [],
+    "mstGift": [],
+    "mstGiftAdd": []
   }
 }

@@ -1,10 +1,13 @@
 from typing import Iterable
 
+from sqlalchemy import Table
 from sqlalchemy.ext.asyncio import AsyncConnection
-from sqlalchemy.sql import select
+from sqlalchemy.sql import Join, and_, select, true
+from sqlalchemy.sql._typing import _ColumnExpressionArgument
 
 from ...models.raw import mstBoxGachaBase, mstEventTowerReward, mstShop, mstWar
 from ...schemas.raw import MstBoxGachaBase, MstEventTowerReward, MstShop, MstWar
+from .utils import fetch_one
 
 
 async def get_event_wars(conn: AsyncConnection, event_id: int) -> list[MstWar]:
@@ -18,7 +21,7 @@ async def get_event_wars(conn: AsyncConnection, event_id: int) -> list[MstWar]:
 
 async def get_mstShop_by_id(conn: AsyncConnection, shop_id: int) -> MstShop:
     mstShop_stmt = select(mstShop).where(mstShop.c.id == shop_id)
-    return MstShop.from_orm((await conn.execute(mstShop_stmt)).fetchone())
+    return MstShop.from_orm(await fetch_one(conn, mstShop_stmt))
 
 
 async def get_mstEventTowerReward(
@@ -46,4 +49,30 @@ async def get_mstBoxGachaBase(
     return [
         MstBoxGachaBase.from_orm(box_gacha_base)
         for box_gacha_base in (await conn.execute(mstBoxGachaBase_stmt)).fetchall()
+    ]
+
+
+async def get_shop_search(
+    conn: AsyncConnection,
+    event_ids: Iterable[int] | None = None,
+    shop_type_ints: Iterable[int] | None = None,
+    pay_type_ints: Iterable[int] | None = None,
+) -> list[MstShop]:
+    from_clause: Join | Table = mstShop
+    where_clause: list[_ColumnExpressionArgument[bool]] = [true()]
+
+    if event_ids:
+        where_clause.append(mstShop.c.eventId.in_(event_ids))
+    if shop_type_ints:
+        where_clause.append(mstShop.c.shopType.in_(shop_type_ints))
+    if pay_type_ints:
+        where_clause.append(mstShop.c.payType.in_(pay_type_ints))
+
+    shop_search_stmt = (
+        select(mstShop).distinct().select_from(from_clause).where(and_(*where_clause))
+    )
+
+    return [
+        MstShop.from_orm(shop)
+        for shop in (await conn.execute(shop_search_stmt)).fetchall()
     ]

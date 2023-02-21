@@ -1,12 +1,11 @@
 from fastapi import APIRouter, Depends, Query, Response
 from fastapi_cache.decorator import cache
-from fastapi_limiter.depends import RateLimiter  # type: ignore
-from redis.asyncio import Redis  # type: ignore
 
 from ..config import Settings
 from ..core import raw, search
 from ..db.helpers.cc import get_cc_id
 from ..db.helpers.svt import get_ce_id, get_svt_id
+from ..redis import Redis
 from ..schemas.common import Region, ReverseDepth
 from ..schemas.enums import AiType
 from ..schemas.raw import (
@@ -18,6 +17,7 @@ from ..schemas.raw import (
     FunctionEntity,
     ItemEntity,
     MasterMissionEntity,
+    MstEventAlloutBattle,
     MstSvtScript,
     MysticCodeEntity,
     QuestEntity,
@@ -25,6 +25,7 @@ from ..schemas.raw import (
     ScriptEntity,
     ScriptSearchResult,
     ServantEntity,
+    ShopEntity,
     SkillEntity,
     TdEntity,
     WarEntity,
@@ -36,6 +37,7 @@ from ..schemas.search import (
     ItemSearchQueryParams,
     ScriptSearchQueryParams,
     ServantSearchQueryParams,
+    ShopSearchQueryParams,
     SkillSearchParams,
     SvtSearchQueryParams,
     TdSearchParams,
@@ -45,11 +47,7 @@ from .utils import get_error_code, item_response, list_response
 
 
 settings = Settings()
-router = APIRouter(
-    prefix="/raw",
-    tags=["raw"],
-    dependencies=[Depends(RateLimiter(times=settings.rate_limit_per_5_sec, seconds=5))],
-)
+router = APIRouter(prefix="/raw", tags=["raw"])
 
 
 svt_expand_lore_description = """
@@ -69,7 +67,7 @@ Expand all other skills and functions as well.
     response_model_exclude_unset=True,
     responses=get_error_code([400, 403]),
 )
-@cache()  # type: ignore
+@cache()
 async def find_servant(
     search_param: ServantSearchQueryParams = Depends(ServantSearchQueryParams),
     expand: bool = False,
@@ -102,7 +100,7 @@ Otherwise, it will look up the actual ID field. As a result, it can return not s
     response_model_exclude_unset=True,
     responses=get_error_code([404]),
 )
-@cache()  # type: ignore
+@cache()
 async def get_servant(
     region: Region,
     servant_id: int,
@@ -124,7 +122,7 @@ async def get_servant(
     response_model_exclude_unset=True,
     responses=get_error_code([400, 403]),
 )
-@cache()  # type: ignore
+@cache()
 async def find_equip(
     search_param: EquipSearchQueryParams = Depends(EquipSearchQueryParams),
     expand: bool = False,
@@ -157,7 +155,7 @@ Otherwise, it will look up the actual ID field. As a result, it can return not C
     response_model_exclude_unset=True,
     responses=get_error_code([404]),
 )
-@cache()  # type: ignore
+@cache()
 async def get_equip(
     region: Region,
     equip_id: int,
@@ -179,7 +177,7 @@ async def get_equip(
     response_model_exclude_unset=True,
     responses=get_error_code([400, 403]),
 )
-@cache()  # type: ignore
+@cache()
 async def find_svt(
     search_param: SvtSearchQueryParams = Depends(SvtSearchQueryParams),
     expand: bool = False,
@@ -211,7 +209,7 @@ Only uses actual ID for the lookup.
     response_model_exclude_unset=True,
     responses=get_error_code([404]),
 )
-@cache()  # type: ignore
+@cache()
 async def get_svt(
     region: Region,
     svt_id: int,
@@ -230,11 +228,25 @@ async def get_svt(
     response_model=list[MstSvtScript],
     response_model_exclude_unset=True,
 )
-@cache()  # type: ignore
+@cache()
 async def get_svt_scripts(region: Region, charaId: list[int] = Query([])) -> Response:
     async with get_db(region) as conn:
         servant_entity = await raw.get_svt_scripts(conn, charaId)
         return list_response(servant_entity)
+
+
+@router.get(
+    "/{region}/eventAlloutBattle",
+    summary="Get servant script data",
+    response_description="Servant Scipt Entity",
+    response_model=list[MstEventAlloutBattle],
+    response_model_exclude_unset=True,
+)
+@cache()
+async def get_event_allout(region: Region, eventId: list[int] = Query([])) -> Response:
+    async with get_db(region) as conn:
+        allouts = await raw.get_event_allout(conn, eventId)
+        return list_response(allouts)
 
 
 @router.get(
@@ -245,7 +257,7 @@ async def get_svt_scripts(region: Region, charaId: list[int] = Query([])) -> Res
     response_model_exclude_unset=True,
     responses=get_error_code([404]),
 )
-@cache()  # type: ignore
+@cache()
 async def get_mystic_code(
     region: Region,
     mc_id: int,
@@ -269,7 +281,7 @@ async def get_mystic_code(
     response_model_exclude_unset=True,
     responses=get_error_code([404]),
 )
-@cache()  # type: ignore
+@cache()
 async def get_command_code(
     region: Region, cc_id: int, expand: bool = False
 ) -> Response:
@@ -301,7 +313,7 @@ from the function IDs in mstSkillLv.funcId.
     response_model_exclude_unset=True,
     responses=get_error_code([400, 403]),
 )
-@cache()  # type: ignore
+@cache()
 async def find_skill(
     search_param: SkillSearchParams = Depends(SkillSearchParams),
     reverse: bool = False,
@@ -334,7 +346,7 @@ async def find_skill(
     response_model_exclude_unset=True,
     responses=get_error_code([404]),
 )
-@cache()  # type: ignore
+@cache()
 async def get_skill(
     region: Region,
     skill_id: int,
@@ -366,7 +378,7 @@ from the function IDs in mstTreasureDeviceLv.funcId.
     response_model_exclude_unset=True,
     responses=get_error_code([400, 403]),
 )
-@cache()  # type: ignore
+@cache()
 async def find_td(
     search_param: TdSearchParams = Depends(TdSearchParams),
     reverse: bool = False,
@@ -391,7 +403,7 @@ async def find_td(
     response_model_exclude_unset=True,
     responses=get_error_code([404]),
 )
-@cache()  # type: ignore
+@cache()
 async def get_td(
     region: Region,
     np_id: int,
@@ -420,7 +432,7 @@ and return the reversed skill objects.
     response_model_exclude_unset=True,
     responses=get_error_code([400, 403]),
 )
-@cache()  # type: ignore
+@cache()
 async def find_function(
     search_param: FuncSearchQueryParams = Depends(FuncSearchQueryParams),
     reverse: bool = False,
@@ -457,7 +469,7 @@ async def find_function(
     response_model_exclude_unset=True,
     responses=get_error_code([404]),
 )
-@cache()  # type: ignore
+@cache()
 async def get_function(
     region: Region,
     func_id: int,
@@ -489,7 +501,7 @@ and return the reversed function objects.
     response_model_exclude_unset=True,
     responses=get_error_code([400, 403]),
 )
-@cache()  # type: ignore
+@cache()
 async def find_buff(
     search_param: BuffSearchQueryParams = Depends(BuffSearchQueryParams),
     reverse: bool = False,
@@ -523,7 +535,7 @@ async def find_buff(
     response_model_exclude_unset=True,
     responses=get_error_code([404]),
 )
-@cache()  # type: ignore
+@cache()
 async def get_buff(
     region: Region,
     buff_id: int,
@@ -547,7 +559,7 @@ async def get_buff(
     response_model_exclude_unset=True,
     responses=get_error_code([400, 403]),
 )
-@cache()  # type: ignore
+@cache()
 async def find_item(
     search_param: ItemSearchQueryParams = Depends(ItemSearchQueryParams),
 ) -> Response:
@@ -564,7 +576,7 @@ async def find_item(
     response_model_exclude_unset=True,
     responses=get_error_code([404]),
 )
-@cache()  # type: ignore
+@cache()
 async def get_item(region: Region, item_id: int) -> Response:
     """
     Get the item data from the given ID
@@ -581,7 +593,7 @@ async def get_item(region: Region, item_id: int) -> Response:
     response_model_exclude_unset=True,
     responses=get_error_code([404]),
 )
-@cache()  # type: ignore
+@cache()
 async def get_mm(region: Region, master_mission_id: int) -> Response:
     """
     Get the master mission data from the given master mission ID
@@ -600,7 +612,7 @@ async def get_mm(region: Region, master_mission_id: int) -> Response:
     response_model_exclude_unset=True,
     responses=get_error_code([404]),
 )
-@cache()  # type: ignore
+@cache()
 async def get_event(region: Region, event_id: int) -> Response:
     """
     Get the event data from the given event ID
@@ -617,7 +629,7 @@ async def get_event(region: Region, event_id: int) -> Response:
     response_model_exclude_unset=True,
     responses=get_error_code([404]),
 )
-@cache(expire=settings.quest_cache_length)  # type: ignore
+@cache(expire=settings.quest_cache_length)
 async def get_war(region: Region, war_id: int) -> Response:
     """
     Get the war data from the given war ID
@@ -634,7 +646,7 @@ async def get_war(region: Region, war_id: int) -> Response:
     response_model_exclude_unset=True,
     responses=get_error_code([404]),
 )
-@cache(expire=settings.quest_cache_length)  # type: ignore
+@cache(expire=settings.quest_cache_length)
 async def get_quest_phase(
     region: Region,
     quest_id: int,
@@ -655,7 +667,7 @@ async def get_quest_phase(
     response_model_exclude_unset=True,
     responses=get_error_code([404]),
 )
-@cache(expire=settings.quest_cache_length)  # type: ignore
+@cache(expire=settings.quest_cache_length)
 async def get_quest(
     region: Region,
     quest_id: int,
@@ -691,7 +703,7 @@ async def find_script(
     response_model_exclude_unset=True,
     responses=get_error_code([404]),
 )
-@cache()  # type: ignore
+@cache()
 async def get_script(region: Region, script_id: str) -> Response:
     """
     Get the script data from the given script ID
@@ -708,7 +720,7 @@ async def get_script(region: Region, script_id: str) -> Response:
     response_model_exclude_unset=True,
     responses=get_error_code([404]),
 )
-@cache()  # type: ignore
+@cache()
 async def get_ai_field(region: Region, ai_type: AiType, ai_id: int) -> Response:
     """
     Get the AI data from the given AI ID
@@ -727,10 +739,48 @@ async def get_ai_field(region: Region, ai_type: AiType, ai_id: int) -> Response:
     response_model_exclude_unset=True,
     responses=get_error_code([404]),
 )
-@cache()  # type: ignore
+@cache()
 async def get_bgm(region: Region, bgm_id: int) -> Response:
     """
     Get the BGM data from the given BGM ID
     """
     async with get_db(region) as conn:
         return item_response(await raw.get_bgm_entity(conn, bgm_id))
+
+
+@router.get(
+    "/{region}/shop/search",
+    summary="Find and get shop data",
+    description="Find and get shop data",
+    response_description="Shop Entities",
+    response_model=list[ShopEntity],
+    response_model_exclude_unset=True,
+    responses=get_error_code([400, 403]),
+)
+@cache()
+async def find_shop(
+    search_param: ShopSearchQueryParams = Depends(ShopSearchQueryParams),
+) -> Response:
+    async with get_db(search_param.region) as conn:
+        matches = await search.search_shop(conn, search_param, limit=10000)
+        return list_response(await raw.get_shop_entities(conn, matches))
+
+
+@router.get(
+    "/{region}/shop/{shop_id}",
+    summary="Get Shop data",
+    response_description="Shop Entity",
+    response_model=ShopEntity,
+    response_model_exclude_unset=True,
+    responses=get_error_code([404]),
+)
+@cache()
+async def get_shop(
+    region: Region,
+    shop_id: int,
+) -> Response:
+    """
+    Get the shop data from the given shop ID
+    """
+    async with get_db(region) as conn:
+        return item_response(await raw.get_shop_entity(conn, shop_id))

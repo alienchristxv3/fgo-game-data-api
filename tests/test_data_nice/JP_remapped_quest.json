@@ -21,7 +21,8 @@
       "type": "item",
       "objectId": 101,
       "priority": 0,
-      "num": 1
+      "num": 1,
+      "giftAdds": []
     }
   ],
   "releaseConditions": [
@@ -46,6 +47,7 @@
   ],
   "phasesNoBattle": [],
   "phaseScripts": [],
+  "priority": 94060086,
   "noticeAt": 1625043600,
   "openedAt": 1625043600,
   "closedAt": 1625389199,
@@ -76,6 +78,7 @@
   "extraDetail": {},
   "scripts": [],
   "messages": [],
+  "restrictions": [],
   "supportServants": [],
   "drops": [
     {
@@ -83,72 +86,72 @@
       "objectId": 6001,
       "num": 1,
       "dropCount": 10,
-      "runs": 48,
-      "dropExpected": 0.20833333333333334,
-      "dropVariance": 0.16843971631205673
+      "runs": 47,
+      "dropExpected": 0.2127659574468085,
+      "dropVariance": 0.1711378353376503
     },
     {
       "type": "item",
       "objectId": 6524,
       "num": 1,
       "dropCount": 15,
-      "runs": 48,
-      "dropExpected": 0.3125,
-      "dropVariance": 0.3045212765957447
+      "runs": 47,
+      "dropExpected": 0.3191489361702128,
+      "dropVariance": 0.3089731729879741
     },
     {
       "type": "item",
       "objectId": 7001,
       "num": 1,
-      "dropCount": 9,
-      "runs": 48,
-      "dropExpected": 0.1875,
-      "dropVariance": 0.15558510638297873
+      "dropCount": 8,
+      "runs": 47,
+      "dropExpected": 0.1702127659574468,
+      "dropVariance": 0.14431082331174838
     },
     {
       "type": "item",
       "objectId": 7007,
       "num": 1,
       "dropCount": 5,
-      "runs": 48,
-      "dropExpected": 0.10416666666666667,
-      "dropVariance": 0.09530141843971632
+      "runs": 47,
+      "dropExpected": 0.10638297872340426,
+      "dropVariance": 0.0971322849213691
     },
     {
       "type": "item",
       "objectId": 94060001,
       "num": 3,
-      "dropCount": 399,
-      "runs": 48,
-      "dropExpected": 8.3125,
-      "dropVariance": 1.240691489361702
+      "dropCount": 392,
+      "runs": 47,
+      "dropExpected": 8.340425531914894,
+      "dropVariance": 1.2294172062904718
     },
     {
       "type": "item",
       "objectId": 94060002,
       "num": 3,
-      "dropCount": 74,
-      "runs": 48,
-      "dropExpected": 1.5416666666666667,
-      "dropVariance": 0.6790780141843972
+      "dropCount": 73,
+      "runs": 47,
+      "dropExpected": 1.553191489361702,
+      "dropVariance": 0.6873265494912119
     },
     {
       "type": "item",
       "objectId": 94060004,
       "num": 3,
-      "dropCount": 69,
-      "runs": 48,
-      "dropExpected": 1.4375,
-      "dropVariance": 0.33643617021276595
+      "dropCount": 68,
+      "runs": 47,
+      "dropExpected": 1.446808510638298,
+      "dropVariance": 0.33950046253469013
     },
     {
       "type": "item",
       "objectId": 94060004,
       "num": 4,
-      "dropCount": 252,
-      "runs": 48,
-      "dropExpected": 5.25,
-      "dropVariance": 1.2127659574468086
+      "dropCount": 246,
+      "runs": 47,
+      "dropExpected": 5.23404255319149,
+      "dropVariance": 1.2266419981498613
     }
   ],
   "stages": [
@@ -163,6 +166,7 @@
       },
       "fieldAis": [],
       "call": [],
+      "waveStartMovies": [],
       "enemies": [
         {
           "deck": "enemy",
@@ -176,8 +180,10 @@
             "id": 9938890,
             "collectionNo": 0,
             "name": "ノブ選組",
+            "originalName": "ノブ選組",
             "type": "enemy",
             "flag": "normal",
+            "classId": 1,
             "className": "saber",
             "attribute": "human",
             "rarity": 1,
@@ -365,6 +371,9 @@
               "icon": "https://assets.atlasacademy.io/GameData/JP/Servants/Commands/9938890/card_servant_np.png",
               "rank": "なし",
               "type": "",
+              "effectFlags": [
+                "support"
+              ],
               "npGain": {
                 "buster": [
                   0,
@@ -761,6 +770,9 @@
             "maxActNum": 2
           },
           "enemyScript": {},
+          "originalEnemyScript": {},
+          "infoScript": {},
+          "originalInfoScript": {},
           "limit": {
             "limitCount": 1,
             "imageLimitCount": 0,
@@ -799,8 +811,10 @@
             "id": 9938890,
             "collectionNo": 0,
             "name": "ノブ選組",
+            "originalName": "ノブ選組",
             "type": "enemy",
             "flag": "normal",
+            "classId": 1,
             "className": "saber",
             "attribute": "human",
             "rarity": 1,
@@ -979,6 +993,9 @@
               "icon": "https://assets.atlasacademy.io/GameData/JP/Servants/Commands/9938890/card_servant_np.png",
               "rank": "なし",
               "type": "",
+              "effectFlags": [
+                "support"
+              ],
               "npGain": {
                 "buster": [
                   0,
@@ -1375,6 +1392,9 @@
             "maxActNum": 2
           },
           "enemyScript": {},
+          "originalEnemyScript": {},
+          "infoScript": {},
+          "originalInfoScript": {},
           "limit": {
             "limitCount": 1,
             "imageLimitCount": 0,
@@ -1414,6 +1434,7 @@
       },
       "fieldAis": [],
       "call": [],
+      "waveStartMovies": [],
       "enemies": [
         {
           "deck": "enemy",
@@ -1427,8 +1448,10 @@
             "id": 9938890,
             "collectionNo": 0,
             "name": "ノブ選組",
+            "originalName": "ノブ選組",
             "type": "enemy",
             "flag": "normal",
+            "classId": 1,
             "className": "saber",
             "attribute": "human",
             "rarity": 1,
@@ -1616,6 +1639,9 @@
               "icon": "https://assets.atlasacademy.io/GameData/JP/Servants/Commands/9938890/card_servant_np.png",
               "rank": "なし",
               "type": "",
+              "effectFlags": [
+                "support"
+              ],
               "npGain": {
                 "buster": [
                   0,
@@ -2012,6 +2038,9 @@
             "maxActNum": 2
           },
           "enemyScript": {},
+          "originalEnemyScript": {},
+          "infoScript": {},
+          "originalInfoScript": {},
           "limit": {
             "limitCount": 1,
             "imageLimitCount": 0,
@@ -2050,8 +2079,10 @@
             "id": 9938890,
             "collectionNo": 0,
             "name": "ノブ選組",
+            "originalName": "ノブ選組",
             "type": "enemy",
             "flag": "normal",
+            "classId": 1,
             "className": "saber",
             "attribute": "human",
             "rarity": 1,
@@ -2239,6 +2270,9 @@
               "icon": "https://assets.atlasacademy.io/GameData/JP/Servants/Commands/9938890/card_servant_np.png",
               "rank": "なし",
               "type": "",
+              "effectFlags": [
+                "support"
+              ],
               "npGain": {
                 "buster": [
                   0,
@@ -2635,6 +2669,9 @@
             "maxActNum": 2
           },
           "enemyScript": {},
+          "originalEnemyScript": {},
+          "infoScript": {},
+          "originalInfoScript": {},
           "limit": {
             "limitCount": 1,
             "imageLimitCount": 0,
@@ -2673,8 +2710,10 @@
             "id": 9938890,
             "collectionNo": 0,
             "name": "ノブ選組",
+            "originalName": "ノブ選組",
             "type": "enemy",
             "flag": "normal",
+            "classId": 1,
             "className": "saber",
             "attribute": "human",
             "rarity": 1,
@@ -2862,6 +2901,9 @@
               "icon": "https://assets.atlasacademy.io/GameData/JP/Servants/Commands/9938890/card_servant_np.png",
               "rank": "なし",
               "type": "",
+              "effectFlags": [
+                "support"
+              ],
               "npGain": {
                 "buster": [
                   0,
@@ -3258,6 +3300,9 @@
             "maxActNum": 2
           },
           "enemyScript": {},
+          "originalEnemyScript": {},
+          "infoScript": {},
+          "originalInfoScript": {},
           "limit": {
             "limitCount": 1,
             "imageLimitCount": 0,
@@ -3297,6 +3342,7 @@
       },
       "fieldAis": [],
       "call": [],
+      "waveStartMovies": [],
       "enemies": [
         {
           "deck": "enemy",
@@ -3310,14 +3356,16 @@
             "id": 102700,
             "collectionNo": 68,
             "name": "沖田総司",
+            "originalName": "沖田総司",
             "type": "normal",
             "flag": "normal",
+            "classId": 1,
             "className": "saber",
             "attribute": "human",
             "rarity": 5,
             "atkMax": 12068,
             "hpMax": 13225,
-            "face": "https://assets.atlasacademy.io/GameData/JP/Faces/f_1027003.png",
+            "face": "https://assets.atlasacademy.io/GameData/JP/Faces/f_1027002.png",
             "costume": {
               "102700": {
                 "id": 0,
@@ -3424,7 +3472,7 @@
             },
             {
               "id": 1000,
-              "name": "basedOnServant"
+              "name": "servant"
             },
             {
               "id": 2001,
@@ -4369,6 +4417,9 @@
               "icon": "https://assets.atlasacademy.io/GameData/JP/Servants/Commands/102700/card_servant_np.png",
               "rank": "－",
               "type": "対人魔剣",
+              "effectFlags": [
+                "attackEnemyOne"
+              ],
               "detail": "敵単体に超強力な防御力無視攻撃＆防御力を大ダウン(3ターン)<オーバーチャージで効果アップ>",
               "unmodifiedDetail": "敵単体に超強力な防御力無視攻撃[{0}]＆防御力を大ダウン(3ターン)<オーバーチャージで効果アップ>",
               "npGain": {
@@ -4436,6 +4487,10 @@
                 {
                   "id": 4007,
                   "name": "cardNP"
+                },
+                {
+                  "id": 4102,
+                  "name": "stNP"
                 }
               ],
               "script": {},
@@ -4775,6 +4830,11 @@
           "enemyScript": {
             "appear": true
           },
+          "originalEnemyScript": {
+            "appear": 1
+          },
+          "infoScript": {},
+          "originalInfoScript": {},
           "limit": {
             "limitCount": 3,
             "imageLimitCount": 0,
@@ -4813,8 +4873,10 @@
             "id": 702500,
             "collectionNo": 161,
             "name": "土方歳三",
+            "originalName": "土方歳三",
             "type": "normal",
             "flag": "normal",
+            "classId": 7,
             "className": "berserker",
             "attribute": "human",
             "rarity": 5,
@@ -4898,7 +4960,7 @@
             },
             {
               "id": 1000,
-              "name": "basedOnServant"
+              "name": "servant"
             },
             {
               "id": 2001,
@@ -5089,6 +5151,10 @@
                         {
                           "id": 3004,
                           "name": "buffPositiveEffect"
+                        },
+                        {
+                          "id": 3083,
+                          "name": "unknown"
                         }
                       ],
                       "tvals": [],
@@ -5562,6 +5628,9 @@
               "icon": "https://assets.atlasacademy.io/GameData/JP/Servants/Commands/702500/card_servant_np.png",
               "rank": "C+",
               "type": "対人宝具",
+              "effectFlags": [
+                "attackEnemyOne"
+              ],
               "detail": "敵単体に自身のHPが少ないほど威力の高い超強力な攻撃<オーバーチャージで威力アップ>",
               "unmodifiedDetail": "敵単体に自身のHPが少ないほど威力の高い超強力な攻撃[{0}]<オーバーチャージで威力アップ>",
               "npGain": {
@@ -5631,6 +5700,10 @@
                 {
                   "id": 4007,
                   "name": "cardNP"
+                },
+                {
+                  "id": 4102,
+                  "name": "stNP"
                 }
               ],
               "script": {},
@@ -5799,6 +5872,11 @@
           "enemyScript": {
             "appear": true
           },
+          "originalEnemyScript": {
+            "appear": 1
+          },
+          "infoScript": {},
+          "originalInfoScript": {},
           "limit": {
             "limitCount": 0,
             "imageLimitCount": 0,

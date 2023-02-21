@@ -1,7 +1,8 @@
-from typing import Any, Iterable, Optional
+from typing import Iterable, Optional
 
 from sqlalchemy.ext.asyncio import AsyncConnection
-from sqlalchemy.sql import and_, select
+from sqlalchemy.sql import and_, select, true
+from sqlalchemy.sql._typing import _ColumnExpressionArgument
 
 from ...models.raw import mstItem, mstSetItem
 from ...schemas.enums import NiceItemUse
@@ -27,9 +28,9 @@ async def get_item_search(
     individuality: Optional[Iterable[int]],
     item_type: Optional[Iterable[int]],
     bg_type: Optional[Iterable[int]],
-    uses: Optional[Iterable[NiceItemUse]],
+    uses: Optional[list[NiceItemUse]],
 ) -> list[MstItem]:
-    where_clause: list[Any] = [True]
+    where_clause: list[_ColumnExpressionArgument[bool]] = [true()]
     if individuality:
         where_clause.append(mstItem.c.individuality.contains(individuality))
     if item_type:
@@ -39,6 +40,8 @@ async def get_item_search(
     if uses:
         if NiceItemUse.skill in uses:
             where_clause.append(mstItem.c.useSkill.is_(True))
+        if NiceItemUse.appendSkill in uses:
+            where_clause.append(mstItem.c.useAppendSkill.is_(True))
         if NiceItemUse.ascension in uses:
             where_clause.append(mstItem.c.useAscension.is_(True))
         if NiceItemUse.costume in uses:

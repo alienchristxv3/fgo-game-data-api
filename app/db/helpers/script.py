@@ -1,9 +1,10 @@
-from typing import Optional
+from typing import Iterable, Optional
 
 from sqlalchemy.ext.asyncio import AsyncConnection
 from sqlalchemy.sql import and_, func, literal_column, select
+from sqlalchemy.sql._typing import _ColumnExpressionArgument
 
-from ...models.raw import ScriptFileList
+from ...models.raw import ScriptFileList, mstMap, mstQuest, mstSpot, mstWar
 from ...schemas.raw import ScriptEntity, ScriptSearchResult
 from .quest import get_quest_entity
 
@@ -35,6 +36,7 @@ async def get_script_search(
     conn: AsyncConnection,
     search_query: str,
     script_file_name: str | None = None,
+    war_ids: Iterable[int] | None = None,
     limit_result: int = 50,
 ) -> list[ScriptSearchResult]:
     score = func.pgroonga_score(literal_column("tableoid"), literal_column("ctid"))
@@ -42,12 +44,26 @@ async def get_script_search(
         ScriptFileList.c.textScript, func.pgroonga_query_extract_keywords(search_query)
     )
 
-    where_conds = [ScriptFileList.c.textScript.op("&@~")(search_query)]
+    where_conds: list[_ColumnExpressionArgument[bool]] = [
+        ScriptFileList.c.textScript.op("&@~")(search_query)
+    ]
 
     if script_file_name:
         where_conds.append(
             ScriptFileList.c.scriptFileName.like(f"%{script_file_name}%")
         )
+
+    if war_ids:
+        quest_ids = (
+            select(mstQuest.c.id)
+            .select_from(
+                mstQuest.join(mstSpot, mstSpot.c.id == mstQuest.c.spotId)
+                .join(mstMap, mstMap.c.id == mstSpot.c.mapId)
+                .join(mstWar, mstWar.c.id == mstMap.c.warId)
+            )
+            .where(mstWar.c.id.in_(war_ids))
+        )
+        where_conds.append(ScriptFileList.c.questId.in_(quest_ids))
 
     stmt = (
         select(

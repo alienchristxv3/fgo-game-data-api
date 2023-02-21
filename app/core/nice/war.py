@@ -5,6 +5,7 @@ from ...db.helpers import fetch
 from ...schemas.common import Language, Region
 from ...schemas.gameenums import (
     COND_TYPE_NAME,
+    SPOT_OVERWRITE_TYPE_NAME,
     WAR_FLAG_NAME,
     WAR_OVERWRITE_TYPE_NAME,
     WAR_START_TYPE_NAME,
@@ -17,9 +18,11 @@ from ...schemas.nice import (
     NiceMapGimmick,
     NiceQuest,
     NiceSpot,
+    NiceSpotAdd,
     NiceSpotRoad,
     NiceWar,
     NiceWarAdd,
+    NiceWarQuestSelection,
 )
 from ...schemas.raw import (
     MstBgm,
@@ -27,9 +30,11 @@ from ...schemas.raw import (
     MstMap,
     MstMapGimmick,
     MstSpot,
+    MstSpotAdd,
     MstSpotRoad,
     MstWar,
     MstWarAdd,
+    MstWarQuestSelection,
     QuestEntity,
 )
 from .. import raw
@@ -104,10 +109,13 @@ def get_nice_map(
     bgms: list[MstBgm],
     gimmicks: list[MstMapGimmick],
     war_asset_id: int,
+    lang: Language,
 ) -> NiceMap:
     base_settings = {"base_url": settings.asset_url, "region": region}
 
-    bgm = get_nice_bgm(region, next(bgm for bgm in bgms if bgm.id == raw_map.bgmId))
+    bgm = get_nice_bgm(
+        region, next(bgm for bgm in bgms if bgm.id == raw_map.bgmId), lang
+    )
 
     return NiceMap(
         id=raw_map.id,
@@ -130,13 +138,15 @@ def get_nice_map(
     )
 
 
-def get_nice_war_add(region: Region, war_add: MstWarAdd) -> NiceWarAdd:
+def get_nice_war_add(
+    region: Region, war_add: MstWarAdd, banner_template: str
+) -> NiceWarAdd:
     banner_url = (
         fmt_url(
             AssetURL.banner,
             base_url=settings.asset_url,
             region=region,
-            banner=f"questboard_cap{war_add.overwriteId:>03}",
+            banner=banner_template.format(war_add.overwriteId),
         )
         if war_add.type == WarOverwriteType.BANNER
         else None
@@ -157,11 +167,56 @@ def get_nice_war_add(region: Region, war_add: MstWarAdd) -> NiceWarAdd:
     )
 
 
+async def get_nice_war_quest_selection(
+    conn: AsyncConnection,
+    region: Region,
+    quest_selection: MstWarQuestSelection,
+    mstWar: MstWar,
+    quests: list[QuestEntity],
+    spots: list[MstSpot],
+    lang: Language,
+) -> NiceWarQuestSelection:
+    banner_url = (
+        fmt_url(
+            AssetURL.eventUi,
+            base_url=settings.asset_url,
+            region=region,
+            event=f"img_questboard_{quest_selection.shortCutBannerId}",
+        )
+        if quest_selection.shortCutBannerId != 0
+        else None
+    )
+    quest = next(
+        quest for quest in quests if quest.mstQuest.id == quest_selection.questId
+    )
+    spot = next(spot for spot in spots if spot.id == quest.mstQuest.spotId)
+    return NiceWarQuestSelection(
+        quest=NiceQuest.parse_obj(
+            await get_nice_quest(conn, region, quest, lang, mstWar, spot)
+        ),
+        shortcutBanner=banner_url,
+        priority=quest_selection.priority,
+    )
+
+
+def get_nice_spot_add(mstWarAdd: MstSpotAdd) -> NiceSpotAdd:
+    return NiceSpotAdd(
+        priority=mstWarAdd.priority,
+        overrideType=SPOT_OVERWRITE_TYPE_NAME[mstWarAdd.overrideType],
+        targetId=mstWarAdd.targetId,
+        targetText="" if mstWarAdd.targetText is None else mstWarAdd.targetText,
+        condType=COND_TYPE_NAME[mstWarAdd.condType],
+        condTargetId=mstWarAdd.condTargetId,
+        condNum=mstWarAdd.condNum,
+    )
+
+
 async def get_nice_spot(
     conn: AsyncConnection,
     region: Region,
     mstWar: MstWar,
     raw_spot: MstSpot,
+    mst_spot_adds: list[MstSpotAdd],
     war_asset_id: int,
     quests: list[QuestEntity],
     lang: Language,
@@ -192,6 +247,11 @@ async def get_nice_spot(
         nextOfsX=raw_spot.nextOfsX,
         nextOfsY=raw_spot.nextOfsY,
         closedMessage=raw_spot.closedMessage,
+        spotAdds=[
+            get_nice_spot_add(spot_add)
+            for spot_add in mst_spot_adds
+            if spot_add.spotId == raw_spot.id
+        ],
         quests=[
             NiceQuest.parse_obj(
                 await get_nice_quest(conn, region, quest, lang, mstWar, raw_spot)
@@ -212,19 +272,33 @@ async def get_nice_war(
         raw_war.mstWar.assetId if raw_war.mstWar.assetId > 0 else raw_war.mstWar.id
     )
 
-    if raw_war.mstEvent:
-        banner_file = f"event_war_{raw_war.mstEvent.bannerId}"
-    elif raw_war.mstWar.flag & WarEntityFlag.MAIN_SCENARIO != 0:
+    if raw_war.mstWar.flag & WarEntityFlag.MAIN_SCENARIO != 0:
         last_war_id = await fetch.get_one(conn, MstConstant, "LAST_WAR_ID")
-        if last_war_id and raw_war.mstWar.id <= last_war_id.value:
-            banner_file = f"questboard_cap{raw_war.mstWar.bannerId:>03}"
+        if raw_war.mstWar.id > 10000 or (
+            last_war_id and raw_war.mstWar.id <= last_war_id.value
+        ):
+            banner_template = "questboard_cap{:>03}"
+            banner_id = raw_war.mstWar.bannerId
         else:
-            banner_file = "questboard_cap_closed"
+            banner_template = "questboard_cap_closed"
+            banner_id = 0
+    elif (
+        raw_war.mstWar.flag & WarEntityFlag.IS_EVENT != 0
+        and raw_war.mstWar.flag & WarEntityFlag.SUB_FOLDER == 0
+        and raw_war.mstEvent
+    ):
+        banner_template = "event_war_{}"
+        banner_id = raw_war.mstEvent.bannerId
     else:
-        banner_file = f"chaldea_category_{raw_war.mstWar.bannerId}"
+        banner_template = "chaldea_category_{}"
+        banner_id = raw_war.mstWar.bannerId
+
+    banner_file = banner_template.format(banner_id)
 
     bgm = get_nice_bgm(
-        region, next(bgm for bgm in raw_war.mstBgm if bgm.id == raw_war.mstWar.bgmId)
+        region,
+        next(bgm for bgm in raw_war.mstBgm if bgm.id == raw_war.mstWar.bgmId),
+        lang,
     )
 
     return NiceWar(
@@ -258,7 +332,10 @@ async def get_nice_war(
         eventId=raw_war.mstWar.eventId,
         eventName=get_translation(lang, raw_war.mstWar.eventName),
         lastQuestId=raw_war.mstWar.lastQuestId,
-        warAdds=[get_nice_war_add(region, war_add) for war_add in raw_war.mstWarAdd],
+        warAdds=[
+            get_nice_war_add(region, war_add, banner_template)
+            for war_add in raw_war.mstWarAdd
+        ],
         maps=[
             get_nice_map(
                 region,
@@ -270,6 +347,7 @@ async def get_nice_war(
                     if gimmick.mapId == raw_map.id
                 ],
                 war_asset_id,
+                lang,
             )
             for raw_map in raw_war.mstMap
         ],
@@ -279,14 +357,28 @@ async def get_nice_war(
                 region,
                 raw_war.mstWar,
                 raw_spot,
+                raw_war.mstSpotAdd,
                 war_asset_id,
                 raw_war.mstQuest,
                 lang,
             )
             for raw_spot in raw_war.mstSpot
+            if raw_spot.warId == war_id
         ],
         spotRoads=[
             get_nice_spot_road(region, spot_road, war_asset_id)
             for spot_road in raw_war.mstSpotRoad
+        ],
+        questSelections=[
+            await get_nice_war_quest_selection(
+                conn,
+                region,
+                quest_selection,
+                raw_war.mstWar,
+                raw_war.mstQuest,
+                raw_war.mstSpot,
+                lang,
+            )
+            for quest_selection in raw_war.mstWarQuestSelection
         ],
     )

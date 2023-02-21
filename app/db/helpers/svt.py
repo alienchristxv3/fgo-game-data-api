@@ -1,10 +1,11 @@
+from dataclasses import dataclass
 from typing import Iterable, Optional, Union
 
 from sqlalchemy import Table
 from sqlalchemy.exc import DBAPIError
 from sqlalchemy.ext.asyncio import AsyncConnection
 from sqlalchemy.sql import Join, and_, not_, or_, select, true
-from sqlalchemy.sql.elements import ClauseElement
+from sqlalchemy.sql._typing import _ColumnExpressionArgument
 
 from ...models.raw import (
     mstCv,
@@ -23,6 +24,7 @@ from ...schemas.gameenums import CondType, SvtType, VoiceCondType
 from ...schemas.raw import (
     GlobalNewMstSubtitle,
     MstSvt,
+    MstSvtLimitAdd,
     MstSvtScript,
     MstSvtVoice,
     MstVoicePlayCond,
@@ -39,42 +41,82 @@ async def get_all_equips(conn: AsyncConnection) -> list[MstSvt]:  # pragma: no c
 async def get_svt_id(conn: AsyncConnection, col_no: int) -> int:
     if col_no == 0:
         return 0
-    stmt = select(mstSvt.c.id).where(
-        and_(
-            mstSvt.c.collectionNo == col_no,
-            or_(
-                mstSvt.c.type == SvtType.HEROINE,
-                mstSvt.c.type == SvtType.NORMAL,
-                mstSvt.c.type == SvtType.ENEMY_COLLECTION_DETAIL,
-            ),
+    stmt = (
+        select(mstSvt.c.id)
+        .where(
+            and_(
+                mstSvt.c.collectionNo == col_no,
+                or_(
+                    mstSvt.c.type == SvtType.HEROINE,
+                    mstSvt.c.type == SvtType.NORMAL,
+                    mstSvt.c.type == SvtType.ENEMY_COLLECTION_DETAIL,
+                ),
+            )
         )
+        .limit(1)
     )
 
     try:
-        mstSvt_db = (await conn.execute(stmt)).fetchone()
+        mstSvt_db = (await conn.execute(stmt)).scalar()
     except DBAPIError:
         return col_no
 
     if mstSvt_db:
-        return int(mstSvt_db.id)
+        return int(mstSvt_db)
     return col_no
 
 
 async def get_ce_id(conn: AsyncConnection, col_no: int) -> int:
     if col_no == 0:
         return 0
-    stmt = select(mstSvt.c.id).where(
-        and_(mstSvt.c.collectionNo == col_no, mstSvt.c.type == SvtType.SERVANT_EQUIP)
+    stmt = (
+        select(mstSvt.c.id)
+        .where(
+            and_(
+                mstSvt.c.collectionNo == col_no, mstSvt.c.type == SvtType.SERVANT_EQUIP
+            )
+        )
+        .limit(1)
     )
 
     try:
-        mstSvt_db = (await conn.execute(stmt)).fetchone()
+        mstSvt_db = (await conn.execute(stmt)).scalar()
     except DBAPIError:
         return col_no
 
     if mstSvt_db:
-        return int(mstSvt_db.id)
+        return int(mstSvt_db)
     return col_no
+
+
+@dataclass
+class SvtLimit:
+    svt_id: int
+    limit: int
+
+
+async def get_svt_limit_add(
+    conn: AsyncConnection, svt_limits: Iterable[SvtLimit]
+) -> list[MstSvtLimitAdd]:
+    if not svt_limits:
+        return []
+
+    stmt = select(mstSvtLimitAdd).where(
+        or_(
+            *[
+                and_(
+                    mstSvtLimitAdd.c.svtId == svt_limit.svt_id,
+                    mstSvtLimitAdd.c.limitCount == svt_limit.limit,
+                )
+                for svt_limit in svt_limits
+            ]
+        )
+    )
+
+    return [
+        MstSvtLimitAdd.from_orm(db_row)
+        for db_row in (await conn.execute(stmt)).fetchall()
+    ]
 
 
 async def get_svt_script(
@@ -82,7 +124,7 @@ async def get_svt_script(
 ) -> list[MstSvtScript]:
     stmt = (
         select(mstSvtScript)
-        .where((mstSvtScript.c.id / 10).in_(svt_ids))
+        .where((mstSvtScript.c.id // 10).in_(set(svt_ids)))
         .order_by(mstSvtScript.c.id, mstSvtScript.c.form)
     )
     return [
@@ -170,7 +212,7 @@ async def get_svt_search(
     cv: Optional[str] = None,
 ) -> list[MstSvt]:
     from_clause: Union[Join, Table] = mstSvt
-    where_clause: list[ClauseElement] = [true()]
+    where_clause: list[_ColumnExpressionArgument[bool]] = [true()]
 
     if svt_type_ints:
         where_clause.append(mstSvt.c.type.in_(svt_type_ints))
@@ -221,7 +263,7 @@ async def get_svt_search(
             mstSvtVoice, mstSvtVoice.c.id == mstSvt.c.id
         )
 
-    or_voice_clause: list[ClauseElement] = []
+    or_voice_clause: list[_ColumnExpressionArgument[bool]] = []
     if cond_svt_value:
         or_voice_clause += [
             mstSvtVoice.c.scriptJson.contains(

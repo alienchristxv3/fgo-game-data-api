@@ -4,6 +4,9 @@
   "name": "女子高生ゴースト",
   "originalName": "女子高生ゴースト",
   "ruby": "-",
+  "battleName": "女子高生ゴースト",
+  "originalBattleName": "女子高生ゴースト",
+  "classId": 4,
   "className": "rider",
   "type": "enemy",
   "flag": "normal",
@@ -112,20 +115,30 @@
   },
   "cardDetails": {
     "weak": {
+      "hitsDistribution": [
+        16,
+        33,
+        51
+      ],
       "attackIndividuality": [
         {
           "id": 3000,
           "name": "attackPhysical"
         }
-      ]
+      ],
+      "attackType": "one"
     },
     "strength": {
+      "hitsDistribution": [
+        100
+      ],
       "attackIndividuality": [
         {
           "id": 3002,
           "name": "attackMagical"
         }
-      ]
+      ],
+      "attackType": "one"
     }
   },
   "atkBase": 604,
@@ -133,6 +146,7 @@
   "hpBase": 1094,
   "hpMax": 55267,
   "relateQuestIds": [],
+  "trialQuestIds": [],
   "growthCurve": 9999,
   "atkGrowth": [
     604,
@@ -546,6 +560,9 @@
       "icon": "https://assets.atlasacademy.io/GameData/JP/Servants/Commands/9100101/card_servant_np.png",
       "rank": "なし",
       "type": "",
+      "effectFlags": [
+        "support"
+      ],
       "npGain": {
         "buster": [
           0,

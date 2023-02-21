@@ -91,6 +91,7 @@
       ],
       "mstSvtSkill": [
         {
+          "script": {},
           "strengthStatus": 0,
           "svtId": 202100,
           "num": 1,
@@ -291,6 +292,7 @@
       ],
       "mstSvtSkill": [
         {
+          "script": {},
           "strengthStatus": 0,
           "svtId": 202100,
           "num": 2,
@@ -531,6 +533,7 @@
       ],
       "mstSvtSkill": [
         {
+          "script": {},
           "strengthStatus": 0,
           "svtId": 202100,
           "num": 3,
@@ -802,6 +805,7 @@
           ],
           "treaureDeviceId": 202100,
           "lv": 1,
+          "script": {},
           "gaugeCount": 1,
           "detailId": 202100,
           "tdPoint": 87,
@@ -857,6 +861,7 @@
           ],
           "treaureDeviceId": 202100,
           "lv": 2,
+          "script": {},
           "gaugeCount": 2,
           "detailId": 202100,
           "tdPoint": 87,
@@ -912,6 +917,7 @@
           ],
           "treaureDeviceId": 202100,
           "lv": 3,
+          "script": {},
           "gaugeCount": 2,
           "detailId": 202100,
           "tdPoint": 87,
@@ -967,6 +973,7 @@
           ],
           "treaureDeviceId": 202100,
           "lv": 4,
+          "script": {},
           "gaugeCount": 2,
           "detailId": 202100,
           "tdPoint": 87,
@@ -1022,6 +1029,7 @@
           ],
           "treaureDeviceId": 202100,
           "lv": 5,
+          "script": {},
           "gaugeCount": 3,
           "detailId": 202100,
           "tdPoint": 87,
@@ -1125,6 +1133,7 @@
           ],
           "treaureDeviceId": 202101,
           "lv": 1,
+          "script": {},
           "gaugeCount": 1,
           "detailId": 202101,
           "tdPoint": 87,
@@ -1180,6 +1189,7 @@
           ],
           "treaureDeviceId": 202101,
           "lv": 2,
+          "script": {},
           "gaugeCount": 2,
           "detailId": 202101,
           "tdPoint": 87,
@@ -1235,6 +1245,7 @@
           ],
           "treaureDeviceId": 202101,
           "lv": 3,
+          "script": {},
           "gaugeCount": 2,
           "detailId": 202101,
           "tdPoint": 87,
@@ -1290,6 +1301,7 @@
           ],
           "treaureDeviceId": 202101,
           "lv": 4,
+          "script": {},
           "gaugeCount": 2,
           "detailId": 202101,
           "tdPoint": 87,
@@ -1345,6 +1357,7 @@
           ],
           "treaureDeviceId": 202101,
           "lv": 5,
+          "script": {},
           "gaugeCount": 3,
           "detailId": 202101,
           "tdPoint": 87,
@@ -1448,6 +1461,7 @@
           ],
           "treaureDeviceId": 202102,
           "lv": 1,
+          "script": {},
           "gaugeCount": 1,
           "detailId": 202102,
           "tdPoint": 87,
@@ -1503,6 +1517,7 @@
           ],
           "treaureDeviceId": 202102,
           "lv": 2,
+          "script": {},
           "gaugeCount": 2,
           "detailId": 202102,
           "tdPoint": 87,
@@ -1558,6 +1573,7 @@
           ],
           "treaureDeviceId": 202102,
           "lv": 3,
+          "script": {},
           "gaugeCount": 2,
           "detailId": 202102,
           "tdPoint": 87,
@@ -1613,6 +1629,7 @@
           ],
           "treaureDeviceId": 202102,
           "lv": 4,
+          "script": {},
           "gaugeCount": 2,
           "detailId": 202102,
           "tdPoint": 87,
@@ -1668,6 +1685,7 @@
           ],
           "treaureDeviceId": 202102,
           "lv": 5,
+          "script": {},
           "gaugeCount": 3,
           "detailId": 202102,
           "tdPoint": 87,
@@ -1771,6 +1789,7 @@
           ],
           "treaureDeviceId": 202103,
           "lv": 1,
+          "script": {},
           "gaugeCount": 1,
           "detailId": 202103,
           "tdPoint": 87,
@@ -1826,6 +1845,7 @@
           ],
           "treaureDeviceId": 202103,
           "lv": 2,
+          "script": {},
           "gaugeCount": 2,
           "detailId": 202103,
           "tdPoint": 87,
@@ -1881,6 +1901,7 @@
           ],
           "treaureDeviceId": 202103,
           "lv": 3,
+          "script": {},
           "gaugeCount": 2,
           "detailId": 202103,
           "tdPoint": 87,
@@ -1936,6 +1957,7 @@
           ],
           "treaureDeviceId": 202103,
           "lv": 4,
+          "script": {},
           "gaugeCount": 2,
           "detailId": 202103,
           "tdPoint": 87,
@@ -1991,6 +2013,7 @@
           ],
           "treaureDeviceId": 202103,
           "lv": 5,
+          "script": {},
           "gaugeCount": 3,
           "detailId": 202103,
           "tdPoint": 87,
@@ -2012,7 +2035,10 @@
       ],
       "svtId": 202100,
       "idx": 8027301,
-      "limitCount": -1
+      "limitCount": -1,
+      "condType": 0,
+      "condId": 0,
+      "condNum": 0
     }
   ],
   "mstSvtCard": [
@@ -2153,6 +2179,7 @@
       "attackType": 1
     }
   ],
+  "mstSvtCardAdd": [],
   "mstSvtLimit": [
     {
       "weaponColor": 16777215,
@@ -3064,6 +3091,126 @@
       "lv": 100,
       "value": 12990,
       "createdAt": 946684800
+    },
+    {
+      "id": 4,
+      "lv": 101,
+      "value": 13000,
+      "createdAt": 946684800
+    },
+    {
+      "id": 4,
+      "lv": 102,
+      "value": 13010,
+      "createdAt": 946684800
+    },
+    {
+      "id": 4,
+      "lv": 103,
+      "value": 13020,
+      "createdAt": 946684800
+    },
+    {
+      "id": 4,
+      "lv": 104,
+      "value": 13030,
+      "createdAt": 946684800
+    },
+    {
+      "id": 4,
+      "lv": 105,
+      "value": 13040,
+      "createdAt": 946684800
+    },
+    {
+      "id": 4,
+      "lv": 106,
+      "value": 13050,
+      "createdAt": 946684800
+    },
+    {
+      "id": 4,
+      "lv": 107,
+      "value": 13060,
+      "createdAt": 946684800
+    },
+    {
+      "id": 4,
+      "lv": 108,
+      "value": 13070,
+      "createdAt": 946684800
+    },
+    {
+      "id": 4,
+      "lv": 109,
+      "value": 13080,
+      "createdAt": 946684800
+    },
+    {
+      "id": 4,
+      "lv": 110,
+      "value": 13090,
+      "createdAt": 946684800
+    },
+    {
+      "id": 4,
+      "lv": 111,
+      "value": 13100,
+      "createdAt": 946684800
+    },
+    {
+      "id": 4,
+      "lv": 112,
+      "value": 13110,
+      "createdAt": 946684800
+    },
+    {
+      "id": 4,
+      "lv": 113,
+      "value": 13120,
+      "createdAt": 946684800
+    },
+    {
+      "id": 4,
+      "lv": 114,
+      "value": 13130,
+      "createdAt": 946684800
+    },
+    {
+      "id": 4,
+      "lv": 115,
+      "value": 13140,
+      "createdAt": 946684800
+    },
+    {
+      "id": 4,
+      "lv": 116,
+      "value": 13150,
+      "createdAt": 946684800
+    },
+    {
+      "id": 4,
+      "lv": 117,
+      "value": 13160,
+      "createdAt": 946684800
+    },
+    {
+      "id": 4,
+      "lv": 118,
+      "value": 13170,
+      "createdAt": 946684800
+    },
+    {
+      "id": 4,
+      "lv": 119,
+      "value": 13171,
+      "createdAt": 946684800
+    },
+    {
+      "id": 4,
+      "lv": 120,
+      "value": 13172,
+      "createdAt": 946684800
     }
   ],
   "mstSvtLimitAdd": [],
@@ -3147,6 +3294,7 @@
       "condFriendshipRank": 5,
       "eventId": 80038,
       "flag": 0,
+      "commonReleaseId": 0,
       "startedAt": 1482415200,
       "endedAt": 1893456000
     },
@@ -3162,6 +3310,7 @@
       "condFriendshipRank": 6,
       "eventId": 80038,
       "flag": 0,
+      "commonReleaseId": 0,
       "startedAt": 1482415200,
       "endedAt": 1893456000
     },
@@ -3177,6 +3326,7 @@
       "condFriendshipRank": 7,
       "eventId": 80038,
       "flag": 0,
+      "commonReleaseId": 0,
       "startedAt": 1482415200,
       "endedAt": 1893456000
     },
@@ -3192,6 +3342,7 @@
       "condFriendshipRank": 8,
       "eventId": 80038,
       "flag": 0,
+      "commonReleaseId": 0,
       "startedAt": 1482415200,
       "endedAt": 1893456000
     },
@@ -3207,6 +3358,7 @@
       "condFriendshipRank": 9,
       "eventId": 80038,
       "flag": 0,
+      "commonReleaseId": 0,
       "startedAt": 1482415200,
       "endedAt": 1893456000
     },
@@ -3222,6 +3374,7 @@
       "condFriendshipRank": 10,
       "eventId": 80038,
       "flag": 0,
+      "commonReleaseId": 0,
       "startedAt": 1482415200,
       "endedAt": 1893456000
     },
@@ -3237,6 +3390,7 @@
       "condFriendshipRank": 0,
       "eventId": 80059,
       "flag": 0,
+      "commonReleaseId": 0,
       "startedAt": 1498759200,
       "endedAt": 1893456000
     },
@@ -3252,19 +3406,190 @@
       "condFriendshipRank": 0,
       "eventId": 80072,
       "flag": 0,
+      "commonReleaseId": 0,
       "startedAt": 1508018400,
       "endedAt": 1893456000
     }
   ],
-  "mstSvtAppendPassiveSkill": [],
-  "mstSvtAppendPassiveSkillUnlock": [],
-  "mstCombineAppendPassiveSkill": [],
+  "mstSvtAppendPassiveSkill": [
+    {
+      "svtId": 202100,
+      "num": 100,
+      "priority": 1,
+      "skillId": 3001000
+    },
+    {
+      "svtId": 202100,
+      "num": 101,
+      "priority": 1,
+      "skillId": 3002000
+    },
+    {
+      "svtId": 202100,
+      "num": 102,
+      "priority": 1,
+      "skillId": 3009000
+    }
+  ],
+  "mstSvtAppendPassiveSkillUnlock": [
+    {
+      "svtId": 202100,
+      "num": 100,
+      "itemIds": [
+        20210001
+      ],
+      "itemNums": [
+        120
+      ]
+    },
+    {
+      "svtId": 202100,
+      "num": 101,
+      "itemIds": [
+        20210001
+      ],
+      "itemNums": [
+        120
+      ]
+    },
+    {
+      "svtId": 202100,
+      "num": 102,
+      "itemIds": [
+        20210001
+      ],
+      "itemNums": [
+        120
+      ]
+    }
+  ],
+  "mstCombineAppendPassiveSkill": [
+    {
+      "svtId": 202100,
+      "num": 0,
+      "skillLv": 1,
+      "qp": 100000,
+      "itemIds": [
+        6002
+      ],
+      "itemNums": [
+        4
+      ]
+    },
+    {
+      "svtId": 202100,
+      "num": 0,
+      "skillLv": 2,
+      "qp": 200000,
+      "itemIds": [
+        6002
+      ],
+      "itemNums": [
+        10
+      ]
+    },
+    {
+      "svtId": 202100,
+      "num": 0,
+      "skillLv": 3,
+      "qp": 600000,
+      "itemIds": [
+        6102
+      ],
+      "itemNums": [
+        4
+      ]
+    },
+    {
+      "svtId": 202100,
+      "num": 0,
+      "skillLv": 4,
+      "qp": 800000,
+      "itemIds": [
+        6102,
+        6503
+      ],
+      "itemNums": [
+        10,
+        12
+      ]
+    },
+    {
+      "svtId": 202100,
+      "num": 0,
+      "skillLv": 5,
+      "qp": 2000000,
+      "itemIds": [
+        6202,
+        6503
+      ],
+      "itemNums": [
+        4,
+        24
+      ]
+    },
+    {
+      "svtId": 202100,
+      "num": 0,
+      "skillLv": 6,
+      "qp": 2500000,
+      "itemIds": [
+        6202,
+        6521
+      ],
+      "itemNums": [
+        10,
+        3
+      ]
+    },
+    {
+      "svtId": 202100,
+      "num": 0,
+      "skillLv": 7,
+      "qp": 5000000,
+      "itemIds": [
+        6521,
+        6541
+      ],
+      "itemNums": [
+        5,
+        5
+      ]
+    },
+    {
+      "svtId": 202100,
+      "num": 0,
+      "skillLv": 8,
+      "qp": 6000000,
+      "itemIds": [
+        6541,
+        6548
+      ],
+      "itemNums": [
+        15,
+        8
+      ]
+    },
+    {
+      "svtId": 202100,
+      "num": 0,
+      "skillLv": 9,
+      "qp": 10000000,
+      "itemIds": [
+        6999
+      ],
+      "itemNums": [
+        1
+      ]
+    }
+  ],
   "mstItem": [
     {
       "individuality": [],
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6531,
       "name": "Mysterious Divine Wine",
       "detail": "\"Skill Up & Ascension Material\"\nThis precious wine was brewed over a long period of time to be offered to the gods. It can intoxicate even monsters and demonic beasts.",
@@ -3275,19 +3600,24 @@
       "value": 0,
       "sellQp": 2500,
       "isSell": true,
-      "priority": 243,
+      "priority": 245,
       "dropPriority": 8505,
       "startedAt": 946684800,
       "endedAt": 1910908800,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": true,
-      "useCostume": true
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [],
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6532,
       "name": "Refined Magatama",
       "detail": "\"Skill Up & Ascension Material\"\nA Magatama that possesses faint life energy.\nA Magatama is said to be shaped like a crescent moon, a fetus, or even a soul. However, its true purpose is veiled in mystery.",
@@ -3298,19 +3628,24 @@
       "value": 0,
       "sellQp": 2500,
       "isSell": true,
-      "priority": 222,
+      "priority": 224,
       "dropPriority": 8310,
       "startedAt": 946684800,
       "endedAt": 1910908800,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": true,
-      "useCostume": true
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [],
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6501,
       "name": "Phoenix Feather",
       "detail": "\"Skill Up & Ascension Material\"\nFeather from a sacred bird of the Orient.",
@@ -3321,19 +3656,24 @@
       "value": 0,
       "sellQp": 2500,
       "isSell": true,
-      "priority": 214,
+      "priority": 216,
       "dropPriority": 8306,
       "startedAt": 946684800,
       "endedAt": 1910908800,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": true,
-      "useCostume": true
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [],
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6202,
       "name": "Secret Gem of Archer",
       "detail": "\"Skill Up Material\"\nA bright stone glimmering with the immense power of an Archer.",
@@ -3349,14 +3689,75 @@
       "startedAt": 946684800,
       "endedAt": 1910908800,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": false,
-      "useCostume": false
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [],
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
+      "id": 6503,
+      "name": "Proof of Hero",
+      "detail": "\"Skill Up & Ascension Material\"\nProof that you've been acknowledged as a hero.\nMany possess it, but they aren't \nconscious of it so they forget.",
+      "imageId": 6503,
+      "bgImageId": 1,
+      "type": 11,
+      "unit": "",
+      "value": 0,
+      "sellQp": 2500,
+      "isSell": true,
+      "priority": 200,
+      "dropPriority": 8100,
+      "startedAt": 946684800,
+      "endedAt": 1910908800,
+      "useSkill": true,
+      "useAppendSkill": true,
+      "useAscension": true,
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
+    },
+    {
+      "individuality": [],
+      "script": {},
+      "eventId": 0,
+      "eventGroupId": 0,
+      "isPresent": false,
+      "id": 6541,
+      "name": "Arrowhead of Malice",
+      "detail": "\"Skill Up & Ascension Material\"\nAn arrowhead that has bathed in blood, sin, and corruption. It is said to carry a curse that invites disaster.",
+      "imageId": 6541,
+      "bgImageId": 2,
+      "type": 11,
+      "unit": "",
+      "value": 0,
+      "sellQp": 2500,
+      "isSell": true,
+      "priority": 229,
+      "dropPriority": 8315,
+      "startedAt": 946684800,
+      "endedAt": 1910908800,
+      "useSkill": true,
+      "useAppendSkill": true,
+      "useAscension": true,
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
+    },
+    {
+      "individuality": [],
+      "script": {},
+      "eventId": 0,
+      "eventGroupId": 0,
+      "isPresent": false,
       "id": 6513,
       "name": "Meteor Horseshoe",
       "detail": "\"Skill Up & Ascension Material\"\nA tough horseshoe made of metal from a meteor.\nEven if the elements are the same, since it wasn't created on Earth, it has a special role.",
@@ -3367,19 +3768,24 @@
       "value": 0,
       "sellQp": 2500,
       "isSell": true,
-      "priority": 218,
+      "priority": 220,
       "dropPriority": 8305,
       "startedAt": 946684800,
       "endedAt": 1910908800,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": true,
-      "useCostume": true
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [],
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6002,
       "name": "Gem of Archer",
       "detail": "\"Skill Up Material\"\nA bright stone glimmering with the power of an Archer.",
@@ -3395,14 +3801,75 @@
       "startedAt": 946684800,
       "endedAt": 1910908800,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": false,
-      "useCostume": false
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [],
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
+      "id": 20210001,
+      "name": "Servant Coin",
+      "detail": "\"Servant Enhancement Material\"\n A shard of a Servant's Spirit Origin",
+      "imageId": 202100,
+      "bgImageId": 2,
+      "type": 29,
+      "unit": "",
+      "value": 202100,
+      "sellQp": -1,
+      "isSell": false,
+      "priority": 57,
+      "dropPriority": 1003,
+      "startedAt": 946684800,
+      "endedAt": 1910908800,
+      "useSkill": false,
+      "useAppendSkill": false,
+      "useAscension": false,
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
+    },
+    {
+      "individuality": [],
+      "script": {},
+      "eventId": 0,
+      "eventGroupId": 0,
+      "isPresent": false,
+      "id": 6548,
+      "name": "Flaming Oni Lantern Plant",
+      "detail": "\"Skill Up & Ascension Material\"\nA lantern plant pod that is so hot to the touch it feels as though it were enveloped in the very flames of hell.",
+      "imageId": 6548,
+      "bgImageId": 3,
+      "type": 11,
+      "unit": "",
+      "value": 0,
+      "sellQp": 2500,
+      "isSell": true,
+      "priority": 251,
+      "dropPriority": 8509,
+      "startedAt": 946684800,
+      "endedAt": 1910908800,
+      "useSkill": true,
+      "useAppendSkill": true,
+      "useAscension": true,
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
+    },
+    {
+      "individuality": [],
+      "script": {},
+      "eventId": 0,
+      "eventGroupId": 0,
+      "isPresent": false,
       "id": 6102,
       "name": "Magic Gem of Archer",
       "detail": "\"Skill Up Material\"\nA bright stone glimmering with the great power of an Archer.",
@@ -3418,8 +3885,12 @@
       "startedAt": 946684800,
       "endedAt": 1910908800,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": false,
-      "useCostume": false
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [],
@@ -3428,6 +3899,7 @@
       },
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6999,
       "name": "Crystallized Lore",
       "detail": "\"Skill Up & Ascension Material\"\nA highly pure crystal of magic created\nwhen human history crosses a stream of Mana.\nIt can be said that it is the ingredient for materializing Heroic Spirits.",
@@ -3443,14 +3915,19 @@
       "startedAt": 946684800,
       "endedAt": 1910908800,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": false,
-      "useCostume": false
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [],
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6520,
       "name": "Tearstone of Blood",
       "detail": "\"Skill Up & Ascension Material\"\nThe crystal of the tear shed by a giant eyeball-like creature when it dies.\nA strong curse is residing within this crystal.",
@@ -3461,19 +3938,24 @@
       "value": 0,
       "sellQp": 2500,
       "isSell": true,
-      "priority": 237,
+      "priority": 239,
       "dropPriority": 8402,
       "startedAt": 946684800,
       "endedAt": 1910908800,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": true,
-      "useCostume": true
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [],
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6521,
       "name": "Black Beast Grease",
       "detail": "\"Skill Up & Ascension Material\"\nA fatty tissue collected from the skin of a soul-eating beast.\nBy repeatedly refining it through distillation and purification, it turns into a high-quality magical resource.",
@@ -3484,19 +3966,24 @@
       "value": 0,
       "sellQp": 2500,
       "isSell": true,
-      "priority": 238,
+      "priority": 240,
       "dropPriority": 8403,
       "startedAt": 946684800,
       "endedAt": 1910908800,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": true,
-      "useCostume": true
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [],
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 7002,
       "name": "Archer Piece",
       "detail": "\"Ascension Material\"\nA piece signifying the Archer class.",
@@ -3512,14 +3999,19 @@
       "startedAt": 946684800,
       "endedAt": 1910908800,
       "useSkill": false,
+      "useAppendSkill": false,
       "useAscension": true,
-      "useCostume": false
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [],
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 7102,
       "name": "Archer Monument",
       "detail": "\"Ascension Material\"\nA monument in glory of the Archer class.",
@@ -3535,8 +4027,12 @@
       "startedAt": 946684800,
       "endedAt": 1910908800,
       "useSkill": false,
+      "useAppendSkill": false,
       "useAscension": true,
-      "useCostume": false
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [],
@@ -3545,6 +4041,7 @@
       },
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 7999,
       "name": "Holy Grail",
       "detail": "A container said to grant any wish.\nCreated by the Third Magic, it is said \nthat it can materialize those that do not possess forms. ",
@@ -3560,11 +4057,20 @@
       "startedAt": 946684800,
       "endedAt": 1910908800,
       "useSkill": false,
+      "useAppendSkill": false,
       "useAscension": false,
-      "useCostume": false
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     }
   ],
   "mstCommonRelease": [],
+  "mstSvtCoin": {
+    "svtId": 202100,
+    "summonNum": 30,
+    "itemId": 20210001
+  },
   "mstSvtExp": [
     {
       "type": 14,
@@ -4169,8 +4675,128 @@
     {
       "type": 14,
       "lv": 100,
-      "exp": 21988000,
+      "exp": 40623000,
       "curve": 1253
+    },
+    {
+      "type": 14,
+      "lv": 101,
+      "exp": 60934500,
+      "curve": 1265
+    },
+    {
+      "type": 14,
+      "lv": 102,
+      "exp": 81246000,
+      "curve": 1278
+    },
+    {
+      "type": 14,
+      "lv": 103,
+      "exp": 101557500,
+      "curve": 1291
+    },
+    {
+      "type": 14,
+      "lv": 104,
+      "exp": 121869000,
+      "curve": 1303
+    },
+    {
+      "type": 14,
+      "lv": 105,
+      "exp": 142180500,
+      "curve": 1316
+    },
+    {
+      "type": 14,
+      "lv": 106,
+      "exp": 162492000,
+      "curve": 1329
+    },
+    {
+      "type": 14,
+      "lv": 107,
+      "exp": 182803500,
+      "curve": 1341
+    },
+    {
+      "type": 14,
+      "lv": 108,
+      "exp": 203115000,
+      "curve": 1354
+    },
+    {
+      "type": 14,
+      "lv": 109,
+      "exp": 223426500,
+      "curve": 1367
+    },
+    {
+      "type": 14,
+      "lv": 110,
+      "exp": 243738000,
+      "curve": 1379
+    },
+    {
+      "type": 14,
+      "lv": 111,
+      "exp": 264049500,
+      "curve": 1392
+    },
+    {
+      "type": 14,
+      "lv": 112,
+      "exp": 284361000,
+      "curve": 1405
+    },
+    {
+      "type": 14,
+      "lv": 113,
+      "exp": 304672500,
+      "curve": 1417
+    },
+    {
+      "type": 14,
+      "lv": 114,
+      "exp": 324984000,
+      "curve": 1430
+    },
+    {
+      "type": 14,
+      "lv": 115,
+      "exp": 345295500,
+      "curve": 1443
+    },
+    {
+      "type": 14,
+      "lv": 116,
+      "exp": 365607000,
+      "curve": 1455
+    },
+    {
+      "type": 14,
+      "lv": 117,
+      "exp": 385918500,
+      "curve": 1468
+    },
+    {
+      "type": 14,
+      "lv": 118,
+      "exp": 406230000,
+      "curve": 1481
+    },
+    {
+      "type": 14,
+      "lv": 119,
+      "exp": 426541500,
+      "curve": 1493
+    },
+    {
+      "type": 14,
+      "lv": 120,
+      "exp": 426541500,
+      "curve": 1506
     }
   ],
   "mstFriendship": [

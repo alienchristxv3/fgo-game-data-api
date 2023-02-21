@@ -61,10 +61,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002801.png",
           "background": "gold",
           "priority": 94002803,
-          "dropPriority": 2003
+          "dropPriority": 2003,
+          "itemSelects": []
         },
         "amount": 400
       },
+      "consumes": [],
       "purchaseType": "costumeRelease",
       "targetIds": [
         110030011
@@ -72,8 +74,10 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 1,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
+      "image": "https://assets.atlasacademy.io/GameData/NA/Items/80030.png",
       "openedAt": 1578628800,
       "closedAt": 1580097599
     },
@@ -107,10 +111,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002801.png",
           "background": "gold",
           "priority": 94002803,
-          "dropPriority": 2003
+          "dropPriority": 2003,
+          "itemSelects": []
         },
         "amount": 200
       },
+      "consumes": [],
       "purchaseType": "servant",
       "targetIds": [
         9401350
@@ -118,6 +124,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 2,
+      "gifts": [],
       "defaultLv": 1,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -153,10 +160,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002801.png",
           "background": "gold",
           "priority": 94002803,
-          "dropPriority": 2003
+          "dropPriority": 2003,
+          "itemSelects": []
         },
         "amount": 30
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6517
@@ -164,6 +173,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -199,10 +209,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002801.png",
           "background": "gold",
           "priority": 94002803,
-          "dropPriority": 2003
+          "dropPriority": 2003,
+          "itemSelects": []
         },
         "amount": 30
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6518
@@ -210,6 +222,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -245,10 +258,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002801.png",
           "background": "gold",
           "priority": 94002803,
-          "dropPriority": 2003
+          "dropPriority": 2003,
+          "itemSelects": []
         },
         "amount": 20
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6520
@@ -256,6 +271,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -291,10 +307,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002801.png",
           "background": "gold",
           "priority": 94002803,
-          "dropPriority": 2003
+          "dropPriority": 2003,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6201
@@ -302,6 +320,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -337,10 +356,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002801.png",
           "background": "gold",
           "priority": 94002803,
-          "dropPriority": 2003
+          "dropPriority": 2003,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6202
@@ -348,6 +369,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -383,10 +405,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002801.png",
           "background": "gold",
           "priority": 94002803,
-          "dropPriority": 2003
+          "dropPriority": 2003,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6203
@@ -394,6 +418,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -429,10 +454,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002801.png",
           "background": "gold",
           "priority": 94002803,
-          "dropPriority": 2003
+          "dropPriority": 2003,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6204
@@ -440,6 +467,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -475,10 +503,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002801.png",
           "background": "gold",
           "priority": 94002803,
-          "dropPriority": 2003
+          "dropPriority": 2003,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6205
@@ -486,6 +516,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -521,10 +552,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002801.png",
           "background": "gold",
           "priority": 94002803,
-          "dropPriority": 2003
+          "dropPriority": 2003,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6206
@@ -532,6 +565,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -567,10 +601,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002801.png",
           "background": "gold",
           "priority": 94002803,
-          "dropPriority": 2003
+          "dropPriority": 2003,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6207
@@ -578,6 +614,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -613,10 +650,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002801.png",
           "background": "gold",
           "priority": 94002803,
-          "dropPriority": 2003
+          "dropPriority": 2003,
+          "itemSelects": []
         },
         "amount": 1
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         3
@@ -624,6 +663,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 500,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -659,10 +699,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002801.png",
           "background": "gold",
           "priority": 94002803,
-          "dropPriority": 2003
+          "dropPriority": 2003,
+          "itemSelects": []
         },
         "amount": 1
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         1
@@ -670,6 +712,7 @@
       "itemSet": [],
       "setNum": 10000,
       "limitNum": 0,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -705,10 +748,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002802.png",
           "background": "silver",
           "priority": 94002802,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 200
       },
+      "consumes": [],
       "purchaseType": "servant",
       "targetIds": [
         9401350
@@ -716,6 +761,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 1,
+      "gifts": [],
       "defaultLv": 1,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -751,10 +797,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002802.png",
           "background": "silver",
           "priority": 94002802,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 20
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6521
@@ -762,6 +810,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -797,10 +846,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002802.png",
           "background": "silver",
           "priority": 94002802,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 20
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6507
@@ -808,6 +859,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -843,10 +895,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002802.png",
           "background": "silver",
           "priority": 94002802,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 20
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6501
@@ -854,6 +908,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -889,10 +944,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002802.png",
           "background": "silver",
           "priority": 94002802,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6101
@@ -900,6 +957,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -935,10 +993,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002802.png",
           "background": "silver",
           "priority": 94002802,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6102
@@ -946,6 +1006,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -981,10 +1042,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002802.png",
           "background": "silver",
           "priority": 94002802,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6103
@@ -992,6 +1055,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -1027,10 +1091,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002802.png",
           "background": "silver",
           "priority": 94002802,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6104
@@ -1038,6 +1104,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -1073,10 +1140,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002802.png",
           "background": "silver",
           "priority": 94002802,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6105
@@ -1084,6 +1153,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -1119,10 +1189,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002802.png",
           "background": "silver",
           "priority": 94002802,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6106
@@ -1130,6 +1202,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -1165,10 +1238,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002802.png",
           "background": "silver",
           "priority": 94002802,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6107
@@ -1176,6 +1251,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -1211,10 +1287,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002802.png",
           "background": "silver",
           "priority": 94002802,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         94019601
@@ -1222,6 +1300,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 0,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -1257,10 +1336,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002803.png",
           "background": "bronze",
           "priority": 94002801,
-          "dropPriority": 2001
+          "dropPriority": 2001,
+          "itemSelects": []
         },
         "amount": 200
       },
+      "consumes": [],
       "purchaseType": "servant",
       "targetIds": [
         9401350
@@ -1268,6 +1349,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 1,
+      "gifts": [],
       "defaultLv": 1,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -1303,10 +1385,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002803.png",
           "background": "bronze",
           "priority": 94002801,
-          "dropPriority": 2001
+          "dropPriority": 2001,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "servant",
       "targetIds": [
         9570300
@@ -1314,6 +1398,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 1,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -1349,10 +1434,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002803.png",
           "background": "bronze",
           "priority": 94002801,
-          "dropPriority": 2001
+          "dropPriority": 2001,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "servant",
       "targetIds": [
         9670300
@@ -1360,6 +1447,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 1,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -1395,10 +1483,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002803.png",
           "background": "bronze",
           "priority": 94002801,
-          "dropPriority": 2001
+          "dropPriority": 2001,
+          "itemSelects": []
         },
         "amount": 20
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6519
@@ -1406,6 +1496,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -1441,10 +1532,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002803.png",
           "background": "bronze",
           "priority": 94002801,
-          "dropPriority": 2001
+          "dropPriority": 2001,
+          "itemSelects": []
         },
         "amount": 15
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6508
@@ -1452,6 +1545,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -1487,10 +1581,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002803.png",
           "background": "bronze",
           "priority": 94002801,
-          "dropPriority": 2001
+          "dropPriority": 2001,
+          "itemSelects": []
         },
         "amount": 15
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6514
@@ -1498,6 +1594,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -1533,10 +1630,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002803.png",
           "background": "bronze",
           "priority": 94002801,
-          "dropPriority": 2001
+          "dropPriority": 2001,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6001
@@ -1544,6 +1643,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -1579,10 +1679,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002803.png",
           "background": "bronze",
           "priority": 94002801,
-          "dropPriority": 2001
+          "dropPriority": 2001,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6002
@@ -1590,6 +1692,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -1625,10 +1728,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002803.png",
           "background": "bronze",
           "priority": 94002801,
-          "dropPriority": 2001
+          "dropPriority": 2001,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6003
@@ -1636,6 +1741,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -1671,10 +1777,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002803.png",
           "background": "bronze",
           "priority": 94002801,
-          "dropPriority": 2001
+          "dropPriority": 2001,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6004
@@ -1682,6 +1790,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -1717,10 +1826,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002803.png",
           "background": "bronze",
           "priority": 94002801,
-          "dropPriority": 2001
+          "dropPriority": 2001,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6005
@@ -1728,6 +1839,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -1763,10 +1875,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002803.png",
           "background": "bronze",
           "priority": 94002801,
-          "dropPriority": 2001
+          "dropPriority": 2001,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6006
@@ -1774,6 +1888,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -1809,10 +1924,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002803.png",
           "background": "bronze",
           "priority": 94002801,
-          "dropPriority": 2001
+          "dropPriority": 2001,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6007
@@ -1820,6 +1937,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -1855,10 +1973,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002803.png",
           "background": "bronze",
           "priority": 94002801,
-          "dropPriority": 2001
+          "dropPriority": 2001,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         94019602
@@ -1866,6 +1986,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 0,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1578628800,
@@ -2003,6 +2124,7 @@
   "pointGroups": [],
   "pointBuffs": [],
   "missions": [],
+  "randomMissions": [],
   "towers": [],
   "lotteries": [
     {
@@ -2034,7 +2156,8 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002804.png",
           "background": "silver",
           "priority": 94019604,
-          "dropPriority": 2005
+          "dropPriority": 2005,
+          "itemSelects": []
         },
         "amount": 2
       },
@@ -2053,7 +2176,8 @@
               "type": "servant",
               "objectId": 9401370,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -2075,7 +2199,8 @@
               "type": "item",
               "objectId": 100,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -2097,7 +2222,8 @@
               "type": "item",
               "objectId": 101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -2119,7 +2245,8 @@
               "type": "item",
               "objectId": 102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 3,
@@ -2141,7 +2268,8 @@
               "type": "item",
               "objectId": 6513,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -2163,7 +2291,8 @@
               "type": "item",
               "objectId": 6515,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -2185,7 +2314,8 @@
               "type": "item",
               "objectId": 6512,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -2207,7 +2337,8 @@
               "type": "item",
               "objectId": 6503,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -2229,7 +2360,8 @@
               "type": "item",
               "objectId": 7101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -2251,7 +2383,8 @@
               "type": "item",
               "objectId": 7102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -2273,7 +2406,8 @@
               "type": "item",
               "objectId": 7103,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -2295,7 +2429,8 @@
               "type": "item",
               "objectId": 7001,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -2317,7 +2452,8 @@
               "type": "item",
               "objectId": 7002,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -2339,7 +2475,8 @@
               "type": "item",
               "objectId": 7003,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -2361,7 +2498,8 @@
               "type": "servant",
               "objectId": 9770400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 30,
@@ -2383,7 +2521,8 @@
               "type": "servant",
               "objectId": 9770300,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 15,
@@ -2405,7 +2544,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -2427,7 +2567,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 2
+              "num": 2,
+              "giftAdds": []
             }
           ],
           "maxNum": 5,
@@ -2449,7 +2590,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -2471,7 +2613,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 500000
+              "num": 500000,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -2493,7 +2636,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 100000
+              "num": 100000,
+              "giftAdds": []
             }
           ],
           "maxNum": 10,
@@ -2515,7 +2659,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 50000
+              "num": 50000,
+              "giftAdds": []
             }
           ],
           "maxNum": 20,
@@ -2537,7 +2682,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 30000
+              "num": 30000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -2559,7 +2705,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 10000
+              "num": 10000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -2581,7 +2728,8 @@
               "type": "servant",
               "objectId": 9401370,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -2603,7 +2751,8 @@
               "type": "item",
               "objectId": 100,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -2625,7 +2774,8 @@
               "type": "item",
               "objectId": 101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -2647,7 +2797,8 @@
               "type": "item",
               "objectId": 102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 3,
@@ -2669,7 +2820,8 @@
               "type": "item",
               "objectId": 6513,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -2691,7 +2843,8 @@
               "type": "item",
               "objectId": 6515,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -2713,7 +2866,8 @@
               "type": "item",
               "objectId": 6512,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -2735,7 +2889,8 @@
               "type": "item",
               "objectId": 6503,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -2757,7 +2912,8 @@
               "type": "item",
               "objectId": 7101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -2779,7 +2935,8 @@
               "type": "item",
               "objectId": 7102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -2801,7 +2958,8 @@
               "type": "item",
               "objectId": 7103,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -2823,7 +2981,8 @@
               "type": "item",
               "objectId": 7001,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -2845,7 +3004,8 @@
               "type": "item",
               "objectId": 7002,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -2867,7 +3027,8 @@
               "type": "item",
               "objectId": 7003,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -2889,7 +3050,8 @@
               "type": "servant",
               "objectId": 9770400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 30,
@@ -2911,7 +3073,8 @@
               "type": "servant",
               "objectId": 9770300,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 15,
@@ -2933,7 +3096,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -2955,7 +3119,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 2
+              "num": 2,
+              "giftAdds": []
             }
           ],
           "maxNum": 5,
@@ -2977,7 +3142,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -2999,7 +3165,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 500000
+              "num": 500000,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -3021,7 +3188,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 100000
+              "num": 100000,
+              "giftAdds": []
             }
           ],
           "maxNum": 10,
@@ -3043,7 +3211,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 50000
+              "num": 50000,
+              "giftAdds": []
             }
           ],
           "maxNum": 20,
@@ -3065,7 +3234,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 30000
+              "num": 30000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -3087,7 +3257,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 10000
+              "num": 10000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -3109,7 +3280,8 @@
               "type": "servant",
               "objectId": 9401370,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -3131,7 +3303,8 @@
               "type": "item",
               "objectId": 100,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -3153,7 +3326,8 @@
               "type": "item",
               "objectId": 101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -3175,7 +3349,8 @@
               "type": "item",
               "objectId": 102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 3,
@@ -3197,7 +3372,8 @@
               "type": "item",
               "objectId": 6513,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -3219,7 +3395,8 @@
               "type": "item",
               "objectId": 6515,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -3241,7 +3418,8 @@
               "type": "item",
               "objectId": 6512,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -3263,7 +3441,8 @@
               "type": "item",
               "objectId": 6503,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -3285,7 +3464,8 @@
               "type": "item",
               "objectId": 7101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -3307,7 +3487,8 @@
               "type": "item",
               "objectId": 7102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -3329,7 +3510,8 @@
               "type": "item",
               "objectId": 7103,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -3351,7 +3533,8 @@
               "type": "item",
               "objectId": 7001,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -3373,7 +3556,8 @@
               "type": "item",
               "objectId": 7002,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -3395,7 +3579,8 @@
               "type": "item",
               "objectId": 7003,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -3417,7 +3602,8 @@
               "type": "servant",
               "objectId": 9770400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 30,
@@ -3439,7 +3625,8 @@
               "type": "servant",
               "objectId": 9770300,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 15,
@@ -3461,7 +3648,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -3483,7 +3671,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 2
+              "num": 2,
+              "giftAdds": []
             }
           ],
           "maxNum": 5,
@@ -3505,7 +3694,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -3527,7 +3717,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 500000
+              "num": 500000,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -3549,7 +3740,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 100000
+              "num": 100000,
+              "giftAdds": []
             }
           ],
           "maxNum": 10,
@@ -3571,7 +3763,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 50000
+              "num": 50000,
+              "giftAdds": []
             }
           ],
           "maxNum": 20,
@@ -3593,7 +3786,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 30000
+              "num": 30000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -3615,7 +3809,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 10000
+              "num": 10000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -3637,7 +3832,8 @@
               "type": "servant",
               "objectId": 9401370,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -3659,7 +3855,8 @@
               "type": "item",
               "objectId": 100,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -3681,7 +3878,8 @@
               "type": "item",
               "objectId": 101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -3703,7 +3901,8 @@
               "type": "item",
               "objectId": 102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 3,
@@ -3725,7 +3924,8 @@
               "type": "item",
               "objectId": 6513,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -3747,7 +3947,8 @@
               "type": "item",
               "objectId": 6515,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -3769,7 +3970,8 @@
               "type": "item",
               "objectId": 6512,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -3791,7 +3993,8 @@
               "type": "item",
               "objectId": 6503,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -3813,7 +4016,8 @@
               "type": "item",
               "objectId": 7101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -3835,7 +4039,8 @@
               "type": "item",
               "objectId": 7102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -3857,7 +4062,8 @@
               "type": "item",
               "objectId": 7103,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -3879,7 +4085,8 @@
               "type": "item",
               "objectId": 7001,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -3901,7 +4108,8 @@
               "type": "item",
               "objectId": 7002,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -3923,7 +4131,8 @@
               "type": "item",
               "objectId": 7003,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -3945,7 +4154,8 @@
               "type": "servant",
               "objectId": 9770400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 30,
@@ -3967,7 +4177,8 @@
               "type": "servant",
               "objectId": 9770300,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 15,
@@ -3989,7 +4200,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -4011,7 +4223,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 2
+              "num": 2,
+              "giftAdds": []
             }
           ],
           "maxNum": 5,
@@ -4033,7 +4246,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -4055,7 +4269,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 500000
+              "num": 500000,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -4077,7 +4292,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 100000
+              "num": 100000,
+              "giftAdds": []
             }
           ],
           "maxNum": 10,
@@ -4099,7 +4315,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 50000
+              "num": 50000,
+              "giftAdds": []
             }
           ],
           "maxNum": 20,
@@ -4121,7 +4338,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 30000
+              "num": 30000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -4143,7 +4361,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 10000
+              "num": 10000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -4165,7 +4384,8 @@
               "type": "servant",
               "objectId": 9401370,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -4187,7 +4407,8 @@
               "type": "item",
               "objectId": 100,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -4209,7 +4430,8 @@
               "type": "item",
               "objectId": 101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -4231,7 +4453,8 @@
               "type": "item",
               "objectId": 102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 3,
@@ -4253,7 +4476,8 @@
               "type": "item",
               "objectId": 6513,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -4275,7 +4499,8 @@
               "type": "item",
               "objectId": 6515,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -4297,7 +4522,8 @@
               "type": "item",
               "objectId": 6512,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -4319,7 +4545,8 @@
               "type": "item",
               "objectId": 6503,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -4341,7 +4568,8 @@
               "type": "item",
               "objectId": 7101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -4363,7 +4591,8 @@
               "type": "item",
               "objectId": 7102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -4385,7 +4614,8 @@
               "type": "item",
               "objectId": 7103,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -4407,7 +4637,8 @@
               "type": "item",
               "objectId": 7001,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -4429,7 +4660,8 @@
               "type": "item",
               "objectId": 7002,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -4451,7 +4683,8 @@
               "type": "item",
               "objectId": 7003,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -4473,7 +4706,8 @@
               "type": "servant",
               "objectId": 9770400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 30,
@@ -4495,7 +4729,8 @@
               "type": "servant",
               "objectId": 9770300,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 15,
@@ -4517,7 +4752,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -4539,7 +4775,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 2
+              "num": 2,
+              "giftAdds": []
             }
           ],
           "maxNum": 5,
@@ -4561,7 +4798,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -4583,7 +4821,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 500000
+              "num": 500000,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -4605,7 +4844,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 100000
+              "num": 100000,
+              "giftAdds": []
             }
           ],
           "maxNum": 10,
@@ -4627,7 +4867,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 50000
+              "num": 50000,
+              "giftAdds": []
             }
           ],
           "maxNum": 20,
@@ -4649,7 +4890,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 30000
+              "num": 30000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -4671,7 +4913,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 10000
+              "num": 10000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -4693,7 +4936,8 @@
               "type": "item",
               "objectId": 6999,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -4715,7 +4959,8 @@
               "type": "item",
               "objectId": 100,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -4737,7 +4982,8 @@
               "type": "item",
               "objectId": 101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -4759,7 +5005,8 @@
               "type": "item",
               "objectId": 102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 3,
@@ -4781,7 +5028,8 @@
               "type": "item",
               "objectId": 6513,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -4803,7 +5051,8 @@
               "type": "item",
               "objectId": 6515,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -4825,7 +5074,8 @@
               "type": "item",
               "objectId": 6512,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -4847,7 +5097,8 @@
               "type": "item",
               "objectId": 6503,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -4869,7 +5120,8 @@
               "type": "item",
               "objectId": 7101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -4891,7 +5143,8 @@
               "type": "item",
               "objectId": 7102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -4913,7 +5166,8 @@
               "type": "item",
               "objectId": 7103,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -4935,7 +5189,8 @@
               "type": "item",
               "objectId": 7001,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -4957,7 +5212,8 @@
               "type": "item",
               "objectId": 7002,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -4979,7 +5235,8 @@
               "type": "item",
               "objectId": 7003,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -5001,7 +5258,8 @@
               "type": "servant",
               "objectId": 9770400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 30,
@@ -5023,7 +5281,8 @@
               "type": "servant",
               "objectId": 9770300,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 15,
@@ -5045,7 +5304,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -5067,7 +5327,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 2
+              "num": 2,
+              "giftAdds": []
             }
           ],
           "maxNum": 5,
@@ -5089,7 +5350,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -5111,7 +5373,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 500000
+              "num": 500000,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -5133,7 +5396,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 100000
+              "num": 100000,
+              "giftAdds": []
             }
           ],
           "maxNum": 10,
@@ -5155,7 +5419,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 50000
+              "num": 50000,
+              "giftAdds": []
             }
           ],
           "maxNum": 20,
@@ -5177,7 +5442,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 30000
+              "num": 30000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -5199,7 +5465,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 10000
+              "num": 10000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -5221,7 +5488,8 @@
               "type": "servant",
               "objectId": 9570400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -5243,7 +5511,8 @@
               "type": "item",
               "objectId": 100,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -5265,7 +5534,8 @@
               "type": "item",
               "objectId": 101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -5287,7 +5557,8 @@
               "type": "item",
               "objectId": 102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 3,
@@ -5309,7 +5580,8 @@
               "type": "item",
               "objectId": 6513,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -5331,7 +5603,8 @@
               "type": "item",
               "objectId": 6515,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -5353,7 +5626,8 @@
               "type": "item",
               "objectId": 6512,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -5375,7 +5649,8 @@
               "type": "item",
               "objectId": 6503,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -5397,7 +5672,8 @@
               "type": "item",
               "objectId": 7101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -5419,7 +5695,8 @@
               "type": "item",
               "objectId": 7102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -5441,7 +5718,8 @@
               "type": "item",
               "objectId": 7103,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -5463,7 +5741,8 @@
               "type": "item",
               "objectId": 7001,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -5485,7 +5764,8 @@
               "type": "item",
               "objectId": 7002,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -5507,7 +5787,8 @@
               "type": "item",
               "objectId": 7003,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -5529,7 +5810,8 @@
               "type": "servant",
               "objectId": 9770400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 30,
@@ -5551,7 +5833,8 @@
               "type": "servant",
               "objectId": 9770300,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 15,
@@ -5573,7 +5856,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -5595,7 +5879,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 2
+              "num": 2,
+              "giftAdds": []
             }
           ],
           "maxNum": 5,
@@ -5617,7 +5902,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -5639,7 +5925,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 500000
+              "num": 500000,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -5661,7 +5948,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 100000
+              "num": 100000,
+              "giftAdds": []
             }
           ],
           "maxNum": 10,
@@ -5683,7 +5971,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 50000
+              "num": 50000,
+              "giftAdds": []
             }
           ],
           "maxNum": 20,
@@ -5705,7 +5994,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 30000
+              "num": 30000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -5727,7 +6017,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 10000
+              "num": 10000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -5749,7 +6040,8 @@
               "type": "servant",
               "objectId": 9570400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -5771,7 +6063,8 @@
               "type": "item",
               "objectId": 100,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -5793,7 +6086,8 @@
               "type": "item",
               "objectId": 101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -5815,7 +6109,8 @@
               "type": "item",
               "objectId": 102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 3,
@@ -5837,7 +6132,8 @@
               "type": "item",
               "objectId": 6513,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -5859,7 +6155,8 @@
               "type": "item",
               "objectId": 6515,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -5881,7 +6178,8 @@
               "type": "item",
               "objectId": 6512,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -5903,7 +6201,8 @@
               "type": "item",
               "objectId": 6503,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -5925,7 +6224,8 @@
               "type": "item",
               "objectId": 7101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -5947,7 +6247,8 @@
               "type": "item",
               "objectId": 7102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -5969,7 +6270,8 @@
               "type": "item",
               "objectId": 7103,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -5991,7 +6293,8 @@
               "type": "item",
               "objectId": 7001,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -6013,7 +6316,8 @@
               "type": "item",
               "objectId": 7002,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -6035,7 +6339,8 @@
               "type": "item",
               "objectId": 7003,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -6057,7 +6362,8 @@
               "type": "servant",
               "objectId": 9770400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 30,
@@ -6079,7 +6385,8 @@
               "type": "servant",
               "objectId": 9770300,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 15,
@@ -6101,7 +6408,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -6123,7 +6431,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 2
+              "num": 2,
+              "giftAdds": []
             }
           ],
           "maxNum": 5,
@@ -6145,7 +6454,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -6167,7 +6477,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 500000
+              "num": 500000,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -6189,7 +6500,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 100000
+              "num": 100000,
+              "giftAdds": []
             }
           ],
           "maxNum": 10,
@@ -6211,7 +6523,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 50000
+              "num": 50000,
+              "giftAdds": []
             }
           ],
           "maxNum": 20,
@@ -6233,7 +6546,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 30000
+              "num": 30000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -6255,7 +6569,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 10000
+              "num": 10000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -6277,7 +6592,8 @@
               "type": "servant",
               "objectId": 9570400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -6299,7 +6615,8 @@
               "type": "item",
               "objectId": 100,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -6321,7 +6638,8 @@
               "type": "item",
               "objectId": 101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -6343,7 +6661,8 @@
               "type": "item",
               "objectId": 102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 3,
@@ -6365,7 +6684,8 @@
               "type": "item",
               "objectId": 6513,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -6387,7 +6707,8 @@
               "type": "item",
               "objectId": 6515,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -6409,7 +6730,8 @@
               "type": "item",
               "objectId": 6512,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -6431,7 +6753,8 @@
               "type": "item",
               "objectId": 6503,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -6453,7 +6776,8 @@
               "type": "item",
               "objectId": 7101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -6475,7 +6799,8 @@
               "type": "item",
               "objectId": 7102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -6497,7 +6822,8 @@
               "type": "item",
               "objectId": 7103,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -6519,7 +6845,8 @@
               "type": "item",
               "objectId": 7001,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -6541,7 +6868,8 @@
               "type": "item",
               "objectId": 7002,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -6563,7 +6891,8 @@
               "type": "item",
               "objectId": 7003,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -6585,7 +6914,8 @@
               "type": "servant",
               "objectId": 9770400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 30,
@@ -6607,7 +6937,8 @@
               "type": "servant",
               "objectId": 9770300,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 15,
@@ -6629,7 +6960,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -6651,7 +6983,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 2
+              "num": 2,
+              "giftAdds": []
             }
           ],
           "maxNum": 5,
@@ -6673,7 +7006,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -6695,7 +7029,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 500000
+              "num": 500000,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -6717,7 +7052,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 100000
+              "num": 100000,
+              "giftAdds": []
             }
           ],
           "maxNum": 10,
@@ -6739,7 +7075,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 50000
+              "num": 50000,
+              "giftAdds": []
             }
           ],
           "maxNum": 20,
@@ -6761,7 +7098,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 30000
+              "num": 30000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -6783,7 +7121,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 10000
+              "num": 10000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -6805,7 +7144,8 @@
               "type": "servant",
               "objectId": 9570400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -6827,7 +7167,8 @@
               "type": "item",
               "objectId": 100,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -6849,7 +7190,8 @@
               "type": "item",
               "objectId": 101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -6871,7 +7213,8 @@
               "type": "item",
               "objectId": 102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 3,
@@ -6893,7 +7236,8 @@
               "type": "item",
               "objectId": 6513,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -6915,7 +7259,8 @@
               "type": "item",
               "objectId": 6515,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -6937,7 +7282,8 @@
               "type": "item",
               "objectId": 6512,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -6959,7 +7305,8 @@
               "type": "item",
               "objectId": 6503,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -6981,7 +7328,8 @@
               "type": "item",
               "objectId": 7101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -7003,7 +7351,8 @@
               "type": "item",
               "objectId": 7102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -7025,7 +7374,8 @@
               "type": "item",
               "objectId": 7103,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -7047,7 +7397,8 @@
               "type": "item",
               "objectId": 7001,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -7069,7 +7420,8 @@
               "type": "item",
               "objectId": 7002,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -7091,7 +7443,8 @@
               "type": "item",
               "objectId": 7003,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -7113,7 +7466,8 @@
               "type": "servant",
               "objectId": 9770400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 30,
@@ -7135,7 +7489,8 @@
               "type": "servant",
               "objectId": 9770300,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 15,
@@ -7157,7 +7512,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -7179,7 +7535,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 2
+              "num": 2,
+              "giftAdds": []
             }
           ],
           "maxNum": 5,
@@ -7201,7 +7558,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -7223,7 +7581,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 500000
+              "num": 500000,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -7245,7 +7604,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 100000
+              "num": 100000,
+              "giftAdds": []
             }
           ],
           "maxNum": 10,
@@ -7267,7 +7627,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 50000
+              "num": 50000,
+              "giftAdds": []
             }
           ],
           "maxNum": 20,
@@ -7289,7 +7650,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 30000
+              "num": 30000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -7311,7 +7673,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 10000
+              "num": 10000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -7333,7 +7696,8 @@
               "type": "item",
               "objectId": 102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 3,
@@ -7355,7 +7719,8 @@
               "type": "item",
               "objectId": 6513,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -7377,7 +7742,8 @@
               "type": "item",
               "objectId": 6515,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -7399,7 +7765,8 @@
               "type": "item",
               "objectId": 6512,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -7421,7 +7788,8 @@
               "type": "item",
               "objectId": 6503,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -7443,7 +7811,8 @@
               "type": "item",
               "objectId": 7101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -7465,7 +7834,8 @@
               "type": "item",
               "objectId": 7102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -7487,7 +7857,8 @@
               "type": "item",
               "objectId": 7103,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -7509,7 +7880,8 @@
               "type": "item",
               "objectId": 7001,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -7531,7 +7903,8 @@
               "type": "item",
               "objectId": 7002,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -7553,7 +7926,8 @@
               "type": "item",
               "objectId": 7003,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -7575,7 +7949,8 @@
               "type": "servant",
               "objectId": 9770400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 30,
@@ -7597,7 +7972,8 @@
               "type": "servant",
               "objectId": 9770300,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 15,
@@ -7619,7 +7995,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -7641,7 +8018,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 2
+              "num": 2,
+              "giftAdds": []
             }
           ],
           "maxNum": 5,
@@ -7663,7 +8041,8 @@
               "type": "item",
               "objectId": 3,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -7685,7 +8064,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 500000
+              "num": 500000,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -7707,7 +8087,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 100000
+              "num": 100000,
+              "giftAdds": []
             }
           ],
           "maxNum": 10,
@@ -7729,7 +8110,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 50000
+              "num": 50000,
+              "giftAdds": []
             }
           ],
           "maxNum": 20,
@@ -7751,7 +8133,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 30000
+              "num": 30000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -7773,7 +8156,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 10000
+              "num": 10000,
+              "giftAdds": []
             }
           ],
           "maxNum": 64,
@@ -9750,7 +10134,8 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94002805.png",
           "background": "silver",
           "priority": 94019605,
-          "dropPriority": 2004
+          "dropPriority": 2004,
+          "itemSelects": []
         },
         "amount": 2
       },
@@ -9769,7 +10154,8 @@
               "type": "servant",
               "objectId": 9401360,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -9791,7 +10177,8 @@
               "type": "item",
               "objectId": 100,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -9813,7 +10200,8 @@
               "type": "item",
               "objectId": 101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -9835,7 +10223,8 @@
               "type": "item",
               "objectId": 102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 3,
@@ -9857,7 +10246,8 @@
               "type": "item",
               "objectId": 6511,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -9879,7 +10269,8 @@
               "type": "item",
               "objectId": 6509,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -9901,7 +10292,8 @@
               "type": "item",
               "objectId": 6505,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -9923,7 +10315,8 @@
               "type": "item",
               "objectId": 6516,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -9945,7 +10338,8 @@
               "type": "item",
               "objectId": 7104,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -9967,7 +10361,8 @@
               "type": "item",
               "objectId": 7105,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -9989,7 +10384,8 @@
               "type": "item",
               "objectId": 7106,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -10011,7 +10407,8 @@
               "type": "item",
               "objectId": 7107,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -10033,7 +10430,8 @@
               "type": "item",
               "objectId": 7004,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -10055,7 +10453,8 @@
               "type": "item",
               "objectId": 7005,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -10077,7 +10476,8 @@
               "type": "item",
               "objectId": 7006,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -10099,7 +10499,8 @@
               "type": "item",
               "objectId": 7007,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -10121,7 +10522,8 @@
               "type": "servant",
               "objectId": 9770400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 25,
@@ -10143,7 +10545,8 @@
               "type": "servant",
               "objectId": 9770300,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 15,
@@ -10165,7 +10568,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 500000
+              "num": 500000,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -10187,7 +10591,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 100000
+              "num": 100000,
+              "giftAdds": []
             }
           ],
           "maxNum": 10,
@@ -10209,7 +10614,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 50000
+              "num": 50000,
+              "giftAdds": []
             }
           ],
           "maxNum": 20,
@@ -10231,7 +10637,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 30000
+              "num": 30000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -10253,7 +10660,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 10000
+              "num": 10000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -10275,7 +10683,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 5000
+              "num": 5000,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -10297,7 +10706,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 2000
+              "num": 2000,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -10319,7 +10729,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 100
+              "num": 100,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -10341,7 +10752,8 @@
               "type": "servant",
               "objectId": 9401360,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -10363,7 +10775,8 @@
               "type": "item",
               "objectId": 100,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -10385,7 +10798,8 @@
               "type": "item",
               "objectId": 101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -10407,7 +10821,8 @@
               "type": "item",
               "objectId": 102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 3,
@@ -10429,7 +10844,8 @@
               "type": "item",
               "objectId": 6511,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -10451,7 +10867,8 @@
               "type": "item",
               "objectId": 6509,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -10473,7 +10890,8 @@
               "type": "item",
               "objectId": 6505,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -10495,7 +10913,8 @@
               "type": "item",
               "objectId": 6516,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -10517,7 +10936,8 @@
               "type": "item",
               "objectId": 7104,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -10539,7 +10959,8 @@
               "type": "item",
               "objectId": 7105,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -10561,7 +10982,8 @@
               "type": "item",
               "objectId": 7106,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -10583,7 +11005,8 @@
               "type": "item",
               "objectId": 7107,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -10605,7 +11028,8 @@
               "type": "item",
               "objectId": 7004,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -10627,7 +11051,8 @@
               "type": "item",
               "objectId": 7005,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -10649,7 +11074,8 @@
               "type": "item",
               "objectId": 7006,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -10671,7 +11097,8 @@
               "type": "item",
               "objectId": 7007,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -10693,7 +11120,8 @@
               "type": "servant",
               "objectId": 9770400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 25,
@@ -10715,7 +11143,8 @@
               "type": "servant",
               "objectId": 9770300,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 15,
@@ -10737,7 +11166,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 500000
+              "num": 500000,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -10759,7 +11189,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 100000
+              "num": 100000,
+              "giftAdds": []
             }
           ],
           "maxNum": 10,
@@ -10781,7 +11212,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 50000
+              "num": 50000,
+              "giftAdds": []
             }
           ],
           "maxNum": 20,
@@ -10803,7 +11235,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 30000
+              "num": 30000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -10825,7 +11258,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 10000
+              "num": 10000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -10847,7 +11281,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 5000
+              "num": 5000,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -10869,7 +11304,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 2000
+              "num": 2000,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -10891,7 +11327,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 100
+              "num": 100,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -10913,7 +11350,8 @@
               "type": "servant",
               "objectId": 9401360,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -10935,7 +11373,8 @@
               "type": "item",
               "objectId": 100,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -10957,7 +11396,8 @@
               "type": "item",
               "objectId": 101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -10979,7 +11419,8 @@
               "type": "item",
               "objectId": 102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 3,
@@ -11001,7 +11442,8 @@
               "type": "item",
               "objectId": 6511,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -11023,7 +11465,8 @@
               "type": "item",
               "objectId": 6509,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -11045,7 +11488,8 @@
               "type": "item",
               "objectId": 6505,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -11067,7 +11511,8 @@
               "type": "item",
               "objectId": 6516,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -11089,7 +11534,8 @@
               "type": "item",
               "objectId": 7104,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -11111,7 +11557,8 @@
               "type": "item",
               "objectId": 7105,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -11133,7 +11580,8 @@
               "type": "item",
               "objectId": 7106,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -11155,7 +11603,8 @@
               "type": "item",
               "objectId": 7107,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -11177,7 +11626,8 @@
               "type": "item",
               "objectId": 7004,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -11199,7 +11649,8 @@
               "type": "item",
               "objectId": 7005,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -11221,7 +11672,8 @@
               "type": "item",
               "objectId": 7006,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -11243,7 +11695,8 @@
               "type": "item",
               "objectId": 7007,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -11265,7 +11718,8 @@
               "type": "servant",
               "objectId": 9770400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 25,
@@ -11287,7 +11741,8 @@
               "type": "servant",
               "objectId": 9770300,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 15,
@@ -11309,7 +11764,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 500000
+              "num": 500000,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -11331,7 +11787,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 100000
+              "num": 100000,
+              "giftAdds": []
             }
           ],
           "maxNum": 10,
@@ -11353,7 +11810,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 50000
+              "num": 50000,
+              "giftAdds": []
             }
           ],
           "maxNum": 20,
@@ -11375,7 +11833,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 30000
+              "num": 30000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -11397,7 +11856,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 10000
+              "num": 10000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -11419,7 +11879,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 5000
+              "num": 5000,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -11441,7 +11902,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 2000
+              "num": 2000,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -11463,7 +11925,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 100
+              "num": 100,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -11485,7 +11948,8 @@
               "type": "servant",
               "objectId": 9401360,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -11507,7 +11971,8 @@
               "type": "item",
               "objectId": 100,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -11529,7 +11994,8 @@
               "type": "item",
               "objectId": 101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -11551,7 +12017,8 @@
               "type": "item",
               "objectId": 102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 3,
@@ -11573,7 +12040,8 @@
               "type": "item",
               "objectId": 6511,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -11595,7 +12063,8 @@
               "type": "item",
               "objectId": 6509,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -11617,7 +12086,8 @@
               "type": "item",
               "objectId": 6505,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -11639,7 +12109,8 @@
               "type": "item",
               "objectId": 6516,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -11661,7 +12132,8 @@
               "type": "item",
               "objectId": 7104,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -11683,7 +12155,8 @@
               "type": "item",
               "objectId": 7105,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -11705,7 +12178,8 @@
               "type": "item",
               "objectId": 7106,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -11727,7 +12201,8 @@
               "type": "item",
               "objectId": 7107,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -11749,7 +12224,8 @@
               "type": "item",
               "objectId": 7004,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -11771,7 +12247,8 @@
               "type": "item",
               "objectId": 7005,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -11793,7 +12270,8 @@
               "type": "item",
               "objectId": 7006,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -11815,7 +12293,8 @@
               "type": "item",
               "objectId": 7007,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -11837,7 +12316,8 @@
               "type": "servant",
               "objectId": 9770400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 25,
@@ -11859,7 +12339,8 @@
               "type": "servant",
               "objectId": 9770300,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 15,
@@ -11881,7 +12362,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 500000
+              "num": 500000,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -11903,7 +12385,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 100000
+              "num": 100000,
+              "giftAdds": []
             }
           ],
           "maxNum": 10,
@@ -11925,7 +12408,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 50000
+              "num": 50000,
+              "giftAdds": []
             }
           ],
           "maxNum": 20,
@@ -11947,7 +12431,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 30000
+              "num": 30000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -11969,7 +12454,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 10000
+              "num": 10000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -11991,7 +12477,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 5000
+              "num": 5000,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -12013,7 +12500,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 2000
+              "num": 2000,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -12035,7 +12523,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 100
+              "num": 100,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -12057,7 +12546,8 @@
               "type": "servant",
               "objectId": 9401360,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -12079,7 +12569,8 @@
               "type": "item",
               "objectId": 100,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -12101,7 +12592,8 @@
               "type": "item",
               "objectId": 101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -12123,7 +12615,8 @@
               "type": "item",
               "objectId": 102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 3,
@@ -12145,7 +12638,8 @@
               "type": "item",
               "objectId": 6511,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -12167,7 +12661,8 @@
               "type": "item",
               "objectId": 6509,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -12189,7 +12684,8 @@
               "type": "item",
               "objectId": 6505,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -12211,7 +12707,8 @@
               "type": "item",
               "objectId": 6516,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -12233,7 +12730,8 @@
               "type": "item",
               "objectId": 7104,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -12255,7 +12753,8 @@
               "type": "item",
               "objectId": 7105,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -12277,7 +12776,8 @@
               "type": "item",
               "objectId": 7106,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -12299,7 +12799,8 @@
               "type": "item",
               "objectId": 7107,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -12321,7 +12822,8 @@
               "type": "item",
               "objectId": 7004,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -12343,7 +12845,8 @@
               "type": "item",
               "objectId": 7005,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -12365,7 +12868,8 @@
               "type": "item",
               "objectId": 7006,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -12387,7 +12891,8 @@
               "type": "item",
               "objectId": 7007,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -12409,7 +12914,8 @@
               "type": "servant",
               "objectId": 9770400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 25,
@@ -12431,7 +12937,8 @@
               "type": "servant",
               "objectId": 9770300,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 15,
@@ -12453,7 +12960,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 500000
+              "num": 500000,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -12475,7 +12983,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 100000
+              "num": 100000,
+              "giftAdds": []
             }
           ],
           "maxNum": 10,
@@ -12497,7 +13006,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 50000
+              "num": 50000,
+              "giftAdds": []
             }
           ],
           "maxNum": 20,
@@ -12519,7 +13029,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 30000
+              "num": 30000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -12541,7 +13052,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 10000
+              "num": 10000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -12563,7 +13075,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 5000
+              "num": 5000,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -12585,7 +13098,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 2000
+              "num": 2000,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -12607,7 +13121,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 100
+              "num": 100,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -12629,7 +13144,8 @@
               "type": "item",
               "objectId": 6999,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -12651,7 +13167,8 @@
               "type": "item",
               "objectId": 100,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -12673,7 +13190,8 @@
               "type": "item",
               "objectId": 101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -12695,7 +13213,8 @@
               "type": "item",
               "objectId": 102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 3,
@@ -12717,7 +13236,8 @@
               "type": "item",
               "objectId": 6511,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -12739,7 +13259,8 @@
               "type": "item",
               "objectId": 6509,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -12761,7 +13282,8 @@
               "type": "item",
               "objectId": 6505,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -12783,7 +13305,8 @@
               "type": "item",
               "objectId": 6516,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -12805,7 +13328,8 @@
               "type": "item",
               "objectId": 7104,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -12827,7 +13351,8 @@
               "type": "item",
               "objectId": 7105,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -12849,7 +13374,8 @@
               "type": "item",
               "objectId": 7106,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -12871,7 +13397,8 @@
               "type": "item",
               "objectId": 7107,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -12893,7 +13420,8 @@
               "type": "item",
               "objectId": 7004,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -12915,7 +13443,8 @@
               "type": "item",
               "objectId": 7005,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -12937,7 +13466,8 @@
               "type": "item",
               "objectId": 7006,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -12959,7 +13489,8 @@
               "type": "item",
               "objectId": 7007,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -12981,7 +13512,8 @@
               "type": "servant",
               "objectId": 9770400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 25,
@@ -13003,7 +13535,8 @@
               "type": "servant",
               "objectId": 9770300,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 15,
@@ -13025,7 +13558,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 500000
+              "num": 500000,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -13047,7 +13581,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 100000
+              "num": 100000,
+              "giftAdds": []
             }
           ],
           "maxNum": 10,
@@ -13069,7 +13604,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 50000
+              "num": 50000,
+              "giftAdds": []
             }
           ],
           "maxNum": 20,
@@ -13091,7 +13627,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 30000
+              "num": 30000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -13113,7 +13650,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 10000
+              "num": 10000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -13135,7 +13673,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 5000
+              "num": 5000,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -13157,7 +13696,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 2000
+              "num": 2000,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -13179,7 +13719,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 100
+              "num": 100,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -13201,7 +13742,8 @@
               "type": "servant",
               "objectId": 9670400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -13223,7 +13765,8 @@
               "type": "item",
               "objectId": 100,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -13245,7 +13788,8 @@
               "type": "item",
               "objectId": 101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -13267,7 +13811,8 @@
               "type": "item",
               "objectId": 102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 3,
@@ -13289,7 +13834,8 @@
               "type": "item",
               "objectId": 6511,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -13311,7 +13857,8 @@
               "type": "item",
               "objectId": 6509,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -13333,7 +13880,8 @@
               "type": "item",
               "objectId": 6505,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -13355,7 +13903,8 @@
               "type": "item",
               "objectId": 6516,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -13377,7 +13926,8 @@
               "type": "item",
               "objectId": 7104,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -13399,7 +13949,8 @@
               "type": "item",
               "objectId": 7105,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -13421,7 +13972,8 @@
               "type": "item",
               "objectId": 7106,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -13443,7 +13995,8 @@
               "type": "item",
               "objectId": 7107,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -13465,7 +14018,8 @@
               "type": "item",
               "objectId": 7004,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -13487,7 +14041,8 @@
               "type": "item",
               "objectId": 7005,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -13509,7 +14064,8 @@
               "type": "item",
               "objectId": 7006,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -13531,7 +14087,8 @@
               "type": "item",
               "objectId": 7007,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -13553,7 +14110,8 @@
               "type": "servant",
               "objectId": 9770400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 25,
@@ -13575,7 +14133,8 @@
               "type": "servant",
               "objectId": 9770300,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 15,
@@ -13597,7 +14156,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 500000
+              "num": 500000,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -13619,7 +14179,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 100000
+              "num": 100000,
+              "giftAdds": []
             }
           ],
           "maxNum": 10,
@@ -13641,7 +14202,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 50000
+              "num": 50000,
+              "giftAdds": []
             }
           ],
           "maxNum": 20,
@@ -13663,7 +14225,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 30000
+              "num": 30000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -13685,7 +14248,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 10000
+              "num": 10000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -13707,7 +14271,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 5000
+              "num": 5000,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -13729,7 +14294,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 2000
+              "num": 2000,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -13751,7 +14317,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 100
+              "num": 100,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -13773,7 +14340,8 @@
               "type": "servant",
               "objectId": 9670400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -13795,7 +14363,8 @@
               "type": "item",
               "objectId": 100,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -13817,7 +14386,8 @@
               "type": "item",
               "objectId": 101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -13839,7 +14409,8 @@
               "type": "item",
               "objectId": 102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 3,
@@ -13861,7 +14432,8 @@
               "type": "item",
               "objectId": 6511,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -13883,7 +14455,8 @@
               "type": "item",
               "objectId": 6509,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -13905,7 +14478,8 @@
               "type": "item",
               "objectId": 6505,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -13927,7 +14501,8 @@
               "type": "item",
               "objectId": 6516,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -13949,7 +14524,8 @@
               "type": "item",
               "objectId": 7104,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -13971,7 +14547,8 @@
               "type": "item",
               "objectId": 7105,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -13993,7 +14570,8 @@
               "type": "item",
               "objectId": 7106,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -14015,7 +14593,8 @@
               "type": "item",
               "objectId": 7107,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -14037,7 +14616,8 @@
               "type": "item",
               "objectId": 7004,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -14059,7 +14639,8 @@
               "type": "item",
               "objectId": 7005,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -14081,7 +14662,8 @@
               "type": "item",
               "objectId": 7006,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -14103,7 +14685,8 @@
               "type": "item",
               "objectId": 7007,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -14125,7 +14708,8 @@
               "type": "servant",
               "objectId": 9770400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 25,
@@ -14147,7 +14731,8 @@
               "type": "servant",
               "objectId": 9770300,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 15,
@@ -14169,7 +14754,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 500000
+              "num": 500000,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -14191,7 +14777,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 100000
+              "num": 100000,
+              "giftAdds": []
             }
           ],
           "maxNum": 10,
@@ -14213,7 +14800,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 50000
+              "num": 50000,
+              "giftAdds": []
             }
           ],
           "maxNum": 20,
@@ -14235,7 +14823,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 30000
+              "num": 30000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -14257,7 +14846,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 10000
+              "num": 10000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -14279,7 +14869,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 5000
+              "num": 5000,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -14301,7 +14892,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 2000
+              "num": 2000,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -14323,7 +14915,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 100
+              "num": 100,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -14345,7 +14938,8 @@
               "type": "servant",
               "objectId": 9670400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -14367,7 +14961,8 @@
               "type": "item",
               "objectId": 100,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -14389,7 +14984,8 @@
               "type": "item",
               "objectId": 101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -14411,7 +15007,8 @@
               "type": "item",
               "objectId": 102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 3,
@@ -14433,7 +15030,8 @@
               "type": "item",
               "objectId": 6511,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -14455,7 +15053,8 @@
               "type": "item",
               "objectId": 6509,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -14477,7 +15076,8 @@
               "type": "item",
               "objectId": 6505,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -14499,7 +15099,8 @@
               "type": "item",
               "objectId": 6516,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -14521,7 +15122,8 @@
               "type": "item",
               "objectId": 7104,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -14543,7 +15145,8 @@
               "type": "item",
               "objectId": 7105,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -14565,7 +15168,8 @@
               "type": "item",
               "objectId": 7106,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -14587,7 +15191,8 @@
               "type": "item",
               "objectId": 7107,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -14609,7 +15214,8 @@
               "type": "item",
               "objectId": 7004,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -14631,7 +15237,8 @@
               "type": "item",
               "objectId": 7005,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -14653,7 +15260,8 @@
               "type": "item",
               "objectId": 7006,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -14675,7 +15283,8 @@
               "type": "item",
               "objectId": 7007,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -14697,7 +15306,8 @@
               "type": "servant",
               "objectId": 9770400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 25,
@@ -14719,7 +15329,8 @@
               "type": "servant",
               "objectId": 9770300,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 15,
@@ -14741,7 +15352,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 500000
+              "num": 500000,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -14763,7 +15375,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 100000
+              "num": 100000,
+              "giftAdds": []
             }
           ],
           "maxNum": 10,
@@ -14785,7 +15398,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 50000
+              "num": 50000,
+              "giftAdds": []
             }
           ],
           "maxNum": 20,
@@ -14807,7 +15421,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 30000
+              "num": 30000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -14829,7 +15444,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 10000
+              "num": 10000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -14851,7 +15467,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 5000
+              "num": 5000,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -14873,7 +15490,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 2000
+              "num": 2000,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -14895,7 +15513,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 100
+              "num": 100,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -14917,7 +15536,8 @@
               "type": "servant",
               "objectId": 9670400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -14939,7 +15559,8 @@
               "type": "item",
               "objectId": 100,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -14961,7 +15582,8 @@
               "type": "item",
               "objectId": 101,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -14983,7 +15605,8 @@
               "type": "item",
               "objectId": 102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 3,
@@ -15005,7 +15628,8 @@
               "type": "item",
               "objectId": 6511,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -15027,7 +15651,8 @@
               "type": "item",
               "objectId": 6509,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -15049,7 +15674,8 @@
               "type": "item",
               "objectId": 6505,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -15071,7 +15697,8 @@
               "type": "item",
               "objectId": 6516,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -15093,7 +15720,8 @@
               "type": "item",
               "objectId": 7104,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -15115,7 +15743,8 @@
               "type": "item",
               "objectId": 7105,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -15137,7 +15766,8 @@
               "type": "item",
               "objectId": 7106,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -15159,7 +15789,8 @@
               "type": "item",
               "objectId": 7107,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -15181,7 +15812,8 @@
               "type": "item",
               "objectId": 7004,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -15203,7 +15835,8 @@
               "type": "item",
               "objectId": 7005,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -15225,7 +15858,8 @@
               "type": "item",
               "objectId": 7006,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -15247,7 +15881,8 @@
               "type": "item",
               "objectId": 7007,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -15269,7 +15904,8 @@
               "type": "servant",
               "objectId": 9770400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 25,
@@ -15291,7 +15927,8 @@
               "type": "servant",
               "objectId": 9770300,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 15,
@@ -15313,7 +15950,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 500000
+              "num": 500000,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -15335,7 +15973,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 100000
+              "num": 100000,
+              "giftAdds": []
             }
           ],
           "maxNum": 10,
@@ -15357,7 +15996,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 50000
+              "num": 50000,
+              "giftAdds": []
             }
           ],
           "maxNum": 20,
@@ -15379,7 +16019,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 30000
+              "num": 30000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -15401,7 +16042,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 10000
+              "num": 10000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -15423,7 +16065,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 5000
+              "num": 5000,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -15445,7 +16088,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 2000
+              "num": 2000,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -15467,7 +16111,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 100
+              "num": 100,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -15489,7 +16134,8 @@
               "type": "item",
               "objectId": 102,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 3,
@@ -15511,7 +16157,8 @@
               "type": "item",
               "objectId": 6511,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -15533,7 +16180,8 @@
               "type": "item",
               "objectId": 6509,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -15555,7 +16203,8 @@
               "type": "item",
               "objectId": 6505,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -15577,7 +16226,8 @@
               "type": "item",
               "objectId": 6516,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -15599,7 +16249,8 @@
               "type": "item",
               "objectId": 7104,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -15621,7 +16272,8 @@
               "type": "item",
               "objectId": 7105,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -15643,7 +16295,8 @@
               "type": "item",
               "objectId": 7106,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -15665,7 +16318,8 @@
               "type": "item",
               "objectId": 7107,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -15687,7 +16341,8 @@
               "type": "item",
               "objectId": 7004,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -15709,7 +16364,8 @@
               "type": "item",
               "objectId": 7005,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -15731,7 +16387,8 @@
               "type": "item",
               "objectId": 7006,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -15753,7 +16410,8 @@
               "type": "item",
               "objectId": 7007,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -15775,7 +16433,8 @@
               "type": "servant",
               "objectId": 9770400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 25,
@@ -15797,7 +16456,8 @@
               "type": "servant",
               "objectId": 9770300,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "maxNum": 15,
@@ -15819,7 +16479,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 500000
+              "num": 500000,
+              "giftAdds": []
             }
           ],
           "maxNum": 2,
@@ -15841,7 +16502,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 100000
+              "num": 100000,
+              "giftAdds": []
             }
           ],
           "maxNum": 10,
@@ -15863,7 +16525,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 50000
+              "num": 50000,
+              "giftAdds": []
             }
           ],
           "maxNum": 20,
@@ -15885,7 +16548,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 30000
+              "num": 30000,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -15907,7 +16571,8 @@
               "type": "item",
               "objectId": 1,
               "priority": 0,
-              "num": 10000
+              "num": 10000,
+              "giftAdds": []
             }
           ],
           "maxNum": 64,
@@ -15929,7 +16594,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 5000
+              "num": 5000,
+              "giftAdds": []
             }
           ],
           "maxNum": 1,
@@ -15951,7 +16617,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 2000
+              "num": 2000,
+              "giftAdds": []
             }
           ],
           "maxNum": 4,
@@ -15973,7 +16640,8 @@
               "type": "item",
               "objectId": 4,
               "priority": 0,
-              "num": 100
+              "num": 100,
+              "giftAdds": []
             }
           ],
           "maxNum": 60,
@@ -17923,6 +18591,11 @@
     }
   ],
   "treasureBoxes": [],
+  "bulletinBoards": [],
+  "recipes": [],
+  "fortifications": [],
+  "campaigns": [],
+  "campaignQuests": [],
   "voicePlays": [
     {
       "slot": 0,
@@ -18993,312 +19666,6 @@
       "voicePrefix": 0,
       "type": "eventReward",
       "voiceLines": [
-        {
-          "name": "About the Event 1",
-          "condType": "eventEnd",
-          "condValue": 0,
-          "priority": 6990,
-          "svtVoiceType": "eventReward",
-          "overwriteName": "Da Vinci and the 7 Counterfeit Heroic Spirits 1",
-          "id": [
-            "0_N010",
-            "0_N011",
-            "0_N012",
-            "0_N013"
-          ],
-          "audioAssets": [
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_500900/0_N010.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_500900/0_N011.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_500900/0_N012.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_500900/0_N013.mp3"
-          ],
-          "delay": [
-            0.0,
-            0.0,
-            0.0,
-            0.0
-          ],
-          "face": [
-            1,
-            0,
-            1,
-            0
-          ],
-          "form": [
-            0,
-            0,
-            0,
-            0
-          ],
-          "text": [
-            "",
-            "",
-            "",
-            ""
-          ],
-          "subtitle": "Hello, welcome to Da Vinci's Exchange Shop.\nHave you gathered any manuscripts? True or fake, I'm happy with either! I can use both!",
-          "conds": [
-            {
-              "condType": "eventNoend",
-              "value": 80016,
-              "valueList": [],
-              "eventId": 0
-            }
-          ],
-          "playConds": []
-        },
-        {
-          "name": "About the Event 2",
-          "condType": "eventEnd",
-          "condValue": 0,
-          "priority": 6980,
-          "svtVoiceType": "eventReward",
-          "overwriteName": "Da Vinci and the 7 Counterfeit Heroic Spirits 2",
-          "id": [
-            "0_N020",
-            "0_N021",
-            "0_N022"
-          ],
-          "audioAssets": [
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_500900/0_N020.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_500900/0_N021.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_500900/0_N022.mp3"
-          ],
-          "delay": [
-            0.0,
-            0.0,
-            0.0
-          ],
-          "face": [
-            1,
-            1,
-            5
-          ],
-          "form": [
-            0,
-            0,
-            0
-          ],
-          "text": [
-            "",
-            "",
-            ""
-          ],
-          "subtitle": "Good job! Yes, yes, steady collection is the quickest path to greatness.\nAlong with the usual admiration, shall we go all out?",
-          "conds": [
-            {
-              "condType": "eventNoend",
-              "value": 80016,
-              "valueList": [],
-              "eventId": 0
-            }
-          ],
-          "playConds": []
-        },
-        {
-          "name": "About the Event 3",
-          "condType": "eventEnd",
-          "condValue": 0,
-          "priority": 6970,
-          "svtVoiceType": "eventReward",
-          "overwriteName": "Da Vinci and the 7 Counterfeit Heroic Spirits 3",
-          "id": [
-            "0_N030",
-            "0_N031",
-            "0_N032",
-            "0_N033"
-          ],
-          "audioAssets": [
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_500900/0_N030.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_500900/0_N031.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_500900/0_N032.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_500900/0_N033.mp3"
-          ],
-          "delay": [
-            0.0,
-            0.0,
-            0.0,
-            0.0
-          ],
-          "face": [
-            1,
-            0,
-            1,
-            2
-          ],
-          "form": [
-            0,
-            0,
-            0,
-            0
-          ],
-          "text": [
-            "",
-            "",
-            "",
-            ""
-          ],
-          "subtitle": "Welcome home, dear.\nDid you collect any manuscripts? Lots? Oh, how splendid! Now, keep spinning that roulette!",
-          "conds": [
-            {
-              "condType": "eventNoend",
-              "value": 80016,
-              "valueList": [],
-              "eventId": 0
-            }
-          ],
-          "playConds": []
-        },
-        {
-          "name": "About the Event 4",
-          "condType": "eventEnd",
-          "condValue": 0,
-          "priority": 6960,
-          "svtVoiceType": "eventReward",
-          "overwriteName": "Da Vinci and the 7 Counterfeit Heroic Spirits 4",
-          "id": [
-            "0_N040",
-            "0_N041"
-          ],
-          "audioAssets": [
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_500900/0_N040.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_500900/0_N041.mp3"
-          ],
-          "delay": [
-            0.0,
-            0.0
-          ],
-          "face": [
-            4,
-            0
-          ],
-          "form": [
-            0,
-            0
-          ],
-          "text": [
-            "",
-            ""
-          ],
-          "subtitle": "Wait up. I know why you might get engrossed in my gift exchanging system, but make sure you check out the information and news too.\nYou shouldn't underestimate the importance of the basics like that.",
-          "conds": [
-            {
-              "condType": "eventNoend",
-              "value": 80016,
-              "valueList": [],
-              "eventId": 0
-            }
-          ],
-          "playConds": []
-        },
-        {
-          "name": "About the Event 5",
-          "condType": "eventEnd",
-          "condValue": 0,
-          "priority": 6950,
-          "svtVoiceType": "eventReward",
-          "overwriteName": "Da Vinci and the 7 Counterfeit Heroic Spirits 5",
-          "id": [
-            "0_N050",
-            "0_N051",
-            "0_N052",
-            "0_N053"
-          ],
-          "audioAssets": [
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_500900/0_N050.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_500900/0_N051.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_500900/0_N052.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_500900/0_N053.mp3"
-          ],
-          "delay": [
-            0.0,
-            0.0,
-            0.0,
-            0.0
-          ],
-          "face": [
-            0,
-            4,
-            0,
-            1
-          ],
-          "form": [
-            0,
-            0,
-            0,
-            0
-          ],
-          "text": [
-            "",
-            "",
-            "",
-            ""
-          ],
-          "subtitle": "First prize is a trip to Hawaii, or is that outdated...? I guess it is...\nOnce we've stopped the incineration of humanity and can go out again, would you like to travel to Italy with me?",
-          "conds": [
-            {
-              "condType": "eventNoend",
-              "value": 80016,
-              "valueList": [],
-              "eventId": 0
-            }
-          ],
-          "playConds": []
-        },
-        {
-          "name": "About the Event 6",
-          "condType": "eventEnd",
-          "condValue": 0,
-          "priority": 6940,
-          "svtVoiceType": "eventReward",
-          "overwriteName": "Da Vinci and the 7 Counterfeit Heroic Spirits 6",
-          "id": [
-            "0_N060",
-            "0_N061",
-            "0_N062",
-            "0_N063"
-          ],
-          "audioAssets": [
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_500900/0_N060.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_500900/0_N061.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_500900/0_N062.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_500900/0_N063.mp3"
-          ],
-          "delay": [
-            0.0,
-            0.0,
-            0.0,
-            0.0
-          ],
-          "face": [
-            4,
-            1,
-            0,
-            1
-          ],
-          "form": [
-            0,
-            0,
-            0,
-            0
-          ],
-          "text": [
-            "",
-            "",
-            "",
-            ""
-          ],
-          "subtitle": "The fun item exchange is over.\nThank you for your patronage. Da Vinci's shop is now closed.\nI'm still exchanging items, so get in while you can!",
-          "conds": [
-            {
-              "condType": "eventEnd",
-              "value": 80016,
-              "valueList": [],
-              "eventId": 0
-            }
-          ],
-          "playConds": []
-        },
         {
           "name": "About the Event (Second Block) 1",
           "condType": "eventEnd",

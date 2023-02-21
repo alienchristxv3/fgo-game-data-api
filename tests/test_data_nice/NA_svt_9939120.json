@@ -4,6 +4,9 @@
   "name": "Demon God Pillar",
   "originalName": "Demon God Pillar",
   "ruby": "-",
+  "battleName": "Demon God Pillar",
+  "originalBattleName": "Demon God Pillar",
+  "classId": 7,
   "className": "berserker",
   "type": "enemy",
   "flag": "normal",
@@ -82,20 +85,28 @@
   },
   "cardDetails": {
     "weak": {
+      "hitsDistribution": [
+        100
+      ],
       "attackIndividuality": [
         {
           "id": 3001,
           "name": "attackProjectile"
         }
-      ]
+      ],
+      "attackType": "all"
     },
     "strength": {
+      "hitsDistribution": [
+        100
+      ],
       "attackIndividuality": [
         {
           "id": 3001,
           "name": "attackProjectile"
         }
-      ]
+      ],
+      "attackType": "all"
     }
   },
   "atkBase": 792,
@@ -103,6 +114,7 @@
   "hpBase": 6480,
   "hpMax": 447525,
   "relateQuestIds": [],
+  "trialQuestIds": [],
   "growthCurve": 9999,
   "atkGrowth": [
     792,
@@ -512,6 +524,9 @@
       "icon": "https://assets.atlasacademy.io/GameData/NA/Servants/Commands/9939120/card_servant_np.png",
       "rank": "None",
       "type": "",
+      "effectFlags": [
+        "support"
+      ],
       "npGain": {
         "buster": [
           0,

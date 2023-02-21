@@ -12,6 +12,7 @@ from sqlalchemy.sql import text
 from ..config import logger
 from ..data.buff import get_buff_with_classrelation
 from ..data.event import get_event_with_warIds
+from ..data.gift import get_gift_with_index
 from ..data.item import get_item_with_use
 from ..data.script import get_script_path, get_script_text_only
 from ..models.raw import (
@@ -22,7 +23,9 @@ from ..models.raw import (
     mstEvent,
     mstFunc,
     mstFuncGroup,
+    mstGift,
     mstItem,
+    mstSkillGroupOverwrite,
     mstSkillLv,
     mstSubtitle,
     mstTreasureDeviceLv,
@@ -32,6 +35,7 @@ from ..models.rayshift import rayshiftQuest
 from ..schemas.base import BaseModelORJson
 from ..schemas.common import Region
 from ..schemas.enums import FUNC_VALS_NOT_BUFF
+from ..schemas.gameenums import BuffType, FuncType
 from ..schemas.raw import AssetStorageLine, get_subtitle_svtId
 from ..schemas.rayshift import QuestDetail, QuestList
 from .engine import engines
@@ -69,13 +73,48 @@ def remove_unknown_columns(
     return [{k: v for k, v in item.items() if k in table_columns} for item in data]
 
 
+BUFF_TRIGGERING_SKILLS_VALUE = {
+    BuffType.DELAY_FUNCTION,
+    BuffType.DEAD_FUNCTION,
+    BuffType.BATTLESTART_FUNCTION,
+    BuffType.WAVESTART_FUNCTION,
+    BuffType.SELFTURNEND_FUNCTION,
+    BuffType.DAMAGE_FUNCTION,
+    BuffType.COMMANDATTACK_FUNCTION,
+    BuffType.DEADATTACK_FUNCTION,
+    BuffType.ENTRY_FUNCTION,
+    BuffType.REFLECTION_FUNCTION,
+    BuffType.ATTACK_FUNCTION,
+    BuffType.COMMANDCODEATTACK_FUNCTION,
+    BuffType.COMMANDATTACK_BEFORE_FUNCTION,
+    BuffType.GUTS_FUNCTION,
+    BuffType.COMMANDCODEATTACK_AFTER_FUNCTION,
+    BuffType.ATTACK_BEFORE_FUNCTION,
+    BuffType.SELFTURNSTART_FUNCTION,
+}
+
+
+def get_Value_from_sval(sval: str) -> int:
+    return int(sval.split(",")[3])
+
+
+BUFF_TRIGGERING_SKILLS_SKILL_ID = {BuffType.NPATTACK_PREV_BUFF}
+
+
+def get_SkillID_from_sval(sval: str) -> int:
+    return int(
+        next(val for val in sval.split(",") if "SkillID:" in val).removeprefix(
+            "SkillID:"
+        )
+    )
+
+
 def load_skill_td_lv(
     conn: Connection, gamedata_path: DirectoryPath
 ) -> None:  # pragma: no cover
     master_folder = gamedata_path / "master"
 
-    mstBuff_data = get_buff_with_classrelation(gamedata_path)
-    mstBuffId = {buff.id: buff for buff in mstBuff_data}
+    mstBuffId = get_buff_with_classrelation(gamedata_path)
 
     with open(master_folder / "mstFunc.json", "rb") as fp:
         mstFunc_data = orjson.loads(fp.read())
@@ -89,6 +128,13 @@ def load_skill_td_lv(
 
     with open(master_folder / "mstSkillLv.json", "rb") as fp:
         mstSkillLv_data = orjson.loads(fp.read())
+
+    group_overwrite_file = master_folder / "mstSkillGroupOverwrite.json"
+    if group_overwrite_file.exists():
+        with open(group_overwrite_file, "rb") as fp:
+            mstSkillGroupOverwrite_data = orjson.loads(fp.read())
+    else:
+        mstSkillGroupOverwrite_data = []
 
     with open(master_folder / "mstTreasureDeviceLv.json", "rb") as fp:
         mstTreasureDeviceLv_data = orjson.loads(fp.read())
@@ -112,10 +158,43 @@ def load_skill_td_lv(
 
         return func_entity
 
+    def get_trigger_skill_ids(entity_lv: dict[str, Any]) -> list[int]:
+        skill_ids = set()
+
+        for field_name in ("svals", "svals2", "svals3", "svals4", "svals5"):
+            if field_name in entity_lv:
+                for func_id, sval in zip(
+                    entity_lv["funcId"], entity_lv[field_name], strict=False
+                ):
+                    if func_id in mstFuncId:
+                        func = mstFuncId[func_id]
+                        if (
+                            func["funcType"]
+                            in [FuncType.ADD_STATE, FuncType.ADD_STATE_SHORT]
+                            and func["vals"]
+                        ):
+                            buff_id = func["vals"][0]
+                            if buff_id in mstBuffId:
+                                buff = mstBuffId[buff_id]
+                                if buff.type in BUFF_TRIGGERING_SKILLS_VALUE:
+                                    skill_ids.add(get_Value_from_sval(sval))
+                                elif buff.type in BUFF_TRIGGERING_SKILLS_SKILL_ID:
+                                    skill_ids.add(get_SkillID_from_sval(sval))
+
+        return sorted(skill_ids)
+
     for skillLv in mstSkillLv_data:
         skillLv["expandedFuncId"] = [
             get_func_entity(func_id)
             for func_id in skillLv["funcId"]
+            if func_id in mstFuncId
+        ]
+        skillLv["relatedSkillIds"] = get_trigger_skill_ids(skillLv)
+
+    for groupOverwrite in mstSkillGroupOverwrite_data:
+        groupOverwrite["expandedFuncId"] = [
+            get_func_entity(func_id)
+            for func_id in groupOverwrite["funcId"]
             if func_id in mstFuncId
         ]
 
@@ -125,12 +204,14 @@ def load_skill_td_lv(
             for func_id in treasureDeviceLv["funcId"]
             if func_id in mstFuncId
         ]
+        treasureDeviceLv["relatedSkillIds"] = get_trigger_skill_ids(treasureDeviceLv)
 
-    load_pydantic_to_db(conn, mstBuff_data, mstBuff)
+    load_pydantic_to_db(conn, list(mstBuffId.values()), mstBuff)
 
     insert_db(conn, mstFunc, mstFunc_data)
     insert_db(conn, mstFuncGroup, mstFuncGroup_data)
     insert_db(conn, mstSkillLv, mstSkillLv_data)
+    insert_db(conn, mstSkillGroupOverwrite, mstSkillGroupOverwrite_data)
     insert_db(conn, mstTreasureDeviceLv, mstTreasureDeviceLv_data)
 
 
@@ -150,6 +231,13 @@ def load_item(
     mstItems = get_item_with_use(gamedata_path)
     mstItem_db_data = [item.dict() for item in mstItems]
     insert_db(conn, mstItem, mstItem_db_data)
+
+
+def load_gift(
+    conn: Connection, gamedata_path: DirectoryPath
+) -> None:  # pragma: no cover
+    mstGifts = get_gift_with_index(gamedata_path)
+    insert_db(conn, mstGift, [item.dict() for item in mstGifts])
 
 
 def load_script_list(
@@ -309,37 +397,47 @@ def update_db(region_path: dict[Region, DirectoryPath]) -> None:  # pragma: no c
         engine = engines[region]
 
         with engine.begin() as conn:
-            for table in TABLES_TO_BE_LOADED:
-                table_json = master_folder / f"{table.name}.json"
-                if table_json.exists():
-                    with open(table_json, "rb") as fp:
-                        data: list[dict[str, Any]] = orjson.loads(fp.read())
-
-                    if data:
-                        different_columns = diff_column_schemas(data, table)
-                        if different_columns:
-                            logger.warning(
-                                f"Found unknown columns: {', '.join(different_columns)} in {table_json}"
-                            )
-                            data = remove_unknown_columns(data, table)
-                else:
-                    data = []
-
-                logger.debug(f"Updating {table.name} …")
-                insert_db(conn, table, data)
-
-            logger.info("Updating subtitle …")
-            load_subtitle(conn, region, master_folder)
-
             logger.info("Updating parsed skill and td …")
             load_skill_td_lv(conn, repo_folder)
 
-            logger.info("Updating event …")
-            load_event(conn, repo_folder)
-
+        with engine.begin() as conn:
             logger.info("Updating item …")
             load_item(conn, repo_folder)
 
+        with engine.begin() as conn:
+            logger.info("Updating gift …")
+            load_gift(conn, repo_folder)
+
+        for table_group in TABLES_TO_BE_LOADED:
+            with engine.begin() as conn:
+                for table in table_group:
+                    table_json = master_folder / f"{table.name}.json"
+                    if table_json.exists():
+                        with open(table_json, "rb") as fp:
+                            data: list[dict[str, Any]] = orjson.loads(fp.read())
+
+                        if data:
+                            different_columns = diff_column_schemas(data, table)
+                            if different_columns:
+                                logger.warning(
+                                    f"Found unknown columns: {', '.join(different_columns)} in {table_json}"
+                                )
+                                data = remove_unknown_columns(data, table)
+                    else:
+                        data = []
+
+                    logger.debug(f"Updating {table.name} …")
+                    insert_db(conn, table, data)
+
+        with engine.begin() as conn:
+            logger.info("Updating subtitle …")
+            load_subtitle(conn, region, master_folder)
+
+        with engine.begin() as conn:
+            logger.info("Updating event …")
+            load_event(conn, repo_folder)
+
+        with engine.begin() as conn:
             logger.info("Updated AssetStorage …")
             load_asset_storage(conn, repo_folder)
 

@@ -1,4 +1,3 @@
-# pylint: disable=R0201
 import pytest
 from httpx import AsyncClient, Response
 
@@ -12,6 +11,7 @@ RAW_MAIN_ITEM = {
     "skill": "mstSkill",
     "NP": "mstTreasureDevice",
     "item": "mstItem",
+    "shop": "mstShop",
 }
 
 
@@ -26,7 +26,16 @@ def get_item_list(response: Response, response_type: str, endpoint: str) -> set[
             raise ValueError
         return {item[main_item]["id"] for item in response.json()}
     else:
-        if item_type in ("servant", "equip", "buff", "svt", "skill", "NP", "item"):
+        if item_type in (
+            "servant",
+            "equip",
+            "buff",
+            "svt",
+            "skill",
+            "NP",
+            "item",
+            "shop",
+        ):
             id_name = "id"
         elif item_type == "function":
             id_name = "funcId"
@@ -76,7 +85,7 @@ test_cases_dict: dict[str, tuple[str, set[int]]] = {
         "NA/servant/search?name=Okita Souji (Alter)",
         {1000700},  # shouldn't return Okita Saber
     ),
-    "servant_JP_search_EN_name": ("JP/servant/search?name=Skadi", {503900}),
+    "servant_JP_search_EN_name": ("JP/servant/search?name=Skadi", {503900, 901400}),
     "servant_NA_search_Scathach": (
         "NA/servant/search?name=Scathach",
         {301300, 503900, 602400},
@@ -96,7 +105,7 @@ test_cases_dict: dict[str, tuple[str, set[int]]] = {
     ),
     "servant_search_voice_cond_svt_group": (
         "JP/servant/search?voiceCondSvt=190&lang=en&className=archer",
-        {201200, 202900},
+        {201200, 202900, 204600},
     ),
     "servant_search_notTrait": (
         "NA/servant/search?notTrait=weakToEnumaElish&notTrait=genderMale&className=archer",
@@ -127,17 +136,19 @@ test_cases_dict: dict[str, tuple[str, set[int]]] = {
     ),
     "skill_search_strength": (
         "JP/skill/search?strengthStatus=2&type=active",
-        {94349, 136550},
+        {26250, 94349, 136550},
     ),
     "skill_search_num": (
         "JP/skill/search?strengthStatus=99&type=active&numFunctions=5&num=3",
-        {292452, 621675},
+        {165551, 292452, 621675, 2101550, 2142550},
     ),
-    "skill_search_priority": ("JP/skill/search?priority=5", {744450}),
+    "skill_search_priority": ("JP/skill/search?priority=5", {744450, 2162350}),
     "skill_search_name": (
         "NA/skill/search?name=Mystic%20Eyes%20of%20Distortion%20EX&lvl1coolDown=7",
         {454650},
     ),
+    "skill_search_svals_contain": ("JP/skill/search?svalsContain=964096", {706350}),
+    "skill_search_trigger": ("JP/skill/search?triggerSkillId=961313", {450450, 450550}),
     "np_search_minNp_strength": (
         "NA/NP/search?minNpNpGain=220&strengthStatus=2",
         {601002},
@@ -151,6 +162,8 @@ test_cases_dict: dict[str, tuple[str, set[int]]] = {
         "JP/NP/search?individuality=aoeNP&hits=6&card=arts&strengthStatus=0",
         {504201},
     ),
+    "np_search_svals_contain": ("JP/NP/search?svalsContain=962350", {504101}),
+    "np_search_trigger": ("JP/NP/search?triggerSkillId=962350", {504101}),
     "buff_type_tvals": (
         "NA/buff/search?type=upCommandall&tvals=cardQuick&name=Boost",
         {260, 499},
@@ -167,8 +180,8 @@ test_cases_dict: dict[str, tuple[str, set[int]]] = {
     "buff_name": ("NA/buff/search?name=Battlefront Guardian of GUDAGUDA", {1056}),
     "buff_buffGroup": ("NA/buff/search?buffGroup=800", {182, 1178, 1311}),
     "func_type_targetType_targetTeam_vals": (
-        "JP/function/search?type=addStateShort&targetType=ptAll&targetTeam=playerAndEnemy&vals=101",
-        {115, 116, 117, 7691},
+        "JP/function/search?type=addStateShort&targetType=ptAll&targetTeam=playerAndEnemy&vals=101&tvals=1000700",
+        {7691},
     ),
     "func_tvals": (
         "JP/function/search?type=addStateShort&tvals=divine",
@@ -180,7 +193,7 @@ test_cases_dict: dict[str, tuple[str, set[int]]] = {
     ),
     "func_popupText": (
         "NA/function/search?popupText=Curse&targetType=self&type=subState",
-        {2451},
+        {2451, 6112, 6585},
     ),
 }
 
@@ -279,6 +292,14 @@ basic_quest_search_test_cases_dict = {
         "JP/quest/phase/search?flag=supportSelectAfterScript&flag=branch&warId=8362",
         {(94057198, 1), (94057199, 1)},
     ),
+    "quest_enemySkillId": (
+        "JP/quest/phase/search?enemySkillId=968351",
+        {(94073901, 1)},
+    ),
+    "quest_enemyNoblePhantasmId": (
+        "JP/quest/phase/search?enemyNoblePhantasmId=484",
+        {(94060012, 1)},
+    ),
 }
 basic_quest_phase_test_cases = [
     pytest.param(*value, id=key)
@@ -306,7 +327,7 @@ async def test_search_basic_quest_phase_empty(client: AsyncClient) -> None:
 nice_raw_test_cases_dict = {
     "item_individuality": ("JP/item/search?individuality=10361", {94032206}),
     "item_use_name_background": (
-        "NA/item/search?use=skill&use=ascension&use=costume&name=Claw&background=gold",
+        "NA/item/search?use=skill&use=ascension&use=costume&use=appendSkill&name=Claw&background=gold",
         {6507},
     ),
     "item_type": ("JP/item/search?type=chargeStone", {6}),
@@ -316,6 +337,15 @@ nice_raw_test_cases_dict = {
         "NA/script/search?query=gomenasorry&scriptFileName=9401",
         {"9401760110"},
     ),
+    "script_search_warId": (
+        "NA/script/search?query=Gomenasorry&warId=9029",
+        {"9401760110"},
+    ),
+    "shop_name_eventId": (
+        "NA/shop/search?eventId=80000&name=Nightless Rose",
+        {400002, 400003},
+    ),
+    "shop_type_payType": ("NA/shop/search?type=svtStorage&payType=mana", {11000000}),
 }
 
 nice_raw_test_cases = [
@@ -339,7 +369,7 @@ class TestSearchNiceRaw:
         assert response.status_code == 200
         assert result_ids == result
 
-    @pytest.mark.parametrize("endpoint", ["item"])
+    @pytest.mark.parametrize("endpoint", ["item", "shop"])
     async def test_empty_input(
         self, client: AsyncClient, response_type: str, endpoint: str
     ) -> None:

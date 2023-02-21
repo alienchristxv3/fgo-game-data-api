@@ -5,13 +5,15 @@ from ..schemas.common import Region
 
 brackets_regex = re.compile(r"[\[].*?[\]]")
 ruby_regex = re.compile(r"[\[]#(.*?):(.*?)?[\]]")
+ruby_emphasis_regex = re.compile(r"\[#(.*?)\]")
 gender_regex = re.compile(r"[\[]&(.*?):(.*?)?[\]]")
 
 
 def remove_brackets(region: Region, sentence: str) -> str:
     replaced_full_width_space = sentence.replace("\u3000", " ")
     replaced_ruby = re.sub(ruby_regex, r"\1 \2", replaced_full_width_space)
-    removed_brackets = re.sub(brackets_regex, " ", replaced_ruby)
+    replaced_ruby_emphasis = re.sub(ruby_emphasis_regex, r"\1", replaced_ruby)
+    removed_brackets = re.sub(brackets_regex, " ", replaced_ruby_emphasis)
     stripped = removed_brackets.strip()
 
     if region != Region.NA:
@@ -42,7 +44,7 @@ def get_script_text_only(region: Region, script: str) -> str:
                 in_recording_mode = True
                 continue
 
-        elif line.startswith("[k]") or line.startswith("[page]"):
+        elif line.startswith(("[page]", "[k]")):
             in_recording_mode = False
             continue
         elif "[&" in line:
@@ -58,7 +60,7 @@ def get_script_text_only(region: Region, script: str) -> str:
 def get_script_path(script_file_name: str) -> str:
     if script_file_name == "WarEpilogue108":
         return "01/WarEpilogue108"
-    if script_file_name[0] in ("0", "9"):
+    if len(script_file_name) > 0 and script_file_name[0] in ("0", "9"):
         if script_file_name[:2] == "94":
             return f"94/{script_file_name[:4]}/{script_file_name}"
         else:

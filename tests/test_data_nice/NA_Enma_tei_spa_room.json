@@ -26,7 +26,8 @@
         "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94032205.png",
         "background": "silver",
         "priority": 94032205,
-        "dropPriority": 2005
+        "dropPriority": 2005,
+        "itemSelects": []
       },
       "amount": 310
     }
@@ -46,7 +47,8 @@
       "type": "item",
       "objectId": 6506,
       "priority": 0,
-      "num": 3
+      "num": 3,
+      "giftAdds": []
     }
   ],
   "releaseConditions": [
@@ -71,6 +73,7 @@
     1
   ],
   "phaseScripts": [],
+  "priority": 94032487,
   "noticeAt": 1609488000,
   "openedAt": 1609488000,
   "closedAt": 1610769599

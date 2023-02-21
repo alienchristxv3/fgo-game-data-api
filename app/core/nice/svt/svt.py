@@ -4,6 +4,7 @@ import orjson
 from sqlalchemy.ext.asyncio import AsyncConnection
 
 from ....config import Settings
+from ....data.custom_mappings import TRIAL_QUESTS
 from ....schemas.common import Language, NiceCostume, Region
 from ....schemas.enums import (
     ATTRIBUTE_NAME,
@@ -12,6 +13,7 @@ from ....schemas.enums import (
     SERVANT_POLICY_NAME,
     ServantPersonality,
     ServantPolicy,
+    SvtClass,
 )
 from ....schemas.gameenums import (
     CARD_TYPE_NAME,
@@ -69,6 +71,8 @@ def get_nice_servant_change(change: MstSvtChange) -> NiceServantChange:
         condTargetId=change.condTargetId,
         condValue=change.condValue,
         name=change.name,
+        ruby=change.ruby,
+        battleName=change.battleName,
         svtVoiceId=change.svtVoiceId,
         limitCount=change.limitCount,
         flag=change.flag,
@@ -151,9 +155,14 @@ async def get_nice_servant(
         "name": get_translation(lang, raw_svt.mstSvt.name),
         "originalName": raw_svt.mstSvt.name,
         "ruby": raw_svt.mstSvt.ruby,
+        "battleName": get_translation(lang, raw_svt.mstSvt.battleName),
+        "originalBattleName": raw_svt.mstSvt.battleName,
         "gender": GENDER_TYPE_NAME[raw_svt.mstSvt.genderType],
         "attribute": ATTRIBUTE_NAME[raw_svt.mstSvt.attri],
-        "className": CLASS_NAME[raw_svt.mstSvt.classId],
+        "classId": raw_svt.mstSvt.classId,
+        "className": CLASS_NAME.get(
+            raw_svt.mstSvt.classId, SvtClass.atlasUnmappedClass
+        ),
         "type": SVT_TYPE_NAME[raw_svt.mstSvt.type],
         "flag": SVT_FLAG_NAME[raw_svt.mstSvt.flag],
         "cost": raw_svt.mstSvt.cost,
@@ -176,6 +185,7 @@ async def get_nice_servant(
         ],
         # "bondEquip": masters[region].bondEquip.get(svt_id, 0),
         "relateQuestIds": raw_svt.mstSvt.relateQuestIds,
+        "trialQuestIds": TRIAL_QUESTS.get(svt_id, []),
     }
 
     if raw_svt.mstSvtExtra:
@@ -204,8 +214,7 @@ async def get_nice_servant(
     atkBase = last_svt_limit.atkBase
     hpMax = last_svt_limit.hpMax
     hpBase = last_svt_limit.hpBase
-    maxLv = 121 if region == Region.JP else 101
-    growthCurveMax = maxLv if raw_svt.mstSvt.type == SvtType.NORMAL else (lvMax + 1)
+    growthCurveMax = 121 if raw_svt.mstSvt.type == SvtType.NORMAL else (lvMax + 1)
     if raw_svt.mstSvt.type == SvtType.HEROINE and region == Region.JP:
         growthCurveMax = 91
     growthCurveValues = sorted(raw_svt.mstSvtExp, key=lambda svtExp: svtExp.lv)
@@ -239,8 +248,11 @@ async def get_nice_servant(
         for svt_card in raw_svt.mstSvtCard
     }
 
+    card_add_map = {card_add.cardId: card_add for card_add in raw_svt.mstSvtCardAdd}
     nice_data["cardDetails"] = {
-        CARD_TYPE_NAME[svt_card.cardId]: get_nice_card(svt_card)
+        CARD_TYPE_NAME[svt_card.cardId]: get_nice_card(
+            svt_card, card_add_map.get(svt_card.cardId)
+        )
         for svt_card in raw_svt.mstSvtCard
     }
 

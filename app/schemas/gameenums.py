@@ -2,7 +2,7 @@
 # You shouldn't edit this file directly.
 
 
-from enum import Enum, IntEnum
+from enum import IntEnum, StrEnum
 
 
 class GenderType(IntEnum):
@@ -11,7 +11,7 @@ class GenderType(IntEnum):
     OTHER = 3
 
 
-class NiceGender(str, Enum):
+class NiceGender(StrEnum):
     """Gender Enum"""
 
     male = "male"
@@ -41,7 +41,7 @@ class SvtType(IntEnum):
     SVT_MATERIAL_TD = 12
 
 
-class NiceSvtType(str, Enum):
+class NiceSvtType(StrEnum):
     """Servant Type Enum"""
 
     normal = "normal"
@@ -82,7 +82,7 @@ class SvtFlag(IntEnum):
     SVT_EQUIP_CHOCOLATE = 32
 
 
-class NiceSvtFlag(str, Enum):
+class NiceSvtFlag(StrEnum):
     """Servant Flag Enum"""
 
     onlyUseForNpc = "onlyUseForNpc"
@@ -199,9 +199,15 @@ class FuncType(IntEnum):
     FUNC_127 = 127
     UPDATE_ENTRY_POSITIONS = 128
     BUDDY_POINT_UP = 129
+    ADD_FIELD_CHANGE_TO_FIELD = 130
+    SUB_FIELD_BUFF = 131
+    EVENT_FORTIFICATION_POINT_UP = 132
+    GAIN_NP_INDIVIDUAL_SUM = 133
+    SET_QUEST_ROUTE_FLAG = 134
+    LAST_USE_PLAYER_SKILL_COPY = 135
 
 
-class NiceFuncType(str, Enum):
+class NiceFuncType(StrEnum):
     """Function Type Enum"""
 
     none = "none"
@@ -295,6 +301,12 @@ class NiceFuncType(str, Enum):
     func127 = "func127"
     updateEntryPositions = "updateEntryPositions"
     buddyPointUp = "buddyPointUp"
+    addFieldChangeToField = "addFieldChangeToField"
+    subFieldBuff = "subFieldBuff"
+    eventFortificationPointUp = "eventFortificationPointUp"
+    gainNpIndividualSum = "gainNpIndividualSum"
+    setQuestRouteFlag = "setQuestRouteFlag"
+    lastUsePlayerSkillCopy = "lastUsePlayerSkillCopy"
 
 
 FUNC_TYPE_NAME: dict[int, NiceFuncType] = {
@@ -389,6 +401,12 @@ FUNC_TYPE_NAME: dict[int, NiceFuncType] = {
     127: NiceFuncType.func127,
     128: NiceFuncType.updateEntryPositions,
     129: NiceFuncType.buddyPointUp,
+    130: NiceFuncType.addFieldChangeToField,
+    131: NiceFuncType.subFieldBuff,
+    132: NiceFuncType.eventFortificationPointUp,
+    133: NiceFuncType.gainNpIndividualSum,
+    134: NiceFuncType.setQuestRouteFlag,
+    135: NiceFuncType.lastUsePlayerSkillCopy,
 }
 
 
@@ -425,7 +443,7 @@ class FuncTargetType(IntEnum):
     PT_ONE_HP_LOWEST_RATE = 29
 
 
-class NiceFuncTargetType(str, Enum):
+class NiceFuncTargetType(StrEnum):
     """Function Target Type Enum"""
 
     self_ = "self"
@@ -645,9 +663,23 @@ class BuffType(IntEnum):
     BUFF_RATE = 162
     INVISIBLE_BATTLE_CHARA = 163
     COUNTER_FUNCTION = 165
+    NOT_TARGET_SKILL = 166
+    HP_REDUCE_TO_REGAIN = 167
+    SELFTURNSTART_FUNCTION = 168
+    OVERWRITE_DEAD_TYPE = 169
+    UP_ACTION_COUNT = 170
+    DOWN_ACTION_COUNT = 171
+    SHIFT_GUTS = 172
+    SHIFT_GUTS_RATIO = 173
+    MASTER_SKILL_VALUE_UP = 174
+    BUFF_CONVERT = 175
+    SUB_FIELD_INDIVIDUALITY = 176
+    TO_FIELD_CHANGE_FIELD = 10001
+    TO_FIELD_AVOID_BUFF = 10002
+    TO_FIELD_SUB_INDIVIDUALITY_FIELD = 10003
 
 
-class NiceBuffType(str, Enum):
+class NiceBuffType(StrEnum):
     """Buff Type Enum"""
 
     none = "none"
@@ -800,6 +832,20 @@ class NiceBuffType(str, Enum):
     buffRate = "buffRate"
     invisibleBattleChara = "invisibleBattleChara"
     counterFunction = "counterFunction"
+    notTargetSkill = "notTargetSkill"
+    hpReduceToRegain = "hpReduceToRegain"
+    selfturnstartFunction = "selfturnstartFunction"
+    overwriteDeadType = "overwriteDeadType"
+    upActionCount = "upActionCount"
+    downActionCount = "downActionCount"
+    shiftGuts = "shiftGuts"
+    shiftGutsRatio = "shiftGutsRatio"
+    masterSkillValueUp = "masterSkillValueUp"
+    buffConvert = "buffConvert"
+    subFieldIndividuality = "subFieldIndividuality"
+    toFieldChangeField = "toFieldChangeField"
+    toFieldAvoidBuff = "toFieldAvoidBuff"
+    toFieldSubIndividualityField = "toFieldSubIndividualityField"
 
 
 BUFF_TYPE_NAME: dict[int, NiceBuffType] = {
@@ -953,6 +999,20 @@ BUFF_TYPE_NAME: dict[int, NiceBuffType] = {
     162: NiceBuffType.buffRate,
     163: NiceBuffType.invisibleBattleChara,
     165: NiceBuffType.counterFunction,
+    166: NiceBuffType.notTargetSkill,
+    167: NiceBuffType.hpReduceToRegain,
+    168: NiceBuffType.selfturnstartFunction,
+    169: NiceBuffType.overwriteDeadType,
+    170: NiceBuffType.upActionCount,
+    171: NiceBuffType.downActionCount,
+    172: NiceBuffType.shiftGuts,
+    173: NiceBuffType.shiftGutsRatio,
+    174: NiceBuffType.masterSkillValueUp,
+    175: NiceBuffType.buffConvert,
+    176: NiceBuffType.subFieldIndividuality,
+    10001: NiceBuffType.toFieldChangeField,
+    10002: NiceBuffType.toFieldAvoidBuff,
+    10003: NiceBuffType.toFieldSubIndividualityField,
 }
 
 
@@ -1060,9 +1120,22 @@ class BuffAction(IntEnum):
     INVISIBLE_BATTLE_CHARA = 100
     BUFF_RATE = 101
     COUNTER_FUNCTION = 102
+    NOT_TARGET_SKILL = 103
+    TO_FIELD_CHANGE_FIELD = 104
+    TO_FIELD_AVOID_BUFF = 105
+    GRANT_STATE_UP_ONLY = 106
+    TURNEND_HP_REDUCE_TO_REGAIN = 107
+    FUNCTION_SELFTURNSTART = 108
+    OVERWRITE_DEAD_TYPE = 109
+    ACTION_COUNT = 110
+    SHIFT_GUTS = 111
+    TO_FIELD_SUB_INDIVIDUALITY_FIELD = 112
+    MASTER_SKILL_VALUE_UP = 113
+    BUFF_CONVERT = 114
+    SUB_FIELD_INDIVIDUALITY = 115
 
 
-class NiceBuffAction(str, Enum):
+class NiceBuffAction(StrEnum):
     """Buff Action Type Enum"""
 
     none = "none"
@@ -1168,6 +1241,19 @@ class NiceBuffAction(str, Enum):
     invisibleBattleChara = "invisibleBattleChara"
     buffRate = "buffRate"
     counterFunction = "counterFunction"
+    notTargetSkill = "notTargetSkill"
+    toFieldChangeField = "toFieldChangeField"
+    toFieldAvoidBuff = "toFieldAvoidBuff"
+    grantStateUpOnly = "grantStateUpOnly"
+    turnendHpReduceToRegain = "turnendHpReduceToRegain"
+    functionSelfturnstart = "functionSelfturnstart"
+    overwriteDeadType = "overwriteDeadType"
+    actionCount = "actionCount"
+    shiftGuts = "shiftGuts"
+    toFieldSubIndividualityField = "toFieldSubIndividualityField"
+    masterSkillValueUp = "masterSkillValueUp"
+    buffConvert = "buffConvert"
+    subFieldIndividuality = "subFieldIndividuality"
 
 
 BUFF_ACTION_NAME: dict[int, NiceBuffAction] = {
@@ -1274,6 +1360,19 @@ BUFF_ACTION_NAME: dict[int, NiceBuffAction] = {
     100: NiceBuffAction.invisibleBattleChara,
     101: NiceBuffAction.buffRate,
     102: NiceBuffAction.counterFunction,
+    103: NiceBuffAction.notTargetSkill,
+    104: NiceBuffAction.toFieldChangeField,
+    105: NiceBuffAction.toFieldAvoidBuff,
+    106: NiceBuffAction.grantStateUpOnly,
+    107: NiceBuffAction.turnendHpReduceToRegain,
+    108: NiceBuffAction.functionSelfturnstart,
+    109: NiceBuffAction.overwriteDeadType,
+    110: NiceBuffAction.actionCount,
+    111: NiceBuffAction.shiftGuts,
+    112: NiceBuffAction.toFieldSubIndividualityField,
+    113: NiceBuffAction.masterSkillValueUp,
+    114: NiceBuffAction.buffConvert,
+    115: NiceBuffAction.subFieldIndividuality,
 }
 
 
@@ -1284,7 +1383,7 @@ class BuffLimit(IntEnum):
     NORMAL = 3
 
 
-class NiceBuffLimit(str, Enum):
+class NiceBuffLimit(StrEnum):
     """Buff Limit Enum"""
 
     none = "none"
@@ -1403,6 +1502,32 @@ class DataValsType(IntEnum):
     UnSubStateWhileLinkedToOthers = 98
     NotAccompanyWhenLinkedTargetMoveState = 99
     AllowSubBgmPlaying = 100
+    NotTargetSkillIdArray = 101
+    ShortTurn = 102
+    FieldIndividuality = 103
+    BGId = 104
+    BGType = 105
+    BgmId = 106
+    TakeOverFieldState = 107
+    TakeOverNextWaveBGAndBGM = 108
+    RemoveFieldBuffActorDeath = 109
+    FieldBuffGrantType = 110
+    Priority = 111
+    AddIndividualityEx = 112
+    IgnoreResistance = 113
+    GainNpTargetPassiveIndividuality = 114
+    HpReduceToRegainIndiv = 115
+    DisplayActualRecoveryHpFlag = 116
+    ShiftDeckIndex = 117
+    PopValueText = 118
+    IsLossHpPerNow = 119
+    CopyTargetFunctionType = 120
+    CopyFunctionTargetPTOnly = 121
+    IgnoreValueUp = 122
+    ApplyValueUp = 123
+    ActNoDamageBuff = 124
+    ActSelectIndex = 125
+    CopyTargetBuffType = 126
 
 
 class ClassRelationOverwriteType(IntEnum):
@@ -1411,7 +1536,7 @@ class ClassRelationOverwriteType(IntEnum):
     OVERWRITE_LESS_THAN_TARGET = 2
 
 
-class NiceClassRelationOverwriteType(str, Enum):
+class NiceClassRelationOverwriteType(StrEnum):
     """Class Relation Overwrite Type Enum"""
 
     overwriteForce = "overwriteForce"
@@ -1458,9 +1583,10 @@ class ItemType(IntEnum):
     SVT_COIN = 29
     FRIENDSHIP_UP_ITEM = 30
     PP = 31
+    TRADE_AP = 32
 
 
-class NiceItemType(str, Enum):
+class NiceItemType(StrEnum):
     """Item Type Enum"""
 
     qp = "qp"
@@ -1494,6 +1620,7 @@ class NiceItemType(str, Enum):
     svtCoin = "svtCoin"
     friendshipUpItem = "friendshipUpItem"
     pp = "pp"
+    tradeAp = "tradeAp"
 
 
 ITEM_TYPE_NAME: dict[int, NiceItemType] = {
@@ -1528,6 +1655,7 @@ ITEM_TYPE_NAME: dict[int, NiceItemType] = {
     29: NiceItemType.svtCoin,
     30: NiceItemType.friendshipUpItem,
     31: NiceItemType.pp,
+    32: NiceItemType.tradeAp,
 }
 
 
@@ -1547,7 +1675,7 @@ class GiftType(IntEnum):
     EVENT_BOARD_GAME_TOKEN = 13
 
 
-class NiceGiftType(str, Enum):
+class NiceGiftType(StrEnum):
     """Gift Type Enum"""
 
     servant = "servant"
@@ -1597,9 +1725,10 @@ class ShopType(IntEnum):
     SVT_COSTUME = 11
     START_UP_SUMMON = 12
     SHOP13 = 13
+    TRADE_AP = 14
 
 
-class NiceShopType(str, Enum):
+class NiceShopType(StrEnum):
     """Shop Type Enum"""
 
     none = "none"
@@ -1616,6 +1745,7 @@ class NiceShopType(str, Enum):
     svtCostume = "svtCostume"
     startUpSummon = "startUpSummon"
     shop13 = "shop13"
+    tradeAp = "tradeAp"
 
 
 SHOP_TYPE_NAME: dict[int, NiceShopType] = {
@@ -1633,6 +1763,7 @@ SHOP_TYPE_NAME: dict[int, NiceShopType] = {
     11: NiceShopType.svtCostume,
     12: NiceShopType.startUpSummon,
     13: NiceShopType.shop13,
+    14: NiceShopType.tradeAp,
 }
 
 
@@ -1650,9 +1781,10 @@ class PayType(IntEnum):
     ITEM = 11
     GRAIL_FRAGMENTS = 12
     FREE = 13
+    COMMON_CONSUME = 14
 
 
-class NicePayType(str, Enum):
+class NicePayType(StrEnum):
     """Pay Type Enum"""
 
     stone = "stone"
@@ -1668,6 +1800,7 @@ class NicePayType(str, Enum):
     item = "item"
     grailFragments = "grailFragments"
     free = "free"
+    commonConsume = "commonConsume"
 
 
 PAY_TYPE_NAME: dict[int, NicePayType] = {
@@ -1684,6 +1817,7 @@ PAY_TYPE_NAME: dict[int, NicePayType] = {
     11: NicePayType.item,
     12: NicePayType.grailFragments,
     13: NicePayType.free,
+    14: NicePayType.commonConsume,
 }
 
 
@@ -1712,7 +1846,7 @@ class PurchaseType(IntEnum):
     ASSIST = 22
 
 
-class NicePurchaseType(str, Enum):
+class NicePurchaseType(StrEnum):
     """Purchase Type Enum"""
 
     none = "none"
@@ -1778,7 +1912,7 @@ class CardType(IntEnum):
     STRENGTH = 11
 
 
-class NiceCardType(str, Enum):
+class NiceCardType(StrEnum):
     """Card Type Enum"""
 
     none = "none"
@@ -1967,9 +2101,20 @@ class CondType(IntEnum):
     PROGRESS_VALUE_ABOVE = 160
     PROGRESS_VALUE_BELOW = 161
     RANDOM_MISSION_TOTAL_CLEAR_NUM = 162
+    WEEKDAYS = 166
+    EVENT_FORTIFICATION_REWARD_NUM = 167
+    QUEST_CLEAR_BEFORE_EVENT_START = 168
+    NOT_QUEST_CLEAR_BEFORE_EVENT_START = 169
+    EVENT_TUTORIAL_FLAG_ON = 170
+    EVENT_TUTORIAL_FLAG_OFF = 171
+    EVENT_SUPER_BOSS_VALUE_EQUAL = 172
+    NOT_EVENT_SUPER_BOSS_VALUE_EQUAL = 173
+    ALL_SVT_TARGET_SKILL_LV_NUM = 174
+    SUPER_BOSS_DAMAGE_ABOVE = 175
+    SUPER_BOSS_DAMAGE_BELOW = 176
 
 
-class NiceCondType(str, Enum):
+class NiceCondType(StrEnum):
     """Condition Type Enum"""
 
     none = "none"
@@ -2135,6 +2280,17 @@ class NiceCondType(str, Enum):
     progressValueAbove = "progressValueAbove"
     progressValueBelow = "progressValueBelow"
     randomMissionTotalClearNum = "randomMissionTotalClearNum"
+    weekdays = "weekdays"
+    eventFortificationRewardNum = "eventFortificationRewardNum"
+    questClearBeforeEventStart = "questClearBeforeEventStart"
+    notQuestClearBeforeEventStart = "notQuestClearBeforeEventStart"
+    eventTutorialFlagOn = "eventTutorialFlagOn"
+    eventTutorialFlagOff = "eventTutorialFlagOff"
+    eventSuperBossValueEqual = "eventSuperBossValueEqual"
+    notEventSuperBossValueEqual = "notEventSuperBossValueEqual"
+    allSvtTargetSkillLvNum = "allSvtTargetSkillLvNum"
+    superBossDamageAbove = "superBossDamageAbove"
+    superBossDamageBelow = "superBossDamageBelow"
 
 
 COND_TYPE_NAME: dict[int, NiceCondType] = {
@@ -2301,6 +2457,17 @@ COND_TYPE_NAME: dict[int, NiceCondType] = {
     160: NiceCondType.progressValueAbove,
     161: NiceCondType.progressValueBelow,
     162: NiceCondType.randomMissionTotalClearNum,
+    166: NiceCondType.weekdays,
+    167: NiceCondType.eventFortificationRewardNum,
+    168: NiceCondType.questClearBeforeEventStart,
+    169: NiceCondType.notQuestClearBeforeEventStart,
+    170: NiceCondType.eventTutorialFlagOn,
+    171: NiceCondType.eventTutorialFlagOff,
+    172: NiceCondType.eventSuperBossValueEqual,
+    173: NiceCondType.notEventSuperBossValueEqual,
+    174: NiceCondType.allSvtTargetSkillLvNum,
+    175: NiceCondType.superBossDamageAbove,
+    176: NiceCondType.superBossDamageBelow,
 }
 
 
@@ -2333,7 +2500,7 @@ class VoiceCondType(IntEnum):
     LEVEL_UP_LIMIT_COUNT_BELOW = 26
 
 
-class NiceVoiceCondType(str, Enum):
+class NiceVoiceCondType(StrEnum):
     """Voice Condition Type Enum"""
 
     birthDay = "birthDay"
@@ -2362,6 +2529,15 @@ class NiceVoiceCondType(str, Enum):
     levelUpLimitCount = "levelUpLimitCount"
     levelUpLimitCountAbove = "levelUpLimitCountAbove"
     levelUpLimitCountBelow = "levelUpLimitCountBelow"
+    unknown27 = "unknown27"
+    unknown30 = "unknown30"
+    unknown32 = "unknown32"
+    unknown34 = "unknown34"
+    unknown35 = "unknown35"
+    unknown37 = "unknown37"
+    unknown38 = "unknown38"
+    unknown40 = "unknown40"
+    unknown = "unknown"
 
 
 VOICE_COND_NAME: dict[int, NiceVoiceCondType] = {
@@ -2391,6 +2567,15 @@ VOICE_COND_NAME: dict[int, NiceVoiceCondType] = {
     24: NiceVoiceCondType.levelUpLimitCount,
     25: NiceVoiceCondType.levelUpLimitCountAbove,
     26: NiceVoiceCondType.levelUpLimitCountBelow,
+    27: NiceVoiceCondType.unknown27,
+    30: NiceVoiceCondType.unknown30,
+    32: NiceVoiceCondType.unknown32,
+    34: NiceVoiceCondType.unknown34,
+    35: NiceVoiceCondType.unknown35,
+    37: NiceVoiceCondType.unknown37,
+    38: NiceVoiceCondType.unknown38,
+    40: NiceVoiceCondType.unknown40,
+    -1: NiceVoiceCondType.unknown,
 }
 
 
@@ -2413,10 +2598,15 @@ class SvtVoiceType(IntEnum):
     EVENT_DAILY_POINT = 16
     TDDAMAGE = 17
     TREASURE_BOX = 18
-    SUM = 19
+    WAR_BOARD = 19
+    EVENT_DIGGING = 20
+    EVENT_EXPEDITION = 21
+    EVENT_RECIPE = 22
+    EVENT_FORTIFICATION = 23
+    SUM = 24
 
 
-class NiceSvtVoiceType(str, Enum):
+class NiceSvtVoiceType(StrEnum):
     """Servant Voice Type Enum"""
 
     home = "home"
@@ -2437,6 +2627,11 @@ class NiceSvtVoiceType(str, Enum):
     eventDailyPoint = "eventDailyPoint"
     tddamage = "tddamage"
     treasureBox = "treasureBox"
+    warBoard = "warBoard"
+    eventDigging = "eventDigging"
+    eventExpedition = "eventExpedition"
+    eventRecipe = "eventRecipe"
+    eventFortification = "eventFortification"
     sum = "sum"
 
 
@@ -2459,7 +2654,12 @@ VOICE_TYPE_NAME: dict[int, NiceSvtVoiceType] = {
     16: NiceSvtVoiceType.eventDailyPoint,
     17: NiceSvtVoiceType.tddamage,
     18: NiceSvtVoiceType.treasureBox,
-    19: NiceSvtVoiceType.sum,
+    19: NiceSvtVoiceType.warBoard,
+    20: NiceSvtVoiceType.eventDigging,
+    21: NiceSvtVoiceType.eventExpedition,
+    22: NiceSvtVoiceType.eventRecipe,
+    23: NiceSvtVoiceType.eventFortification,
+    24: NiceSvtVoiceType.sum,
 }
 
 
@@ -2472,7 +2672,7 @@ class QuestType(IntEnum):
     WAR_BOARD = 7
 
 
-class NiceQuestType(str, Enum):
+class NiceQuestType(StrEnum):
     """Quest Type Enum"""
 
     main = "main"
@@ -2501,7 +2701,7 @@ class QuestConsumeType(IntEnum):
     AP_AND_ITEM = 4
 
 
-class NiceConsumeType(str, Enum):
+class NiceConsumeType(StrEnum):
     """Consume Type Enum"""
 
     none = "none"
@@ -2528,7 +2728,7 @@ class QuestAfterClearType(IntEnum):
     CLOSE_DISP = 5
 
 
-class NiceQuestAfterClearType(str, Enum):
+class NiceQuestAfterClearType(StrEnum):
     """Quest After Clear Enum"""
 
     close = "close"
@@ -2606,9 +2806,11 @@ class QuestFlag(IntEnum):
     LIVE = 72057594037927936
     FORCE_DISPLAY_ENEMY_INFO = 144115188075855872
     ALLOUT_BATTLE = 288230376151711744
+    RECOLLECTION = 576460752303423488
+    NOT_SINGLE_SUPPORT_ONLY = 1152921504606846976
 
 
-class NiceQuestFlag(str, Enum):
+class NiceQuestFlag(StrEnum):
     """Quest Flag Enum"""
 
     none = "none"
@@ -2669,6 +2871,8 @@ class NiceQuestFlag(str, Enum):
     live = "live"
     forceDisplayEnemyInfo = "forceDisplayEnemyInfo"
     alloutBattle = "alloutBattle"
+    recollection = "recollection"
+    notSingleSupportOnly = "notSingleSupportOnly"
 
 
 Quest_FLAG_NAME: dict[int, NiceQuestFlag] = {
@@ -2730,6 +2934,8 @@ Quest_FLAG_NAME: dict[int, NiceQuestFlag] = {
     72057594037927936: NiceQuestFlag.live,
     144115188075855872: NiceQuestFlag.forceDisplayEnemyInfo,
     288230376151711744: NiceQuestFlag.alloutBattle,
+    576460752303423488: NiceQuestFlag.recollection,
+    1152921504606846976: NiceQuestFlag.notSingleSupportOnly,
 }
 
 
@@ -2764,7 +2970,7 @@ class StatusRank(IntEnum):
     NONE = 99
 
 
-class NiceStatusRank(str, Enum):
+class NiceStatusRank(StrEnum):
     """Status Rank Enum"""
 
     a = "A"
@@ -2859,7 +3065,7 @@ class EventType(IntEnum):
     INTERLUDE_CAMPAIGN = 25
 
 
-class NiceEventType(str, Enum):
+class NiceEventType(StrEnum):
     """Event Type Enum"""
 
     none = "none"
@@ -2940,9 +3146,12 @@ class WarEntityFlag(IntEnum):
     WHITE_MARK_UNDER_BOARD = 262144
     SUB_FOLDER = 524288
     DISP_EARTH_POINT_WITHOUT_MAP = 1048576
+    IS_WAR_ICON_FREE = 2097152
+    IS_WAR_ICON_CENTER = 4194304
+    NOTICE_BOARD = 8388608
 
 
-class NiceWarFlag(str, Enum):
+class NiceWarFlag(StrEnum):
     """War Flag Enum"""
 
     withMap = "withMap"
@@ -2965,6 +3174,9 @@ class NiceWarFlag(str, Enum):
     whiteMarkUnderBoard = "whiteMarkUnderBoard"
     subFolder = "subFolder"
     dispEarthPointWithoutMap = "dispEarthPointWithoutMap"
+    isWarIconFree = "isWarIconFree"
+    isWarIconCenter = "isWarIconCenter"
+    noticeBoard = "noticeBoard"
 
 
 WAR_FLAG_NAME: dict[int, NiceWarFlag] = {
@@ -2988,6 +3200,9 @@ WAR_FLAG_NAME: dict[int, NiceWarFlag] = {
     262144: NiceWarFlag.whiteMarkUnderBoard,
     524288: NiceWarFlag.subFolder,
     1048576: NiceWarFlag.dispEarthPointWithoutMap,
+    2097152: NiceWarFlag.isWarIconFree,
+    4194304: NiceWarFlag.isWarIconCenter,
+    8388608: NiceWarFlag.noticeBoard,
 }
 
 
@@ -2997,7 +3212,7 @@ class WarEntityStartType(IntEnum):
     QUEST = 2
 
 
-class NiceWarStartType(str, Enum):
+class NiceWarStartType(StrEnum):
     """War Start Type Enum"""
 
     none = "none"
@@ -3031,9 +3246,12 @@ class WarOverwriteType(IntEnum):
     START_TYPE = 16
     NOTICE_DIALOG_TEXT = 17
     CLEAR_MARK = 18
+    EFFECT_CHANGE_WHITE_MARK = 19
+    COMMAND_SPELL_ICON = 20
+    MASTER_FACE_ICON = 21
 
 
-class NiceWarOverwriteType(str, Enum):
+class NiceWarOverwriteType(StrEnum):
     """War Overwrite Type Enum"""
 
     bgm = "bgm"
@@ -3054,6 +3272,9 @@ class NiceWarOverwriteType(str, Enum):
     startType = "startType"
     noticeDialogText = "noticeDialogText"
     clearMark = "clearMark"
+    effectChangeWhiteMark = "effectChangeWhiteMark"
+    commandSpellIcon = "commandSpellIcon"
+    masterFaceIcon = "masterFaceIcon"
 
 
 WAR_OVERWRITE_TYPE_NAME: dict[int, NiceWarOverwriteType] = {
@@ -3075,6 +3296,9 @@ WAR_OVERWRITE_TYPE_NAME: dict[int, NiceWarOverwriteType] = {
     16: NiceWarOverwriteType.startType,
     17: NiceWarOverwriteType.noticeDialogText,
     18: NiceWarOverwriteType.clearMark,
+    19: NiceWarOverwriteType.effectChangeWhiteMark,
+    20: NiceWarOverwriteType.commandSpellIcon,
+    21: NiceWarOverwriteType.masterFaceIcon,
 }
 
 
@@ -3220,9 +3444,19 @@ class AiCond(IntEnum):
     COUNT_CHAIN_HIGHER = 178
     COUNT_CHAIN_LOWER = 179
     COUNT_CHAIN_EQUAL = 180
+    CHECK_SELECT_CHAIN = 181
+    COUNT_PLAYER_NP_HIGHER = 182
+    COUNT_PLAYER_NP_LOWER = 183
+    COUNT_PLAYER_NP_EQUAL = 184
+    COUNT_PLAYER_SKILL_HIGHER = 185
+    COUNT_PLAYER_SKILL_LOWER = 186
+    COUNT_PLAYER_SKILL_EQUAL = 187
+    COUNT_PLAYER_SKILL_HIGHER_INCLUDE_MASTER_SKILL = 188
+    COUNT_PLAYER_SKILL_LOWER_INCLUDE_MASTER_SKILL = 189
+    COUNT_PLAYER_SKILL_EQUAL_INCLUDE_MASTER_SKILL = 190
 
 
-class NiceAiCond(str, Enum):
+class NiceAiCond(StrEnum):
     """AI Cond Enum"""
 
     none = "none"
@@ -3380,6 +3614,18 @@ class NiceAiCond(str, Enum):
     countChainHigher = "countChainHigher"
     countChainLower = "countChainLower"
     countChainEqual = "countChainEqual"
+    checkSelectChain = "checkSelectChain"
+    countPlayerNpHigher = "countPlayerNpHigher"
+    countPlayerNpLower = "countPlayerNpLower"
+    countPlayerNpEqual = "countPlayerNpEqual"
+    countPlayerSkillHigher = "countPlayerSkillHigher"
+    countPlayerSkillLower = "countPlayerSkillLower"
+    countPlayerSkillEqual = "countPlayerSkillEqual"
+    countPlayerSkillHigherIncludeMasterSkill = (
+        "countPlayerSkillHigherIncludeMasterSkill"
+    )
+    countPlayerSkillLowerIncludeMasterSkill = "countPlayerSkillLowerIncludeMasterSkill"
+    countPlayerSkillEqualIncludeMasterSkill = "countPlayerSkillEqualIncludeMasterSkill"
 
 
 AI_COND_NAME: dict[int, NiceAiCond] = {
@@ -3524,6 +3770,16 @@ AI_COND_NAME: dict[int, NiceAiCond] = {
     178: NiceAiCond.countChainHigher,
     179: NiceAiCond.countChainLower,
     180: NiceAiCond.countChainEqual,
+    181: NiceAiCond.checkSelectChain,
+    182: NiceAiCond.countPlayerNpHigher,
+    183: NiceAiCond.countPlayerNpLower,
+    184: NiceAiCond.countPlayerNpEqual,
+    185: NiceAiCond.countPlayerSkillHigher,
+    186: NiceAiCond.countPlayerSkillLower,
+    187: NiceAiCond.countPlayerSkillEqual,
+    188: NiceAiCond.countPlayerSkillHigherIncludeMasterSkill,
+    189: NiceAiCond.countPlayerSkillLowerIncludeMasterSkill,
+    190: NiceAiCond.countPlayerSkillEqualIncludeMasterSkill,
 }
 
 
@@ -3546,13 +3802,15 @@ class AiActType(IntEnum):
     SKILL_ID_CHECKBUFF = 41
     RESURRECTION = 42
     PLAY_MOTION = 71
+    MESSAGE = 72
+    MESSAGE_GROUP = 73
     NOBLE_PHANTASM = 80
     BATTLE_END = 90
     LOSE_END = 91
     CHANGE_THINKING = 99
 
 
-class NiceAiActType(str, Enum):
+class NiceAiActType(StrEnum):
     """AI Act Type Enum"""
 
     none = "none"
@@ -3573,6 +3831,8 @@ class NiceAiActType(str, Enum):
     skillIdCheckbuff = "skillIdCheckbuff"
     resurrection = "resurrection"
     playMotion = "playMotion"
+    message = "message"
+    messageGroup = "messageGroup"
     noblePhantasm = "noblePhantasm"
     battleEnd = "battleEnd"
     loseEnd = "loseEnd"
@@ -3598,6 +3858,8 @@ AI_ACT_TYPE_NAME: dict[int, NiceAiActType] = {
     41: NiceAiActType.skillIdCheckbuff,
     42: NiceAiActType.resurrection,
     71: NiceAiActType.playMotion,
+    72: NiceAiActType.message,
+    73: NiceAiActType.messageGroup,
     80: NiceAiActType.noblePhantasm,
     90: NiceAiActType.battleEnd,
     91: NiceAiActType.loseEnd,
@@ -3620,7 +3882,7 @@ class AiActTarget(IntEnum):
     BACK = 17
 
 
-class NiceAiActTarget(str, Enum):
+class NiceAiActTarget(StrEnum):
     """AI Act Target Enum"""
 
     none = "none"
@@ -3656,6 +3918,7 @@ AI_ACT_TARGET_NAME: dict[int, NiceAiActTarget] = {
 class AiActNum(IntEnum):
     NOMAL = 0
     ANYTIME = -1
+    REACTION_PLYAER_SKILL = -3
     REACTION_ENEMYTURN_START = -4
     REACTION_ENEMYTURN_END = -5
     REACTION_DEAD = -6
@@ -3667,13 +3930,18 @@ class AiActNum(IntEnum):
     REACTION_TURNSTART = -12
     REACTION_PLAYERACTIONSTART = -13
     REACTION_ENTRY_UNIT = -14
+    REACTION_BEFORE_RESURRECTION = -15
+    REACTION_BEFORE_DEAD = -16
+    REACTION_ENEMY_TURN_START_PRIORITY = -401
+    REACTION_ENEMY_TURN_END_PRIORITY = -501
 
 
-class NiceAiActNum(str, Enum):
+class NiceAiActNum(StrEnum):
     """AI Act Num Enum"""
 
     nomal = "nomal"
     anytime = "anytime"
+    reactionPlyaerSkill = "reactionPlyaerSkill"
     reactionEnemyturnStart = "reactionEnemyturnStart"
     reactionEnemyturnEnd = "reactionEnemyturnEnd"
     reactionDead = "reactionDead"
@@ -3685,12 +3953,17 @@ class NiceAiActNum(str, Enum):
     reactionTurnstart = "reactionTurnstart"
     reactionPlayeractionstart = "reactionPlayeractionstart"
     reactionEntryUnit = "reactionEntryUnit"
+    reactionBeforeResurrection = "reactionBeforeResurrection"
+    reactionBeforeDead = "reactionBeforeDead"
+    reactionEnemyTurnStartPriority = "reactionEnemyTurnStartPriority"
+    reactionEnemyTurnEndPriority = "reactionEnemyTurnEndPriority"
     unknown = "unknown"
 
 
 AI_ACT_NUM_NAME: dict[int, NiceAiActNum] = {
     0: NiceAiActNum.nomal,
     -1: NiceAiActNum.anytime,
+    -3: NiceAiActNum.reactionPlyaerSkill,
     -4: NiceAiActNum.reactionEnemyturnStart,
     -5: NiceAiActNum.reactionEnemyturnEnd,
     -6: NiceAiActNum.reactionDead,
@@ -3702,6 +3975,10 @@ AI_ACT_NUM_NAME: dict[int, NiceAiActNum] = {
     -12: NiceAiActNum.reactionTurnstart,
     -13: NiceAiActNum.reactionPlayeractionstart,
     -14: NiceAiActNum.reactionEntryUnit,
+    -15: NiceAiActNum.reactionBeforeResurrection,
+    -16: NiceAiActNum.reactionBeforeDead,
+    -401: NiceAiActNum.reactionEnemyTurnStartPriority,
+    -501: NiceAiActNum.reactionEnemyTurnEndPriority,
     -9999: NiceAiActNum.unknown,
 }
 
@@ -3717,7 +3994,7 @@ class MissionType(IntEnum):
     RANDOM = 7
 
 
-class NiceMissionType(str, Enum):
+class NiceMissionType(StrEnum):
     """Mission Type Enum"""
 
     none = "none"
@@ -3748,7 +4025,7 @@ class MissionRewardType(IntEnum):
     SET = 3
 
 
-class NiceMissionRewardType(str, Enum):
+class NiceMissionRewardType(StrEnum):
     """Mission Reward Type Enum"""
 
     gift = "gift"
@@ -3772,7 +4049,7 @@ class MissionProgressType(IntEnum):
     ACHIEVE = 5
 
 
-class NiceMissionProgressType(str, Enum):
+class NiceMissionProgressType(StrEnum):
     """Mission Progress Type Enum"""
 
     none = "none"
@@ -3798,7 +4075,7 @@ class BoxGachaFlag(IntEnum):
     LIMIT_RESET = 2
 
 
-class NiceLotteryFlag(str, Enum):
+class NiceLotteryFlag(StrEnum):
     """Event Lottery Flag"""
 
     none = "none"
@@ -3815,7 +4092,7 @@ class BgmFlag(IntEnum):
     IS_NOT_RELEASE = 1
 
 
-class NiceBgmFlag(str, Enum):
+class NiceBgmFlag(StrEnum):
     """Bgm Flag"""
 
     isNotRelease = "isNotRelease"
@@ -3837,7 +4114,7 @@ class SvtFrameType(IntEnum):
     FRAME_0804 = 7
 
 
-class NiceSvtFrameType(str, Enum):
+class NiceSvtFrameType(StrEnum):
     """Servant Frame Type"""
 
     black = "black"
@@ -3864,16 +4141,19 @@ SERVANT_FRAME_TYPE_NAME: dict[int, NiceSvtFrameType] = {
 
 class CommonConsumeType(IntEnum):
     ITEM = 1
+    AP = 2
 
 
-class NiceCommonConsumeType(str, Enum):
+class NiceCommonConsumeType(StrEnum):
     """Common Consume Type"""
 
     item = "item"
+    ap = "ap"
 
 
 COMMON_CONSUME_TYPE_NAME: dict[int, NiceCommonConsumeType] = {
     1: NiceCommonConsumeType.item,
+    2: NiceCommonConsumeType.ap,
 }
 
 
@@ -3883,7 +4163,7 @@ class EventRewardSceneFlag(IntEnum):
     IS_HIDE_TAB = 8
 
 
-class NiceEventRewardSceneFlag(str, Enum):
+class NiceEventRewardSceneFlag(StrEnum):
     """Event Reward Scene Flag"""
 
     npcGuide = "npcGuide"
@@ -3917,7 +4197,7 @@ class AiCondTarget(IntEnum):
     PT_BACK = 15
 
 
-class NiceAiCondTarget(str, Enum):
+class NiceAiCondTarget(StrEnum):
     """Ai Condition Target"""
 
     none = "none"
@@ -3994,9 +4274,13 @@ class AiCondParameter(IntEnum):
     CHECK_PARAMATER_32 = 32
     CHAIN_COUNT = 33
     CHECK_TARGET_SKILL_THISTURN = 34
+    CHECK_SELECT_CHAIN = 35
+    COUNT_PLAYER_NP = 36
+    COUNT_PLAYER_SKILL = 37
+    COUNT_PLAYER_SKILL_INCLUDE_MASTER_SKILL = 38
 
 
-class NiceAiCondParameter(str, Enum):
+class NiceAiCondParameter(StrEnum):
     """Ai Condition Parameter"""
 
     none = "none"
@@ -4034,6 +4318,10 @@ class NiceAiCondParameter(str, Enum):
     checkParamater32 = "checkParamater32"
     chainCount = "chainCount"
     checkTargetSkillThisturn = "checkTargetSkillThisturn"
+    checkSelectChain = "checkSelectChain"
+    countPlayerNp = "countPlayerNp"
+    countPlayerSkill = "countPlayerSkill"
+    countPlayerSkillIncludeMasterSkill = "countPlayerSkillIncludeMasterSkill"
 
 
 AI_COND_PARAMETER_NAME: dict[int, NiceAiCondParameter] = {
@@ -4072,6 +4360,10 @@ AI_COND_PARAMETER_NAME: dict[int, NiceAiCondParameter] = {
     32: NiceAiCondParameter.checkParamater32,
     33: NiceAiCondParameter.chainCount,
     34: NiceAiCondParameter.checkTargetSkillThisturn,
+    35: NiceAiCondParameter.checkSelectChain,
+    36: NiceAiCondParameter.countPlayerNp,
+    37: NiceAiCondParameter.countPlayerSkill,
+    38: NiceAiCondParameter.countPlayerSkillIncludeMasterSkill,
 }
 
 
@@ -4083,7 +4375,7 @@ class AiRefineTarget(IntEnum):
     TOTAL_COUNT = 4
 
 
-class NiceAiCondRefine(str, Enum):
+class NiceAiCondRefine(StrEnum):
     """Ai Condition Refine"""
 
     any = "any"
@@ -4112,7 +4404,7 @@ class AiCheckTarget(IntEnum):
     EXIST = 6
 
 
-class NiceAiCondCheck(str, Enum):
+class NiceAiCondCheck(StrEnum):
     """Ai Condition Check"""
 
     none = "none"
@@ -4132,4 +4424,456 @@ AI_COND_CHECK_NAME: dict[int, NiceAiCondCheck] = {
     4: NiceAiCondCheck.lower_,
     5: NiceAiCondCheck.multiple,
     6: NiceAiCondCheck.exist,
+}
+
+
+class TreasureDeviceEffectFlag(IntEnum):
+    SUPPORT = -1
+    ATTACK_ENEMY_ALL = 1
+    ATTACK_ENEMY_ONE = 2
+
+
+class NiceTdEffectFlag(StrEnum):
+    """Treasure Device Effect Flag"""
+
+    support = "support"
+    attackEnemyAll = "attackEnemyAll"
+    attackEnemyOne = "attackEnemyOne"
+
+
+TREASURE_DEVICE_EFFECT_FLAG_NAME: dict[int, NiceTdEffectFlag] = {
+    -1: NiceTdEffectFlag.support,
+    1: NiceTdEffectFlag.attackEnemyAll,
+    2: NiceTdEffectFlag.attackEnemyOne,
+}
+
+
+class CombineAdjustTargetType(IntEnum):
+    COMBINE_QP = 1
+    COMBINE_EXP = 2
+    ACTIVE_SKILL = 3
+    LARGE_SUCCESS = 4
+    SUPER_SUCCESS = 5
+    LIMIT_QP = 6
+    LIMIT_ITEM = 7
+    SKILL_QP = 8
+    SKILL_ITEM = 9
+    TREASURE_DEVICE_QP = 10
+    TREASURE_DEVICE_ITEM = 11
+    QUEST_AP = 12
+    QUEST_EXP = 13
+    QUEST_QP = 14
+    QUEST_DROP = 15
+    SVTEQUIP_COMBINE_QP = 16
+    SVTEQUIP_COMBINE_EXP = 17
+    SVTEQUIP_LARGE_SUCCESS = 18
+    SVTEQUIP_SUPER_SUCCESS = 19
+    QUEST_EVENT_POINT = 20
+    ENEMY_SVT_CLASS_PICK_UP = 21
+    EVENT_EACH_DROP_NUM = 22
+    EVENT_EACH_DROP_RATE = 23
+    QUEST_FP = 24
+    QUEST_AP_FIRST_TIME = 25
+    DAILY_DROP_UP = 26
+    EXCHANGE_SVT_COMBINE_EXP = 27
+    QUEST_USE_CONTINUE_ITEM = 28
+    FRIEND_POINT_GACHA_FREE_DRAW_NUM = 29
+    QUEST_USE_FRIENDSHIP_UP_ITEM = 30
+    QUEST_FRIENDSHIP = 31
+    LARGE_SUCCESS_BY_CLASS = 32
+    SUPER_SUCCESS_BY_CLASS = 33
+
+
+class NiceCombineAdjustTarget(StrEnum):
+    """Combine Adjust Target Type"""
+
+    combineQp = "combineQp"
+    combineExp = "combineExp"
+    activeSkill = "activeSkill"
+    largeSuccess = "largeSuccess"
+    superSuccess = "superSuccess"
+    limitQp = "limitQp"
+    limitItem = "limitItem"
+    skillQp = "skillQp"
+    skillItem = "skillItem"
+    treasureDeviceQp = "treasureDeviceQp"
+    treasureDeviceItem = "treasureDeviceItem"
+    questAp = "questAp"
+    questExp = "questExp"
+    questQp = "questQp"
+    questDrop = "questDrop"
+    svtequipCombineQp = "svtequipCombineQp"
+    svtequipCombineExp = "svtequipCombineExp"
+    svtequipLargeSuccess = "svtequipLargeSuccess"
+    svtequipSuperSuccess = "svtequipSuperSuccess"
+    questEventPoint = "questEventPoint"
+    enemySvtClassPickUp = "enemySvtClassPickUp"
+    eventEachDropNum = "eventEachDropNum"
+    eventEachDropRate = "eventEachDropRate"
+    questFp = "questFp"
+    questApFirstTime = "questApFirstTime"
+    dailyDropUp = "dailyDropUp"
+    exchangeSvtCombineExp = "exchangeSvtCombineExp"
+    questUseContinueItem = "questUseContinueItem"
+    friendPointGachaFreeDrawNum = "friendPointGachaFreeDrawNum"
+    questUseFriendshipUpItem = "questUseFriendshipUpItem"
+    questFriendship = "questFriendship"
+    largeSuccessByClass = "largeSuccessByClass"
+    superSuccessByClass = "superSuccessByClass"
+
+
+COMBINE_ADJUST_TARGET_TYPE_NAME: dict[int, NiceCombineAdjustTarget] = {
+    1: NiceCombineAdjustTarget.combineQp,
+    2: NiceCombineAdjustTarget.combineExp,
+    3: NiceCombineAdjustTarget.activeSkill,
+    4: NiceCombineAdjustTarget.largeSuccess,
+    5: NiceCombineAdjustTarget.superSuccess,
+    6: NiceCombineAdjustTarget.limitQp,
+    7: NiceCombineAdjustTarget.limitItem,
+    8: NiceCombineAdjustTarget.skillQp,
+    9: NiceCombineAdjustTarget.skillItem,
+    10: NiceCombineAdjustTarget.treasureDeviceQp,
+    11: NiceCombineAdjustTarget.treasureDeviceItem,
+    12: NiceCombineAdjustTarget.questAp,
+    13: NiceCombineAdjustTarget.questExp,
+    14: NiceCombineAdjustTarget.questQp,
+    15: NiceCombineAdjustTarget.questDrop,
+    16: NiceCombineAdjustTarget.svtequipCombineQp,
+    17: NiceCombineAdjustTarget.svtequipCombineExp,
+    18: NiceCombineAdjustTarget.svtequipLargeSuccess,
+    19: NiceCombineAdjustTarget.svtequipSuperSuccess,
+    20: NiceCombineAdjustTarget.questEventPoint,
+    21: NiceCombineAdjustTarget.enemySvtClassPickUp,
+    22: NiceCombineAdjustTarget.eventEachDropNum,
+    23: NiceCombineAdjustTarget.eventEachDropRate,
+    24: NiceCombineAdjustTarget.questFp,
+    25: NiceCombineAdjustTarget.questApFirstTime,
+    26: NiceCombineAdjustTarget.dailyDropUp,
+    27: NiceCombineAdjustTarget.exchangeSvtCombineExp,
+    28: NiceCombineAdjustTarget.questUseContinueItem,
+    29: NiceCombineAdjustTarget.friendPointGachaFreeDrawNum,
+    30: NiceCombineAdjustTarget.questUseFriendshipUpItem,
+    31: NiceCombineAdjustTarget.questFriendship,
+    32: NiceCombineAdjustTarget.largeSuccessByClass,
+    33: NiceCombineAdjustTarget.superSuccessByClass,
+}
+
+
+class EventCombineEntityCalcType(IntEnum):
+    ADDITION = 1
+    MULTIPLICATION = 2
+    FIXED_VALUE = 3
+
+
+class NiceEventCombineCalc(StrEnum):
+    """Event Combine Calc Type"""
+
+    addition = "addition"
+    multiplication = "multiplication"
+    fixedValue = "fixedValue"
+
+
+EVENT_COMBINE_CALC_TYPE_NAME: dict[int, NiceEventCombineCalc] = {
+    1: NiceEventCombineCalc.addition,
+    2: NiceEventCombineCalc.multiplication,
+    3: NiceEventCombineCalc.fixedValue,
+}
+
+
+class EventWorkType(IntEnum):
+    MILITSRY_AFFAIRS = 1
+    INTERNAL_AFFAIRS = 2
+    FARMMING = 3
+
+
+class NiceEventWorkType(StrEnum):
+    """Event Fortification Work Type"""
+
+    militsryAffairs = "militsryAffairs"
+    internalAffairs = "internalAffairs"
+    farmming = "farmming"
+
+
+EVENT_WORK_TYPE_NAME: dict[int, NiceEventWorkType] = {
+    1: NiceEventWorkType.militsryAffairs,
+    2: NiceEventWorkType.internalAffairs,
+    3: NiceEventWorkType.farmming,
+}
+
+
+class EventFortificationSvtType(IntEnum):
+    USER_SVT = 0
+    NPC = 1
+    NONE = 2
+
+
+class NiceEventFortificationSvtType(StrEnum):
+    """Event Fortification Servant Type"""
+
+    userSvt = "userSvt"
+    npc = "npc"
+    none = "none"
+
+
+EVENT_FORTIFICATION_SVT_TYPE_NAME: dict[int, NiceEventFortificationSvtType] = {
+    0: NiceEventFortificationSvtType.userSvt,
+    1: NiceEventFortificationSvtType.npc,
+    2: NiceEventFortificationSvtType.none,
+}
+
+
+class ServantClassSupportGroupType(IntEnum):
+    ALL = 0
+    SABER = 1
+    ARCHER = 2
+    LANCER = 3
+    RIDER = 4
+    CASTER = 5
+    ASSASSIN = 6
+    BERSERKER = 7
+    EXTRA = 8
+    MIX = 9
+    NOT_SUPPORT = 999
+
+
+class NiceSvtClassSupportGroupType(StrEnum):
+    """Servant Class Support Group Type"""
+
+    all = "all"
+    saber = "saber"
+    archer = "archer"
+    lancer = "lancer"
+    rider = "rider"
+    caster = "caster"
+    assassin = "assassin"
+    berserker = "berserker"
+    extra = "extra"
+    mix = "mix"
+    notSupport = "notSupport"
+
+
+SVT_CLASS_SUPPORT_GROUP_TYPE_NAME: dict[int, NiceSvtClassSupportGroupType] = {
+    0: NiceSvtClassSupportGroupType.all,
+    1: NiceSvtClassSupportGroupType.saber,
+    2: NiceSvtClassSupportGroupType.archer,
+    3: NiceSvtClassSupportGroupType.lancer,
+    4: NiceSvtClassSupportGroupType.rider,
+    5: NiceSvtClassSupportGroupType.caster,
+    6: NiceSvtClassSupportGroupType.assassin,
+    7: NiceSvtClassSupportGroupType.berserker,
+    8: NiceSvtClassSupportGroupType.extra,
+    9: NiceSvtClassSupportGroupType.mix,
+    999: NiceSvtClassSupportGroupType.notSupport,
+}
+
+
+class RestrictionType(IntEnum):
+    INDIVIDUALITY = 1
+    RARITY = 2
+    TOTAL_COST = 3
+    LV = 4
+    SUPPORT_ONLY = 5
+    UNIQUE_SVT_ONLY = 6
+    FIXED_SUPPORT_POSITION = 7
+    FIXED_MY_SVT_INDIVIDUALITY_POSITION_MAIN = 8
+    FIXED_MY_SVT_INDIVIDUALITY_SINGLE = 9
+    SVT_NUM = 10
+    MY_SVT_NUM = 11
+    MY_SVT_OR_NPC = 12
+    ALLOUT_BATTLE_UNIQUE_SVT = 13
+    FIXED_SVT_INDIVIDUALITY_POSITION_MAIN = 14
+    UNIQUE_INDIVIDUALITY = 15
+    MY_SVT_OR_SUPPORT = 16
+    DATA_LOST_BATTLE_UNIQUE_SVT = 17
+
+
+class NiceRestrictionType(StrEnum):
+    """Restriction Type"""
+
+    individuality = "individuality"
+    rarity = "rarity"
+    totalCost = "totalCost"
+    lv = "lv"
+    supportOnly = "supportOnly"
+    uniqueSvtOnly = "uniqueSvtOnly"
+    fixedSupportPosition = "fixedSupportPosition"
+    fixedMySvtIndividualityPositionMain = "fixedMySvtIndividualityPositionMain"
+    fixedMySvtIndividualitySingle = "fixedMySvtIndividualitySingle"
+    svtNum = "svtNum"
+    mySvtNum = "mySvtNum"
+    mySvtOrNpc = "mySvtOrNpc"
+    alloutBattleUniqueSvt = "alloutBattleUniqueSvt"
+    fixedSvtIndividualityPositionMain = "fixedSvtIndividualityPositionMain"
+    uniqueIndividuality = "uniqueIndividuality"
+    mySvtOrSupport = "mySvtOrSupport"
+    dataLostBattleUniqueSvt = "dataLostBattleUniqueSvt"
+
+
+RESTRICTION_TYPE_NAME: dict[int, NiceRestrictionType] = {
+    1: NiceRestrictionType.individuality,
+    2: NiceRestrictionType.rarity,
+    3: NiceRestrictionType.totalCost,
+    4: NiceRestrictionType.lv,
+    5: NiceRestrictionType.supportOnly,
+    6: NiceRestrictionType.uniqueSvtOnly,
+    7: NiceRestrictionType.fixedSupportPosition,
+    8: NiceRestrictionType.fixedMySvtIndividualityPositionMain,
+    9: NiceRestrictionType.fixedMySvtIndividualitySingle,
+    10: NiceRestrictionType.svtNum,
+    11: NiceRestrictionType.mySvtNum,
+    12: NiceRestrictionType.mySvtOrNpc,
+    13: NiceRestrictionType.alloutBattleUniqueSvt,
+    14: NiceRestrictionType.fixedSvtIndividualityPositionMain,
+    15: NiceRestrictionType.uniqueIndividuality,
+    16: NiceRestrictionType.mySvtOrSupport,
+    17: NiceRestrictionType.dataLostBattleUniqueSvt,
+}
+
+
+class RestrictionRangeType(IntEnum):
+    NONE = 0
+    EQUAL = 1
+    NOT_EQUAL = 2
+    ABOVE = 3
+    BELOW = 4
+    BETWEEN = 5
+
+
+class NiceRestrictionRangeType(StrEnum):
+    """Restriction Range Type"""
+
+    none = "none"
+    equal = "equal"
+    notEqual = "notEqual"
+    above = "above"
+    below = "below"
+    between = "between"
+
+
+RESTRICTION_RANGE_TYPE_NAME: dict[int, NiceRestrictionRangeType] = {
+    0: NiceRestrictionRangeType.none,
+    1: NiceRestrictionRangeType.equal,
+    2: NiceRestrictionRangeType.notEqual,
+    3: NiceRestrictionRangeType.above,
+    4: NiceRestrictionRangeType.below,
+    5: NiceRestrictionRangeType.between,
+}
+
+
+class FrequencyType(IntEnum):
+    ONCE = 1
+    ONCE_UNTIL_REBOOT = 2
+    EVERY_TIME = 3
+    VALENTINE = 4
+    EVERY_TIME_AFTER = 5
+
+
+class NiceFrequencyType(StrEnum):
+    """Frequency Type"""
+
+    once = "once"
+    onceUntilReboot = "onceUntilReboot"
+    everyTime = "everyTime"
+    valentine = "valentine"
+    everyTimeAfter = "everyTimeAfter"
+    none = "none"
+
+
+FREQUENCY_TYPE_NAME: dict[int, NiceFrequencyType] = {
+    1: NiceFrequencyType.once,
+    2: NiceFrequencyType.onceUntilReboot,
+    3: NiceFrequencyType.everyTime,
+    4: NiceFrequencyType.valentine,
+    5: NiceFrequencyType.everyTimeAfter,
+    0: NiceFrequencyType.none,
+}
+
+
+class CommandCardAttackType(IntEnum):
+    ONE = 1
+    ALL = 2
+
+
+class NiceCommandCardAttackType(StrEnum):
+    """Command Card Attack Type"""
+
+    one = "one"
+    all = "all"
+
+
+COMMAND_CARD_ATK_TYPE_NAME: dict[int, NiceCommandCardAttackType] = {
+    1: NiceCommandCardAttackType.one,
+    2: NiceCommandCardAttackType.all,
+}
+
+
+class SpotOverwriteType(IntEnum):
+    NONE = 0
+    FLAG = 1
+    PATH_POINT_RATIO = 2
+    PATH_POINT_RATIO_LIMIT = 3
+    NAME_PANEL_OFFSET_X = 4
+    NAME_PANEL_OFFSET_Y = 5
+    NAME = 6
+
+
+class NiceSpotOverwriteType(StrEnum):
+    """Spot Overwrite Type"""
+
+    none = "none"
+    flag = "flag"
+    pathPointRatio = "pathPointRatio"
+    pathPointRatioLimit = "pathPointRatioLimit"
+    namePanelOffsetX = "namePanelOffsetX"
+    namePanelOffsetY = "namePanelOffsetY"
+    name_ = "name"
+
+
+SPOT_OVERWRITE_TYPE_NAME: dict[int, NiceSpotOverwriteType] = {
+    0: NiceSpotOverwriteType.none,
+    1: NiceSpotOverwriteType.flag,
+    2: NiceSpotOverwriteType.pathPointRatio,
+    3: NiceSpotOverwriteType.pathPointRatioLimit,
+    4: NiceSpotOverwriteType.namePanelOffsetX,
+    5: NiceSpotOverwriteType.namePanelOffsetY,
+    6: NiceSpotOverwriteType.name_,
+}
+
+
+class BuffConvertType(IntEnum):
+    NONE = 0
+    BUFF = 1
+    INDIVIDUALITY = 2
+
+
+class NiceBuffConvertType(StrEnum):
+    """Buff Convert Type"""
+
+    none = "none"
+    buff = "buff"
+    individuality = "individuality"
+
+
+BUFF_CONVERT_TYPE_NAME: dict[int, NiceBuffConvertType] = {
+    0: NiceBuffConvertType.none,
+    1: NiceBuffConvertType.buff,
+    2: NiceBuffConvertType.individuality,
+}
+
+
+class BuffConvertLimitType(IntEnum):
+    ALL = 0
+    SELF = 1
+
+
+class NiceBuffConvertLimitType(StrEnum):
+    """Buff Convert Limit Type"""
+
+    all = "all"
+    self_ = "self"
+
+
+BUFF_CONVERT_LIMIT_TYPE_NAME: dict[int, NiceBuffConvertLimitType] = {
+    0: NiceBuffConvertLimitType.all,
+    1: NiceBuffConvertLimitType.self_,
 }

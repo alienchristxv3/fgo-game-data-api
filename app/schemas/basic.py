@@ -4,7 +4,7 @@ from typing import Optional
 from pydantic import Field, HttpUrl
 
 from .base import BaseModelORJson
-from .common import BasicCostume, MCAssets, NiceBuffScript, NiceTrait
+from .common import BasicCostume, BuffScript, MCAssets, NiceTrait
 from .enums import Attribute, FuncApplyTarget, SvtClass
 from .gameenums import (
     NiceBuffType,
@@ -26,7 +26,7 @@ class BasicBuff(BaseModelORJson):
     name: str
     icon: HttpUrl
     type: NiceBuffType
-    script: NiceBuffScript
+    script: BuffScript
     vals: list[NiceTrait]
     tvals: list[NiceTrait]
     ckSelfIndv: list[NiceTrait]
@@ -61,8 +61,12 @@ class BasicServant(BaseModelORJson):
     id: int
     collectionNo: int
     name: str
+    originalName: str
+    overwriteName: str | None = None
+    originalOverwriteName: str | None = None
     type: NiceSvtType
     flag: NiceSvtFlag
+    classId: int
     className: SvtClass
     attribute: Attribute
     rarity: int
@@ -80,6 +84,7 @@ class BasicEquip(BaseModelORJson):
     id: int
     collectionNo: int
     name: str
+    originalName: str
     type: NiceSvtType
     flag: NiceSvtFlag
     rarity: int
@@ -182,6 +187,7 @@ class BasicQuest(BaseModelORJson):
     spotName: str
     warId: int
     warLongName: str
+    priority: int
     noticeAt: int
     openedAt: int
     closedAt: int

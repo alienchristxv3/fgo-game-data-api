@@ -1,26 +1,26 @@
 import hashlib
 import json
+import pickle
+import time
+import tomllib
 from math import ceil
-from typing import Any, Callable, Optional
+from typing import Any, Awaitable, Callable, Optional
 
 import orjson
-import tomli
-import uvicorn  # type: ignore
+import uvicorn
 from fastapi import Depends, FastAPI, HTTPException, Request, Response, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.openapi.utils import get_openapi
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi_cache import FastAPICache
-from fastapi_cache.backends.redis import RedisBackend
-from fastapi_cache.coder import PickleCoder
-from fastapi_limiter import FastAPILimiter  # type: ignore
-from redis.asyncio import Redis  # type: ignore
+from redis.asyncio import Redis as AsyncRedis
 from sqlalchemy.ext.asyncio import AsyncConnection
 
-from .config import Settings, project_root
+from .config import Settings, logger, project_root
 from .core.info import get_all_repo_info
 from .db.engine import async_engines, engines
+from .redis import Redis
 from .routers import basic, nice, raw, secret
 from .routers.deps import get_redis
 from .schemas.common import Region, RepoInfo
@@ -162,20 +162,14 @@ else:  # pragma: no cover
 
 
 tags_metadata = [
-    {
-        "name": "nice",
-        "description": f"Nicely human-readable bundled data. Rate Limit: {settings.rate_limit_per_5_sec} requests / 5 seconds",
-    },
+    {"name": "nice", "description": "Nicely human-readable bundled data."},
     {"name": "basic", "description": "Minimal nice data for indexing"},
-    {
-        "name": "raw",
-        "description": f"Raw game data. Rate Limit: {settings.rate_limit_per_5_sec} requests / 5 seconds",
-    },
+    {"name": "raw", "description": "Raw game data."},
 ]
 
 
 with open(project_root / "pyproject.toml", "rb") as f:
-    pyproject_toml = tomli.load(f)
+    pyproject_toml = tomllib.load(f)
 
 
 app = FastAPI(
@@ -194,21 +188,21 @@ if settings.openapi_url:
 app.add_middleware(CORSMiddleware, allow_origins=["*"])
 
 
-# @app.middleware("http")
-# async def add_process_time_header(
-#     request: Request, call_next: Callable[..., Awaitable[Response]]
-# ) -> Response:
-#     start_time = time.perf_counter()
-#     response = await call_next(request)
-#     process_time = round((time.perf_counter() - start_time) * 1000, 2)
-#     response.headers["Server-Timing"] = f"app;dur={process_time}"
-#     logger.debug(f"Processed in {process_time}ms.")
-#     return response
+@app.middleware("http")
+async def add_process_time_header(
+    request: Request, call_next: Callable[..., Awaitable[Response]]
+) -> Response:
+    start_time = time.perf_counter()
+    response = await call_next(request)
+    process_time = round((time.perf_counter() - start_time) * 1000, 2)
+    response.headers["Server-Timing"] = f"app;dur={process_time}"
+    logger.debug(f"Processed in {process_time}ms.")
+    return response
 
 
 async def limiter_callback(
     request: Request,
-    response: Response,  # pylint: disable=unused-argument
+    response: Response,  # noqa: ARG001
     pexpire: int,
 ) -> None:  # pragma: no cover
     expire = ceil(pexpire / 1000)
@@ -223,7 +217,7 @@ async def limiter_callback(
     )
 
 
-def get_region(args: list[Any], kwargs: dict[str, Any]) -> str:
+def get_region(args: list[Any], kwargs: dict[str, Any]) -> str:  # pragma: no cover
     if "region" in kwargs and isinstance(kwargs["region"], Region):
         return kwargs["region"].value
     elif "search_param" in kwargs:
@@ -245,8 +239,8 @@ def custom_key_builder(
     namespace: str,
     args: tuple[Any, ...],
     kwargs: dict[str, Any],
-    request: Optional[Request] = None,  # pylint: disable=unused-argument
-    response: Optional[Response] = None,  # pylint: disable=unused-argument
+    request: Optional[Request] = None,  # noqa: ARG001
+    response: Optional[Response] = None,  # noqa: ARG001
 ) -> str:
     prefix = FastAPICache.get_prefix()
     static_kwargs = {k: v for k, v in kwargs.items() if k not in {"conn", "redis"}}
@@ -254,7 +248,7 @@ def custom_key_builder(
     static_args = [
         arg
         for arg in args
-        if not isinstance(arg, AsyncConnection) and not isinstance(arg, Redis)
+        if not isinstance(arg, AsyncConnection) and not isinstance(arg, AsyncRedis)
     ]
 
     region = get_region(static_args, static_kwargs)
@@ -272,18 +266,49 @@ def custom_key_builder(
     return f"{prefix}:{region}:{namespace}:{cache_key}"
 
 
+class RedisBackend:  # pragma: no cover
+    def __init__(self, redis: Redis):
+        self.redis: Redis = redis
+
+    async def get_with_ttl(self, key: str) -> tuple[int, str]:
+        async with self.redis.pipeline(transaction=True) as pipe:
+            return await pipe.ttl(key).get(key).execute()  # type: ignore
+
+    async def get(self, key: str) -> bytes | None:
+        return await self.redis.get(key)
+
+    async def set(self, key: str, value: str, expire: int | None = None) -> bool | None:
+        return await self.redis.set(key, value, ex=expire)
+
+    async def clear(self, namespace: str | None = None, key: str | None = None) -> int:
+        if namespace:
+            lua = f"for i, name in ipairs(redis.call('KEYS', '{namespace}:*')) do redis.call('DEL', name); end"
+            return await self.redis.eval(lua, numkeys=0)  # type: ignore
+        elif key:
+            return await self.redis.delete(key)
+
+        raise ValueError("Either namespace or key must be specified.")
+
+
+class PickleCoder:  # pragma: no cover
+    @classmethod
+    def encode(cls, value: Any) -> bytes:
+        return pickle.dumps(value)
+
+    @classmethod
+    def decode(cls, value: bytes) -> Any:
+        return pickle.loads(value)
+
+
 @app.on_event("startup")
 async def startup() -> None:
     redis = await Redis.from_url(settings.redisdsn)
-    await FastAPILimiter.init(
-        redis, prefix=f"{settings.redis_prefix}:limiter", callback=limiter_callback
-    )
     FastAPICache.init(
-        RedisBackend(redis),
+        RedisBackend(redis),  # type: ignore
         prefix=f"{settings.redis_prefix}:cache",
         expire=60 * 60 * 24 * 7,
         key_builder=custom_key_builder,
-        coder=PickleCoder,  # pyright: reportGeneralTypeIssues=false
+        coder=PickleCoder,  # type: ignore
     )
     app.state.redis = redis
 
@@ -291,7 +316,7 @@ async def startup() -> None:
         region: region_data.gamedata for region, region_data in settings.data.items()
     }
 
-    await load_and_export(redis, region_pathes, async_engines)
+    await load_and_export(redis, region_pathes, async_engines, False)
 
 
 @app.on_event("shutdown")
@@ -357,7 +382,6 @@ def get_swagger_ui_html(
     swagger_js_url: str = "https://cdn.jsdelivr.net/npm/swagger-ui-dist/swagger-ui-bundle.js",
     swagger_css_url: str = "https://cdn.jsdelivr.net/npm/swagger-ui-dist/swagger-ui.css",
 ) -> HTMLResponse:
-
     html = f"""
     <!DOCTYPE html>
     <html lang="en">
@@ -404,7 +428,6 @@ def get_rapidoc_html(
     description: str,
     rapidoc_js_url: str = "https://cdn.jsdelivr.net/npm/rapidoc/dist/rapidoc-min.js",
 ) -> HTMLResponse:
-
     html = f"""
     <!DOCTYPE html>
     <html lang="en">

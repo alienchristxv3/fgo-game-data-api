@@ -1,18 +1,29 @@
 import functools
-from typing import Iterable, Optional, Union
+from typing import Any, Iterable, Optional, Union
 
 from sqlalchemy import Integer, Table
 from sqlalchemy.dialects.postgresql import array_agg
 from sqlalchemy.exc import DBAPIError
 from sqlalchemy.ext.asyncio import AsyncConnection
-from sqlalchemy.sql import Join, and_, case, func, literal_column, or_, select
-from sqlalchemy.sql.elements import ClauseElement
+from sqlalchemy.sql import (
+    ColumnElement,
+    Join,
+    and_,
+    case,
+    cast,
+    func,
+    literal_column,
+    or_,
+    select,
+)
+from sqlalchemy.sql._typing import _ColumnExpressionArgument
 
 from ...models.raw import (
     ScriptFileList,
     mstBgm,
     mstClosedMessage,
     mstGift,
+    mstGiftAdd,
     mstMap,
     mstQuest,
     mstQuestConsumeItem,
@@ -20,6 +31,9 @@ from ...models.raw import (
     mstQuestPhase,
     mstQuestPhaseDetail,
     mstQuestRelease,
+    mstQuestRestriction,
+    mstQuestRestrictionInfo,
+    mstRestriction,
     mstSpot,
     mstStage,
     mstStageRemap,
@@ -43,7 +57,7 @@ from ...schemas.raw import (
     QuestEntity,
     QuestPhaseEntity,
 )
-from .utils import sql_jsonb_agg
+from .utils import fetch_one, sql_jsonb_agg
 
 
 QUEST_WITH_WAR_SELECT = select(
@@ -64,7 +78,7 @@ async def get_one_quest_with_war(
     stmt = QUEST_WITH_WAR_SELECT.where(mstQuest.c.id == quest_id)
 
     try:
-        mstQuestWar = (await conn.execute(stmt)).fetchone()
+        mstQuestWar = await fetch_one(conn, stmt)
     except DBAPIError:
         return None
 
@@ -119,7 +133,7 @@ async def get_one_quest_with_phase(
     )
 
     try:
-        mstQuestWithPhase = (await conn.execute(stmt)).fetchone()
+        mstQuestWithPhase = await fetch_one(conn, stmt)
     except DBAPIError:
         return None
 
@@ -170,6 +184,8 @@ async def get_quest_phase_search(
     enemy_svt_ai_id: Optional[int] = None,
     enemy_trait: Optional[Iterable[int]] = None,
     enemy_class: Optional[Iterable[int]] = None,
+    enemy_skill: Optional[Iterable[int]] = None,
+    enemy_np: Optional[Iterable[int]] = None,
 ) -> list[MstQuestWithPhase]:
     from_clause: Union[Join, Table] = MSTQUEST_WITH_PHASE_FROM
     if bgm_id or field_ai_id:
@@ -180,7 +196,14 @@ async def get_quest_phase_search(
                 mstQuestPhase.c.phase == mstStage.c.questPhase,
             ),
         )
-    if enemy_svt_id or enemy_svt_ai_id or enemy_trait or enemy_class:
+    if (
+        enemy_svt_id
+        or enemy_svt_ai_id
+        or enemy_trait
+        or enemy_class
+        or enemy_skill
+        or enemy_np
+    ):
         from_clause = from_clause.outerjoin(
             rayshiftQuest,
             and_(
@@ -189,7 +212,10 @@ async def get_quest_phase_search(
             ),
         )
 
-    where_clause: list[ClauseElement] = []
+    def questDetail_contains(userSvt_shape: dict[str, Any]) -> ColumnElement[bool]:
+        return rayshiftQuest.c.questDetail.contains({"userSvt": [userSvt_shape]})
+
+    where_clause: list[_ColumnExpressionArgument[bool]] = []
     if name:
         where_clause.append(mstQuest.c.name.ilike(f"%{name}%"))
     if spot_name:
@@ -244,21 +270,11 @@ async def get_quest_phase_search(
             mstStage.c.script.contains({"aiFieldIds": [{"id": field_ai_id}]})
         )
     if enemy_svt_ai_id:
-        where_clause.append(
-            rayshiftQuest.c.questDetail.contains(
-                {"userSvt": [{"aiId": enemy_svt_ai_id}]}
-            )
-        )
+        where_clause.append(questDetail_contains({"aiId": enemy_svt_ai_id}))
     if enemy_trait:
-        where_clause.append(
-            rayshiftQuest.c.questDetail.contains(
-                {"userSvt": [{"individuality": list(enemy_trait)}]}
-            )
-        )
+        where_clause.append(questDetail_contains({"individuality": list(enemy_trait)}))
     if enemy_svt_id:
-        where_clause.append(
-            rayshiftQuest.c.questDetail.contains({"userSvt": [{"svtId": enemy_svt_id}]})
-        )
+        where_clause.append(questDetail_contains({"svtId": enemy_svt_id}))
     if enemy_class:
         rayshift_svt_ids = select(
             rayshiftQuest.c.questId,
@@ -296,12 +312,24 @@ async def get_quest_phase_search(
         for class_id in enemy_class:
             where_clause.append(
                 or_(
-                    rayshiftQuest.c.questDetail.contains(
-                        {"userSvt": [{"npcSvtClassId": class_id}]}
-                    ),
+                    questDetail_contains({"npcSvtClassId": class_id}),
                     merged_class_ids.c.classId == class_id,
                 )
             )
+    if enemy_skill:
+        for skill_id in enemy_skill:
+            where_clause.append(
+                or_(
+                    questDetail_contains({"skillId1": skill_id}),
+                    questDetail_contains({"skillId2": skill_id}),
+                    questDetail_contains({"skillId3": skill_id}),
+                    questDetail_contains({"classPassive": [skill_id]}),
+                    questDetail_contains({"addPassive": [skill_id]}),
+                )
+            )
+    if enemy_np:
+        for np_id in enemy_np:
+            where_clause.append(questDetail_contains({"treasureDeviceId": np_id}))
 
     quest_search_stmt = (
         MSTQUEST_WITH_PHASE_SELECT.distinct()
@@ -332,18 +360,29 @@ JOINED_QUEST_TABLES = (
     .outerjoin(
         mstClosedMessage, mstClosedMessage.c.id == mstQuestRelease.c.closedMessageId
     )
-    .outerjoin(rayshiftQuest, rayshiftQuest.c.questId == mstQuest.c.id)
-    .outerjoin(mstGift, mstGift.c.id == mstQuest.c.giftId)
+    .outerjoin(mstGiftAdd, mstGiftAdd.c.giftId == mstQuest.c.giftId)
+    .outerjoin(
+        mstGift,
+        or_(
+            mstGift.c.id == mstQuest.c.giftId, mstGift.c.id == mstGiftAdd.c.priorGiftId
+        ),
+    )
 )
 
 
-JOINED_QUEST_ENTITY_TABLES = JOINED_QUEST_TABLES.outerjoin(
-    mstQuestPhaseDetail,
-    and_(
-        mstQuest.c.id == mstQuestPhaseDetail.c.questId,
-        mstQuestPhase.c.phase == mstQuestPhaseDetail.c.phase,
-    ),
-).outerjoin(scripts_cte, mstQuest.c.id == scripts_cte.c.questId)
+JOINED_QUEST_ENTITY_TABLES = (
+    JOINED_QUEST_TABLES.outerjoin(
+        rayshiftQuest, rayshiftQuest.c.questId == mstQuest.c.id
+    )
+    .outerjoin(
+        mstQuestPhaseDetail,
+        and_(
+            mstQuest.c.id == mstQuestPhaseDetail.c.questId,
+            mstQuestPhase.c.phase == mstQuestPhaseDetail.c.phase,
+        ),
+    )
+    .outerjoin(scripts_cte, mstQuest.c.id == scripts_cte.c.questId)
+)
 
 
 phasesWithEnemies = func.to_jsonb(
@@ -377,6 +416,7 @@ SELECT_QUEST_ENTITY = [
     sql_jsonb_agg(mstQuestRelease),
     sql_jsonb_agg(mstClosedMessage),
     sql_jsonb_agg(mstGift),
+    sql_jsonb_agg(mstGiftAdd),
     func.to_jsonb(
         func.array_remove(array_agg(mstQuestPhase.c.phase.distinct()), None)
     ).label("phases"),
@@ -484,7 +524,27 @@ async def get_quest_phase_entity(
                 mstQuestPhase.c.phase == npcFollowerRelease.c.questPhase,
             ),
         )
-        .outerjoin(npcSvtFollower, npcFollower.c.leaderSvtId == npcSvtFollower.c.id)
+        .outerjoin(
+            mstQuestRestriction,
+            and_(
+                mstQuest.c.id == mstQuestRestriction.c.questId,
+                or_(
+                    mstQuestPhase.c.phase == mstQuestRestriction.c.phase,
+                    mstQuestRestriction.c.phase == 0,
+                ),
+            ),
+        )
+        .outerjoin(
+            mstQuestRestrictionInfo,
+            and_(
+                mstQuest.c.id == mstQuestRestrictionInfo.c.questId,
+                mstQuestPhase.c.phase == mstQuestRestrictionInfo.c.phase,
+            ),
+        )
+        .outerjoin(
+            mstRestriction,
+            mstRestriction.c.id == mstQuestRestriction.c.restrictionId,
+        )
         .outerjoin(npcSvtEquip, npcFollower.c.svtEquipIds[1] == npcSvtEquip.c.id)
         .outerjoin(mstBgm, mstBgm.c.id == mstStage.c.bgmId)
         .outerjoin(
@@ -495,6 +555,18 @@ async def get_quest_phase_entity(
             ),
         )
         .outerjoin(all_scripts_cte, mstQuest.c.id == all_scripts_cte.c.questId)
+        .outerjoin(
+            npcSvtFollower,
+            or_(
+                npcFollower.c.leaderSvtId == npcSvtFollower.c.id,
+                cast(mstQuestPhase.c.script["aiNpc"]["npcId"], Integer)
+                == npcSvtFollower.c.id,
+                literal_column(
+                    "any(array(select jsonb_path_query(\"mstQuestPhase\".script, '$.aiMultiNpc[*].npcId')::int))"
+                )
+                == npcSvtFollower.c.id,
+            ),
+        )
     )
 
     select_quest_phase = [
@@ -503,8 +575,14 @@ async def get_quest_phase_entity(
         sql_jsonb_agg(mstQuestRelease),
         sql_jsonb_agg(mstClosedMessage),
         sql_jsonb_agg(mstGift),
+        sql_jsonb_agg(mstGiftAdd),
         all_phases_cte.c.phases,
-        phasesWithEnemies,
+        func.coalesce(
+            select(func.array_remove(array_agg(rayshiftQuest.c.phase.distinct()), None))
+            .where(rayshiftQuest.c.questId == quest_id)
+            .scalar_subquery(),
+            [],
+        ).label("phasesWithEnemies"),
         func.to_jsonb(mstQuestPhase.table_valued()).label(mstQuestPhase.name),
         func.to_jsonb(mstQuestPhaseDetail.table_valued()).label(
             mstQuestPhaseDetail.name
@@ -524,6 +602,9 @@ async def get_quest_phase_entity(
         sql_jsonb_agg(npcSvtFollower),
         sql_jsonb_agg(npcSvtEquip),
         sql_jsonb_agg(mstBgm),
+        sql_jsonb_agg(mstQuestRestriction),
+        sql_jsonb_agg(mstQuestRestrictionInfo),
+        sql_jsonb_agg(mstRestriction),
     ]
 
     sql_stmt = (
@@ -539,7 +620,7 @@ async def get_quest_phase_entity(
     )
 
     try:
-        quest_phase = (await conn.execute(sql_stmt)).fetchone()
+        quest_phase = await fetch_one(conn, sql_stmt)
         if quest_phase:
             return QuestPhaseEntity.from_orm(quest_phase)
     except DBAPIError:
@@ -606,7 +687,7 @@ async def get_questSelect_container(
         )
     )
 
-    quest_phase = (await conn.execute(stmt)).fetchone()
+    quest_phase = await fetch_one(conn, stmt)
     if quest_phase:
         return MstQuestPhase.from_orm(quest_phase)
 

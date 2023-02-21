@@ -48,10 +48,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003702.png",
           "background": "silver",
           "priority": 94003702,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 200
       },
+      "consumes": [],
       "purchaseType": "servant",
       "targetIds": [
         9401460
@@ -59,6 +61,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 1,
+      "gifts": [],
       "defaultLv": 1,
       "defaultLimitCount": 0,
       "openedAt": 1526443200,
@@ -94,10 +97,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003702.png",
           "background": "silver",
           "priority": 94003702,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 300
       },
+      "consumes": [],
       "purchaseType": "servant",
       "targetIds": [
         9401460
@@ -105,6 +110,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 1,
+      "gifts": [],
       "defaultLv": 1,
       "defaultLimitCount": 0,
       "openedAt": 1526443200,
@@ -140,10 +146,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003702.png",
           "background": "silver",
           "priority": 94003702,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 400
       },
+      "consumes": [],
       "purchaseType": "servant",
       "targetIds": [
         9401460
@@ -151,6 +159,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 1,
+      "gifts": [],
       "defaultLv": 1,
       "defaultLimitCount": 0,
       "openedAt": 1526443200,
@@ -186,10 +195,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003702.png",
           "background": "silver",
           "priority": 94003702,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 500
       },
+      "consumes": [],
       "purchaseType": "servant",
       "targetIds": [
         9401460
@@ -197,6 +208,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 1,
+      "gifts": [],
       "defaultLv": 1,
       "defaultLimitCount": 0,
       "openedAt": 1526443200,
@@ -232,10 +244,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003702.png",
           "background": "silver",
           "priority": 94003702,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 5
       },
+      "consumes": [],
       "purchaseType": "servant",
       "targetIds": [
         9770300
@@ -243,6 +257,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 100,
+      "gifts": [],
       "defaultLv": 1,
       "defaultLimitCount": 0,
       "openedAt": 1526443200,
@@ -278,10 +293,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003702.png",
           "background": "silver",
           "priority": 94003702,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 10
       },
+      "consumes": [],
       "purchaseType": "servant",
       "targetIds": [
         9770400
@@ -289,6 +306,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 100,
+      "gifts": [],
       "defaultLv": 1,
       "defaultLimitCount": 0,
       "openedAt": 1526443200,
@@ -324,10 +342,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003702.png",
           "background": "silver",
           "priority": 94003702,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 30
       },
+      "consumes": [],
       "purchaseType": "servant",
       "targetIds": [
         9570300
@@ -335,6 +355,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 1,
       "defaultLimitCount": 0,
       "openedAt": 1526443200,
@@ -370,10 +391,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003702.png",
           "background": "silver",
           "priority": 94003702,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 30
       },
+      "consumes": [],
       "purchaseType": "servant",
       "targetIds": [
         9670300
@@ -381,6 +404,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 1,
       "defaultLimitCount": 0,
       "openedAt": 1526443200,
@@ -416,10 +440,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003702.png",
           "background": "silver",
           "priority": 94003702,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 80
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6517
@@ -427,6 +453,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 10,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1526443200,
@@ -462,10 +489,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003702.png",
           "background": "silver",
           "priority": 94003702,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 60
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6520
@@ -473,6 +502,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 10,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1526443200,
@@ -508,10 +538,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003702.png",
           "background": "silver",
           "priority": 94003702,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 40
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6509
@@ -519,6 +551,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1526443200,
@@ -554,10 +587,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003702.png",
           "background": "silver",
           "priority": 94003702,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 30
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6505
@@ -565,6 +600,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1526443200,
@@ -600,10 +636,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003702.png",
           "background": "silver",
           "priority": 94003702,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 30
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         6512
@@ -611,6 +649,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1526443200,
@@ -646,10 +685,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003702.png",
           "background": "silver",
           "priority": 94003702,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 30
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         7004
@@ -657,6 +698,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1526443200,
@@ -692,10 +734,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003702.png",
           "background": "silver",
           "priority": 94003702,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 30
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         7006
@@ -703,6 +747,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1526443200,
@@ -738,10 +783,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003702.png",
           "background": "silver",
           "priority": 94003702,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 30
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         7007
@@ -749,6 +796,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1526443200,
@@ -784,10 +832,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003702.png",
           "background": "silver",
           "priority": 94003702,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 50
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         7104
@@ -795,6 +845,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1526443200,
@@ -830,10 +881,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003702.png",
           "background": "silver",
           "priority": 94003702,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 50
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         7106
@@ -841,6 +894,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1526443200,
@@ -876,10 +930,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003702.png",
           "background": "silver",
           "priority": 94003702,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 50
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         7107
@@ -887,6 +943,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 20,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1526443200,
@@ -922,10 +979,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003702.png",
           "background": "silver",
           "priority": 94003702,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 3
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         1
@@ -933,6 +992,7 @@
       "itemSet": [],
       "setNum": 10000,
       "limitNum": 0,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1526443200,
@@ -968,10 +1028,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003702.png",
           "background": "silver",
           "priority": 94003702,
-          "dropPriority": 2002
+          "dropPriority": 2002,
+          "itemSelects": []
         },
         "amount": 2
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         3
@@ -979,6 +1041,7 @@
       "itemSet": [],
       "setNum": 1,
       "limitNum": 500,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1526443200,
@@ -1014,10 +1077,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003701.png",
           "background": "gold",
           "priority": 94003701,
-          "dropPriority": 94003701
+          "dropPriority": 94003701,
+          "itemSelects": []
         },
         "amount": 1
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         1
@@ -1025,6 +1090,7 @@
       "itemSet": [],
       "setNum": 60000,
       "limitNum": 0,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1527739200,
@@ -1060,10 +1126,12 @@
           "icon": "https://assets.atlasacademy.io/GameData/NA/Items/94003703.png",
           "background": "silver",
           "priority": 94003703,
-          "dropPriority": 94003703
+          "dropPriority": 94003703,
+          "itemSelects": []
         },
         "amount": 1
       },
+      "consumes": [],
       "purchaseType": "item",
       "targetIds": [
         1
@@ -1071,6 +1139,7 @@
       "itemSet": [],
       "setNum": 10000,
       "limitNum": 0,
+      "gifts": [],
       "defaultLv": 0,
       "defaultLimitCount": 0,
       "openedAt": 1527739200,
@@ -1087,7 +1156,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 500000
+          "num": 500000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1102,7 +1172,8 @@
           "type": "item",
           "objectId": 94003701,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1117,7 +1188,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 10
+          "num": 10,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1132,7 +1204,8 @@
           "type": "item",
           "objectId": 6508,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1147,7 +1220,8 @@
           "type": "item",
           "objectId": 101,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1162,7 +1236,8 @@
           "type": "servant",
           "objectId": 9401460,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1177,7 +1252,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 20
+          "num": 20,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1192,7 +1268,8 @@
           "type": "item",
           "objectId": 6514,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1207,7 +1284,8 @@
           "type": "item",
           "objectId": 100,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1222,7 +1300,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 500000
+          "num": 500000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1237,7 +1316,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1252,7 +1332,8 @@
           "type": "servant",
           "objectId": 9401470,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1267,7 +1348,8 @@
           "type": "item",
           "objectId": 101,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1282,7 +1364,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 10
+          "num": 10,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1297,7 +1380,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 1000000
+          "num": 1000000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1312,7 +1396,8 @@
           "type": "item",
           "objectId": 101,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1327,7 +1412,8 @@
           "type": "item",
           "objectId": 4001,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1342,7 +1428,8 @@
           "type": "item",
           "objectId": 102,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1357,7 +1444,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 500000
+          "num": 500000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1372,7 +1460,8 @@
           "type": "item",
           "objectId": 6508,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1387,7 +1476,8 @@
           "type": "item",
           "objectId": 94003701,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1402,7 +1492,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 500000
+          "num": 500000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1417,7 +1508,8 @@
           "type": "servant",
           "objectId": 9401470,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1432,7 +1524,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 10
+          "num": 10,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1447,7 +1540,8 @@
           "type": "item",
           "objectId": 6508,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1462,7 +1556,8 @@
           "type": "item",
           "objectId": 102,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1477,7 +1572,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 1000000
+          "num": 1000000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1492,7 +1588,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 20
+          "num": 20,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1507,7 +1604,8 @@
           "type": "item",
           "objectId": 6514,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1522,7 +1620,8 @@
           "type": "item",
           "objectId": 100,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1537,7 +1636,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 500000
+          "num": 500000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1552,7 +1652,8 @@
           "type": "item",
           "objectId": 6508,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1567,7 +1668,8 @@
           "type": "item",
           "objectId": 101,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1582,7 +1684,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 10
+          "num": 10,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1597,7 +1700,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 1000000
+          "num": 1000000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1612,7 +1716,8 @@
           "type": "item",
           "objectId": 102,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1627,7 +1732,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 20
+          "num": 20,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1642,7 +1748,8 @@
           "type": "item",
           "objectId": 4001,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1657,7 +1764,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 500000
+          "num": 500000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1672,7 +1780,8 @@
           "type": "item",
           "objectId": 6508,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1687,7 +1796,8 @@
           "type": "item",
           "objectId": 102,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1702,7 +1812,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1717,7 +1828,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 500000
+          "num": 500000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1732,7 +1844,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1747,7 +1860,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 10
+          "num": 10,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1762,7 +1876,8 @@
           "type": "item",
           "objectId": 6514,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1777,7 +1892,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 1000000
+          "num": 1000000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1792,7 +1908,8 @@
           "type": "item",
           "objectId": 6508,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1807,7 +1924,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 20
+          "num": 20,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1822,7 +1940,8 @@
           "type": "item",
           "objectId": 6514,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1837,7 +1956,8 @@
           "type": "item",
           "objectId": 100,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1852,7 +1972,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 500000
+          "num": 500000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1867,7 +1988,8 @@
           "type": "item",
           "objectId": 6514,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1882,7 +2004,8 @@
           "type": "servant",
           "objectId": 9401470,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1897,7 +2020,8 @@
           "type": "item",
           "objectId": 6508,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1912,7 +2036,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 20
+          "num": 20,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1927,7 +2052,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 1000000
+          "num": 1000000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1942,7 +2068,8 @@
           "type": "item",
           "objectId": 6514,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1957,7 +2084,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1972,7 +2100,8 @@
           "type": "item",
           "objectId": 102,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -1987,7 +2116,8 @@
           "type": "item",
           "objectId": 6508,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2002,7 +2132,8 @@
           "type": "item",
           "objectId": 6514,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2017,7 +2148,8 @@
           "type": "item",
           "objectId": 6508,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2032,7 +2164,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 500000
+          "num": 500000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2047,7 +2180,8 @@
           "type": "item",
           "objectId": 6514,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2062,7 +2196,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 1000000
+          "num": 1000000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2077,7 +2212,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 50
+          "num": 50,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2092,7 +2228,8 @@
           "type": "item",
           "objectId": 94003701,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2107,7 +2244,8 @@
           "type": "item",
           "objectId": 6514,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2122,7 +2260,8 @@
           "type": "item",
           "objectId": 6508,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2137,7 +2276,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2152,7 +2292,8 @@
           "type": "item",
           "objectId": 6508,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2167,7 +2308,8 @@
           "type": "item",
           "objectId": 6507,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2182,7 +2324,8 @@
           "type": "item",
           "objectId": 4001,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2197,7 +2340,8 @@
           "type": "item",
           "objectId": 6508,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2212,7 +2356,8 @@
           "type": "item",
           "objectId": 6514,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2227,7 +2372,8 @@
           "type": "item",
           "objectId": 100,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2242,7 +2388,8 @@
           "type": "item",
           "objectId": 6508,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2257,7 +2404,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 1000000
+          "num": 1000000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2272,7 +2420,8 @@
           "type": "item",
           "objectId": 6514,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2287,7 +2436,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2302,7 +2452,8 @@
           "type": "item",
           "objectId": 6514,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2317,7 +2468,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2332,7 +2484,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 500000
+          "num": 500000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2347,7 +2500,8 @@
           "type": "item",
           "objectId": 6508,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2362,7 +2516,8 @@
           "type": "item",
           "objectId": 102,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2377,7 +2532,8 @@
           "type": "item",
           "objectId": 6514,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2392,7 +2548,8 @@
           "type": "item",
           "objectId": 6508,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2407,7 +2564,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2422,7 +2580,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 2000000
+          "num": 2000000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2437,7 +2596,8 @@
           "type": "item",
           "objectId": 6514,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2452,7 +2612,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 1000000
+          "num": 1000000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2467,7 +2628,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 50
+          "num": 50,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2482,7 +2644,8 @@
           "type": "item",
           "objectId": 6508,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2497,7 +2660,8 @@
           "type": "servant",
           "objectId": 9401470,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2512,7 +2676,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2527,7 +2692,8 @@
           "type": "item",
           "objectId": 6514,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2542,7 +2708,8 @@
           "type": "item",
           "objectId": 6508,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2557,7 +2724,8 @@
           "type": "item",
           "objectId": 102,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2572,7 +2740,8 @@
           "type": "item",
           "objectId": 6514,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2587,7 +2756,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 1000000
+          "num": 1000000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2602,7 +2772,8 @@
           "type": "item",
           "objectId": 6508,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2617,7 +2788,8 @@
           "type": "item",
           "objectId": 100,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2632,7 +2804,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 2000000
+          "num": 2000000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2647,7 +2820,8 @@
           "type": "item",
           "objectId": 6508,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2662,7 +2836,8 @@
           "type": "item",
           "objectId": 101,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2677,7 +2852,8 @@
           "type": "item",
           "objectId": 6514,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2692,7 +2868,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2707,7 +2884,8 @@
           "type": "item",
           "objectId": 6514,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2722,7 +2900,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 1000000
+          "num": 1000000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2737,7 +2916,8 @@
           "type": "item",
           "objectId": 6507,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2752,7 +2932,8 @@
           "type": "item",
           "objectId": 102,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2767,7 +2948,8 @@
           "type": "item",
           "objectId": 6514,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2782,7 +2964,8 @@
           "type": "item",
           "objectId": 6508,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2797,7 +2980,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2812,7 +2996,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 2000000
+          "num": 2000000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2827,7 +3012,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2842,7 +3028,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 2000000
+          "num": 2000000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2857,7 +3044,8 @@
           "type": "item",
           "objectId": 6514,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2872,7 +3060,8 @@
           "type": "item",
           "objectId": 6506,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2887,7 +3076,8 @@
           "type": "item",
           "objectId": 6507,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2902,7 +3092,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2917,7 +3108,8 @@
           "type": "item",
           "objectId": 101,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2932,7 +3124,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 5000000
+          "num": 5000000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2947,7 +3140,8 @@
           "type": "item",
           "objectId": 6521,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2962,7 +3156,8 @@
           "type": "item",
           "objectId": 6506,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2977,7 +3172,8 @@
           "type": "item",
           "objectId": 100,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -2992,7 +3188,8 @@
           "type": "item",
           "objectId": 6507,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3007,7 +3204,8 @@
           "type": "item",
           "objectId": 6506,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3022,7 +3220,8 @@
           "type": "item",
           "objectId": 101,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3037,7 +3236,8 @@
           "type": "item",
           "objectId": 6506,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3052,7 +3252,8 @@
           "type": "item",
           "objectId": 100,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3067,7 +3268,8 @@
           "type": "item",
           "objectId": 6518,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3082,7 +3284,8 @@
           "type": "servant",
           "objectId": 9401470,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3097,7 +3300,8 @@
           "type": "item",
           "objectId": 102,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3112,7 +3316,8 @@
           "type": "item",
           "objectId": 6521,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3127,7 +3332,8 @@
           "type": "item",
           "objectId": 6507,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3142,7 +3348,8 @@
           "type": "item",
           "objectId": 6506,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3157,7 +3364,8 @@
           "type": "item",
           "objectId": 4001,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3172,7 +3380,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3187,7 +3396,8 @@
           "type": "item",
           "objectId": 6507,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3202,7 +3412,8 @@
           "type": "item",
           "objectId": 6506,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3217,7 +3428,8 @@
           "type": "item",
           "objectId": 101,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3232,7 +3444,8 @@
           "type": "item",
           "objectId": 6507,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3247,7 +3460,8 @@
           "type": "item",
           "objectId": 6521,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3262,7 +3476,8 @@
           "type": "item",
           "objectId": 6506,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3277,7 +3492,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3292,7 +3508,8 @@
           "type": "item",
           "objectId": 6506,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3307,7 +3524,8 @@
           "type": "item",
           "objectId": 102,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3322,7 +3540,8 @@
           "type": "item",
           "objectId": 6507,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3337,7 +3556,8 @@
           "type": "item",
           "objectId": 6521,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3352,7 +3572,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 2000000
+          "num": 2000000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3367,7 +3588,8 @@
           "type": "item",
           "objectId": 6518,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3382,7 +3604,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 5000000
+          "num": 5000000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3397,7 +3620,8 @@
           "type": "item",
           "objectId": 6506,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3412,7 +3636,8 @@
           "type": "item",
           "objectId": 6507,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3427,7 +3652,8 @@
           "type": "item",
           "objectId": 6506,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3442,7 +3668,8 @@
           "type": "item",
           "objectId": 6521,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3457,7 +3684,8 @@
           "type": "item",
           "objectId": 101,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3472,7 +3700,8 @@
           "type": "servant",
           "objectId": 9401470,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3487,7 +3716,8 @@
           "type": "item",
           "objectId": 6507,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3502,7 +3732,8 @@
           "type": "item",
           "objectId": 6506,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3517,7 +3748,8 @@
           "type": "item",
           "objectId": 100,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3532,7 +3764,8 @@
           "type": "item",
           "objectId": 6507,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3547,7 +3780,8 @@
           "type": "item",
           "objectId": 6506,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3562,7 +3796,8 @@
           "type": "item",
           "objectId": 101,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3577,7 +3812,8 @@
           "type": "item",
           "objectId": 6521,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3592,7 +3828,8 @@
           "type": "item",
           "objectId": 4001,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3607,7 +3844,8 @@
           "type": "item",
           "objectId": 6506,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3622,7 +3860,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3637,7 +3876,8 @@
           "type": "item",
           "objectId": 6507,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3652,7 +3892,8 @@
           "type": "item",
           "objectId": 6518,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3667,7 +3908,8 @@
           "type": "item",
           "objectId": 6507,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3682,7 +3924,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 50
+          "num": 50,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3697,7 +3940,8 @@
           "type": "item",
           "objectId": 6506,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3712,7 +3956,8 @@
           "type": "item",
           "objectId": 100,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3727,7 +3972,8 @@
           "type": "item",
           "objectId": 6518,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3742,7 +3988,8 @@
           "type": "item",
           "objectId": 6507,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3757,7 +4004,8 @@
           "type": "item",
           "objectId": 6999,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3772,7 +4020,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 50
+          "num": 50,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3787,7 +4036,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 5000000
+          "num": 5000000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3802,7 +4052,8 @@
           "type": "item",
           "objectId": 6507,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3817,7 +4068,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 100
+          "num": 100,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3832,7 +4084,8 @@
           "type": "item",
           "objectId": 6518,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3847,7 +4100,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 5000000
+          "num": 5000000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3862,7 +4116,8 @@
           "type": "item",
           "objectId": 6507,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3877,7 +4132,8 @@
           "type": "item",
           "objectId": 6521,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3892,7 +4148,8 @@
           "type": "item",
           "objectId": 6518,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3907,7 +4164,8 @@
           "type": "item",
           "objectId": 1,
           "priority": 0,
-          "num": 5000000
+          "num": 5000000,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3922,7 +4180,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 100
+          "num": 100,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3937,7 +4196,8 @@
           "type": "item",
           "objectId": 6507,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3952,7 +4212,8 @@
           "type": "item",
           "objectId": 6521,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3967,7 +4228,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 100
+          "num": 100,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3982,7 +4244,8 @@
           "type": "item",
           "objectId": 6518,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -3997,7 +4260,8 @@
           "type": "item",
           "objectId": 100,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -4012,7 +4276,8 @@
           "type": "item",
           "objectId": 6506,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -4027,7 +4292,8 @@
           "type": "item",
           "objectId": 6518,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -4042,7 +4308,8 @@
           "type": "item",
           "objectId": 6506,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -4057,7 +4324,8 @@
           "type": "item",
           "objectId": 6507,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -4072,7 +4340,8 @@
           "type": "item",
           "objectId": 6506,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -4087,7 +4356,8 @@
           "type": "item",
           "objectId": 6999,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -4102,7 +4372,8 @@
           "type": "item",
           "objectId": 6518,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -4117,7 +4388,8 @@
           "type": "item",
           "objectId": 6521,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -4132,7 +4404,8 @@
           "type": "item",
           "objectId": 6507,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -4147,7 +4420,8 @@
           "type": "item",
           "objectId": 6506,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -4162,7 +4436,8 @@
           "type": "item",
           "objectId": 6521,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -4177,7 +4452,8 @@
           "type": "item",
           "objectId": 6506,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -4192,7 +4468,8 @@
           "type": "item",
           "objectId": 6518,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -4207,7 +4484,8 @@
           "type": "item",
           "objectId": 6507,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -4222,7 +4500,8 @@
           "type": "item",
           "objectId": 6506,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -4237,7 +4516,8 @@
           "type": "item",
           "objectId": 6999,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bgImagePoint": "https://assets.atlasacademy.io/GameData/NA/EventReward/event_rewardpoint_8001800.png",
@@ -4276,7 +4556,7 @@
           "releaseConditions": [],
           "eventId": 0,
           "slot": 0,
-          "priority": 129,
+          "priority": 155,
           "name": "The Demonic Capital Rashomon:\nShop Theme Song",
           "detail": "The following items will be used to unlock this track:\nSeed of Yggdrasil 15",
           "infoMessage": "",
@@ -4290,6 +4570,7 @@
               "type": "skillLvUp",
               "uses": [
                 "skill",
+                "appendSkill",
                 "ascension",
                 "costume"
               ],
@@ -4297,11 +4578,13 @@
               "individuality": [],
               "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6502.png",
               "background": "silver",
-              "priority": 210,
-              "dropPriority": 8203
+              "priority": 212,
+              "dropPriority": 8203,
+              "itemSelects": []
             },
             "amount": 15
           },
+          "consumes": [],
           "purchaseType": "bgm",
           "targetIds": [
             0
@@ -4309,9 +4592,10 @@
           "itemSet": [],
           "setNum": 1,
           "limitNum": 1,
+          "gifts": [],
           "defaultLv": 0,
           "defaultLimitCount": 0,
-          "openedAt": 1487944800,
+          "openedAt": 1656907200,
           "closedAt": 1901231999
         },
         "logo": "https://assets.atlasacademy.io/GameData/NA/MyRoomSound/soundlogo_015.png",
@@ -4348,7 +4632,7 @@
           "releaseConditions": [],
           "eventId": 0,
           "slot": 0,
-          "priority": 129,
+          "priority": 155,
           "name": "The Demonic Capital Rashomon:\nShop Theme Song",
           "detail": "The following items will be used to unlock this track:\nSeed of Yggdrasil 15",
           "infoMessage": "",
@@ -4362,6 +4646,7 @@
               "type": "skillLvUp",
               "uses": [
                 "skill",
+                "appendSkill",
                 "ascension",
                 "costume"
               ],
@@ -4369,11 +4654,13 @@
               "individuality": [],
               "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6502.png",
               "background": "silver",
-              "priority": 210,
-              "dropPriority": 8203
+              "priority": 212,
+              "dropPriority": 8203,
+              "itemSelects": []
             },
             "amount": 15
           },
+          "consumes": [],
           "purchaseType": "bgm",
           "targetIds": [
             0
@@ -4381,9 +4668,10 @@
           "itemSet": [],
           "setNum": 1,
           "limitNum": 1,
+          "gifts": [],
           "defaultLv": 0,
           "defaultLimitCount": 0,
-          "openedAt": 1487944800,
+          "openedAt": 1656907200,
           "closedAt": 1901231999
         },
         "logo": "https://assets.atlasacademy.io/GameData/NA/MyRoomSound/soundlogo_015.png",
@@ -4438,7 +4726,7 @@
           "releaseConditions": [],
           "eventId": 0,
           "slot": 0,
-          "priority": 129,
+          "priority": 155,
           "name": "The Demonic Capital Rashomon:\nShop Theme Song",
           "detail": "The following items will be used to unlock this track:\nSeed of Yggdrasil 15",
           "infoMessage": "",
@@ -4452,6 +4740,7 @@
               "type": "skillLvUp",
               "uses": [
                 "skill",
+                "appendSkill",
                 "ascension",
                 "costume"
               ],
@@ -4459,11 +4748,13 @@
               "individuality": [],
               "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6502.png",
               "background": "silver",
-              "priority": 210,
-              "dropPriority": 8203
+              "priority": 212,
+              "dropPriority": 8203,
+              "itemSelects": []
             },
             "amount": 15
           },
+          "consumes": [],
           "purchaseType": "bgm",
           "targetIds": [
             0
@@ -4471,9 +4762,10 @@
           "itemSet": [],
           "setNum": 1,
           "limitNum": 1,
+          "gifts": [],
           "defaultLv": 0,
           "defaultLimitCount": 0,
-          "openedAt": 1487944800,
+          "openedAt": 1656907200,
           "closedAt": 1901231999
         },
         "logo": "https://assets.atlasacademy.io/GameData/NA/MyRoomSound/soundlogo_015.png",
@@ -4510,7 +4802,7 @@
           "releaseConditions": [],
           "eventId": 0,
           "slot": 0,
-          "priority": 129,
+          "priority": 155,
           "name": "The Demonic Capital Rashomon:\nShop Theme Song",
           "detail": "The following items will be used to unlock this track:\nSeed of Yggdrasil 15",
           "infoMessage": "",
@@ -4524,6 +4816,7 @@
               "type": "skillLvUp",
               "uses": [
                 "skill",
+                "appendSkill",
                 "ascension",
                 "costume"
               ],
@@ -4531,11 +4824,13 @@
               "individuality": [],
               "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6502.png",
               "background": "silver",
-              "priority": 210,
-              "dropPriority": 8203
+              "priority": 212,
+              "dropPriority": 8203,
+              "itemSelects": []
             },
             "amount": 15
           },
+          "consumes": [],
           "purchaseType": "bgm",
           "targetIds": [
             0
@@ -4543,9 +4838,10 @@
           "itemSet": [],
           "setNum": 1,
           "limitNum": 1,
+          "gifts": [],
           "defaultLv": 0,
           "defaultLimitCount": 0,
-          "openedAt": 1487944800,
+          "openedAt": 1656907200,
           "closedAt": 1901231999
         },
         "logo": "https://assets.atlasacademy.io/GameData/NA/MyRoomSound/soundlogo_015.png",
@@ -4600,7 +4896,7 @@
           "releaseConditions": [],
           "eventId": 0,
           "slot": 0,
-          "priority": 129,
+          "priority": 155,
           "name": "The Demonic Capital Rashomon:\nShop Theme Song",
           "detail": "The following items will be used to unlock this track:\nSeed of Yggdrasil 15",
           "infoMessage": "",
@@ -4614,6 +4910,7 @@
               "type": "skillLvUp",
               "uses": [
                 "skill",
+                "appendSkill",
                 "ascension",
                 "costume"
               ],
@@ -4621,11 +4918,13 @@
               "individuality": [],
               "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6502.png",
               "background": "silver",
-              "priority": 210,
-              "dropPriority": 8203
+              "priority": 212,
+              "dropPriority": 8203,
+              "itemSelects": []
             },
             "amount": 15
           },
+          "consumes": [],
           "purchaseType": "bgm",
           "targetIds": [
             0
@@ -4633,9 +4932,10 @@
           "itemSet": [],
           "setNum": 1,
           "limitNum": 1,
+          "gifts": [],
           "defaultLv": 0,
           "defaultLimitCount": 0,
-          "openedAt": 1487944800,
+          "openedAt": 1656907200,
           "closedAt": 1901231999
         },
         "logo": "https://assets.atlasacademy.io/GameData/NA/MyRoomSound/soundlogo_015.png",
@@ -4672,7 +4972,7 @@
           "releaseConditions": [],
           "eventId": 0,
           "slot": 0,
-          "priority": 129,
+          "priority": 155,
           "name": "The Demonic Capital Rashomon:\nShop Theme Song",
           "detail": "The following items will be used to unlock this track:\nSeed of Yggdrasil 15",
           "infoMessage": "",
@@ -4686,6 +4986,7 @@
               "type": "skillLvUp",
               "uses": [
                 "skill",
+                "appendSkill",
                 "ascension",
                 "costume"
               ],
@@ -4693,11 +4994,13 @@
               "individuality": [],
               "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6502.png",
               "background": "silver",
-              "priority": 210,
-              "dropPriority": 8203
+              "priority": 212,
+              "dropPriority": 8203,
+              "itemSelects": []
             },
             "amount": 15
           },
+          "consumes": [],
           "purchaseType": "bgm",
           "targetIds": [
             0
@@ -4705,9 +5008,10 @@
           "itemSet": [],
           "setNum": 1,
           "limitNum": 1,
+          "gifts": [],
           "defaultLv": 0,
           "defaultLimitCount": 0,
-          "openedAt": 1487944800,
+          "openedAt": 1656907200,
           "closedAt": 1901231999
         },
         "logo": "https://assets.atlasacademy.io/GameData/NA/MyRoomSound/soundlogo_015.png",
@@ -4752,7 +5056,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -4796,7 +5101,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -4840,7 +5146,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -4884,7 +5191,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 10
+          "num": 10,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -4934,7 +5242,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 20
+          "num": 20,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -4984,7 +5293,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 30
+          "num": 30,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -5034,7 +5344,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -5093,7 +5404,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -5152,7 +5464,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -5211,7 +5524,8 @@
           "type": "item",
           "objectId": 94003701,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -5270,7 +5584,8 @@
           "type": "item",
           "objectId": 6507,
           "priority": 0,
-          "num": 5
+          "num": 5,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -5329,7 +5644,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 10
+          "num": 10,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -5394,7 +5710,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 20
+          "num": 20,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -5459,7 +5776,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 30
+          "num": 30,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -5524,7 +5842,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -5583,7 +5902,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -5642,7 +5962,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -5701,7 +6022,8 @@
           "type": "item",
           "objectId": 94003701,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -5760,7 +6082,8 @@
           "type": "item",
           "objectId": 6513,
           "priority": 0,
-          "num": 5
+          "num": 5,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -5819,7 +6142,8 @@
           "type": "item",
           "objectId": 4001,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -5878,7 +6202,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 10
+          "num": 10,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -5943,7 +6268,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 20
+          "num": 20,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -6008,7 +6334,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 30
+          "num": 30,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -6073,7 +6400,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -6132,7 +6460,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -6191,7 +6520,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -6250,7 +6580,8 @@
           "type": "item",
           "objectId": 94003701,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -6309,7 +6640,8 @@
           "type": "item",
           "objectId": 6510,
           "priority": 0,
-          "num": 5
+          "num": 5,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -6368,7 +6700,8 @@
           "type": "item",
           "objectId": 4001,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -6427,7 +6760,8 @@
           "type": "item",
           "objectId": 6520,
           "priority": 0,
-          "num": 5
+          "num": 5,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -6486,7 +6820,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 10
+          "num": 10,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -6551,7 +6886,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 20
+          "num": 20,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -6616,7 +6952,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 30
+          "num": 30,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -6681,7 +7018,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -6740,7 +7078,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -6799,7 +7138,8 @@
           "type": "item",
           "objectId": 94003701,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -6858,7 +7198,8 @@
           "type": "item",
           "objectId": 94003701,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -6917,7 +7258,8 @@
           "type": "item",
           "objectId": 6516,
           "priority": 0,
-          "num": 5
+          "num": 5,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -6976,7 +7318,8 @@
           "type": "item",
           "objectId": 4001,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -7035,7 +7378,8 @@
           "type": "item",
           "objectId": 6511,
           "priority": 0,
-          "num": 5
+          "num": 5,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -7094,7 +7438,8 @@
           "type": "item",
           "objectId": 6521,
           "priority": 0,
-          "num": 5
+          "num": 5,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -7153,7 +7498,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 10
+          "num": 10,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -7218,7 +7564,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 20
+          "num": 20,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -7283,7 +7630,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 30
+          "num": 30,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -7348,7 +7696,8 @@
           "type": "item",
           "objectId": 94003703,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -7407,7 +7756,8 @@
           "type": "item",
           "objectId": 94003701,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -7466,7 +7816,8 @@
           "type": "item",
           "objectId": 94003701,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -7525,7 +7876,8 @@
           "type": "item",
           "objectId": 94003701,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -7584,7 +7936,8 @@
           "type": "item",
           "objectId": 6512,
           "priority": 0,
-          "num": 5
+          "num": 5,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -7643,7 +7996,8 @@
           "type": "item",
           "objectId": 4001,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -7702,7 +8056,8 @@
           "type": "item",
           "objectId": 6501,
           "priority": 0,
-          "num": 5
+          "num": 5,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -7761,7 +8116,8 @@
           "type": "item",
           "objectId": 6517,
           "priority": 0,
-          "num": 5
+          "num": 5,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -7820,7 +8176,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 10
+          "num": 10,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -7885,7 +8242,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 20
+          "num": 20,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -7950,7 +8308,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 30
+          "num": 30,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -8015,7 +8374,8 @@
           "type": "item",
           "objectId": 94003701,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -8074,7 +8434,8 @@
           "type": "item",
           "objectId": 94003701,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -8133,7 +8494,8 @@
           "type": "item",
           "objectId": 94003701,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -8192,7 +8554,8 @@
           "type": "item",
           "objectId": 94003701,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -8251,7 +8614,8 @@
           "type": "item",
           "objectId": 6502,
           "priority": 0,
-          "num": 5
+          "num": 5,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -8310,7 +8674,8 @@
           "type": "item",
           "objectId": 4001,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -8369,7 +8734,8 @@
           "type": "item",
           "objectId": 6505,
           "priority": 0,
-          "num": 5
+          "num": 5,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -8428,7 +8794,8 @@
           "type": "item",
           "objectId": 6515,
           "priority": 0,
-          "num": 5
+          "num": 5,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -8487,7 +8854,8 @@
           "type": "item",
           "objectId": 6506,
           "priority": 0,
-          "num": 5
+          "num": 5,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -8546,7 +8914,8 @@
           "type": "item",
           "objectId": 6999,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -8605,7 +8974,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 10
+          "num": 10,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -8670,7 +9040,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 20
+          "num": 20,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -8735,7 +9106,8 @@
           "type": "item",
           "objectId": 3,
           "priority": 0,
-          "num": 30
+          "num": 30,
+          "giftAdds": []
         }
       ],
       "bannerGroup": 0,
@@ -8783,9 +9155,15 @@
       ]
     }
   ],
+  "randomMissions": [],
   "towers": [],
   "lotteries": [],
   "treasureBoxes": [],
+  "bulletinBoards": [],
+  "recipes": [],
+  "fortifications": [],
+  "campaigns": [],
+  "campaignQuests": [],
   "voicePlays": [
     {
       "slot": 2,
@@ -9399,432 +9777,6 @@
             }
           ],
           "playConds": []
-        },
-        {
-          "name": "About the Event 7",
-          "condType": "eventEnd",
-          "condValue": 0,
-          "priority": 6930,
-          "svtVoiceType": "eventReward",
-          "overwriteName": "Revival: The Demonic Capital: Rashomon 1",
-          "id": [
-            "0_N070",
-            "0_N071",
-            "0_N072"
-          ],
-          "audioAssets": [
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_N070.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_N071.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_N072.mp3"
-          ],
-          "delay": [
-            0.0,
-            0.3,
-            0.1
-          ],
-          "face": [
-            1,
-            1,
-            0
-          ],
-          "form": [
-            0,
-            0,
-            0
-          ],
-          "text": [
-            "",
-            "",
-            ""
-          ],
-          "subtitle": "Oh sweetie, aren't you a popular one. I wonder if you will visit me again tomorrow? That aside, how many times have you come to me today already?",
-          "conds": [
-            {
-              "condType": "eventNoend",
-              "value": 80055,
-              "valueList": [],
-              "eventId": 0
-            }
-          ],
-          "playConds": []
-        },
-        {
-          "name": "About the Event 8",
-          "condType": "eventEnd",
-          "condValue": 0,
-          "priority": 6920,
-          "svtVoiceType": "eventReward",
-          "overwriteName": "Revival: The Demonic Capital: Rashomon 2",
-          "id": [
-            "0_N080",
-            "0_N081",
-            "0_N082",
-            "0_N083"
-          ],
-          "audioAssets": [
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_N080.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_N081.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_N082.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_N083.mp3"
-          ],
-          "delay": [
-            0.0,
-            0.1,
-            0.3,
-            0.3
-          ],
-          "face": [
-            0,
-            1,
-            1,
-            1
-          ],
-          "form": [
-            0,
-            0,
-            0,
-            0
-          ],
-          "text": [
-            "",
-            "",
-            "",
-            ""
-          ],
-          "subtitle": "Yes? You came here to see me? That makes me so happy. You know, I really wanted to see you as well... Just kidding. Fufu, that's just a joke.",
-          "conds": [
-            {
-              "condType": "eventNoend",
-              "value": 80055,
-              "valueList": [],
-              "eventId": 0
-            }
-          ],
-          "playConds": []
-        },
-        {
-          "name": "About the Event 9",
-          "condType": "eventEnd",
-          "condValue": 0,
-          "priority": 6910,
-          "svtVoiceType": "eventReward",
-          "overwriteName": "Revival: The Demonic Capital: Rashomon 3",
-          "id": [
-            "0_N090",
-            "0_N091",
-            "0_N092"
-          ],
-          "audioAssets": [
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_N090.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_N091.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_N092.mp3"
-          ],
-          "delay": [
-            0.0,
-            0.1,
-            0.1
-          ],
-          "face": [
-            0,
-            0,
-            1
-          ],
-          "form": [
-            0,
-            0,
-            0
-          ],
-          "text": [
-            "",
-            "",
-            ""
-          ],
-          "subtitle": "How are you doing? No, I can tell by looking at your face, you don't have to tell me. Do your best out there.",
-          "conds": [
-            {
-              "condType": "eventNoend",
-              "value": 80055,
-              "valueList": [],
-              "eventId": 0
-            }
-          ],
-          "playConds": []
-        },
-        {
-          "name": "About the Event 10",
-          "condType": "eventEnd",
-          "condValue": 0,
-          "priority": 6909,
-          "svtVoiceType": "eventReward",
-          "overwriteName": "Revival: The Demonic Capital: Rashomon 4",
-          "id": [
-            "0_N100",
-            "0_N101",
-            "0_N102"
-          ],
-          "audioAssets": [
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_N100.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_N101.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_N102.mp3"
-          ],
-          "delay": [
-            0.0,
-            0.3,
-            0.1
-          ],
-          "face": [
-            0,
-            0,
-            1
-          ],
-          "form": [
-            0,
-            0,
-            0
-          ],
-          "text": [
-            "",
-            "",
-            ""
-          ],
-          "subtitle": "It's not good to get too enthralled by one thing but... you... are trying your best to see me right? Fufufu, in that case I can't really stop you now, can I?",
-          "conds": [
-            {
-              "condType": "eventNoend",
-              "value": 80055,
-              "valueList": [],
-              "eventId": 0
-            }
-          ],
-          "playConds": []
-        },
-        {
-          "name": "About the Event 11",
-          "condType": "eventEnd",
-          "condValue": 0,
-          "priority": 6908,
-          "svtVoiceType": "eventReward",
-          "overwriteName": "Revival: The Demonic Capital: Rashomon 5",
-          "id": [
-            "0_N110",
-            "0_N111"
-          ],
-          "audioAssets": [
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_N110.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_N111.mp3"
-          ],
-          "delay": [
-            0.0,
-            0.3
-          ],
-          "face": [
-            1,
-            1
-          ],
-          "form": [
-            0,
-            0
-          ],
-          "text": [
-            "",
-            ""
-          ],
-          "subtitle": "Sweetie, the depths of your desire, I want to see more of it. Can you show me? ...Pretty please?",
-          "conds": [
-            {
-              "condType": "eventNoend",
-              "value": 80055,
-              "valueList": [],
-              "eventId": 0
-            }
-          ],
-          "playConds": []
-        },
-        {
-          "name": "About the Event 12",
-          "condType": "eventEnd",
-          "condValue": 0,
-          "priority": 6907,
-          "svtVoiceType": "eventReward",
-          "overwriteName": "Revival: The Demonic Capital: Rashomon 6",
-          "id": [
-            "0_N120",
-            "0_N121"
-          ],
-          "audioAssets": [
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_N120.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_N121.mp3"
-          ],
-          "delay": [
-            0.0,
-            0.1
-          ],
-          "face": [
-            0,
-            1
-          ],
-          "form": [
-            0,
-            0
-          ],
-          "text": [
-            "",
-            ""
-          ],
-          "subtitle": "We're done, that's it. Make sure you grab whatever you need, and relax both your body and mind before you leave.",
-          "conds": [
-            {
-              "condType": "eventEnd",
-              "value": 80055,
-              "valueList": [],
-              "eventId": 0
-            }
-          ],
-          "playConds": []
-        },
-        {
-          "name": "About the Event 13",
-          "condType": "eventEnd",
-          "condValue": 0,
-          "priority": 6906,
-          "svtVoiceType": "eventReward",
-          "overwriteName": "Revival: The Demonic Capital: Rashomon 7",
-          "id": [
-            "0_N130",
-            "0_N131",
-            "0_N132",
-            "0_N133",
-            "0_N134"
-          ],
-          "audioAssets": [
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_N130.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_N131.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_N132.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_N133.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_N134.mp3"
-          ],
-          "delay": [
-            0.0,
-            0.1,
-            0.1,
-            0.3,
-            0.1
-          ],
-          "face": [
-            0,
-            0,
-            4,
-            1,
-            1
-          ],
-          "form": [
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "text": [
-            "",
-            "",
-            "",
-            "",
-            ""
-          ],
-          "subtitle": "I guess this is goodbye. Don't forget about me, okay, Sweetie?\nI'm going to miss you... Just kidding, fufufu. If fate allows, we'll see each other again.",
-          "conds": [
-            {
-              "condType": "eventEnd",
-              "value": 80055,
-              "valueList": [],
-              "eventId": 0
-            }
-          ],
-          "playConds": []
-        },
-        {
-          "name": "About the Mission 1",
-          "condType": "eventEnd",
-          "condValue": 0,
-          "priority": 6890,
-          "svtVoiceType": "eventReward",
-          "overwriteName": "Revival: The Demonic Capital: Rashomon 8",
-          "id": [
-            "0_M010",
-            "0_M011"
-          ],
-          "audioAssets": [
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_M010.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_M011.mp3"
-          ],
-          "delay": [
-            0.0,
-            0.1
-          ],
-          "face": [
-            0,
-            1
-          ],
-          "form": [
-            0,
-            0
-          ],
-          "text": [
-            "",
-            ""
-          ],
-          "subtitle": "Congratulations. Here, why don't you take this reward with you.",
-          "conds": [
-            {
-              "condType": "eventMissionAction",
-              "value": 80055,
-              "valueList": [],
-              "eventId": 0
-            }
-          ],
-          "playConds": []
-        },
-        {
-          "name": "About the Mission 2",
-          "condType": "eventEnd",
-          "condValue": 0,
-          "priority": 6880,
-          "svtVoiceType": "eventReward",
-          "overwriteName": "Revival: The Demonic Capital: Rashomon 9",
-          "id": [
-            "0_M020",
-            "0_M021"
-          ],
-          "audioAssets": [
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_M020.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_M021.mp3"
-          ],
-          "delay": [
-            0.0,
-            0.1
-          ],
-          "face": [
-            0,
-            1
-          ],
-          "form": [
-            0,
-            0
-          ],
-          "text": [
-            "",
-            ""
-          ],
-          "subtitle": "I see... You there, you're pretty lucky. Seems like you got yourself a good item there, no?",
-          "conds": [
-            {
-              "condType": "eventMissionAction",
-              "value": 80055,
-              "valueList": [],
-              "eventId": 0
-            }
-          ],
-          "playConds": []
         }
       ]
     },
@@ -9982,150 +9934,6 @@
           "conds": [
             {
               "condType": "eventNoend",
-              "value": 80055,
-              "valueList": [],
-              "eventId": 0
-            }
-          ],
-          "playConds": []
-        },
-        {
-          "name": "About the Shop 4",
-          "condType": "eventEnd",
-          "condValue": 0,
-          "priority": 6460,
-          "svtVoiceType": "eventShop",
-          "overwriteName": "Revival: The Demonic Capital: Rashomon 13",
-          "id": [
-            "0_I040"
-          ],
-          "audioAssets": [
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_I040.mp3"
-          ],
-          "delay": [
-            0.0
-          ],
-          "face": [
-            0
-          ],
-          "form": [
-            0
-          ],
-          "text": [
-            ""
-          ],
-          "subtitle": "Thank you for your patronage.",
-          "conds": [
-            {
-              "condType": "eventPeriod",
-              "value": 80055,
-              "valueList": [],
-              "eventId": 0
-            },
-            {
-              "condType": "eventShopPurchase",
-              "value": 80055,
-              "valueList": [],
-              "eventId": 0
-            }
-          ],
-          "playConds": []
-        },
-        {
-          "name": "About the Shop 5",
-          "condType": "eventEnd",
-          "condValue": 0,
-          "priority": 6450,
-          "svtVoiceType": "eventShop",
-          "overwriteName": "Revival: The Demonic Capital: Rashomon 14",
-          "id": [
-            "0_I050",
-            "0_I051",
-            "0_I052"
-          ],
-          "audioAssets": [
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_I050.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_I051.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_I052.mp3"
-          ],
-          "delay": [
-            0.0,
-            0.3,
-            0.1
-          ],
-          "face": [
-            0,
-            0,
-            1
-          ],
-          "form": [
-            0,
-            0,
-            0
-          ],
-          "text": [
-            "",
-            "",
-            ""
-          ],
-          "subtitle": "When it comes to shops and business, I don't know anything really, but... since you come visit me so much, it might not be so bad. Please, come back again.",
-          "conds": [
-            {
-              "condType": "eventPeriod",
-              "value": 80055,
-              "valueList": [],
-              "eventId": 0
-            },
-            {
-              "condType": "eventShopPurchase",
-              "value": 80055,
-              "valueList": [],
-              "eventId": 0
-            }
-          ],
-          "playConds": []
-        },
-        {
-          "name": "About the Shop 6",
-          "condType": "eventEnd",
-          "condValue": 0,
-          "priority": 6440,
-          "svtVoiceType": "eventShop",
-          "overwriteName": "Revival: The Demonic Capital: Rashomon 15",
-          "id": [
-            "0_I060",
-            "0_I061"
-          ],
-          "audioAssets": [
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_I060.mp3",
-            "https://assets.atlasacademy.io/GameData/NA/Audio/ChrVoice_602100/0_I061.mp3"
-          ],
-          "delay": [
-            0.0,
-            0.1
-          ],
-          "face": [
-            1,
-            0
-          ],
-          "form": [
-            0,
-            0
-          ],
-          "text": [
-            "",
-            ""
-          ],
-          "subtitle": "Okay, time to exchange. Don't you drop it, okay? Here, come back again.",
-          "conds": [
-            {
-              "condType": "eventPeriod",
-              "value": 80055,
-              "valueList": [],
-              "eventId": 0
-            },
-            {
-              "condType": "eventShopPurchase",
               "value": 80055,
               "valueList": [],
               "eventId": 0

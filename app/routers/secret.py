@@ -4,11 +4,11 @@ import orjson
 from fastapi import APIRouter, BackgroundTasks, Depends, Response
 from git import Repo  # type: ignore
 from pydantic import BaseModel
-from redis.asyncio import Redis  # type: ignore
 
 from ..config import Settings, project_root
 from ..core.info import get_all_repo_info
 from ..db.engine import async_engines
+from ..redis import Redis
 from ..schemas.common import RepoInfo
 from ..tasks import pull_and_update
 from .deps import get_redis
@@ -33,11 +33,11 @@ app_info = RepoInfo(
     timestamp=latest_commit.committed_date,  # pyright: reportGeneralTypeIssues=false
 )
 app_settings_str = orjson.loads(settings.json())
-instance_info = dict(
-    app_version=app_info.dict(),
-    app_settings=app_settings_str,
-    file_path=str(project_root),
-)
+instance_info = {
+    "app_version": app_info.dict(),
+    "app_settings": app_settings_str,
+    "file_path": str(project_root),
+}
 
 
 async def get_secret_info(redis: Redis) -> dict[str, Any]:

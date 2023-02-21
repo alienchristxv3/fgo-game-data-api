@@ -1,4 +1,4 @@
-from enum import Enum, IntEnum
+from enum import IntEnum, StrEnum
 
 from .gameenums import (
     AI_ACT_NUM_NAME,
@@ -39,8 +39,10 @@ from .gameenums import (
     NiceFuncTargetType,
     NiceFuncType,
     NiceGender,
+    NicePayType,
     NiceQuestFlag,
     NiceQuestType,
+    NiceShopType,
     NiceSvtFlag,
     NiceSvtType,
     Quest_FLAG_NAME,
@@ -76,10 +78,11 @@ SVT_FLAG_NAME_REVERSE: dict[NiceSvtFlag, int] = {v: k for k, v in SVT_FLAG_NAME.
 ### Item Use Type ###
 
 
-class NiceItemUse(str, Enum):
+class NiceItemUse(StrEnum):
     """Item Use Enum"""
 
     skill = "skill"
+    appendSkill = "appendSkill"
     ascension = "ascension"
     costume = "costume"
 
@@ -87,7 +90,7 @@ class NiceItemUse(str, Enum):
 ### Skill Type ###
 
 
-class NiceSkillType(str, Enum):
+class NiceSkillType(StrEnum):
     """Skill Type Enum"""
 
     active = "active"
@@ -123,7 +126,7 @@ FUNC_TYPE_NAME_REVERSE: dict[NiceFuncType, int] = {
 ### Func Apply Target ###
 
 
-class FuncApplyTarget(str, Enum):
+class FuncApplyTarget(StrEnum):
     """Function Target Team Enum"""
 
     player = "player"
@@ -211,7 +214,7 @@ BUFF_TYPE_NAME_REVERSE: dict[NiceBuffType, int] = {
 ### Item BG Type ###
 
 
-class NiceItemBGType(str, Enum):
+class NiceItemBGType(StrEnum):
     """Item Background Type Enum"""
 
     zero = "zero"  # qp, friendpoint
@@ -270,10 +273,24 @@ QUEST_FLAG_REVERSE: dict[NiceQuestFlag, int] = {
 }
 
 
+### Stage Turn Limit Action Type ###
+
+
+class StageLimitActType(StrEnum):
+    win = "win"
+    lose = "lose"
+
+
+STAGE_LIMIT_ACT_TYPE_NAME: dict[int, StageLimitActType] = {
+    1: StageLimitActType.win,
+    2: StageLimitActType.lose,
+}
+
+
 ### Attribute ###
 
 
-class Attribute(str, Enum):
+class Attribute(StrEnum):
     """Servant Attribute Enum"""
 
     human = "human"
@@ -300,7 +317,7 @@ ATTRIBUTE_NAME_REVERSE: dict[Attribute, int] = {v: k for k, v in ATTRIBUTE_NAME.
 ### Servant Class ###
 
 
-class SvtClass(str, Enum):
+class SvtClass(StrEnum):
     """Servant Class"""
 
     saber = "saber"
@@ -322,6 +339,7 @@ class SvtClass(str, Enum):
     beastII = "beastII"
     ushiChaosTide = "ushiChaosTide"
     beastI = "beastI"
+    beastILost = "beastILost"
     beastIIIR = "beastIIIR"
     beastIIIL = "beastIIIL"
     beastIV = "beastIV"
@@ -330,6 +348,9 @@ class SvtClass(str, Enum):
     agarthaPenth = "agarthaPenth"
     cccFinaleEmiyaAlter = "cccFinaleEmiyaAlter"
     salemAbby = "salemAbby"
+    uOlgaMarie = "uOlgaMarie"
+    uOlgaMarieAlienGod = "uOlgaMarieAlienGod"
+    atlasUnmappedClass = "atlasUnmappedClass"
     # OTHER = "OTHER"
     ALL = "ALL"
     # EXTRA = "EXTRA"
@@ -366,6 +387,9 @@ CLASS_NAME: dict[int, SvtClass] = {
     27: SvtClass.beastUnknown,  # LB 5.2 beast
     28: SvtClass.pretender,
     29: SvtClass.beastIV,
+    30: SvtClass.beastILost,
+    31: SvtClass.uOlgaMarieAlienGod,
+    32: SvtClass.uOlgaMarie,
     97: SvtClass.unknown,
     # 98
     # 99
@@ -398,13 +422,14 @@ PLAYABLE_CLASS_LIST = [
     SvtClass.avenger,
     SvtClass.moonCancer,
     SvtClass.foreigner,
+    SvtClass.pretender,
 ]
 
 
 ### AI Type ###
 
 
-class AiType(str, Enum):
+class AiType(StrEnum):
     """AI Type: where the AI is used"""
 
     svt = "svt"
@@ -414,7 +439,7 @@ class AiType(str, Enum):
 ### AI Timing ###
 
 
-class AiTiming(str, Enum):
+class AiTiming(StrEnum):
     """Field AI timing Enum"""
 
     dead = "dead"
@@ -442,11 +467,12 @@ AI_TIMING_NAME: dict[int, AiTiming] = {
 ### Enemy death type ###
 
 
-class EnemyDeathType(str, Enum):
+class EnemyDeathType(StrEnum):
     ESCAPE = "escape"
     STAND = "stand"
     EFFECT = "effect"
     WAIT = "wait"
+    ENERGY = "energy"
 
 
 ENEMY_DEATH_TYPE_NAME: dict[int, EnemyDeathType] = {
@@ -454,13 +480,14 @@ ENEMY_DEATH_TYPE_NAME: dict[int, EnemyDeathType] = {
     2: EnemyDeathType.STAND,
     3: EnemyDeathType.EFFECT,
     4: EnemyDeathType.WAIT,
+    5: EnemyDeathType.ENERGY,
 }
 
 
 ### Enemy role type ###
 
 
-class EnemyRoleType(str, Enum):
+class EnemyRoleType(StrEnum):
     NORMAL = "normal"
     DANGER = "danger"
     SERVANT = "servant"
@@ -487,6 +514,16 @@ class EventRewardSceneType(IntEnum):
     BOARD_GAME_TOKEN = 9
     TREASURE_BOX = 10
     RANDOM_MISSION = 11
+
+
+### Event Shop
+
+
+SHOP_TYPE_NAME_REVERSE: dict[NiceShopType, int] = {
+    v: k for k, v in SHOP_TYPE_NAME.items()
+}
+
+PAY_TYPE_NAME_REVERSE: dict[NicePayType, int] = {v: k for k, v in PAY_TYPE_NAME.items()}
 
 
 ### Mission Cond Detail Type ###
@@ -518,8 +555,9 @@ class DetailMissionCondType(IntEnum):
     DICE_USE = 25  # Probably Fate/Requiem event
     SQUARE_ADVANCED = 26
     MORE_FRIEND_FOLLOWER = 27  # 5th Anniversary missions
-    MAIN_QUEST_DONE = 28  # 22M Download Campaign
+    QUEST_TYPE_CLEAR = 28  # 22M Download Campaign
     QUEST_CLEAR_NUM_INCLUDING_GRAILFRONT = 31
+    WAR_MAIN_QUEST_CLEAR = 32
 
 
 class DetailMissionCondLinkType(IntEnum):
@@ -529,7 +567,7 @@ class DetailMissionCondLinkType(IntEnum):
     RANDOM_MISSION_START = 4
 
 
-class NiceDetailMissionCondLinkType(str, Enum):
+class NiceDetailMissionCondLinkType(StrEnum):
     """Mission Condition Detail Condition Link Type Enum"""
 
     eventStart = "eventStart"
@@ -549,7 +587,7 @@ DETAIL_MISSION_LINK_TYPE: dict[int, NiceDetailMissionCondLinkType] = {
 ### Servant Policy ###
 
 
-class ServantPolicy(str, Enum):
+class ServantPolicy(StrEnum):
     """Servant Policy Enum"""
 
     none = "none"
@@ -570,7 +608,7 @@ SERVANT_POLICY_NAME = {
 ### Servant Personality ###
 
 
-class ServantPersonality(str, Enum):
+class ServantPersonality(StrEnum):
     """Servant Personality Enum"""
 
     none = "none"
@@ -596,10 +634,27 @@ SERVANT_PERSONALITY_NAME = {
 }
 
 
+### Skill Script Cond ###
+
+
+class SkillScriptCond(StrEnum):
+    """Skill Script Condition Type"""
+
+    NONE = "NONE"
+    NP_HIGHER = "NP_HIGHER"
+    NP_LOWER = "NP_LOWER"
+    STAR_HIGHER = "STAR_HIGHER"
+    STAR_LOWER = "STAR_LOWER"
+    HP_VAL_HIGHER = "HP_VAL_HIGHER"
+    HP_VAL_LOWER = "HP_VAL_LOWER"
+    HP_PER_HIGHER = "HP_PER_HIGHER"
+    HP_PER_LOWER = "HP_PER_LOWER"
+
+
 ### Trait ###
 
 
-class Trait(str, Enum):
+class Trait(StrEnum):
     """Trait/Individuality Enum"""
 
     unknown = "unknown"
@@ -627,6 +682,7 @@ class Trait(str, Enum):
     classBeastIIIL = "classBeastIIIL"
     classBeastUnknown = "classBeastUnknown"
     classPretender = "classPretender"
+    classUOlgaMarie = "classUOlgaMarie"
     attributeSky = "attributeSky"
     attributeEarth = "attributeEarth"
     attributeHuman = "attributeHuman"
@@ -681,11 +737,13 @@ class Trait(str, Enum):
     riding = "riding"
     arthur = "arthur"
     skyOrEarth = "skyOrEarth"
+    skyOrEarthServant = "skyOrEarthServant"
     brynhildsBeloved = "brynhildsBeloved"
     undeadOrDaemon = "undeadOrDaemon"
     undeadOrDemon = "undeadOrDemon"
     demonic = "demonic"
     skyOrEarthExceptPseudoAndDemi = "skyOrEarthExceptPseudoAndDemi"
+    skyOrEarthExceptPseudoAndDemiServant = "skyOrEarthExceptPseudoAndDemiServant"
     divineOrDaemonOrUndead = "divineOrDaemonOrUndead"
     divineOrDemonOrUndead = "divineOrDemonOrUndead"
     saberClassServant = "saberClassServant"
@@ -760,6 +818,7 @@ class Trait(str, Enum):
     buffDisableColorCard = "buffDisableColorCard"
     buffChangeField = "buffChangeField"
     buffIncreaseDefenceAgainstIndividuality = "buffIncreaseDefenceAgainstIndividuality"
+    buffDefUp = "buffDefUp"
     buffInvinciblePierce = "buffInvinciblePierce"
     buffHpRecoveryPerTurn = "buffHpRecoveryPerTurn"
     buffNegativeEffectImmunity = "buffNegativeEffectImmunity"
@@ -771,6 +830,7 @@ class Trait(str, Enum):
     faceCard = "faceCard"
     cardNP = "cardNP"
     kingproteaGrowth = "kingproteaGrowth"
+    kingproteaInfiniteProliferation = "kingproteaInfiniteProliferation"
     kingproteaProliferation = "kingproteaProliferation"
     kingproteaProliferationNPDefense = "kingproteaProliferationNPDefense"
     fieldSunlight = "fieldSunlight"
@@ -780,6 +840,7 @@ class Trait(str, Enum):
     fieldCity = "fieldCity"
     shadowServant = "shadowServant"
     aoeNP = "aoeNP"
+    stNP = "stNP"
     giant = "giant"
     childServant = "childServant"
     buffSpecialInvincible = "buffSpecialInvincible"
@@ -862,6 +923,32 @@ class Trait(str, Enum):
     fairyTaleServant = "fairyTaleServant"
     classBeastIV = "classBeastIV"
     havingAnimalsCharacteristics = "havingAnimalsCharacteristics"
+    like = "like"
+    exaltation = "exaltation"
+    gubijin = "gubijin"
+    yuMeiren = "yuMeiren"
+    milleniumCastle = "milleniumCastle"
+    protoMerlinNPChargeBlock = "protoMerlinNPChargeBlock"
+    valkyrie = "valkyrie"
+    immuneToPigify = "immuneToPigify"
+    summerModeServant = "summerModeServant"
+    shinsengumiServant = "shinsengumiServant"
+    ryozanpaku = "ryozanpaku"
+    demonUnused = "demonUnused"
+    levitating = "levitating"
+    obstacleMaker = "obstacleMaker"
+    defender = "defender"
+    hasGoddessMetamorphosis = "hasGoddessMetamorphosis"
+    servantsWithSkyAttribute = "servantsWithSkyAttribute"
+    moon = "moon"
+    cardWeak = "cardWeak"
+    cardStrong = "cardStrong"
+    servant = "servant"
+    shadow = "shadow"
+    chenGongNp = "chenGongNp"
+    cantBeSacrificed = "cantBeSacrificed"
+    gutsBlock = "gutsBlock"
+    classBeastILost = "classBeastILost"
 
 
 TRAIT_NAME: dict[int, Trait] = {
@@ -890,6 +977,8 @@ TRAIT_NAME: dict[int, Trait] = {
     119: Trait.classBeastUnknown,
     120: Trait.classPretender,
     121: Trait.classBeastIV,
+    122: Trait.classBeastILost,
+    123: Trait.classUOlgaMarie,
     200: Trait.attributeSky,
     201: Trait.attributeEarth,
     202: Trait.attributeHuman,
@@ -903,12 +992,12 @@ TRAIT_NAME: dict[int, Trait] = {
     305: Trait.alignmentBalanced,
     306: Trait.alignmentMadness,
     308: Trait.alignmentSummer,
-    1000: Trait.basedOnServant,  # can be NPC or enemy but use a servant's data
+    1000: Trait.servant,  # can be NPC or enemy but use a servant's data
     1001: Trait.human,  # Sanson's 3rd skill
     1002: Trait.undead,  # Scathach's 3rd skill
     1003: Trait.artificialDemon,
     1004: Trait.demonBeast,
-    1005: Trait.demon,
+    1005: Trait.demonUnused,
     1100: Trait.soldier,
     1101: Trait.amazoness,
     1102: Trait.skeleton,
@@ -924,10 +1013,10 @@ TRAIT_NAME: dict[int, Trait] = {
     1113: Trait.chimera,
     1117: Trait.wyvern,
     1118: Trait.dragonType,
-    1119: Trait.gazer,
+    1119: Trait.demon,
     1120: Trait.handOrDoor,
     1121: Trait.demonGodPillar,
-    1122: Trait.shadowServant,
+    1122: Trait.shadow,
     1128: Trait.enemyGardenOfSinnersLivingCorpse,
     1129: Trait.enemyGardenOfSinnersApartmentGhostAndSkeleton,
     1130: Trait.enemyGardenOfSinnersBaseModel,
@@ -954,18 +1043,18 @@ TRAIT_NAME: dict[int, Trait] = {
     2003: Trait.dragonSlayer,
     2004: Trait.roman,
     2005: Trait.wildbeast,
-    2006: Trait.atalante,
+    2006: Trait.moon,
     2007: Trait.saberface,
     2008: Trait.weakToEnumaElish,
     2009: Trait.riding,
     2010: Trait.arthur,
-    2011: Trait.skyOrEarth,  # Tesla's NP
+    2011: Trait.skyOrEarthServant,  # Tesla's NP
     2012: Trait.brynhildsBeloved,
     2018: Trait.undeadOrDemon,  # Amakusa bond CE
     2019: Trait.demonic,
     2023: Trait.enemyDavinciTrueEnemy,
     2024: Trait.enemyDavinciFalseEnemy,
-    2037: Trait.skyOrEarthExceptPseudoAndDemi,  # Raikou's 3rd skill
+    2037: Trait.skyOrEarthExceptPseudoAndDemiServant,  # Raikou's 3rd skill
     2038: Trait.fieldSunlight,
     2039: Trait.fieldShore,
     2040: Trait.divineOrDemonOrUndead,  # Ruler Martha's 3rd skill
@@ -982,7 +1071,7 @@ TRAIT_NAME: dict[int, Trait] = {
     2356: Trait.feminineLookingServant,  # Teach's 3rd skill
     2385: Trait.cursedBook,  # Murasaki Valentine
     2386: Trait.kingproteaProliferation,
-    2387: Trait.kingproteaGrowth,
+    2387: Trait.kingproteaInfiniteProliferation,
     2392: Trait.fieldCity,
     2403: Trait.enemyCaseFilesRareEnemy,
     2469: Trait.enemyLasVegasBonusEnemy,
@@ -1015,6 +1104,21 @@ TRAIT_NAME: dict[int, Trait] = {
     2803: Trait.buffStrongAgainstWildBeast,
     2810: Trait.fairyTaleServant,
     2821: Trait.havingAnimalsCharacteristics,
+    2827: Trait.like,  # Super Bunyan NP
+    2828: Trait.exaltation,
+    2829: Trait.milleniumCastle,
+    2833: Trait.yuMeiren,
+    2835: Trait.immuneToPigify,
+    2836: Trait.protoMerlinNPChargeBlock,
+    2837: Trait.valkyrie,
+    2838: Trait.summerModeServant,
+    2839: Trait.shinsengumiServant,
+    2840: Trait.ryozanpaku,
+    2847: Trait.levitating,
+    2848: Trait.obstacleMaker,
+    2849: Trait.defender,
+    2850: Trait.hasGoddessMetamorphosis,
+    2851: Trait.servantsWithSkyAttribute,
     # 2xxx: CQ or Story quests buff
     3000: Trait.attackPhysical,  # Normal attack, including NP
     3001: Trait.attackProjectile,
@@ -1071,7 +1175,7 @@ TRAIT_NAME: dict[int, Trait] = {
     3055: Trait.buffLockCardsDeck,  # Summer BB
     3056: Trait.buffDisableColorCard,
     3057: Trait.buffChangeField,
-    3058: Trait.buffIncreaseDefenceAgainstIndividuality,  # Unsure
+    3058: Trait.buffDefUp,
     3059: Trait.buffInvinciblePierce,
     3060: Trait.buffHpRecoveryPerTurn,
     3061: Trait.buffNegativeEffectImmunity,
@@ -1079,8 +1183,10 @@ TRAIT_NAME: dict[int, Trait] = {
     3064: Trait.buffSpecialInvincible,
     3065: Trait.buffSkillRankUp,
     3066: Trait.buffSleep,
-    3068: Trait.chenGongNpBlock,
+    3068: Trait.chenGongNp,
     3070: Trait.buffNullifyBuff,
+    3076: Trait.cantBeSacrificed,
+    3086: Trait.gutsBlock,
     # 6016: No detail
     # 6021: No detail
     # 6022: No detail
@@ -1089,10 +1195,13 @@ TRAIT_NAME: dict[int, Trait] = {
     4002: Trait.cardBuster,
     4003: Trait.cardQuick,
     4004: Trait.cardExtra,
+    4005: Trait.cardWeak,
+    4006: Trait.cardStrong,
     4007: Trait.cardNP,
     4008: Trait.faceCard,  # Normal Buster, Arts, Quick, Extra Attack
     4100: Trait.criticalHit,
     4101: Trait.aoeNP,
+    4102: Trait.stNP,
     5000: Trait.canBeInBattle,  # can be NPC, enemy or playable servant i.e. not CE
     5010: Trait.notBasedOnServant,
     94000015: Trait.eventSaberWars,
@@ -1125,6 +1234,15 @@ OLD_TRAIT_MAPPING = {
     Trait.undeadOrDaemon: 2018,
     Trait.divineOrDaemonOrUndead: 2040,
     Trait.argonaut: 2466,
+    Trait.skyOrEarth: 2011,
+    Trait.skyOrEarthExceptPseudoAndDemi: 2037,
+    Trait.kingproteaGrowth: 2387,
+    Trait.gubijin: 2833,
+    Trait.buffIncreaseDefenceAgainstIndividuality: 3058,
+    Trait.atalante: 2006,
+    Trait.basedOnServant: 1000,
+    Trait.shadowServant: 1122,
+    Trait.chenGongNpBlock: 3068,
 }
 
 TRAIT_NAME_REVERSE |= OLD_TRAIT_MAPPING

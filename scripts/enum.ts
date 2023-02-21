@@ -122,6 +122,12 @@ export enum NiceFuncType {
     FUNC_127 = "func127",
     UPDATE_ENTRY_POSITIONS = "updateEntryPositions",
     BUDDY_POINT_UP = "buddyPointUp",
+    ADD_FIELD_CHANGE_TO_FIELD = "addFieldChangeToField",
+    SUB_FIELD_BUFF = "subFieldBuff",
+    EVENT_FORTIFICATION_POINT_UP = "eventFortificationPointUp",
+    GAIN_NP_INDIVIDUAL_SUM = "gainNpIndividualSum",
+    SET_QUEST_ROUTE_FLAG = "setQuestRouteFlag",
+    LAST_USE_PLAYER_SKILL_COPY = "lastUsePlayerSkillCopy",
 }
 
 export enum NiceFuncTargetType {
@@ -308,6 +314,20 @@ export enum NiceBuffType {
     BUFF_RATE = "buffRate",
     INVISIBLE_BATTLE_CHARA = "invisibleBattleChara",
     COUNTER_FUNCTION = "counterFunction",
+    NOT_TARGET_SKILL = "notTargetSkill",
+    HP_REDUCE_TO_REGAIN = "hpReduceToRegain",
+    SELFTURNSTART_FUNCTION = "selfturnstartFunction",
+    OVERWRITE_DEAD_TYPE = "overwriteDeadType",
+    UP_ACTION_COUNT = "upActionCount",
+    DOWN_ACTION_COUNT = "downActionCount",
+    SHIFT_GUTS = "shiftGuts",
+    SHIFT_GUTS_RATIO = "shiftGutsRatio",
+    MASTER_SKILL_VALUE_UP = "masterSkillValueUp",
+    BUFF_CONVERT = "buffConvert",
+    SUB_FIELD_INDIVIDUALITY = "subFieldIndividuality",
+    TO_FIELD_CHANGE_FIELD = "toFieldChangeField",
+    TO_FIELD_AVOID_BUFF = "toFieldAvoidBuff",
+    TO_FIELD_SUB_INDIVIDUALITY_FIELD = "toFieldSubIndividualityField",
 }
 
 export enum NiceBuffAction {
@@ -414,6 +434,19 @@ export enum NiceBuffAction {
     INVISIBLE_BATTLE_CHARA = "invisibleBattleChara",
     BUFF_RATE = "buffRate",
     COUNTER_FUNCTION = "counterFunction",
+    NOT_TARGET_SKILL = "notTargetSkill",
+    TO_FIELD_CHANGE_FIELD = "toFieldChangeField",
+    TO_FIELD_AVOID_BUFF = "toFieldAvoidBuff",
+    GRANT_STATE_UP_ONLY = "grantStateUpOnly",
+    TURNEND_HP_REDUCE_TO_REGAIN = "turnendHpReduceToRegain",
+    FUNCTION_SELFTURNSTART = "functionSelfturnstart",
+    OVERWRITE_DEAD_TYPE = "overwriteDeadType",
+    ACTION_COUNT = "actionCount",
+    SHIFT_GUTS = "shiftGuts",
+    TO_FIELD_SUB_INDIVIDUALITY_FIELD = "toFieldSubIndividualityField",
+    MASTER_SKILL_VALUE_UP = "masterSkillValueUp",
+    BUFF_CONVERT = "buffConvert",
+    SUB_FIELD_INDIVIDUALITY = "subFieldIndividuality",
 }
 
 export enum NiceBuffLimit {
@@ -525,6 +558,32 @@ export enum NiceDataValsType {
     UnSubStateWhileLinkedToOthers = "unsubstatewhilelinkedtoothers",
     NotAccompanyWhenLinkedTargetMoveState = "notaccompanywhenlinkedtargetmovestate",
     AllowSubBgmPlaying = "allowsubbgmplaying",
+    NotTargetSkillIdArray = "nottargetskillidarray",
+    ShortTurn = "shortturn",
+    FieldIndividuality = "fieldindividuality",
+    BGId = "bgid",
+    BGType = "bgtype",
+    BgmId = "bgmid",
+    TakeOverFieldState = "takeoverfieldstate",
+    TakeOverNextWaveBGAndBGM = "takeovernextwavebgandbgm",
+    RemoveFieldBuffActorDeath = "removefieldbuffactordeath",
+    FieldBuffGrantType = "fieldbuffgranttype",
+    Priority = "priority",
+    AddIndividualityEx = "addindividualityex",
+    IgnoreResistance = "ignoreresistance",
+    GainNpTargetPassiveIndividuality = "gainnptargetpassiveindividuality",
+    HpReduceToRegainIndiv = "hpreducetoregainindiv",
+    DisplayActualRecoveryHpFlag = "displayactualrecoveryhpflag",
+    ShiftDeckIndex = "shiftdeckindex",
+    PopValueText = "popvaluetext",
+    IsLossHpPerNow = "islosshppernow",
+    CopyTargetFunctionType = "copytargetfunctiontype",
+    CopyFunctionTargetPTOnly = "copyfunctiontargetptonly",
+    IgnoreValueUp = "ignorevalueup",
+    ApplyValueUp = "applyvalueup",
+    ActNoDamageBuff = "actnodamagebuff",
+    ActSelectIndex = "actselectindex",
+    CopyTargetBuffType = "copytargetbufftype",
 }
 
 export enum NiceClassRelationOverwriteType {
@@ -565,6 +624,7 @@ export enum NiceItemType {
     SVT_COIN = "svtCoin",
     FRIENDSHIP_UP_ITEM = "friendshipUpItem",
     PP = "pp",
+    TRADE_AP = "tradeAp",
 }
 
 export enum NiceGiftType {
@@ -598,6 +658,7 @@ export enum NiceShopType {
     SVT_COSTUME = "svtCostume",
     START_UP_SUMMON = "startUpSummon",
     SHOP13 = "shop13",
+    TRADE_AP = "tradeAp",
 }
 
 export enum NicePayType {
@@ -614,6 +675,7 @@ export enum NicePayType {
     ITEM = "item",
     GRAIL_FRAGMENTS = "grailFragments",
     FREE = "free",
+    COMMON_CONSUME = "commonConsume",
 }
 
 export enum NicePurchaseType {
@@ -817,6 +879,17 @@ export enum NiceCondType {
     PROGRESS_VALUE_ABOVE = "progressValueAbove",
     PROGRESS_VALUE_BELOW = "progressValueBelow",
     RANDOM_MISSION_TOTAL_CLEAR_NUM = "randomMissionTotalClearNum",
+    WEEKDAYS = "weekdays",
+    EVENT_FORTIFICATION_REWARD_NUM = "eventFortificationRewardNum",
+    QUEST_CLEAR_BEFORE_EVENT_START = "questClearBeforeEventStart",
+    NOT_QUEST_CLEAR_BEFORE_EVENT_START = "notQuestClearBeforeEventStart",
+    EVENT_TUTORIAL_FLAG_ON = "eventTutorialFlagOn",
+    EVENT_TUTORIAL_FLAG_OFF = "eventTutorialFlagOff",
+    EVENT_SUPER_BOSS_VALUE_EQUAL = "eventSuperBossValueEqual",
+    NOT_EVENT_SUPER_BOSS_VALUE_EQUAL = "notEventSuperBossValueEqual",
+    ALL_SVT_TARGET_SKILL_LV_NUM = "allSvtTargetSkillLvNum",
+    SUPER_BOSS_DAMAGE_ABOVE = "superBossDamageAbove",
+    SUPER_BOSS_DAMAGE_BELOW = "superBossDamageBelow",
 }
 
 export enum NiceVoiceCondType {
@@ -846,6 +919,15 @@ export enum NiceVoiceCondType {
     LEVEL_UP_LIMIT_COUNT = "levelUpLimitCount",
     LEVEL_UP_LIMIT_COUNT_ABOVE = "levelUpLimitCountAbove",
     LEVEL_UP_LIMIT_COUNT_BELOW = "levelUpLimitCountBelow",
+    UNKNOWN_27 = "unknown27",
+    UNKNOWN_30 = "unknown30",
+    UNKNOWN_32 = "unknown32",
+    UNKNOWN_34 = "unknown34",
+    UNKNOWN_35 = "unknown35",
+    UNKNOWN_37 = "unknown37",
+    UNKNOWN_38 = "unknown38",
+    UNKNOWN_40 = "unknown40",
+    UNKNOWN = "unknown",
 }
 
 export enum NiceSvtVoiceType {
@@ -867,6 +949,11 @@ export enum NiceSvtVoiceType {
     EVENT_DAILY_POINT = "eventDailyPoint",
     TDDAMAGE = "tddamage",
     TREASURE_BOX = "treasureBox",
+    WAR_BOARD = "warBoard",
+    EVENT_DIGGING = "eventDigging",
+    EVENT_EXPEDITION = "eventExpedition",
+    EVENT_RECIPE = "eventRecipe",
+    EVENT_FORTIFICATION = "eventFortification",
     SUM = "sum",
 }
 
@@ -954,6 +1041,8 @@ export enum NiceQuestFlag {
     LIVE = "live",
     FORCE_DISPLAY_ENEMY_INFO = "forceDisplayEnemyInfo",
     ALLOUT_BATTLE = "alloutBattle",
+    RECOLLECTION = "recollection",
+    NOT_SINGLE_SUPPORT_ONLY = "notSingleSupportOnly",
 }
 
 export enum NiceStatusRank {
@@ -1037,6 +1126,9 @@ export enum NiceWarFlag {
     WHITE_MARK_UNDER_BOARD = "whiteMarkUnderBoard",
     SUB_FOLDER = "subFolder",
     DISP_EARTH_POINT_WITHOUT_MAP = "dispEarthPointWithoutMap",
+    IS_WAR_ICON_FREE = "isWarIconFree",
+    IS_WAR_ICON_CENTER = "isWarIconCenter",
+    NOTICE_BOARD = "noticeBoard",
 }
 
 export enum NiceWarStartType {
@@ -1064,6 +1156,9 @@ export enum NiceWarOverwriteType {
     START_TYPE = "startType",
     NOTICE_DIALOG_TEXT = "noticeDialogText",
     CLEAR_MARK = "clearMark",
+    EFFECT_CHANGE_WHITE_MARK = "effectChangeWhiteMark",
+    COMMAND_SPELL_ICON = "commandSpellIcon",
+    MASTER_FACE_ICON = "masterFaceIcon",
 }
 
 export enum NiceAiCond {
@@ -1208,6 +1303,16 @@ export enum NiceAiCond {
     COUNT_CHAIN_HIGHER = "countChainHigher",
     COUNT_CHAIN_LOWER = "countChainLower",
     COUNT_CHAIN_EQUAL = "countChainEqual",
+    CHECK_SELECT_CHAIN = "checkSelectChain",
+    COUNT_PLAYER_NP_HIGHER = "countPlayerNpHigher",
+    COUNT_PLAYER_NP_LOWER = "countPlayerNpLower",
+    COUNT_PLAYER_NP_EQUAL = "countPlayerNpEqual",
+    COUNT_PLAYER_SKILL_HIGHER = "countPlayerSkillHigher",
+    COUNT_PLAYER_SKILL_LOWER = "countPlayerSkillLower",
+    COUNT_PLAYER_SKILL_EQUAL = "countPlayerSkillEqual",
+    COUNT_PLAYER_SKILL_HIGHER_INCLUDE_MASTER_SKILL = "countPlayerSkillHigherIncludeMasterSkill",
+    COUNT_PLAYER_SKILL_LOWER_INCLUDE_MASTER_SKILL = "countPlayerSkillLowerIncludeMasterSkill",
+    COUNT_PLAYER_SKILL_EQUAL_INCLUDE_MASTER_SKILL = "countPlayerSkillEqualIncludeMasterSkill",
 }
 
 export enum NiceAiActType {
@@ -1229,6 +1334,8 @@ export enum NiceAiActType {
     SKILL_ID_CHECKBUFF = "skillIdCheckbuff",
     RESURRECTION = "resurrection",
     PLAY_MOTION = "playMotion",
+    MESSAGE = "message",
+    MESSAGE_GROUP = "messageGroup",
     NOBLE_PHANTASM = "noblePhantasm",
     BATTLE_END = "battleEnd",
     LOSE_END = "loseEnd",
@@ -1253,6 +1360,7 @@ export enum NiceAiActTarget {
 export enum NiceAiActNum {
     NOMAL = "nomal",
     ANYTIME = "anytime",
+    REACTION_PLYAER_SKILL = "reactionPlyaerSkill",
     REACTION_ENEMYTURN_START = "reactionEnemyturnStart",
     REACTION_ENEMYTURN_END = "reactionEnemyturnEnd",
     REACTION_DEAD = "reactionDead",
@@ -1264,6 +1372,10 @@ export enum NiceAiActNum {
     REACTION_TURNSTART = "reactionTurnstart",
     REACTION_PLAYERACTIONSTART = "reactionPlayeractionstart",
     REACTION_ENTRY_UNIT = "reactionEntryUnit",
+    REACTION_BEFORE_RESURRECTION = "reactionBeforeResurrection",
+    REACTION_BEFORE_DEAD = "reactionBeforeDead",
+    REACTION_ENEMY_TURN_START_PRIORITY = "reactionEnemyTurnStartPriority",
+    REACTION_ENEMY_TURN_END_PRIORITY = "reactionEnemyTurnEndPriority",
     UNKNOWN = "unknown",
 }
 
@@ -1315,6 +1427,7 @@ export enum NiceSvtFrameType {
 
 export enum NiceCommonConsumeType {
     ITEM = "item",
+    AP = "ap",
 }
 
 export enum NiceEventRewardSceneFlag {
@@ -1378,6 +1491,10 @@ export enum NiceAiCondParameter {
     CHECK_PARAMATER_32 = "checkParamater32",
     CHAIN_COUNT = "chainCount",
     CHECK_TARGET_SKILL_THISTURN = "checkTargetSkillThisturn",
+    CHECK_SELECT_CHAIN = "checkSelectChain",
+    COUNT_PLAYER_NP = "countPlayerNp",
+    COUNT_PLAYER_SKILL = "countPlayerSkill",
+    COUNT_PLAYER_SKILL_INCLUDE_MASTER_SKILL = "countPlayerSkillIncludeMasterSkill",
 }
 
 export enum NiceAiCondRefine {
@@ -1396,4 +1513,142 @@ export enum NiceAiCondCheck {
     LOWER = "lower",
     MULTIPLE = "multiple",
     EXIST = "exist",
+}
+
+export enum NiceTdEffectFlag {
+    SUPPORT = "support",
+    ATTACK_ENEMY_ALL = "attackEnemyAll",
+    ATTACK_ENEMY_ONE = "attackEnemyOne",
+}
+
+export enum NiceCombineAdjustTarget {
+    COMBINE_QP = "combineQp",
+    COMBINE_EXP = "combineExp",
+    ACTIVE_SKILL = "activeSkill",
+    LARGE_SUCCESS = "largeSuccess",
+    SUPER_SUCCESS = "superSuccess",
+    LIMIT_QP = "limitQp",
+    LIMIT_ITEM = "limitItem",
+    SKILL_QP = "skillQp",
+    SKILL_ITEM = "skillItem",
+    TREASURE_DEVICE_QP = "treasureDeviceQp",
+    TREASURE_DEVICE_ITEM = "treasureDeviceItem",
+    QUEST_AP = "questAp",
+    QUEST_EXP = "questExp",
+    QUEST_QP = "questQp",
+    QUEST_DROP = "questDrop",
+    SVTEQUIP_COMBINE_QP = "svtequipCombineQp",
+    SVTEQUIP_COMBINE_EXP = "svtequipCombineExp",
+    SVTEQUIP_LARGE_SUCCESS = "svtequipLargeSuccess",
+    SVTEQUIP_SUPER_SUCCESS = "svtequipSuperSuccess",
+    QUEST_EVENT_POINT = "questEventPoint",
+    ENEMY_SVT_CLASS_PICK_UP = "enemySvtClassPickUp",
+    EVENT_EACH_DROP_NUM = "eventEachDropNum",
+    EVENT_EACH_DROP_RATE = "eventEachDropRate",
+    QUEST_FP = "questFp",
+    QUEST_AP_FIRST_TIME = "questApFirstTime",
+    DAILY_DROP_UP = "dailyDropUp",
+    EXCHANGE_SVT_COMBINE_EXP = "exchangeSvtCombineExp",
+    QUEST_USE_CONTINUE_ITEM = "questUseContinueItem",
+    FRIEND_POINT_GACHA_FREE_DRAW_NUM = "friendPointGachaFreeDrawNum",
+    QUEST_USE_FRIENDSHIP_UP_ITEM = "questUseFriendshipUpItem",
+    QUEST_FRIENDSHIP = "questFriendship",
+    LARGE_SUCCESS_BY_CLASS = "largeSuccessByClass",
+    SUPER_SUCCESS_BY_CLASS = "superSuccessByClass",
+}
+
+export enum NiceEventCombineCalc {
+    ADDITION = "addition",
+    MULTIPLICATION = "multiplication",
+    FIXED_VALUE = "fixedValue",
+}
+
+export enum NiceEventWorkType {
+    MILITSRY_AFFAIRS = "militsryAffairs",
+    INTERNAL_AFFAIRS = "internalAffairs",
+    FARMMING = "farmming",
+}
+
+export enum NiceEventFortificationSvtType {
+    USER_SVT = "userSvt",
+    NPC = "npc",
+    NONE = "none",
+}
+
+export enum NiceSvtClassSupportGroupType {
+    ALL = "all",
+    SABER = "saber",
+    ARCHER = "archer",
+    LANCER = "lancer",
+    RIDER = "rider",
+    CASTER = "caster",
+    ASSASSIN = "assassin",
+    BERSERKER = "berserker",
+    EXTRA = "extra",
+    MIX = "mix",
+    NOT_SUPPORT = "notSupport",
+}
+
+export enum NiceRestrictionType {
+    INDIVIDUALITY = "individuality",
+    RARITY = "rarity",
+    TOTAL_COST = "totalCost",
+    LV = "lv",
+    SUPPORT_ONLY = "supportOnly",
+    UNIQUE_SVT_ONLY = "uniqueSvtOnly",
+    FIXED_SUPPORT_POSITION = "fixedSupportPosition",
+    FIXED_MY_SVT_INDIVIDUALITY_POSITION_MAIN = "fixedMySvtIndividualityPositionMain",
+    FIXED_MY_SVT_INDIVIDUALITY_SINGLE = "fixedMySvtIndividualitySingle",
+    SVT_NUM = "svtNum",
+    MY_SVT_NUM = "mySvtNum",
+    MY_SVT_OR_NPC = "mySvtOrNpc",
+    ALLOUT_BATTLE_UNIQUE_SVT = "alloutBattleUniqueSvt",
+    FIXED_SVT_INDIVIDUALITY_POSITION_MAIN = "fixedSvtIndividualityPositionMain",
+    UNIQUE_INDIVIDUALITY = "uniqueIndividuality",
+    MY_SVT_OR_SUPPORT = "mySvtOrSupport",
+    DATA_LOST_BATTLE_UNIQUE_SVT = "dataLostBattleUniqueSvt",
+}
+
+export enum NiceRestrictionRangeType {
+    NONE = "none",
+    EQUAL = "equal",
+    NOT_EQUAL = "notEqual",
+    ABOVE = "above",
+    BELOW = "below",
+    BETWEEN = "between",
+}
+
+export enum NiceFrequencyType {
+    ONCE = "once",
+    ONCE_UNTIL_REBOOT = "onceUntilReboot",
+    EVERY_TIME = "everyTime",
+    VALENTINE = "valentine",
+    EVERY_TIME_AFTER = "everyTimeAfter",
+    NONE = "none",
+}
+
+export enum NiceCommandCardAttackType {
+    ONE = "one",
+    ALL = "all",
+}
+
+export enum NiceSpotOverwriteType {
+    NONE = "none",
+    FLAG = "flag",
+    PATH_POINT_RATIO = "pathPointRatio",
+    PATH_POINT_RATIO_LIMIT = "pathPointRatioLimit",
+    NAME_PANEL_OFFSET_X = "namePanelOffsetX",
+    NAME_PANEL_OFFSET_Y = "namePanelOffsetY",
+    NAME = "name",
+}
+
+export enum NiceBuffConvertType {
+    NONE = "none",
+    BUFF = "buff",
+    INDIVIDUALITY = "individuality",
+}
+
+export enum NiceBuffConvertLimitType {
+    ALL = "all",
+    SELF = "self",
 }

@@ -10,6 +10,7 @@ from sqlalchemy.sql.expression import text
 
 from ...models.rayshift import rayshiftQuest
 from ...schemas.rayshift import QuestDetail, QuestDrop, QuestList
+from .utils import fetch_one
 
 
 async def get_rayshift_quest_db(
@@ -25,7 +26,7 @@ async def get_rayshift_quest_db(
             rayshiftQuest.c.questDetail.contains({"questSelect": questSelect})
         )
     stmt = select(rayshiftQuest.c.questDetail).where(and_(*where_conds))
-    rayshift_quest = (await conn.execute(stmt)).fetchone()
+    rayshift_quest = await fetch_one(conn, stmt)
     if rayshift_quest and rayshift_quest.questDetail:
         return QuestDetail.parse_obj(rayshift_quest.questDetail)
 
@@ -33,7 +34,11 @@ async def get_rayshift_quest_db(
 
 
 async def get_rayshift_drops(
-    conn: AsyncConnection, quest_id: int, phase: int, questSelect: int | None = None
+    conn: AsyncConnection,
+    quest_id: int,
+    phase: int,
+    questSelect: int | None = None,
+    min_query_id: int | None = None,
 ) -> list[QuestDrop]:
     where_conds = [
         rayshiftQuest.c.questId == quest_id,
@@ -44,6 +49,8 @@ async def get_rayshift_drops(
         where_conds.append(
             rayshiftQuest.c.questDetail.contains({"questSelect": questSelect})
         )
+    if min_query_id is not None:
+        where_conds.append(rayshiftQuest.c.queryId >= min_query_id)
 
     enemy_deck_svt = (
         select(
@@ -85,21 +92,27 @@ async def get_rayshift_drops(
 
     deck_svt = enemy_deck_svt.union_all(shift_deck_svt).cte(name="deck_svt")
 
-    drops = select(
-        deck_svt.c.queryId,
-        deck_svt.c.deckType,
-        deck_svt.c.stage,
-        literal_column("deck_svt.deck_svt->>'id'").label("deckId"),
-        func.jsonb_array_elements(
-            literal_column("deck_svt.deck_svt->'dropInfos'"), type_=JSONB
-        ).label("drops"),
-    ).cte(name="drops")
+    drops = (
+        select(
+            deck_svt.c.queryId,
+            deck_svt.c.deckType,
+            deck_svt.c.stage,
+            literal_column("deck_svt.deck_svt->>'id'").label("deckId"),
+            literal_column("deck_svt.deck_svt->>'npcId'").label("npcId"),
+            func.jsonb_array_elements(
+                literal_column("deck_svt.deck_svt->'dropInfos'"), type_=JSONB
+            ).label("drops"),
+        )
+        .where(literal_column("deck_svt.deck_svt->'dropInfos' != 'null'::JSONB"))
+        .cte(name="drops")
+    )
 
     all_drops = select(
         drops.c.queryId,
         drops.c.stage,
         drops.c.deckType,
         cast(drops.c.deckId, Integer).label("deckId"),
+        cast(drops.c.npcId, Integer).label("npcId"),
         drops.c.drops["type"].label("type"),
         drops.c.drops["objectId"].label("objectId"),
         drops.c.drops["originalNum"].label("originalNum"),
@@ -111,6 +124,7 @@ async def get_rayshift_drops(
             all_drops.c.stage,
             all_drops.c.deckType,
             all_drops.c.deckId,
+            all_drops.c.npcId,
             all_drops.c.type,
             all_drops.c.objectId,
             all_drops.c.originalNum,
@@ -121,6 +135,7 @@ async def get_rayshift_drops(
             all_drops.c.stage,
             all_drops.c.deckType,
             all_drops.c.deckId,
+            all_drops.c.npcId,
             all_drops.c.type,
             all_drops.c.objectId,
             all_drops.c.originalNum,
@@ -157,6 +172,7 @@ async def get_rayshift_drops(
             run_enemy_drop_items.c.stage,
             run_enemy_drop_items.c.deckType,
             run_enemy_drop_items.c.deckId,
+            run_enemy_drop_items.c.npcId,
             run_enemy_drop_items.c.type,
             run_enemy_drop_items.c.objectId,
             run_enemy_drop_items.c.originalNum,
@@ -170,6 +186,7 @@ async def get_rayshift_drops(
             run_enemy_drop_items.c.stage,
             run_enemy_drop_items.c.deckType,
             run_enemy_drop_items.c.deckId,
+            run_enemy_drop_items.c.npcId,
             run_enemy_drop_items.c.type,
             run_enemy_drop_items.c.objectId,
             run_enemy_drop_items.c.originalNum,
@@ -178,6 +195,7 @@ async def get_rayshift_drops(
             run_enemy_drop_items.c.stage,
             run_enemy_drop_items.c.deckType,
             run_enemy_drop_items.c.deckId,
+            run_enemy_drop_items.c.npcId,
             run_enemy_drop_items.c.type,
             run_enemy_drop_items.c.objectId,
             run_enemy_drop_items.c.originalNum,
@@ -189,6 +207,7 @@ async def get_rayshift_drops(
             literal_column("-1").label("stage"),
             literal_column("'enemy'").label("deckType"),
             literal_column("-1").label("deckId"),
+            literal_column("-1").label("npcId"),
             run_drop_items.c.type,
             run_drop_items.c.objectId,
             run_drop_items.c.originalNum,
@@ -213,7 +232,7 @@ async def get_rayshift_drops(
     stmt = individual_enemy_drops.union_all(run_drops)
 
     results = await conn.execute(stmt)
-    return [QuestDrop.parse_obj(row) for row in results.fetchall()]
+    return [QuestDrop.from_orm(row) for row in results.fetchall()]
 
 
 insert_quest_stmt = insert(rayshiftQuest)

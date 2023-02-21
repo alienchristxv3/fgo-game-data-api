@@ -61,13 +61,17 @@
   ],
   "mstGift": [
     {
+      "sort_id": 0,
       "id": 12000,
       "type": 2,
       "objectId": 100,
       "priority": 0,
-      "num": 1
+      "num": 1,
+      "lv": 0,
+      "limitCount": 0
     }
   ],
+  "mstGiftAdd": [],
   "phases": [
     1
   ],
@@ -145,7 +149,8 @@
       "detail": "",
       "flag": 0,
       "shopId": 7000057,
-      "logoId": 15
+      "logoId": 15,
+      "script": ""
     },
     {
       "id": 264,
@@ -155,11 +160,15 @@
       "detail": "",
       "flag": 0,
       "shopId": 7000264,
-      "logoId": 40
+      "logoId": 40,
+      "script": ""
     }
   ],
   "npcFollower": [],
   "npcFollowerRelease": [],
   "npcSvtFollower": [],
-  "npcSvtEquip": []
+  "npcSvtEquip": [],
+  "mstQuestRestriction": [],
+  "mstQuestRestrictionInfo": [],
+  "mstRestriction": []
 }

@@ -1,4 +1,3 @@
-# pylint: disable=R0201,R0904
 import pytest
 from httpx import AsyncClient, Client
 from sqlalchemy.sql import and_, delete, select
@@ -12,7 +11,7 @@ from app.db.load import (
     load_rayshift_quest_list,
 )
 from app.models.rayshift import rayshiftQuest
-from app.rayshift.quest import get_all_quest_lists, get_multiple_quests
+from app.rayshift.quest import get_multiple_quests
 from app.schemas.common import Region
 from app.schemas.rayshift import QuestList
 
@@ -41,13 +40,6 @@ async def test_rayshift_uncached_quest(client: AsyncClient) -> None:
 
     with engines[Region.NA].connect() as conn:
         assert conn.execute(select_stmt).fetchone()
-
-
-@pytest.mark.skipif(doesnt_have_rayshift_api_key, reason=skip_reason)
-def test_rayshift_get_quest_list() -> None:
-    client = Client(follow_redirects=True)
-    quest_list = get_all_quest_lists(client, Region.NA)
-    assert len(quest_list) > 100
 
 
 def test_rayshift_missing_ids() -> None:

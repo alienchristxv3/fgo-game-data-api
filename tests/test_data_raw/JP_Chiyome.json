@@ -2,7 +2,8 @@
   "mstSvt": {
     "relateQuestIds": [
       91602901,
-      94058502
+      94058502,
+      94077002
     ],
     "individuality": [
       5000,
@@ -90,7 +91,7 @@
       "mstSvtSkill": [
         {
           "script": {},
-          "strengthStatus": 0,
+          "strengthStatus": 1,
           "svtId": 602900,
           "num": 1,
           "priority": 1,
@@ -669,6 +670,229 @@
           "priority": 0
         }
       ]
+    },
+    {
+      "mstSkill": {
+        "effectList": [
+          336
+        ],
+        "actIndividuality": [],
+        "script": {},
+        "id": 422352,
+        "type": 1,
+        "name": "呪術（巫） C++",
+        "ruby": "じゅじゅつ",
+        "maxLv": 10,
+        "iconId": 512,
+        "motion": 104
+      },
+      "mstSkillDetail": [
+        {
+          "id": 422352,
+          "detail": "敵単体に高確率で宝具封印状態を付与[{0}](1ターン) ＋ 自身に〔魔性〕特攻状態を付与[{0}](3ターン)[g][o]▲[/o][/g]＆〔呪い〕特攻状態を付与[{0}](3ターン)[g][o]▲[/o][/g]",
+          "detailShort": "敵単体に高確率で宝具封印状態を付与[{0}](1ターン) ＋ 自身に〔魔性〕特攻状態を付与[{0}](3ターン)[g][o]▲[/o][/g]＆〔呪い〕特攻状態を付与[{0}](3ターン)[g][o]▲[/o][/g]"
+        }
+      ],
+      "mstSvtSkill": [
+        {
+          "script": {},
+          "strengthStatus": 99,
+          "svtId": 602900,
+          "num": 1,
+          "priority": 2,
+          "skillId": 422352,
+          "condQuestId": 94077002,
+          "condQuestPhase": 3,
+          "condLv": 0,
+          "condLimitCount": 0,
+          "eventId": 0,
+          "flag": 0
+        }
+      ],
+      "mstSkillAdd": [],
+      "mstCommonRelease": [],
+      "mstSkillLv": [
+        {
+          "funcId": [
+            362,
+            907,
+            9540
+          ],
+          "svals": [
+            "[800,1,-1]",
+            "[1000,3,-1,200]",
+            "[1000,3,-1,100]"
+          ],
+          "script": {},
+          "skillId": 422352,
+          "lv": 1,
+          "chargeTurn": 7,
+          "skillDetailId": 422352,
+          "priority": 50
+        },
+        {
+          "funcId": [
+            362,
+            907,
+            9540
+          ],
+          "svals": [
+            "[820,1,-1]",
+            "[1000,3,-1,210]",
+            "[1000,3,-1,110]"
+          ],
+          "script": {},
+          "skillId": 422352,
+          "lv": 2,
+          "chargeTurn": 7,
+          "skillDetailId": 422352,
+          "priority": 50
+        },
+        {
+          "funcId": [
+            362,
+            907,
+            9540
+          ],
+          "svals": [
+            "[840,1,-1]",
+            "[1000,3,-1,220]",
+            "[1000,3,-1,120]"
+          ],
+          "script": {},
+          "skillId": 422352,
+          "lv": 3,
+          "chargeTurn": 7,
+          "skillDetailId": 422352,
+          "priority": 50
+        },
+        {
+          "funcId": [
+            362,
+            907,
+            9540
+          ],
+          "svals": [
+            "[860,1,-1]",
+            "[1000,3,-1,230]",
+            "[1000,3,-1,130]"
+          ],
+          "script": {},
+          "skillId": 422352,
+          "lv": 4,
+          "chargeTurn": 7,
+          "skillDetailId": 422352,
+          "priority": 50
+        },
+        {
+          "funcId": [
+            362,
+            907,
+            9540
+          ],
+          "svals": [
+            "[880,1,-1]",
+            "[1000,3,-1,240]",
+            "[1000,3,-1,140]"
+          ],
+          "script": {},
+          "skillId": 422352,
+          "lv": 5,
+          "chargeTurn": 7,
+          "skillDetailId": 422352,
+          "priority": 50
+        },
+        {
+          "funcId": [
+            362,
+            907,
+            9540
+          ],
+          "svals": [
+            "[900,1,-1]",
+            "[1000,3,-1,250]",
+            "[1000,3,-1,150]"
+          ],
+          "script": {},
+          "skillId": 422352,
+          "lv": 6,
+          "chargeTurn": 6,
+          "skillDetailId": 422352,
+          "priority": 50
+        },
+        {
+          "funcId": [
+            362,
+            907,
+            9540
+          ],
+          "svals": [
+            "[920,1,-1]",
+            "[1000,3,-1,260]",
+            "[1000,3,-1,160]"
+          ],
+          "script": {},
+          "skillId": 422352,
+          "lv": 7,
+          "chargeTurn": 6,
+          "skillDetailId": 422352,
+          "priority": 50
+        },
+        {
+          "funcId": [
+            362,
+            907,
+            9540
+          ],
+          "svals": [
+            "[940,1,-1]",
+            "[1000,3,-1,270]",
+            "[1000,3,-1,170]"
+          ],
+          "script": {},
+          "skillId": 422352,
+          "lv": 8,
+          "chargeTurn": 6,
+          "skillDetailId": 422352,
+          "priority": 50
+        },
+        {
+          "funcId": [
+            362,
+            907,
+            9540
+          ],
+          "svals": [
+            "[960,1,-1]",
+            "[1000,3,-1,280]",
+            "[1000,3,-1,180]"
+          ],
+          "script": {},
+          "skillId": 422352,
+          "lv": 9,
+          "chargeTurn": 6,
+          "skillDetailId": 422352,
+          "priority": 50
+        },
+        {
+          "funcId": [
+            362,
+            907,
+            9540
+          ],
+          "svals": [
+            "[1000,1,-1]",
+            "[1000,3,-1,300]",
+            "[1000,3,-1,200]"
+          ],
+          "script": {},
+          "skillId": 422352,
+          "lv": 10,
+          "chargeTurn": 5,
+          "skillDetailId": 422352,
+          "priority": 50
+        }
+      ]
     }
   ],
   "mstTreasureDevice": [
@@ -677,7 +901,8 @@
         "individuality": [
           3000,
           4001,
-          4007
+          4007,
+          4102
         ],
         "script": {},
         "id": 602900,
@@ -979,7 +1204,8 @@
         "individuality": [
           3000,
           4001,
-          4007
+          4007,
+          4102
         ],
         "script": {},
         "id": 602901,
@@ -1281,7 +1507,8 @@
         "individuality": [
           3000,
           4001,
-          4007
+          4007,
+          4102
         ],
         "script": {},
         "id": 602902,
@@ -1613,7 +1840,8 @@
         "individuality": [
           3000,
           4001,
-          4007
+          4007,
+          4102
         ],
         "script": {},
         "id": 602903,
@@ -2106,6 +2334,7 @@
       "attackType": 1
     }
   ],
+  "mstSvtCardAdd": [],
   "mstSvtLimit": [
     {
       "weaponColor": 16777215,
@@ -3274,6 +3503,22 @@
     },
     {
       "svtId": 602900,
+      "num": 16,
+      "priority": 169,
+      "skillId": 940247,
+      "condQuestId": 0,
+      "condQuestPhase": 0,
+      "condLv": 0,
+      "condLimitCount": 0,
+      "condFriendshipRank": 0,
+      "eventId": 80364,
+      "flag": 0,
+      "commonReleaseId": 0,
+      "startedAt": 1649235600,
+      "endedAt": 1651031999
+    },
+    {
+      "svtId": 602900,
       "num": 10,
       "priority": 1,
       "skillId": 960502,
@@ -3581,6 +3826,7 @@
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6529,
       "name": "呪獣胆石",
       "detail": "【スキル強化＆霊基再臨素材】\n呪われた獣の体内で呪いが醸成されてできた石。\n晴れることのない強烈な呪いを放ち続ける。",
@@ -3591,13 +3837,17 @@
       "value": 0,
       "sellQp": 2500,
       "isSell": true,
-      "priority": 242,
+      "priority": 246,
       "dropPriority": 8504,
       "startedAt": 946652400,
       "endedAt": 1910876400,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": true,
-      "useCostume": true
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [
@@ -3606,6 +3856,7 @@
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 7106,
       "name": "アサシンモニュメント",
       "detail": "【霊基再臨素材】\nアサシンクラスを称えるモニュメント",
@@ -3621,8 +3872,12 @@
       "startedAt": 946652400,
       "endedAt": 1910876400,
       "useSkill": false,
+      "useAppendSkill": false,
       "useAscension": true,
-      "useCostume": false
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [
@@ -3631,6 +3886,7 @@
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6531,
       "name": "奇奇神酒",
       "detail": "【スキル強化＆霊基再臨素材】\n大いなる神に捧げるために\n永い時を費やして造られたこの貴重な酒は\n人ならざる怪物や魔獣をも陶酔させる。",
@@ -3641,13 +3897,17 @@
       "value": 0,
       "sellQp": 2500,
       "isSell": true,
-      "priority": 243,
+      "priority": 247,
       "dropPriority": 8505,
       "startedAt": 946652400,
       "endedAt": 1910876400,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": true,
-      "useCostume": true
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [
@@ -3656,6 +3916,7 @@
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6532,
       "name": "枯淡勾玉",
       "detail": "【スキル強化＆霊基再臨素材】\n淡く朧げな生気を宿した勾玉。\n勾玉は月の姿を象ったとも、胎児の姿を象ったとも、\n魂の姿を象ったとも云われているが\nその用途は謎に包まれている。",
@@ -3666,13 +3927,17 @@
       "value": 0,
       "sellQp": 2500,
       "isSell": true,
-      "priority": 222,
+      "priority": 225,
       "dropPriority": 8310,
       "startedAt": 946652400,
       "endedAt": 1910876400,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": true,
-      "useCostume": true
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [
@@ -3681,6 +3946,7 @@
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6505,
       "name": "虚影の塵",
       "detail": "【スキル強化＆霊基再臨素材】\n虚ろな影が消える時に飛び散る塵",
@@ -3696,8 +3962,12 @@
       "startedAt": 946652400,
       "endedAt": 1910876400,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": true,
-      "useCostume": true
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [
@@ -3706,6 +3976,7 @@
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6506,
       "name": "竜の逆鱗",
       "detail": "【スキル強化＆霊基再臨素材】\n竜種の顎の下に逆さについた鱗",
@@ -3716,13 +3987,17 @@
       "value": 0,
       "sellQp": 2500,
       "isSell": true,
-      "priority": 234,
+      "priority": 238,
       "dropPriority": 8501,
       "startedAt": 946652400,
       "endedAt": 1910876400,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": true,
-      "useCostume": true
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [
@@ -3731,6 +4006,7 @@
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6507,
       "name": "混沌の爪",
       "detail": "【スキル強化＆霊基再臨素材】\nこの爪で傷をつけられた者は混沌の虜となる",
@@ -3741,13 +4017,17 @@
       "value": 0,
       "sellQp": 2500,
       "isSell": true,
-      "priority": 232,
+      "priority": 236,
       "dropPriority": 8400,
       "startedAt": 946652400,
       "endedAt": 1910876400,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": true,
-      "useCostume": true
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [
@@ -3756,6 +4036,7 @@
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6540,
       "name": "九十九鏡",
       "detail": "【スキル強化＆霊基再臨素材】\n永い年月、人から人へ受け継がれ\nやがて神霊や魑魅魍魎などの\n摩訶不可思議な存在を宿すようになった鏡。",
@@ -3766,13 +4047,17 @@
       "value": 0,
       "sellQp": 2500,
       "isSell": true,
-      "priority": 245,
+      "priority": 249,
       "dropPriority": 8506,
       "startedAt": 1549443600,
       "endedAt": 1910876400,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": true,
-      "useCostume": true
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [],
@@ -3781,6 +4066,7 @@
       },
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6999,
       "name": "伝承結晶",
       "detail": "【スキル強化＆霊基再臨素材】\n人類史とマナの奔流が交差する事で\n産み出される高純度の魔力結晶。\n物質化した英霊の素材とも言える。",
@@ -3796,8 +4082,12 @@
       "startedAt": 946652400,
       "endedAt": 1910876400,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": false,
-      "useCostume": false
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [
@@ -3806,6 +4096,7 @@
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6512,
       "name": "竜の牙",
       "detail": "【スキル強化＆霊基再臨素材】\n竜種の牙。竜牙兵はこの牙を使って作られる。",
@@ -3821,14 +4112,19 @@
       "startedAt": 946652400,
       "endedAt": 1910876400,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": true,
-      "useCostume": true
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [],
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 60290001,
       "name": "サーヴァントコイン",
       "detail": "【サーヴァント強化素材】\nサーヴァントの霊基のカケラ。",
@@ -3844,8 +4140,12 @@
       "startedAt": 946652400,
       "endedAt": 1910876400,
       "useSkill": false,
+      "useAppendSkill": false,
       "useAscension": false,
-      "useCostume": false
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [],
@@ -3854,6 +4154,7 @@
       },
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 7999,
       "name": "聖杯",
       "detail": "あらゆる願いを叶えるという器。\n形而上のものを汲み上げ、\n物質に転換する第三魔法の産物。",
@@ -3869,8 +4170,12 @@
       "startedAt": 946652400,
       "endedAt": 1910876400,
       "useSkill": false,
+      "useAppendSkill": false,
       "useAscension": false,
-      "useCostume": false
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [
@@ -3879,6 +4184,7 @@
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6518,
       "name": "精霊根",
       "detail": "【スキル強化＆霊基再臨素材】\n土の精霊の宿った根。\nこの根を石像に植え付けると、\nたちまち生きているかのように動き始めると云う。",
@@ -3889,13 +4195,17 @@
       "value": 0,
       "sellQp": 2500,
       "isSell": true,
-      "priority": 235,
+      "priority": 239,
       "dropPriority": 8502,
       "startedAt": 946652400,
       "endedAt": 1910876400,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": true,
-      "useCostume": true
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [
@@ -3904,6 +4214,7 @@
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6006,
       "name": "殺の輝石",
       "detail": "【スキル強化素材】\n暗殺者の力が宿った光輝く石",
@@ -3919,8 +4230,12 @@
       "startedAt": 946652400,
       "endedAt": 1910876400,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": false,
-      "useCostume": false
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [
@@ -3929,6 +4244,7 @@
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6206,
       "name": "殺の秘石",
       "detail": "【スキル強化素材】\n暗殺者の強大な力が宿った宝石",
@@ -3944,8 +4260,12 @@
       "startedAt": 946652400,
       "endedAt": 1910876400,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": false,
-      "useCostume": false
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [
@@ -3954,6 +4274,7 @@
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6106,
       "name": "殺の魔石",
       "detail": "【スキル強化素材】\n暗殺者の強い力が宿った魔法石",
@@ -3969,8 +4290,12 @@
       "startedAt": 946652400,
       "endedAt": 1910876400,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": false,
-      "useCostume": false
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [
@@ -3979,6 +4304,7 @@
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 7006,
       "name": "アサシンピース",
       "detail": "【霊基再臨素材】\nアサシンクラスを象徴するピース",
@@ -3994,8 +4320,12 @@
       "startedAt": 946652400,
       "endedAt": 1910876400,
       "useSkill": false,
+      "useAppendSkill": false,
       "useAscension": true,
-      "useCostume": false
+      "useCostume": false,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     },
     {
       "individuality": [
@@ -4004,6 +4334,7 @@
       "script": {},
       "eventId": 0,
       "eventGroupId": 0,
+      "isPresent": false,
       "id": 6527,
       "name": "万死の毒針",
       "detail": "【スキル強化＆霊基再臨素材】\nこの針の毒を受けたものはすぐには死ねず\n数多の死を繰り返し体験し\nその魂までも朽ち果てると云う。",
@@ -4019,8 +4350,12 @@
       "startedAt": 946652400,
       "endedAt": 1910876400,
       "useSkill": true,
+      "useAppendSkill": true,
       "useAscension": true,
-      "useCostume": true
+      "useCostume": true,
+      "mstItemSelect": [],
+      "mstGift": [],
+      "mstGiftAdd": []
     }
   ],
   "mstCommonRelease": [],

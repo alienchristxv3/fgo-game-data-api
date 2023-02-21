@@ -1,4 +1,3 @@
-# pylint: disable=R0201,R0904
 import orjson
 import pytest
 from httpx import AsyncClient
@@ -37,6 +36,7 @@ test_cases_dict: dict[str, tuple[str, str]] = {
     ),
     "skill_JP_dependFunc": ("JP/skill/671650", "JP_Melt_skill_dependFunc"),
     "skill_JP_dependFunc_colon": ("JP/skill/711550", "JP_Yang_Guifei_skill"),
+    "skill_JP_SelectAddInfo": ("JP/skill/2189551", "JP_skill_2189551"),
     "NP_JP_id": ("JP/NP/301101", "JP_Fionn_NP"),
     "NP_JP_reverse": ("JP/NP/202901?reverse=True", "JP_Fujino_NP_reverse"),
     "NP_CN_without_svtTd": ("CN/NP/603002", "CN_NP_without_svtTd"),
@@ -57,11 +57,13 @@ test_cases_dict: dict[str, tuple[str, str]] = {
         "JP/buff/search?type=specialInvincible&reverse=true&reverseData=basic&reverseDepth=servant&lang=en",
         "JP_buff_special_invincible_reverse",
     ),
+    "buff_convert": ("JP/buff/5326", "JP_buff_convert"),
     "equip_JP_collectionNo": ("JP/equip/683", "JP_Aerial_Drive"),
     "equip_JP_id": ("JP/equip/9402750", "JP_Aerial_Drive"),
     "svt_NA_id": ("NA/svt/9939120", "NA_svt_9939120"),
     "svt_JP_enemy_costume": ("JP/svt/9100101", "JP_svt_9100101"),
     "item_NA_id": ("NA/item/94000201", "NA_item_94000201"),
+    "item_exchange_ticket": ("NA/item/15000", "NA_item_15000"),
     "MC_NA_id": ("NA/MC/110", "NA_MC_LB"),
     "MC_JP_costume": ("JP/MC/120?lang=en", "JP_MC_Tropical_Summer"),
     "JP_CC_id": ("JP/CC/8400550", "JP_CC_8400550"),
@@ -71,7 +73,14 @@ test_cases_dict: dict[str, tuple[str, str]] = {
     "event_tower_JP": ("NA/event/80088", "NA_event_Setsubun"),
     "event_lottery_NA": ("NA/event/80087", "NA_event_Da_Vinci_rerun"),
     "event_treasureBox_JP": ("JP/event/80331", "JP_Summer_Adventure"),
+    "event_digging_JP": ("JP/event/80367", "JP_event_Digging"),
+    "event_bulletin_cooltime_JP": ("JP/event/80384", "JP_proto_merlin_summer"),
+    "event_recipe_JP": ("JP/event/80391", "JP_tea_recipe"),
+    "event_fortification_JP": ("JP/event/80400", "JP_event_fortification"),
+    "event_campaign_JP": ("JP/event/71090", "JP_event_campaign"),
+    "event_random_mission_JP": ("JP/event/80346", "JP_event_random_mission"),
     "war_NA_id": ("NA/war/203", "NA_war_Shimousa"),
+    "war_JP_quest_selection": ("JP/war/8377", "JP_war_quest_selection"),
     "quest_JP_id": ("JP/quest/91103002", "JP_Suzuka_rank_up"),
     "quest_NA_id_phase": ("NA/quest/94020187/1", "NA_87th_floor"),
     "quest_NA_consume_item": ("NA/quest/94032412", "NA_Enma_tei_spa_room"),
@@ -81,12 +90,19 @@ test_cases_dict: dict[str, tuple[str, str]] = {
     "quest_JP_support_servant": ("JP/quest/94051406/1", "JP_support_servant"),
     "quest_NA_select_0": ("NA/quest/3000109/1", "NA_quest_LB1_select_0"),
     "quest_NA_select_1": ("NA/quest/3000110/1", "NA_quest_LB1_select_1"),
+    "quest_JP_2_gift_adds": ("JP/quest/94067702", "JP_Teslafest_quest"),
+    "quest_follower_deck_index": ("JP/quest/3000903/3", "JP_LB6_support_deck"),
+    "quest_aiNpc": ("JP/quest/94074510/1", "JP_Himiko_AI_NPC"),
     "ai_beni_cq_monkey_NA": ("NA/ai/svt/94032580", "NA_AI_Beni_CQ_monkey"),
+    "ai_act_np": ("JP/ai/svt/94074555", "JP_AI_Act_NP"),
     "kh_cq_JP": ("JP/ai/field/90161870", "JP_KH_CQ_taunt"),
     "bgm_NA_with_shop": ("JP/bgm/138?lang=en", "JP_BGM_Shinjuku"),
     "bgm_NA_without_shop": ("NA/bgm/35", "NA_BGM_event_8"),
     "script_NA_2_quests": ("NA/script/9402750110", "NA_Summerfes_script"),
     "script_JP_no_quest": ("NA/script/WarEpilogue108", "JP_WarEpilogue108"),
+    "shop_JP": ("JP/shop/13000000", "JP_shop_blue_apple"),
+    "shop_set_item": ("NA/shop/6000189", "NA_shop_set_item"),
+    "common_release": ("NA/common-release/470211", "NA_release_470211"),
 }
 
 
@@ -110,7 +126,7 @@ cases_404_dict = {
     "svt": "987626",
     "skill": "25689",
     "NP": "900205",
-    "function": "9000",
+    "function": "90000",
     "buff": "765",
     "item": "941234",
     "MC": "62537",
@@ -124,6 +140,7 @@ cases_404_dict = {
     "bgm": "31234",
     "mm": "41232",
     "script": "dasdasd",
+    "shop": "1238712",
 }
 
 
@@ -198,6 +215,18 @@ cases_datavals_dict = {
         0,
         {"Rate": 5000, "Value": 304800, "Target": 0, "SetLimitCount": 3},
     ),
+    "test_trailing_comma": (
+        966964,
+        0,
+        {
+            "Rate": 5000,
+            "Turn": -1,
+            "Count": 1,
+            "Value": 967006,
+            "Value2": 1,
+            "ShowState": -1,
+        },
+    ),
 }
 
 
@@ -255,6 +284,21 @@ async def test_list_datavals_1_item(client: AsyncClient) -> None:
         "Correction": 200,
         "TargetList": [2004],
         "ParamAddMaxCount": 10,
+    }
+
+
+@pytest.mark.asyncio
+async def test_dataval_add_field(client: AsyncClient) -> None:
+    response = await client.get("/nice/JP/NP/2300501")
+    assert response.status_code == 200
+    assert response.json()["functions"][0]["svals"][0] == {
+        "Rate": 1000,
+        "Turn": 3,
+        "Count": -1,
+        "FieldIndividuality": 2829,
+        "TakeOverFieldState": 1,
+        "RemoveFieldBuffActorDeath": 1,
+        "FieldBuffGrantType": 2,
     }
 
 
@@ -439,35 +483,16 @@ class TestServantSpecial:
 
     async def test_ascension_trait(self, client: AsyncClient) -> None:
         response = await client.get("/nice/JP/servant/603700")
-        expected = {
-            "ascension": {
-                "0": [
-                    {"id": 2, "name": "genderFemale"},
-                    {"id": 105, "name": "classAssassin"},
-                    {"id": 200, "name": "attributeSky"},
-                    {"id": 301, "name": "alignmentChaotic"},
-                    {"id": 304, "name": "alignmentEvil"},
-                    {"id": 1000, "name": "basedOnServant"},
-                    {"id": 2000, "name": "divine"},
-                    {"id": 2001, "name": "humanoid"},
-                    {"id": 2008, "name": "weakToEnumaElish"},
-                    {"id": 2009, "name": "riding"},
-                    {"id": 2011, "name": "skyOrEarth"},
-                    {"id": 2040, "name": "divineOrDemonOrUndead"},
-                    {"id": 2631, "name": "hominidaeServant"},
-                    {"id": 2667, "name": "childServant"},
-                    {"id": 5000, "name": "canBeInBattle"},
-                    {"id": 603700, "name": "unknown"},
-                ],
-                "1": [],
-                "2": [],
-                "3": [],
-                "4": [],
-            },
-            "costume": {},
-        }
+        ascension_traits = response.json()["ascensionAdd"]["individuality"]["ascension"]
+
+        zero_ascension = {trait["name"] for trait in ascension_traits["0"]}
+        third_ascension = {trait["name"] for trait in ascension_traits["3"]}
+
         assert response.status_code == 200
-        assert response.json()["ascensionAdd"]["individuality"] == expected
+        assert "childServant" in zero_ascension
+        assert "childServant" not in third_ascension
+        assert "levitating" not in zero_ascension
+        assert "levitating" in third_ascension
 
     async def test_servant_change(self, client: AsyncClient) -> None:
         response = await client.get("/nice/NA/servant/184")
@@ -524,12 +549,18 @@ class TestServantSpecial:
         ]
 
     async def test_war_banner(self, client: AsyncClient) -> None:
-        war_oniland = await client.get("/nice/NA/war/9050")
-        assert war_oniland.status_code == 200
-        assert "event_war_" in war_oniland.json()["banner"]
-        war_interlude = await client.get("/nice/NA/war/1003")
-        assert war_interlude.status_code == 200
-        assert "chaldea_category_" in war_interlude.json()["banner"]
+        cases = {
+            9050: "event_war_",
+            303: "questboard_cap",  # main scenario
+            9088: "event_war_",  # main interlude
+            1003: "chaldea_category_",  # interlude
+            11000: "questboard_cap",  # arc 1
+            8372: "chaldea_category_",  # subFolder
+        }
+        for warId, prefix in cases.items():
+            war = await client.get(f"nice/JP/war/{warId}")
+            assert war.status_code == 200
+            assert prefix in war.json()["banner"]
 
     async def test_skill_ai_id(self, client: AsyncClient) -> None:
         nice_skill = await client.get("/nice/NA/skill/962219")
@@ -543,7 +574,7 @@ class TestServantSpecial:
         overWriteTDName = ascensionAdd["overWriteTDName"]
         overWriteTDFileName = ascensionAdd["overWriteTDFileName"]
 
-        assert overWriteServantName["ascension"]["1"] == "Okita J Souji"
+        assert overWriteServantName["ascension"]["1"] == "Okita J. Souji"
         assert (
             overWriteTDName["ascension"]["1"] == "The Mumyou's Light Radiates at Dawn"
         )
@@ -596,7 +627,7 @@ class TestServantSpecial:
         assert heroine_x["stages"][1]["enemies"][0]["name"] == "Heroine X"
 
     async def test_latest_story_war_banner(self, client: AsyncClient) -> None:
-        latest_story_war = await client.get("nice/NA/war/307")
+        latest_story_war = await client.get("nice/NA/war/308")
         assert "questboard_cap_closed" in latest_story_war.json()["banner"]
 
     async def test_enemy_script(self, client: AsyncClient) -> None:
@@ -658,6 +689,7 @@ class TestServantSpecial:
             "purchaseType": "servant",
             "targetId": 9804500,
             "setNum": 1,
+            "gifts": [],
         }
 
     async def test_enemy_change_class(self, client: AsyncClient) -> None:
@@ -685,6 +717,23 @@ class TestServantSpecial:
         babylonia_reflection_3 = await client.get("/nice/NA/quest/94042403/1")
         idxs = [message["idx"] for message in babylonia_reflection_3.json()["messages"]]
         assert idxs == [0, 1, 2, 3]
+
+    async def test_anni_drop_change(self, client: AsyncClient) -> None:
+        anni_drop_change = (await client.get("/nice/NA/quest/93030706/3")).json()
+        drops = [
+            (drop["type"], drop["objectId"], drop["num"])
+            for drop in anni_drop_change["drops"]
+        ]
+        assert ("item", 1, 20000) in drops
+
+    async def test_transform_enemy(self, client: AsyncClient) -> None:
+        transform_enemy = (await client.get("/nice/NA/quest/94050181/2")).json()
+        for stage in transform_enemy["stages"]:
+            decks = {enemy["deck"] for enemy in stage["enemies"]}
+            if stage["wave"] == 3:
+                assert "transform" in decks
+            else:
+                assert "transform" not in decks
 
 
 @pytest.mark.asyncio

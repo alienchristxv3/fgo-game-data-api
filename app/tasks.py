@@ -9,7 +9,6 @@ import orjson
 from fastapi.concurrency import run_in_threadpool
 from git import Repo  # type: ignore
 from pydantic import DirectoryPath
-from redis.asyncio import Redis  # type: ignore
 from sqlalchemy.ext.asyncio import AsyncConnection, AsyncEngine
 
 from .config import Settings, logger, project_root
@@ -24,20 +23,22 @@ from .core.basic import (
 from .core.nice.bgm import get_all_nice_bgms
 from .core.nice.cc import get_all_nice_ccs
 from .core.nice.event.event import get_nice_event
+from .core.nice.event.shop import get_nice_shops_from_raw
 from .core.nice.item import get_all_nice_items
 from .core.nice.mc import get_all_nice_mcs
 from .core.nice.mm import get_all_nice_mms
 from .core.nice.nice import get_nice_equip_model, get_nice_servant_model
 from .core.nice.war import get_nice_war
 from .core.raw import get_all_bgm_entities, get_servant_entity
-from .core.utils import get_translation, sort_by_collection_no
+from .core.utils import get_translation
 from .data.extra import get_extra_svt_data
 from .db.engine import engines
 from .db.helpers import fetch
 from .db.helpers.svt import get_all_equips
 from .db.load import load_pydantic_to_db, update_db
 from .models.raw import mstSvtExtra
-from .redis.helpers.repo_version import set_repo_version
+from .redis import Redis
+from .redis.helpers.repo_version import get_repo_version, set_repo_version
 from .redis.load import load_redis_data, load_svt_extra_redis
 from .routers.utils import list_string
 from .schemas.base import BaseModelORJson
@@ -55,6 +56,7 @@ from .schemas.raw import (
     MstIllustrator,
     MstItem,
     MstMasterMission,
+    MstShop,
     MstSvt,
     MstWar,
     ServantEntity,
@@ -207,7 +209,7 @@ async def dump_nice_bgms(
 async def dump_nice_mms(
     util: ExportUtil, mms: list[MstMasterMission]
 ) -> None:  # pragma: no cover
-    all_mm_data = await get_all_nice_mms(util.conn, mms, util.lang)
+    all_mm_data = await get_all_nice_mms(util.conn, util.region, mms, util.lang)
     await util.dump_orjson("nice_master_mission", all_mm_data)
 
 
@@ -228,6 +230,15 @@ async def dump_nice_events(
         for event in events
     ]
     await util.dump_orjson("nice_event", all_event_data)
+
+
+async def dump_nice_shops(
+    util: ExportUtil, shops: list[MstShop]
+) -> None:  # pragma: no cover
+    all_shop_data = await get_nice_shops_from_raw(
+        util.conn, util.region, shops, util.lang
+    )
+    await util.dump_orjson("nice_shop", all_shop_data)
 
 
 async def dump_illustrators(
@@ -259,8 +270,9 @@ async def dump_cvs(util: ExportUtil, cvs: list[MstCv]) -> None:  # pragma: no co
 async def dump_basic_servants(
     util: ExportUtil, file_name: str, svts: list[MstSvt]
 ) -> None:  # pragma: no cover
-    all_basic_servant_data = sort_by_collection_no(
-        await get_all_basic_servants(util.redis, util.region, util.lang, svts)
+    all_basic_servant_data = sorted(
+        await get_all_basic_servants(util.redis, util.region, util.lang, svts),
+        key=lambda x: x.collectionNo,
     )
     await util.dump_orjson(file_name, all_basic_servant_data)
 
@@ -268,8 +280,9 @@ async def dump_basic_servants(
 async def dump_basic_equips(
     util: ExportUtil, equips: list[MstSvt]
 ) -> None:  # pragma: no cover
-    all_basic_equip_data = sort_by_collection_no(
-        await get_all_basic_equips(util.redis, util.region, util.lang, equips)
+    all_basic_equip_data = sorted(
+        await get_all_basic_equips(util.redis, util.region, util.lang, equips),
+        key=lambda x: x.collectionNo,
     )
     await util.dump_orjson("basic_equip", all_basic_equip_data)
 
@@ -284,8 +297,8 @@ async def dump_basic_mcs(
 async def dump_basic_ccs(
     util: ExportUtil, ccs: list[MstCommandCode]
 ) -> None:  # pragma: no cover
-    all_basic_cc_data = sort_by_collection_no(
-        get_all_basic_ccs(util.region, util.lang, ccs)
+    all_basic_cc_data = sorted(
+        get_all_basic_ccs(util.region, util.lang, ccs), key=lambda x: x.collectionNo
     )
     await util.dump_orjson("basic_command_code", all_basic_cc_data)
 
@@ -352,6 +365,7 @@ async def generate_exports(
                 bgms = await get_all_bgm_entities(conn)
                 mstItems = await fetch.get_everything(conn, MstItem)
                 mstMasterMissions = await fetch.get_everything(conn, MstMasterMission)
+                mstShops = await fetch.get_all(conn, MstShop, 0)
 
                 asset_storage = await fetch.get_everything(conn, AssetStorageLine)
                 await util.dump_orjson("asset_storage", asset_storage)
@@ -363,12 +377,10 @@ async def generate_exports(
                 await dump_nice_ccs(util, mstCcs)
                 await dump_nice_mms(util, mstMasterMissions)
                 await dump_nice_bgms(util, bgms)
-                await dump_nice_wars(util, mstWars)
-                await dump_nice_events(util, mstEvents)
+                await dump_nice_shops(util, mstShops)
 
+                util_en = ExportUtil(conn, redis, region, export_path, Language.en)
                 if region == Region.JP:
-                    util_en = ExportUtil(conn, redis, region, export_path, Language.en)
-
                     await dump_basic_servants(util_en, "basic_servant", all_servants)
                     await dump_basic_equips(util_en, all_equips)
                     await dump_basic_ccs(util_en, mstCcs)
@@ -384,11 +396,20 @@ async def generate_exports(
                     await dump_nice_mcs(util_en, mstEquips)
                     await dump_nice_ccs(util_en, mstCcs)
                     await dump_nice_bgms(util_en, bgms)
-                    await dump_nice_wars(util_en, mstWars)
-                    await dump_nice_events(util_en, mstEvents)
 
                 await dump_svt(util, "nice_servant", all_servants)
                 await dump_svt(util, "nice_equip", all_equips)
+
+                await dump_nice_wars(util, mstWars)
+                await dump_nice_events(util, mstEvents)
+
+                if region == Region.JP:
+                    await dump_nice_wars(util_en, mstWars)
+                    await dump_nice_events(util_en, mstEvents)
+
+            repo_info = await get_repo_version(redis, region)
+            if repo_info is not None:
+                await dump_normal(export_path, "info", repo_info.dict())
 
             run_time = time.perf_counter() - start_time
             logger.info(f"Exported {region} data in {run_time:.2f}s.")
@@ -448,17 +469,25 @@ async def load_and_export(
     redis: Redis,
     region_path: dict[Region, DirectoryPath],
     async_engines: dict[Region, AsyncEngine],
+    enable_webhook: bool,
 ) -> None:  # pragma: no cover
     if settings.write_postgres_data:
         update_db(region_path)
     if settings.write_redis_data:
         await load_redis_data(redis, region_path)
+        await update_master_repo_info(redis, region_path)
     if settings.write_postgres_data or settings.write_redis_data:
         await load_svt_extra(redis, region_path)
-    await update_master_repo_info(redis, region_path)
+        if enable_webhook:
+            await report_webhooks(region_path, "load")
+
     if settings.clear_redis_cache:
         await clear_redis_cache(redis, region_path)
-    await generate_exports(redis, region_path, async_engines)
+
+    if settings.export_all_nice:
+        await generate_exports(redis, region_path, async_engines)
+        if enable_webhook:
+            await report_webhooks(region_path, "export")
 
 
 def update_data_repo(
@@ -474,13 +503,16 @@ def update_data_repo(
 
 
 async def report_webhooks(
-    region_path: dict[Region, DirectoryPath]
+    region_path: dict[Region, DirectoryPath],
+    event: str,
 ) -> None:  # pragma: no cover
     async with httpx.AsyncClient() as client:
         for index, url in enumerate(settings.webhooks):
             try:
-                await client.post(url, json={"regions": list(region_path.keys())})
-            except Exception:  # pylint: disable=broad-except
+                await client.post(
+                    url, json={"regions": list(region_path.keys()), "event": event}
+                )
+            except Exception:
                 logger.exception(f"Failed to report webhook {index}")
 
 
@@ -490,5 +522,4 @@ async def pull_and_update(
     redis: Redis,
 ) -> None:  # pragma: no cover
     await run_in_threadpool(lambda: update_data_repo(region_path))
-    await load_and_export(redis, region_path, async_engines)
-    await report_webhooks(region_path)
+    await load_and_export(redis, region_path, async_engines, True)

@@ -51,7 +51,7 @@
           "releaseConditions": [],
           "eventId": 0,
           "slot": 0,
-          "priority": 129,
+          "priority": 155,
           "name": "The Demonic Capital Rashomon:\nShop Theme Song",
           "detail": "The following items will be used to unlock this track:\nSeed of Yggdrasil 15",
           "infoMessage": "",
@@ -65,6 +65,7 @@
               "type": "skillLvUp",
               "uses": [
                 "skill",
+                "appendSkill",
                 "ascension",
                 "costume"
               ],
@@ -72,11 +73,13 @@
               "individuality": [],
               "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6502.png",
               "background": "silver",
-              "priority": 210,
-              "dropPriority": 8203
+              "priority": 212,
+              "dropPriority": 8203,
+              "itemSelects": []
             },
             "amount": 15
           },
+          "consumes": [],
           "purchaseType": "bgm",
           "targetIds": [
             0
@@ -84,9 +87,10 @@
           "itemSet": [],
           "setNum": 1,
           "limitNum": 1,
+          "gifts": [],
           "defaultLv": 0,
           "defaultLimitCount": 0,
-          "openedAt": 1487944800,
+          "openedAt": 1656907200,
           "closedAt": 1901231999
         },
         "logo": "https://assets.atlasacademy.io/GameData/NA/MyRoomSound/soundlogo_015.png",
@@ -123,7 +127,7 @@
           "releaseConditions": [],
           "eventId": 0,
           "slot": 0,
-          "priority": 129,
+          "priority": 155,
           "name": "The Demonic Capital Rashomon:\nShop Theme Song",
           "detail": "The following items will be used to unlock this track:\nSeed of Yggdrasil 15",
           "infoMessage": "",
@@ -137,6 +141,7 @@
               "type": "skillLvUp",
               "uses": [
                 "skill",
+                "appendSkill",
                 "ascension",
                 "costume"
               ],
@@ -144,11 +149,13 @@
               "individuality": [],
               "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6502.png",
               "background": "silver",
-              "priority": 210,
-              "dropPriority": 8203
+              "priority": 212,
+              "dropPriority": 8203,
+              "itemSelects": []
             },
             "amount": 15
           },
+          "consumes": [],
           "purchaseType": "bgm",
           "targetIds": [
             0
@@ -156,9 +163,10 @@
           "itemSet": [],
           "setNum": 1,
           "limitNum": 1,
+          "gifts": [],
           "defaultLv": 0,
           "defaultLimitCount": 0,
-          "openedAt": 1487944800,
+          "openedAt": 1656907200,
           "closedAt": 1901231999
         },
         "logo": "https://assets.atlasacademy.io/GameData/NA/MyRoomSound/soundlogo_015.png",
@@ -212,7 +220,7 @@
           "releaseConditions": [],
           "eventId": 0,
           "slot": 0,
-          "priority": 129,
+          "priority": 155,
           "name": "The Demonic Capital Rashomon:\nShop Theme Song",
           "detail": "The following items will be used to unlock this track:\nSeed of Yggdrasil 15",
           "infoMessage": "",
@@ -226,6 +234,7 @@
               "type": "skillLvUp",
               "uses": [
                 "skill",
+                "appendSkill",
                 "ascension",
                 "costume"
               ],
@@ -233,11 +242,13 @@
               "individuality": [],
               "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6502.png",
               "background": "silver",
-              "priority": 210,
-              "dropPriority": 8203
+              "priority": 212,
+              "dropPriority": 8203,
+              "itemSelects": []
             },
             "amount": 15
           },
+          "consumes": [],
           "purchaseType": "bgm",
           "targetIds": [
             0
@@ -245,9 +256,10 @@
           "itemSet": [],
           "setNum": 1,
           "limitNum": 1,
+          "gifts": [],
           "defaultLv": 0,
           "defaultLimitCount": 0,
-          "openedAt": 1487944800,
+          "openedAt": 1656907200,
           "closedAt": 1901231999
         },
         "logo": "https://assets.atlasacademy.io/GameData/NA/MyRoomSound/soundlogo_015.png",
@@ -284,7 +296,7 @@
           "releaseConditions": [],
           "eventId": 0,
           "slot": 0,
-          "priority": 129,
+          "priority": 155,
           "name": "The Demonic Capital Rashomon:\nShop Theme Song",
           "detail": "The following items will be used to unlock this track:\nSeed of Yggdrasil 15",
           "infoMessage": "",
@@ -298,6 +310,7 @@
               "type": "skillLvUp",
               "uses": [
                 "skill",
+                "appendSkill",
                 "ascension",
                 "costume"
               ],
@@ -305,11 +318,13 @@
               "individuality": [],
               "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6502.png",
               "background": "silver",
-              "priority": 210,
-              "dropPriority": 8203
+              "priority": 212,
+              "dropPriority": 8203,
+              "itemSelects": []
             },
             "amount": 15
           },
+          "consumes": [],
           "purchaseType": "bgm",
           "targetIds": [
             0
@@ -317,9 +332,10 @@
           "itemSet": [],
           "setNum": 1,
           "limitNum": 1,
+          "gifts": [],
           "defaultLv": 0,
           "defaultLimitCount": 0,
-          "openedAt": 1487944800,
+          "openedAt": 1656907200,
           "closedAt": 1901231999
         },
         "logo": "https://assets.atlasacademy.io/GameData/NA/MyRoomSound/soundlogo_015.png",
@@ -346,6 +362,7 @@
   "pointGroups": [],
   "pointBuffs": [],
   "missions": [],
+  "randomMissions": [],
   "towers": [
     {
       "towerId": 1,
@@ -359,7 +376,8 @@
               "type": "item",
               "objectId": 6502,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda",
@@ -374,7 +392,8 @@
               "type": "item",
               "objectId": 6528,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda",
@@ -389,7 +408,8 @@
               "type": "item",
               "objectId": 6530,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda",
@@ -404,7 +424,8 @@
               "type": "item",
               "objectId": 6507,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda",
@@ -419,7 +440,8 @@
               "type": "item",
               "objectId": 4001,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda",
@@ -434,7 +456,8 @@
               "type": "servant",
               "objectId": 9402860,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda",
@@ -449,7 +472,8 @@
               "type": "item",
               "objectId": 6502,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda",
@@ -464,7 +488,8 @@
               "type": "item",
               "objectId": 6528,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda",
@@ -479,7 +504,8 @@
               "type": "item",
               "objectId": 6530,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda",
@@ -494,7 +520,8 @@
               "type": "servant",
               "objectId": 9570400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda",
@@ -509,7 +536,8 @@
               "type": "item",
               "objectId": 6502,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda",
@@ -524,7 +552,8 @@
               "type": "servant",
               "objectId": 9402860,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda",
@@ -539,7 +568,8 @@
               "type": "item",
               "objectId": 6530,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda",
@@ -554,7 +584,8 @@
               "type": "item",
               "objectId": 6531,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda",
@@ -569,7 +600,8 @@
               "type": "item",
               "objectId": 4001,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda",
@@ -584,7 +616,8 @@
               "type": "servant",
               "objectId": 9670400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda",
@@ -599,7 +632,8 @@
               "type": "item",
               "objectId": 6502,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda",
@@ -614,7 +648,8 @@
               "type": "servant",
               "objectId": 9570400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda",
@@ -629,7 +664,8 @@
               "type": "item",
               "objectId": 6530,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda",
@@ -644,7 +680,8 @@
               "type": "servant",
               "objectId": 9402860,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda",
@@ -665,7 +702,8 @@
               "type": "item",
               "objectId": 6532,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda (Mirage)",
@@ -680,7 +718,8 @@
               "type": "item",
               "objectId": 6506,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda (Mirage)",
@@ -695,7 +734,8 @@
               "type": "item",
               "objectId": 6508,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda (Mirage)",
@@ -710,7 +750,8 @@
               "type": "servant",
               "objectId": 9402860,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda (Mirage)",
@@ -725,7 +766,8 @@
               "type": "item",
               "objectId": 4001,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda (Mirage)",
@@ -740,7 +782,8 @@
               "type": "servant",
               "objectId": 9670400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda (Mirage)",
@@ -755,7 +798,8 @@
               "type": "item",
               "objectId": 6532,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda (Mirage)",
@@ -770,7 +814,8 @@
               "type": "servant",
               "objectId": 9402860,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda (Mirage)",
@@ -785,7 +830,8 @@
               "type": "item",
               "objectId": 6508,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda (Mirage)",
@@ -800,7 +846,8 @@
               "type": "item",
               "objectId": 6999,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda (Mirage)",
@@ -815,7 +862,8 @@
               "type": "item",
               "objectId": 6532,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda (Mirage)",
@@ -830,7 +878,8 @@
               "type": "servant",
               "objectId": 9570400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda (Mirage)",
@@ -845,7 +894,8 @@
               "type": "item",
               "objectId": 6508,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda (Mirage)",
@@ -860,7 +910,8 @@
               "type": "servant",
               "objectId": 9670400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda (Mirage)",
@@ -875,7 +926,8 @@
               "type": "item",
               "objectId": 6507,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda (Mirage)",
@@ -890,7 +942,8 @@
               "type": "servant",
               "objectId": 9570400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda (Mirage)",
@@ -905,7 +958,8 @@
               "type": "item",
               "objectId": 6531,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda (Mirage)",
@@ -920,7 +974,8 @@
               "type": "servant",
               "objectId": 9670400,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda (Mirage)",
@@ -935,7 +990,8 @@
               "type": "item",
               "objectId": 6506,
               "priority": 0,
-              "num": 5
+              "num": 5,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda (Mirage)",
@@ -950,7 +1006,8 @@
               "type": "item",
               "objectId": 6999,
               "priority": 0,
-              "num": 1
+              "num": 1,
+              "giftAdds": []
             }
           ],
           "boardMessage": "Obtained by reaching [ffe051]Floor {0}[-] of the Oni Pagoda (Mirage)",
@@ -962,6 +1019,11 @@
   ],
   "lotteries": [],
   "treasureBoxes": [],
+  "bulletinBoards": [],
+  "recipes": [],
+  "fortifications": [],
+  "campaigns": [],
+  "campaignQuests": [],
   "voicePlays": [
     {
       "slot": 0,

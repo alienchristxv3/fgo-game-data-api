@@ -1,11 +1,13 @@
 from typing import Iterable, Optional, Union
 
 from fastapi import HTTPException
-from fuzzywuzzy import fuzz, utils
+from fuzzywuzzy import utils
+from Levenshtein import ratio
 from sqlalchemy.ext.asyncio import AsyncConnection
 
 from ..data.custom_mappings import CV_EN_TO_JP, ILLUSTRATOR_EN_TO_JP
 from ..db.helpers.buff import get_buff_search
+from ..db.helpers.event import get_shop_search
 from ..db.helpers.func import get_func_search
 from ..db.helpers.item import get_item_search
 from ..db.helpers.quest import get_quest_phase_search
@@ -25,8 +27,10 @@ from ..schemas.enums import (
     GENDER_TYPE_NAME_REVERSE,
     ITEM_BG_TYPE_REVERSE,
     ITEM_TYPE_REVERSE,
+    PAY_TYPE_NAME_REVERSE,
     QUEST_FLAG_REVERSE,
     QUEST_TYPE_REVERSE,
+    SHOP_TYPE_NAME_REVERSE,
     SKILL_TYPE_NAME_REVERSE,
     SVT_FLAG_NAME_REVERSE,
     SVT_TYPE_NAME_REVERSE,
@@ -38,6 +42,7 @@ from ..schemas.raw import (
     MstFunc,
     MstItem,
     MstQuestWithPhase,
+    MstShop,
     MstSkill,
     MstSvt,
     MstTreasureDevice,
@@ -51,6 +56,7 @@ from ..schemas.search import (
     QuestSearchQueryParams,
     ScriptSearchQueryParams,
     ServantSearchQueryParams,
+    ShopSearchQueryParams,
     SkillSearchParams,
     SvtSearchQueryParams,
     TdSearchParams,
@@ -77,7 +83,7 @@ def reverse_traits(traits: Iterable[Union[Trait, int]]) -> set[int]:
 
 accent_from = "àáâäèéëíðñóöùúāēīŋōšαβḗḫ"
 accent_to__ = "aaaaeeeidnoouuaeinosabeh"
-translation_table = {ord(k): v for k, v in zip(accent_from, accent_to__)}
+translation_table = {ord(k): v for k, v in zip(accent_from, accent_to__, strict=True)}
 
 
 SPECIAL_REPLACE = {"artoria": "altria"}
@@ -126,14 +132,14 @@ def match_name(search_param: str, name: str) -> bool:
     combined_1to2 = combined_1to2.strip()
     combined_2to1 = combined_2to1.strip()
 
-    NAME_MATCH_THRESHOLD = 80
+    NAME_MATCH_THRESHOLD = 0.8
 
     # Use sorted_sect first so "Okita Souji (Alter)" works as expected
     # This way "a b c" search_param will match to "a b c d e" but not vice versa
     if sorted_sect:
-        return fuzz.ratio(sorted_sect, combined_1to2) > NAME_MATCH_THRESHOLD
+        return float(ratio(sorted_sect, combined_1to2)) > NAME_MATCH_THRESHOLD
     else:
-        return fuzz.ratio(combined_2to1, combined_1to2) > NAME_MATCH_THRESHOLD
+        return float(ratio(combined_2to1, combined_1to2)) > NAME_MATCH_THRESHOLD
 
 
 async def search_servant(
@@ -263,6 +269,8 @@ async def search_skill(
         search_param.strengthStatus,
         search_param.lvl1coolDown,
         search_param.numFunctions,
+        search_param.svalsContain,
+        search_param.triggerSkillId,
     )
 
     if search_param.name:
@@ -302,6 +310,8 @@ async def search_td(
         search_param.numFunctions,
         search_param.minNpNpGain,
         search_param.maxNpNpGain,
+        search_param.svalsContain,
+        search_param.triggerSkillId,
     )
 
     if search_param.name:
@@ -443,6 +453,8 @@ async def search_quest(
         enemy_class={
             CLASS_NAME_REVERSE[svt_class] for svt_class in search_param.enemyClassName
         },
+        enemy_skill=search_param.enemySkillId,
+        enemy_np=search_param.enemyNoblePhantasmId,
     )
 
     return sorted(matches, key=lambda quest: (quest.id, quest.phase))
@@ -454,5 +466,40 @@ async def search_script(
     if not search_param.hasSearchParams():
         raise HTTPException(status_code=400, detail=INSUFFICIENT_QUERY)
     return await get_script_search(
-        conn, search_param.query, search_param.scriptFileName
+        conn,
+        search_param.query,
+        search_param.scriptFileName,
+        search_param.warId,
+        50 if search_param.limit is None else search_param.limit,
     )
+
+
+async def search_shop(
+    conn: AsyncConnection,
+    search_param: ShopSearchQueryParams,
+    limit: int = 100,
+) -> list[MstShop]:
+    if not search_param.hasSearchParams():
+        raise HTTPException(status_code=400, detail=INSUFFICIENT_QUERY)
+
+    shop_type_ints = {
+        SHOP_TYPE_NAME_REVERSE[shop_type] for shop_type in search_param.type
+    }
+    pay_type_ints = {
+        PAY_TYPE_NAME_REVERSE[pay_type] for pay_type in search_param.payType
+    }
+
+    matches = await get_shop_search(
+        conn,
+        event_ids=search_param.eventId,
+        shop_type_ints=shop_type_ints,
+        pay_type_ints=pay_type_ints,
+    )
+
+    if search_param.name:
+        matches = [item for item in matches if match_name(search_param.name, item.name)]
+
+    if len(matches) > limit:  # pragma: no cover
+        raise HTTPException(status_code=403, detail=TOO_MANY_RESULTS.format(limit))
+
+    return sorted(matches, key=lambda shop: shop.id)

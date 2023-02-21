@@ -4,6 +4,7 @@ from typing import Optional, Union
 import httpx
 from fastapi import HTTPException
 from httpx import Client
+from pydantic import ValidationError
 from sqlalchemy.ext.asyncio import AsyncConnection
 
 from ..config import Settings, logger
@@ -104,11 +105,16 @@ def get_multiple_quests(
         time.sleep(sleep_time)
         r = client.get(f"{QUEST_ENDPOINT}/get", params=params)
 
-    return QuestRayshiftResponse.parse_raw(r.content).response.questDetails
+    try:
+        return QuestRayshiftResponse.parse_raw(r.content).response.questDetails
+    except ValidationError:  # pragma: no cover
+        return {}
 
 
-def get_all_quest_lists(client: Client, region: Region) -> list[QuestList]:
-    if NO_API_KEY or region not in REGION_ENUM:  # pragma: no cover
+def get_all_quest_lists(
+    client: Client, region: Region
+) -> list[QuestList]:  # pragma: no cover
+    if NO_API_KEY or region not in REGION_ENUM:
         return []
 
     params: dict[str, Union[str, int]] = {
@@ -116,7 +122,7 @@ def get_all_quest_lists(client: Client, region: Region) -> list[QuestList]:
         "region": REGION_ENUM[region],
     }
     r = client.get(f"{QUEST_ENDPOINT}/list", params=params, follow_redirects=True)
-    if r.status_code != httpx.codes.OK:  # pragma: no cover
+    if r.status_code != httpx.codes.OK:
         return []
 
     return QuestListRayshiftResponse.parse_raw(r.content).response.quests

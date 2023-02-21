@@ -1,10 +1,10 @@
 from dataclasses import dataclass
 from typing import Any
 
-from redis.asyncio import Redis  # type: ignore
 from sqlalchemy.ext.asyncio import AsyncConnection
 
 from ...data.custom_mappings import Translation
+from ...redis import Redis
 from ...schemas.common import Language, Region
 from ...schemas.enums import (
     ATTRIBUTE_NAME,
@@ -12,12 +12,14 @@ from ...schemas.enums import (
     ENEMY_DEATH_TYPE_NAME,
     ENEMY_ROLE_TYPE_NAME,
     EnemyRoleType,
+    SvtClass,
 )
 from ...schemas.gameenums import GIFT_TYPE_NAME
 from ...schemas.nice import (
     DeckType,
     EnemyAi,
     EnemyDrop,
+    EnemyInfoScript,
     EnemyLimit,
     EnemyMisc,
     EnemyPassive,
@@ -47,6 +49,9 @@ def get_enemy_misc(svt: UserSvt) -> EnemyMisc:
         userCommandCodeIds=svt.userCommandCodeIds if svt.userCommandCodeIds else [],
         commandCardParam=svt.commandCardParam,
         status=svt.status,
+        hpGaugeType=svt.hpGaugeType,
+        imageSvtId=svt.imageSvtId,
+        condVal=svt.condVal,
     )
 
 
@@ -76,6 +81,7 @@ def get_enemy_ai(svt: UserSvt) -> EnemyAi:
         aiId=svt.aiId,
         actPriority=svt.actPriority,
         maxActNum=svt.maxActNum,
+        minActNum=svt.minActNum,
     )
 
 
@@ -139,6 +145,15 @@ def get_enemy_script(enemyScript: dict[str, Any]) -> EnemyScript:
     return EnemyScript.parse_obj(enemy_script)
 
 
+def get_enemy_info_script(infoScript: dict[str, Any]) -> EnemyInfoScript:
+    info_script: dict[str, Any] = {}
+
+    if "isAddition" in infoScript:
+        info_script["isAddition"] = "isAddition" in infoScript
+
+    return EnemyInfoScript.parse_obj(info_script)
+
+
 def get_enemy_skills(svt: UserSvt, all_skills: MultipleNiceSkills) -> EnemySkill:
     return EnemySkill(
         skillId1=svt.skillId1,
@@ -167,6 +182,9 @@ def get_enemy_passive(svt: UserSvt, all_skills: MultipleNiceSkills) -> EnemyPass
         ]
         if svt.addPassive
         else [],
+        addPassiveLvs=svt.addPassiveLvs,
+        appendPassiveSkillIds=svt.appendPassiveSkillIds,
+        appendPassiveSkillLvs=svt.appendPassiveSkillLvs,
     )
 
 
@@ -176,6 +194,8 @@ def get_enemy_td(svt: UserSvt, all_nps: MultipleNiceTds) -> EnemyTd:
         noblePhantasm=all_nps.get(TdSvt(svt.treasureDeviceId, svt.svtId), None),
         noblePhantasmLv=svt.treasureDeviceLv,
         noblePhantasmLv1=svt.treasureDeviceLv1,
+        noblePhantasmLv2=svt.treasureDeviceLv2,
+        noblePhantasmLv3=svt.treasureDeviceLv3,
     )
 
 
@@ -226,7 +246,10 @@ async def get_quest_enemy(
     )
 
     if user_svt.npcSvtClassId != 0:
-        basic_svt.className = CLASS_NAME[user_svt.npcSvtClassId]
+        basic_svt.classId = user_svt.npcSvtClassId
+        basic_svt.className = CLASS_NAME.get(
+            user_svt.npcSvtClassId, SvtClass.atlasUnmappedClass
+        )
     if (
         deck_svt.enemyScript and "changeAttri" in deck_svt.enemyScript
     ):  # pragma: no cover
@@ -263,6 +286,11 @@ async def get_quest_enemy(
         enemyScript=get_enemy_script(
             deck_svt.enemyScript if deck_svt.enemyScript else {}
         ),
+        originalEnemyScript=deck_svt.enemyScript or {},
+        infoScript=get_enemy_info_script(
+            deck_svt.infoScript if deck_svt.infoScript else {}
+        ),
+        originalInfoScript=deck_svt.infoScript or {},
         limit=get_enemy_limit(user_svt),
         misc=get_enemy_misc(user_svt),
     )
@@ -331,6 +359,12 @@ def get_enemies_in_stage(
     return stage_enemies
 
 
+@dataclass
+class QuestEnemies:
+    enemy_waves: list[list[QuestEnemy]]
+    ai_npcs: dict[int, QuestEnemy] | None = None
+
+
 async def get_quest_enemies(
     conn: AsyncConnection,
     redis: Redis,
@@ -339,7 +373,7 @@ async def get_quest_enemies(
     quest_detail: QuestDetail,
     quest_drop: list[QuestDrop],
     lang: Language = Language.jp,
-) -> list[list[QuestEnemy]]:
+) -> QuestEnemies:
     npc_id_map: dict[DeckType, dict[int, DeckSvt]] = {}
     DECK_LIST: list[tuple[list[Deck], DeckType]] = [
         (quest_detail.enemyDeck, DeckType.ENEMY),
@@ -385,10 +419,12 @@ async def get_quest_enemies(
             for deck in sorted(enemy_deck.svts, key=lambda enemy: enemy.id)
             if not is_spawn_bonus_enemy(deck)
         ]
+        enemy_uniqueIds = {enemy.deck.uniqueId for enemy in enemy_decks}
+        # The transform target and transform source have the same uniqueId
         enemy_decks += [
             EnemyDeckInfo(DeckType.TRANSFORM, deck)
             for deck in quest_detail.transformDeck.svts
-            if not is_spawn_bonus_enemy(deck)
+            if not is_spawn_bonus_enemy(deck) and deck.uniqueId in enemy_uniqueIds
         ]
 
         stage_nice_enemies: list[QuestEnemy] = []
@@ -419,4 +455,21 @@ async def get_quest_enemies(
 
         out_enemies.append(stage_nice_enemies)
 
-    return out_enemies
+    if quest_detail.aiNpcDeck is not None and quest_detail.aiNpcDeck.svts:
+        nice_ai_npc = {
+            svt_deck.npcId: await get_quest_enemy(
+                redis=redis,
+                region=region,
+                deck_svt_info=EnemyDeckInfo(DeckType.AI_NPC, svt_deck),
+                user_svt=user_svt_id[svt_deck.userSvtId],
+                drops=[],
+                all_enemy_skills=all_skills,
+                all_enemy_tds=all_tds,
+                lang=lang,
+            )
+            for svt_deck in quest_detail.aiNpcDeck.svts
+        }
+    else:
+        nice_ai_npc = {}
+
+    return QuestEnemies(enemy_waves=out_enemies, ai_npcs=nice_ai_npc)

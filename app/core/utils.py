@@ -7,10 +7,8 @@ from pydantic import HttpUrl
 from pydantic.tools import parse_obj_as
 
 from ..data.custom_mappings import TRANSLATION_OVERRIDE, TRANSLATIONS, Translation
-from ..schemas.basic import BasicCommandCode, BasicEquip, BasicServant
 from ..schemas.common import Language, NiceTrait
 from ..schemas.enums import TRAIT_NAME, Trait
-from ..schemas.nice import NiceCommandCode, NiceEquip, NiceServant
 
 
 TValue = TypeVar("TValue")
@@ -78,7 +76,7 @@ def get_voice_name(
         if match := VOICE_NAME_REGEX.match(voice_name):
             name, number = match.groups()
             translated_name = get_translation(language, name, override_file)
-            return f"{translated_name}{number}"
+            return f"{translated_name.rstrip()} {number}"
         else:
             return get_translation(language, voice_name, override_file)
 
@@ -104,24 +102,6 @@ def get_traits_list(input_idv: Iterable[int]) -> list[NiceTrait]:
     Return the corresponding list NiceTrait objects given the individuality list
     """
     return [get_nice_trait(individuality) for individuality in input_idv]
-
-
-THasColNo = TypeVar(
-    "THasColNo",
-    BasicServant,
-    BasicEquip,
-    BasicCommandCode,
-    NiceServant,
-    NiceEquip,
-    NiceCommandCode,
-)
-
-
-def sort_by_collection_no(input_list: Iterable[THasColNo]) -> list[THasColNo]:
-    """
-    Return given list of basic svt objects sorted by their collectionNo attribute
-    """
-    return sorted(input_list, key=lambda x: x.collectionNo)
 
 
 FORMATTING_BRACKETS = {"[g][o]": "", "[/o][/g]": "", " [{0}] ": " ", "[{0}]": ""}

@@ -1,4 +1,4 @@
-from enum import Enum
+from enum import StrEnum
 from pathlib import Path
 from typing import Union
 
@@ -12,7 +12,7 @@ MAPPING_PATH = file_path.parent / "mappings"
 TRANSLATIONS: dict[str, str] = {}
 
 
-class Translation(str, Enum):
+class Translation(StrEnum):
     ENEMY = "enemy_names"
     VOICE = "voice_names"
     OVERWRITE_VOICE = "overwrite_voice_names"
@@ -63,4 +63,11 @@ EXTRA_IMAGES: dict[int, list[Union[int, str]]] = {}
 with open(MAPPING_PATH / "extra_image.json", "rb") as fp:
     EXTRA_IMAGES = {
         im["svtId"]: sorted(im["imageIds"]) for im in orjson.loads(fp.read())
+    }
+
+TRIAL_QUESTS: dict[int, list[int]] = {}
+
+with open(MAPPING_PATH / "trial_quests.json", "rb") as fp:
+    TRIAL_QUESTS = {
+        tq["svtId"]: sorted(tq["questIds"]) for tq in orjson.loads(fp.read())
     }

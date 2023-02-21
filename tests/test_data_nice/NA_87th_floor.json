@@ -24,7 +24,8 @@
       "type": "item",
       "objectId": 6520,
       "priority": 0,
-      "num": 1
+      "num": 1,
+      "giftAdds": []
     }
   ],
   "releaseConditions": [
@@ -53,6 +54,7 @@
   "phasesWithEnemies": [],
   "phasesNoBattle": [],
   "phaseScripts": [],
+  "priority": 94020112,
   "noticeAt": 1580097600,
   "openedAt": 1580097600,
   "closedAt": 1580702399,
@@ -78,6 +80,7 @@
   "extraDetail": {},
   "scripts": [],
   "messages": [],
+  "restrictions": [],
   "supportServants": [],
   "drops": [],
   "stages": [
@@ -92,6 +95,7 @@
       },
       "fieldAis": [],
       "call": [],
+      "waveStartMovies": [],
       "enemies": []
     },
     {
@@ -105,6 +109,7 @@
       },
       "fieldAis": [],
       "call": [],
+      "waveStartMovies": [],
       "enemies": []
     }
   ]

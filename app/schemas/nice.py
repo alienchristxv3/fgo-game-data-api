@@ -1,6 +1,6 @@
 from decimal import Decimal
-from enum import Enum
-from typing import Generic, Optional, TypeVar
+from enum import StrEnum
+from typing import Any, Generic, Optional, TypeVar
 
 from pydantic import BaseModel, Field, HttpUrl
 from pydantic.generics import GenericModel
@@ -14,8 +14,8 @@ from .basic import (
     BasicServant,
 )
 from .common import (
+    BuffScript,
     MCAssets,
-    NiceBuffScript,
     NiceCostume,
     NiceTrait,
     NiceValentineScript,
@@ -35,6 +35,8 @@ from .enums import (
     NiceSkillType,
     ServantPersonality,
     ServantPolicy,
+    SkillScriptCond,
+    StageLimitActType,
     SvtClass,
 )
 from .gameenums import (
@@ -44,11 +46,17 @@ from .gameenums import (
     NiceAiCond,
     NiceBuffType,
     NiceCardType,
+    NiceCombineAdjustTarget,
+    NiceCommandCardAttackType,
     NiceCommonConsumeType,
     NiceCondType,
     NiceConsumeType,
+    NiceEventCombineCalc,
+    NiceEventFortificationSvtType,
     NiceEventRewardSceneFlag,
     NiceEventType,
+    NiceEventWorkType,
+    NiceFrequencyType,
     NiceFuncTargetType,
     NiceFuncType,
     NiceGender,
@@ -62,11 +70,16 @@ from .gameenums import (
     NiceQuestAfterClearType,
     NiceQuestFlag,
     NiceQuestType,
+    NiceRestrictionRangeType,
+    NiceRestrictionType,
     NiceShopType,
+    NiceSpotOverwriteType,
     NiceStatusRank,
+    NiceSvtClassSupportGroupType,
     NiceSvtFlag,
     NiceSvtType,
     NiceSvtVoiceType,
+    NiceTdEffectFlag,
     NiceVoiceCondType,
     NiceWarFlag,
     NiceWarOverwriteType,
@@ -149,6 +162,40 @@ class AssetURL:
     script = "{base_url}/{region}/Script/{script_path}.txt"
     bgmLogo = "{base_url}/{region}/MyRoomSound/soundlogo_{logo_id:0>3}.png"
     servantModel = "{base_url}/{region}/Servants/{item_id}/manifest.json"
+    movie = "{base_url}/{region}/Movie/{item_id}.mp4"
+
+
+COSTUME_LIMIT_NO_LESS_THAN = 11
+LIMIT_TO_FACE_ID = {0: 0, 1: 1, 2: 1, 3: 2, 4: 3}
+LIMIT_TO_FIGURE_ID = {0: 0, 1: 1, 2: 1, 3: 2, 4: 2}
+
+
+class NiceBaseGift(BaseModelORJson):
+    id: int
+    type: NiceGiftType
+    objectId: int
+    priority: int
+    num: int
+
+
+class NiceGiftAdd(BaseModelORJson):
+    priority: int
+    replacementGiftIcon: HttpUrl
+    condType: NiceCondType
+    targetId: int
+    targetNum: int
+    replacementGifts: list[NiceBaseGift]
+
+
+class NiceGift(NiceBaseGift):
+    giftAdds: list[NiceGiftAdd]
+
+
+class NiceItemSelect(BaseModelORJson):
+    idx: int
+    gifts: list[NiceGift]
+    requireNum: int
+    detail: str
 
 
 class NiceItem(BaseModelORJson):
@@ -163,6 +210,7 @@ class NiceItem(BaseModelORJson):
     background: NiceItemBGType
     priority: int
     dropPriority: int
+    itemSelects: list[NiceItemSelect]
 
 
 class NiceItemAmount(BaseModel):
@@ -279,6 +327,32 @@ class BaseVals(BaseModel):
     )
     AllowSubBgmPlaying: int | None = None
     NotAccompanyWhenLinkedTargetMoveState: int | None = None
+    NotTargetSkillIdArray: list[int] | None = None
+    ShortTurn: int | None = None
+    FieldIndividuality: int | None = None
+    BGId: int | None = None
+    BGType: int | None = None
+    BgmId: int | None = None
+    TakeOverFieldState: int | None = None
+    TakeOverNextWaveBGAndBGM: int | None = None
+    RemoveFieldBuffActorDeath: int | None = None
+    FieldBuffGrantType: int | None = None
+    Priority: int | None = None
+    AddIndividualityEx: int | None = None
+    IgnoreResistance: int | None = None
+    GainNpTargetPassiveIndividuality: int | None = None
+    HpReduceToRegainIndiv: int | None = None
+    DisplayActualRecoveryHpFlag: int | None = None
+    ShiftDeckIndex: int | None = None
+    PopValueText: str | None = None
+    IsLossHpPerNow: int | None = None
+    CopyTargetFunctionType: list[int] | None = None
+    CopyFunctionTargetPTOnly: int | None = None
+    IgnoreValueUp: int | None = None
+    ApplyValueUp: list[str] | None = None
+    ActNoDamageBuff: int | None = None
+    ActSelectIndex: int | None = None
+    CopyTargetBuffType: list[int] | None = None
     # Extra dataval from SkillLvEntty.DIC_KEY_APPLY_SUPPORT_SVT
     ApplySupportSvt: Optional[int] = None
     # These are not DataVals but guesses from SkillLvEntity and EventDropUpValInfo
@@ -320,11 +394,11 @@ class NiceBuff(BaseModelORJson):
     buffGroup: int = Field(
         ...,
         title="Buff group",
-        description="Buff group. "
+        description="Buff group."
         "See https://github.com/atlasacademy/fgo-docs#unstackable-buffs "
         "for how this field is used.",
     )
-    script: NiceBuffScript = Field(
+    script: BuffScript = Field(
         ...,
         title="Buff script",
         description="Random stuffs that get added to the buff entry. "
@@ -475,6 +549,21 @@ class ExtraPassive(BaseModel):
     endedAt: int
 
 
+class NiceSelectAddInfoBtnCond(BaseModel):
+    cond: SkillScriptCond
+    value: int | None = None
+
+
+class NiceSelectAddInfoBtn(BaseModel):
+    name: str
+    conds: list[NiceSelectAddInfoBtnCond]
+
+
+class NiceSelectAddInfo(BaseModel):
+    title: str
+    btn: list[NiceSelectAddInfoBtn]
+
+
 class NiceSkillScript(BaseModel):
     NP_HIGHER: Optional[list[int]] = None
     NP_LOWER: Optional[list[int]] = None
@@ -486,6 +575,9 @@ class NiceSkillScript(BaseModel):
     HP_PER_LOWER: Optional[list[int]] = None
     additionalSkillId: Optional[list[int]] = None
     additionalSkillActorType: Optional[list[int]] = None
+    tdTypeChangeIDs: list[int] | None = None
+    excludeTdChangeTypes: list[int] | None = None
+    SelectAddInfo: list[NiceSelectAddInfo] | None = None
 
 
 class NiceSkillAdd(BaseModelORJson):
@@ -493,6 +585,20 @@ class NiceSkillAdd(BaseModelORJson):
     releaseConditions: list[NiceCommonRelease]
     name: str
     ruby: str
+
+
+class NiceSkillGroupOverwrite(BaseModelORJson):
+    level: int
+    skillGroupId: int
+    startedAt: int
+    endedAt: int
+    icon: Optional[HttpUrl] = None
+    detail: str
+    unmodifiedDetail: str
+    functions: list[NiceFunction] = Field(
+        ...,
+        description="Since each skill level has their own group overwrite, the svals field only contains data for 1 level.",
+    )
 
 
 class NiceSkill(BaseModelORJson):
@@ -517,6 +623,7 @@ class NiceSkill(BaseModelORJson):
     extraPassive: list[ExtraPassive]
     skillAdd: list[NiceSkillAdd]
     aiIds: Optional[dict[AiType, list[int]]] = None
+    groupOverwrites: list[NiceSkillGroupOverwrite] | None = None
     functions: list[NiceFunction]
 
 
@@ -539,6 +646,7 @@ class NiceTd(BaseModelORJson):
     icon: Optional[HttpUrl] = None
     rank: str
     type: str
+    effectFlags: list[NiceTdEffectFlag]
     detail: Optional[str] = None
     unmodifiedDetail: Optional[str] = None
     npGain: NpGain
@@ -631,7 +739,13 @@ class ExtraAssets(ExtraCCAssets):
 
 
 class NiceCardDetail(BaseModel):
+    hitsDistribution: list[int]
     attackIndividuality: list[NiceTrait]
+    attackType: NiceCommandCardAttackType
+    damageRate: int | None
+    attackNpRate: int | None
+    defenseNpRate: int | None
+    dropStarRate: int | None
 
 
 AscensionAddData = TypeVar("AscensionAddData")
@@ -719,6 +833,8 @@ class NiceServantChange(BaseModel):
     condTargetId: int
     condValue: int
     name: str
+    ruby: str
+    battleName: str
     svtVoiceId: int
     limitCount: int
     flag: int
@@ -794,7 +910,7 @@ class NiceVoiceCond(BaseModel):
         ..., title="Voice Cond Type", description="Voice Condition Type Enum"
     )
     value: int = Field(
-        ..., title="Voice Cond Value", description="Threshold value for the condtion."
+        ..., title="Voice Cond Value", description="Threshold value for the condition."
     )
     valueList: list[int] = Field(
         [],
@@ -817,7 +933,7 @@ class NiceVoicePlayCond(BaseModel):
     targetId: int = Field(..., title="Voice play condition target ID")
     condValue: int = Field(
         ...,
-        title="[DEPRECIATED, use condValues] Voice play condition target value."
+        title="[DEPRECATED, use condValues] Voice play condition target value."
         "Use condValues since condValues in other places can have multiple values."
         "This value is the first element of condValues.",
     )
@@ -970,6 +1086,15 @@ class NiceServant(BaseModelORJson):
     ruby: str = Field(
         ..., title="svt's name ruby text", description="svt's name ruby text"
     )
+    battleName: str = Field(
+        ..., title="svt's battle name", description="Name that appears in battle"
+    )
+    originalBattleName: str = Field(
+        ...,
+        title="untranslated svt's battle name",
+        description="untranslated svt's battle name",
+    )
+    classId: int = Field(..., title="svt's class ID")
     className: SvtClass = Field(
         ...,
         title="svt's class",
@@ -1027,6 +1152,7 @@ class NiceServant(BaseModelORJson):
         title="Related quest IDs",
         description="IDs of related quests: rank-ups or interludes.",
     )
+    trialQuestIds: list[int] = Field(..., title="Trial quest IDs")
     growthCurve: int = Field(
         ..., title="Growth curve type", description="Growth curve type"
     )
@@ -1296,6 +1422,15 @@ class NiceItemSet(BaseModelORJson):
     purchaseType: NicePurchaseType
     targetId: int
     setNum: int
+    gifts: list[NiceGift]
+
+
+class NiceCommonConsume(BaseModelORJson):
+    id: int
+    priority: int
+    type: NiceCommonConsumeType
+    objectId: int
+    num: int
 
 
 class NiceShopRelease(BaseModelORJson):
@@ -1325,6 +1460,9 @@ class NiceShop(BaseModelORJson):
         ..., title="Payment Type", description="Type of items to be used as payment."
     )
     cost: NiceItemAmount
+    consumes: list[NiceCommonConsume] = Field(
+        ..., title="Common Consume", description="If payType is commonConsume"
+    )
     purchaseType: NicePurchaseType = Field(
         ..., title="Reward Type", description="Type of items to be received."
     )
@@ -1340,11 +1478,15 @@ class NiceShop(BaseModelORJson):
     limitNum: int = Field(
         ..., title="Limit Number", description="Maximum number of buying units"
     )
+    gifts: list[NiceGift] = Field(
+        ..., title="Gift", description="If purchaseType is gift"
+    )
     defaultLv: int
     defaultLimitCount: int
     scriptName: Optional[str] = None
     scriptId: Optional[str] = None
     script: Optional[HttpUrl] = None
+    image: HttpUrl | None = None
     openedAt: int
     closedAt: int
 
@@ -1378,12 +1520,19 @@ class NiceBgmEntity(BaseModelORJson):
     releaseConditions: list[NiceBgmRelease]
 
 
-class NiceGift(BaseModelORJson):
-    id: int
-    type: NiceGiftType
-    objectId: int
-    priority: int
-    num: int
+class NiceEventQuest(BaseModelORJson):
+    questId: int
+    # phase: int
+
+
+class NiceEventCampaign(BaseModelORJson):
+    targetIds: list[int]
+    warIds: list[int]
+    target: NiceCombineAdjustTarget
+    idx: int
+    value: int
+    calcType: NiceEventCombineCalc
+    entryCondMessage: str
 
 
 class NiceEventReward(BaseModelORJson):
@@ -1437,6 +1586,7 @@ class NiceEventMissionCondition(BaseModelORJson):
     closedMessage: str
     flag: int
     detail: Optional[NiceEventMissionConditionDetail] = None
+    details: list[NiceEventMissionConditionDetail] | None = None
 
 
 class NiceEventMission(BaseModelORJson):
@@ -1458,6 +1608,14 @@ class NiceEventMission(BaseModelORJson):
     notfyPriority: int
     presentMessageId: int
     conds: list[NiceEventMissionCondition]
+
+
+class NiceEventRandomMission(BaseModelORJson):
+    missionId: int
+    missionRank: int
+    condType: NiceCondType
+    condId: int
+    condNum: int
 
 
 class NiceEventTowerReward(BaseModelORJson):
@@ -1509,14 +1667,6 @@ class NiceEventLottery(BaseModelORJson):
     talks: list[NiceEventLotteryTalk]
 
 
-class NiceCommonConsume(BaseModelORJson):
-    id: int
-    priority: int
-    type: NiceCommonConsumeType
-    objectId: int
-    num: int
-
-
 class NiceEventTreasureBoxGift(BaseModelORJson):
     id: int
     idx: int
@@ -1532,6 +1682,116 @@ class NiceEventTreasureBox(BaseModelORJson):
     maxDrawNumOnce: int
     extraGifts: list[NiceGift]
     commonConsume: NiceCommonConsume
+    consumes: list[NiceCommonConsume]
+
+
+class NiceEventDiggingBlock(BaseModelORJson):
+    id: int
+    eventId: int
+    image: HttpUrl
+    commonConsume: NiceCommonConsume
+    consumes: list[NiceCommonConsume]
+    objectId: int
+    diggingEventPoint: int
+    blockNum: int
+
+
+class NiceEventDiggingReward(BaseModelORJson):
+    id: int
+    # icon: Optional[HttpUrl] = None
+    gifts: list[NiceGift]
+    rewardSize: int
+
+
+class NiceEventDigging(BaseModelORJson):
+    sizeX: int
+    sizeY: int
+    bgImage: HttpUrl
+    eventPointItem: NiceItem
+    resettableDiggedNum: int
+    blocks: list[NiceEventDiggingBlock]
+    rewards: list[NiceEventDiggingReward]
+
+
+class NiceEventCooltimeReward(BaseModelORJson):
+    spotId: int
+    lv: int
+    name: str
+    commonRelease: NiceCommonRelease
+    releaseConditions: list[NiceCommonRelease]
+    cooltime: int
+    addEventPointRate: int
+    gifts: list[NiceGift]
+    upperLimitGiftNum: int
+
+
+class NiceEventCooltime(BaseModelORJson):
+    rewards: list[NiceEventCooltimeReward]
+
+
+class NiceEventBulletinBoardRelease(BaseModelORJson):
+    condGroup: int
+    condType: NiceCondType
+    condTargetId: int
+    condNum: int
+
+
+class NiceEventBulletinBoard(BaseModelORJson):
+    bulletinBoardId: int
+    message: str
+    probability: int | None = None
+    releaseConditions: list[NiceEventBulletinBoardRelease]
+
+
+class NiceEventRecipeGift(BaseModelORJson):
+    idx: int
+    displayOrder: int
+    topIconId: int
+    gifts: list[NiceGift]
+
+
+class NiceEventRecipe(BaseModelORJson):
+    id: int
+    icon: HttpUrl
+    name: str
+    maxNum: int
+    eventPointItem: NiceItem
+    eventPointNum: int
+    consumes: list[NiceCommonConsume]
+    releaseConditions: list[NiceCommonRelease]
+    closedMessage: str
+    recipeGifts: list[NiceEventRecipeGift]
+
+
+class NiceEventFortificationDetail(BaseModelORJson):
+    position: int
+    name: str
+    className: NiceSvtClassSupportGroupType
+    releaseConditions: list[NiceCommonRelease]
+
+
+class NiceEventFortificationSvt(BaseModelORJson):
+    position: int
+    type: NiceEventFortificationSvtType
+    svtId: int
+    limitCount: int
+    lv: int
+    releaseConditions: list[NiceCommonRelease]
+
+
+class NiceEventFortification(BaseModelORJson):
+    idx: int
+    name: str
+    x: int
+    y: int
+    rewardSceneX: int
+    rewardSceneY: int
+    maxFortificationPoint: int
+    workType: NiceEventWorkType
+    gifts: list[NiceGift]
+    releaseConditions: list[NiceCommonRelease]
+    details: list[NiceEventFortificationDetail]
+    servants: list[NiceEventFortificationSvt]
 
 
 class NiceEventRewardSceneGuide(BaseModelORJson):
@@ -1595,9 +1855,17 @@ class NiceEvent(BaseModelORJson):
     pointGroups: list[NiceEventPointGroup]
     pointBuffs: list[NiceEventPointBuff]
     missions: list[NiceEventMission]
+    randomMissions: list[NiceEventRandomMission]
     towers: list[NiceEventTower]
     lotteries: list[NiceEventLottery]
     treasureBoxes: list[NiceEventTreasureBox]
+    bulletinBoards: list[NiceEventBulletinBoard]
+    recipes: list[NiceEventRecipe]
+    digging: NiceEventDigging | None
+    cooltime: NiceEventCooltime | None
+    fortifications: list[NiceEventFortification]
+    campaigns: list[NiceEventCampaign]
+    campaignQuests: list[NiceEventQuest]
     voicePlays: list[NiceEventVoicePlay]
     voices: list[NiceVoiceGroup] = Field(
         ..., description="All voice lines related to this event"
@@ -1650,6 +1918,7 @@ class NiceQuest(BaseModelORJson):
     chapterId: int
     chapterSubId: int
     chapterSubStr: str
+    giftIcon: HttpUrl | None = None
     gifts: list[NiceGift]
     releaseConditions: list[NiceQuestRelease]
     phases: list[int]
@@ -1664,6 +1933,7 @@ class NiceQuest(BaseModelORJson):
         description="List of phases no battle (Story quest).",
     )
     phaseScripts: list[NiceQuestPhaseScript]
+    priority: int
     noticeAt: int
     openedAt: int
     closedAt: int
@@ -1690,7 +1960,7 @@ class EnemyScript(BaseModelORJson):
     call: Optional[list[int]] = Field(None, title="Summon these NPC IDs")
     shift: Optional[list[int]] = Field(None, title="Break bar switch to these NPC IDs")
     shiftPosition: Optional[int]
-    shiftClear: list[NiceTrait] = Field(
+    shiftClear: list[NiceTrait] | None = Field(
         None, title="Active buff traits to remove with break bar"
     )
     skillShift: Optional[list[int]]
@@ -1703,6 +1973,10 @@ class EnemyScript(BaseModelORJson):
     npInfoEnable: Optional[bool]
     npCharge: Optional[int]
     NoSkipDead: Optional[bool]
+
+
+class EnemyInfoScript(BaseModelORJson):
+    isAddition: bool | None
 
 
 class EnemySkill(BaseModelORJson):
@@ -1720,6 +1994,9 @@ class EnemySkill(BaseModelORJson):
 class EnemyPassive(BaseModelORJson):
     classPassive: list[NiceSkill]
     addPassive: list[NiceSkill]
+    addPassiveLvs: list[int] | None = None
+    appendPassiveSkillIds: list[int] | None = None
+    appendPassiveSkillLvs: list[int] | None = None
 
 
 class EnemyTd(BaseModelORJson):
@@ -1727,6 +2004,8 @@ class EnemyTd(BaseModelORJson):
     noblePhantasm: Optional[NiceTd] = None
     noblePhantasmLv: int
     noblePhantasmLv1: int
+    noblePhantasmLv2: int | None = None
+    noblePhantasmLv3: int | None = None
 
 
 class EnemyLimit(BaseModelORJson):
@@ -1765,6 +2044,7 @@ class EnemyAi(BaseModelORJson):
     aiId: int
     actPriority: int
     maxActNum: int
+    minActNum: int | None = None
 
 
 class EnemyMisc(BaseModelORJson):
@@ -1778,6 +2058,9 @@ class EnemyMisc(BaseModelORJson):
     userCommandCodeIds: list[int]
     commandCardParam: Optional[list[int]] = None
     status: int
+    hpGaugeType: int | None = None
+    imageSvtId: int | None = None
+    condVal: int | None = None
 
 
 class EnemyDrop(BaseModelORJson):
@@ -1790,7 +2073,7 @@ class EnemyDrop(BaseModelORJson):
     dropVariance: float
 
 
-class DeckType(str, Enum):
+class DeckType(StrEnum):
     ENEMY = "enemy"
     CALL = "call"
     SHIFT = "shift"
@@ -1798,6 +2081,7 @@ class DeckType(str, Enum):
     TRANSFORM = "transform"
     SKILL_SHIFT = "skillShift"
     MISSION_TARGET_SKILL_SHIFT = "missionTargetSkillShift"
+    AI_NPC = "aiNpc"
 
 
 class QuestEnemy(BaseModelORJson):
@@ -1827,6 +2111,9 @@ class QuestEnemy(BaseModelORJson):
     serverMod: EnemyServerMod
     ai: EnemyAi
     enemyScript: EnemyScript
+    originalEnemyScript: dict[str, Any]
+    infoScript: EnemyInfoScript
+    originalInfoScript: dict[str, Any]
     limit: EnemyLimit
     misc: EnemyMisc
 
@@ -1837,11 +2124,22 @@ class FieldAi(BaseModelORJson):
     id: int
 
 
+class NiceStageStartMovie(BaseModelORJson):
+    waveStartMovie: HttpUrl
+
+
 class NiceStage(BaseModelORJson):
     wave: int
     bgm: NiceBgm
     fieldAis: list[FieldAi] = []
     call: list[int] = Field([], title="Summon these NPC IDs")
+    enemyFieldPosCount: int | None = None
+    enemyActCount: int | None = None
+    turn: int | None = Field(None, title="Turn countdown")
+    limitAct: StageLimitActType | None = Field(
+        None, title="Action after turn countdown is over"
+    )
+    waveStartMovies: list[NiceStageStartMovie] = []
     enemies: list[QuestEnemy] = []
 
 
@@ -1882,6 +2180,20 @@ class SupportServantEquip(BaseModelORJson):
 
 class SupportServantScript(BaseModelORJson):
     dispLimitCount: Optional[int] = None
+    eventDeckIndex: int | None = None
+
+
+class NpcServant(BaseModelORJson):
+    npcId: int
+    name: str
+    svt: BasicServant
+    lv: int
+    atk: int
+    hp: int
+    traits: list[NiceTrait]
+    skills: EnemySkill
+    noblePhantasm: SupportServantTd
+    limit: SupportServantLimit
 
 
 class SupportServant(BaseModelORJson):
@@ -1902,9 +2214,36 @@ class SupportServant(BaseModelORJson):
     misc: SupportServantMisc
 
 
+class NiceQuestPhaseAiNpc(BaseModelORJson):
+    npc: NpcServant
+    detail: QuestEnemy | None = None
+    aiIds: list[int]
+
+
 class NiceQuestPhaseExtraDetail(BaseModelORJson):
     questSelect: list[int] | None = None
     singleForceSvtId: int | None = None
+    hintTitle: str | None = None
+    hintMessage: str | None = None
+    aiNpc: NiceQuestPhaseAiNpc | None = None
+    aiMultiNpc: list[NiceQuestPhaseAiNpc] | None = None
+
+
+class NiceRestriction(BaseModelORJson):
+    id: int
+    name: str
+    type: NiceRestrictionType
+    rangeType: NiceRestrictionRangeType
+    targetVals: list[int]
+    targetVals2: list[int]
+
+
+class NiceQuestPhaseRestriction(BaseModelORJson):
+    restriction: NiceRestriction
+    frequencyType: NiceFrequencyType
+    dialogMessage: str
+    noticeMessage: str
+    title: str
 
 
 class NiceQuestPhase(NiceQuest):
@@ -1919,6 +2258,7 @@ class NiceQuestPhase(NiceQuest):
     extraDetail: NiceQuestPhaseExtraDetail
     scripts: list[ScriptLink]
     messages: list[NiceQuestMessage]
+    restrictions: list[NiceQuestPhaseRestriction]
     supportServants: list[SupportServant]
     drops: list[EnemyDrop]
     stages: list[NiceStage]
@@ -1985,6 +2325,17 @@ class NiceMap(BaseModel):
     bgm: NiceBgm
 
 
+class NiceSpotAdd(BaseModel):
+    # spotId: int
+    priority: int
+    overrideType: NiceSpotOverwriteType
+    targetId: int
+    targetText: str
+    condType: NiceCondType
+    condTargetId: int
+    condNum: int
+
+
 class NiceSpot(BaseModel):
     id: int
     joinSpotIds: list[int]
@@ -2003,6 +2354,7 @@ class NiceSpot(BaseModel):
     nextOfsX: int
     nextOfsY: int
     closedMessage: str
+    spotAdds: list[NiceSpotAdd]
     quests: list[NiceQuest]
 
 
@@ -2018,6 +2370,12 @@ class NiceWarAdd(BaseModelORJson):
     value: int
     startedAt: int
     endedAt: int
+
+
+class NiceWarQuestSelection(BaseModelORJson):
+    quest: NiceQuest
+    shortcutBanner: HttpUrl | None = None
+    priority: int
 
 
 class NiceWar(BaseModelORJson):
@@ -2036,7 +2394,7 @@ class NiceWar(BaseModelORJson):
     materialParentWarId: int
     emptyMessage: str
     bgm: NiceBgm
-    scriptId: str
+    scriptId: str = Field(..., description='Could be "NONE".')
     script: HttpUrl
     startType: NiceWarStartType
     targetId: int
@@ -2047,6 +2405,7 @@ class NiceWar(BaseModelORJson):
     maps: list[NiceMap]
     spots: list[NiceSpot]
     spotRoads: list[NiceSpotRoad]
+    questSelections: list[NiceWarQuestSelection]
 
 
 class NiceAiAct(BaseModelORJson):
@@ -2057,6 +2416,10 @@ class NiceAiAct(BaseModelORJson):
     skillId: Optional[int] = None
     skillLv: Optional[int] = None
     skill: Optional[NiceSkill] = None
+    noblePhantasmId: Optional[int] = None
+    noblePhantasmLv: Optional[int] = None
+    noblePhantasmOc: Optional[int] = None
+    noblePhantasm: Optional[NiceTd] = None
 
 
 class NiceAi(BaseModelORJson):

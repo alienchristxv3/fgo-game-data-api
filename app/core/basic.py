@@ -1,12 +1,12 @@
 from collections import defaultdict
-from typing import Any, Generator, Iterable, Optional
+from typing import Any, Callable, Generator, Iterable, Optional
 
 from fastapi import HTTPException
-from redis.asyncio import Redis  # type: ignore
 from sqlalchemy.ext.asyncio import AsyncConnection
 
 from ..config import Settings
 from ..db.helpers import fetch, quest
+from ..redis import Redis
 from ..redis.helpers import pydantic_object
 from ..redis.helpers.reverse import RedisReverse, get_reverse_ids
 from ..schemas.basic import (
@@ -29,7 +29,7 @@ from ..schemas.basic import (
     BasicTdReverse,
     BasicWar,
 )
-from ..schemas.common import Language, MCAssets, NiceBuffScript, Region, ReverseDepth
+from ..schemas.common import BuffScript, Language, MCAssets, Region, ReverseDepth
 from ..schemas.enums import (
     ATTRIBUTE_NAME,
     CLASS_NAME,
@@ -38,6 +38,8 @@ from ..schemas.enums import (
     SvtClass,
 )
 from ..schemas.gameenums import (
+    BUFF_CONVERT_LIMIT_TYPE_NAME,
+    BUFF_CONVERT_TYPE_NAME,
     BUFF_TYPE_NAME,
     CLASS_OVERWRITE_NAME,
     EVENT_TYPE_NAME,
@@ -49,10 +51,11 @@ from ..schemas.gameenums import (
     SVT_FLAG_NAME,
     SVT_TYPE_NAME,
     WAR_FLAG_NAME,
+    BuffConvertType,
     Quest_FLAG_NAME,
     SvtType,
 )
-from ..schemas.nice import AssetURL
+from ..schemas.nice import LIMIT_TO_FACE_ID, AssetURL
 from ..schemas.raw import (
     MstBuff,
     MstClassRelationOverwrite,
@@ -81,7 +84,9 @@ from .utils import (
 settings = Settings()
 
 
-def get_nice_buff_script(mstBuff: MstBuff) -> NiceBuffScript:
+def get_nice_buff_script(
+    mstBuff: MstBuff, raw_to_out: Callable[[MstBuff], Any]
+) -> dict[str, Any]:
     script: dict[str, Any] = {}
     if "relationOverwrite" in mstBuff.script:
         relationOverwrite = [
@@ -94,8 +99,8 @@ def get_nice_buff_script(mstBuff: MstBuff) -> NiceBuffScript:
         }
         for relation in relationOverwrite:
             side = "atkSide" if relation.atkSide == 1 else "defSide"
-            atkClass = CLASS_NAME[relation.atkClass]
-            defClass = CLASS_NAME[relation.defClass]
+            atkClass = CLASS_NAME.get(relation.atkClass, SvtClass.atlasUnmappedClass)
+            defClass = CLASS_NAME.get(relation.defClass, SvtClass.atlasUnmappedClass)
             relationDetail = {
                 "damageRate": relation.damageRate,
                 "type": CLASS_OVERWRITE_NAME[relation.type],
@@ -103,7 +108,23 @@ def get_nice_buff_script(mstBuff: MstBuff) -> NiceBuffScript:
             relationId[side][atkClass][defClass] = relationDetail
         script["relationId"] = relationId
 
-    for script_item in ("ReleaseText", "DamageRelease", "checkIndvType", "HP_LOWER"):
+    for script_item in {
+        "ReleaseText",
+        "DamageRelease",
+        "checkIndvType",
+        "HP_LOWER",
+        "INDIVIDUALITIE_COUNT_ABOVE",
+        "HP_HIGHER",
+        "CounterMessage",
+        "avoidanceText",
+        "gutsText",
+        "missText",
+        "AppId",
+        "IncludeIgnoreIndividuality",
+        "ProgressSelfTurn",
+        "TargetIndiv",
+        "extendLowerLimit",
+    }:
         if script_item in mstBuff.script:
             script[script_item] = mstBuff.script[script_item]
 
@@ -122,7 +143,53 @@ def get_nice_buff_script(mstBuff: MstBuff) -> NiceBuffScript:
             for buffType in mstBuff.script["CheckOpponentBuffTypes"].split(",")
         ]
 
-    return NiceBuffScript.parse_obj(script)
+    if "TargetIndiv" in mstBuff.script:
+        script["TargetIndiv"] = get_nice_trait(mstBuff.script["TargetIndiv"])
+
+    if "convert" in mstBuff.script:
+        convert = mstBuff.script["convert"]
+
+        if convert["convertType"] == BuffConvertType.BUFF:
+            targets = [raw_to_out(buff) for buff in convert["targetBuffs"]]
+        elif convert["convertType"] == BuffConvertType.INDIVIDUALITY:
+            targets = get_traits_list(convert["targetIds"])
+        else:
+            targets = []
+
+        script["convert"] = {
+            "targetLimit": BUFF_CONVERT_LIMIT_TYPE_NAME[convert["targetLimit"]],
+            "convertType": BUFF_CONVERT_TYPE_NAME[convert["convertType"]],
+            "targets": targets,
+            "convertBuffs": [raw_to_out(buff) for buff in convert["convertBuffs"]],
+            "script": convert["script"],
+            "effectId": convert["effectId"],
+        }
+
+    return script
+
+
+def get_basic_buff_no_reverse(mstBuff: MstBuff, region: Region) -> BasicBuffReverse:
+    return BasicBuffReverse(
+        id=mstBuff.id,
+        name=mstBuff.name,
+        icon=fmt_url(
+            AssetURL.buffIcon,
+            base_url=settings.asset_url,
+            region=region,
+            item_id=mstBuff.iconId,
+        ),
+        type=BUFF_TYPE_NAME[mstBuff.type],
+        script=BuffScript.parse_obj(
+            get_nice_buff_script(
+                mstBuff,
+                lambda buff: get_basic_buff_no_reverse(MstBuff.parse_obj(buff), region),
+            )
+        ),
+        vals=get_traits_list(mstBuff.vals),
+        tvals=get_traits_list(mstBuff.tvals),
+        ckSelfIndv=get_traits_list(mstBuff.ckSelfIndv),
+        ckOpIndv=get_traits_list(mstBuff.ckOpIndv),
+    )
 
 
 async def get_basic_buff_from_raw(
@@ -133,22 +200,7 @@ async def get_basic_buff_from_raw(
     reverse: bool = False,
     reverseDepth: ReverseDepth = ReverseDepth.function,
 ) -> BasicBuffReverse:
-    basic_buff = BasicBuffReverse(
-        id=mstBuff.id,
-        name=mstBuff.name,
-        icon=fmt_url(
-            AssetURL.buffIcon,
-            base_url=settings.asset_url,
-            region=region,
-            item_id=mstBuff.iconId,
-        ),
-        type=BUFF_TYPE_NAME[mstBuff.type],
-        script=get_nice_buff_script(mstBuff),
-        vals=get_traits_list(mstBuff.vals),
-        tvals=get_traits_list(mstBuff.tvals),
-        ckSelfIndv=get_traits_list(mstBuff.ckSelfIndv),
-        ckOpIndv=get_traits_list(mstBuff.ckOpIndv),
-    )
+    basic_buff = get_basic_buff_no_reverse(mstBuff, region)
     if reverse and reverseDepth >= ReverseDepth.function:
         func_ids = await get_reverse_ids(
             redis, region, RedisReverse.BUFF_TO_FUNC, mstBuff.id
@@ -369,7 +421,9 @@ async def get_basic_svt(
         "type": SVT_TYPE_NAME[mstSvt.type],
         "flag": SVT_FLAG_NAME[mstSvt.flag],
         "name": mstSvt.name,
-        "className": CLASS_NAME[mstSvt.classId],
+        "originalName": mstSvt.name,
+        "classId": mstSvt.classId,
+        "className": CLASS_NAME.get(mstSvt.classId, SvtClass.atlasUnmappedClass),
         "attribute": ATTRIBUTE_NAME[mstSvt.attri],
         "rarity": mstSvtLimit.rarity,
         "atkMax": mstSvtLimit.atkMax,
@@ -393,6 +447,9 @@ async def get_basic_svt(
                 }
         if svtExtra.zeroLimitOverwriteName is not None:
             basic_servant["name"] = svtExtra.zeroLimitOverwriteName
+            basic_servant["originalName"] = svtExtra.zeroLimitOverwriteName
+            basic_servant["overwriteName"] = mstSvt.name
+            basic_servant["originalOverwriteName"] = mstSvt.name
 
     base_settings = {
         "base_url": settings.asset_url,
@@ -404,18 +461,6 @@ async def get_basic_svt(
 
     if mstSvt.type == SvtType.SERVANT_EQUIP:
         basic_servant["face"] = AssetURL.face.format(**base_settings, i=0)
-    elif (
-        svtExtra
-        and svt_limit is not None
-        and svt_limit > 10
-        and svt_limit in svtExtra.costumeLimitSvtIdMap
-    ):
-        basic_servant["face"] = AssetURL.face.format(
-            base_url=settings.asset_url,
-            region=region,
-            item_id=svtExtra.costumeLimitSvtIdMap[svt_limit].battleCharaId,
-            i=0,
-        )
     elif mstSvt.type in (SvtType.ENEMY, SvtType.ENEMY_COLLECTION):
         if svtExtra and mstSvtLimit.limitCount in svtExtra.costumeLimitSvtIdMap:
             basic_servant["face"] = AssetURL.enemy.format(
@@ -430,13 +475,30 @@ async def get_basic_svt(
             basic_servant["face"] = AssetURL.enemy.format(
                 **base_settings, i=mstSvtLimit.limitCount
             )
+    elif (
+        svtExtra
+        and svt_limit is not None
+        and svt_limit > 10
+        and svt_limit in svtExtra.costumeLimitSvtIdMap
+    ):
+        basic_servant["face"] = AssetURL.face.format(
+            base_url=settings.asset_url,
+            region=region,
+            item_id=svtExtra.costumeLimitSvtIdMap[svt_limit].battleCharaId,
+            i=0,
+        )
     else:
         basic_servant["face"] = AssetURL.face.format(
-            **base_settings, i=mstSvtLimit.limitCount
+            **base_settings,
+            i=LIMIT_TO_FACE_ID.get(mstSvtLimit.limitCount, mstSvtLimit.limitCount),
         )
 
     if region == Region.JP and lang is not None:
         basic_servant["name"] = get_translation(lang, str(basic_servant["name"]))
+        if "overwriteName" in basic_servant:
+            basic_servant["overwriteName"] = get_translation(
+                lang, str(basic_servant["overwriteName"])
+            )
 
     return basic_servant
 
@@ -633,6 +695,7 @@ def get_basic_quest_from_raw(mstQuest: MstQuestWithWar, lang: Language) -> Basic
         spotName=get_translation(lang, mstQuest.spotName),
         warId=mstQuest.warId,
         warLongName=get_translation(lang, mstQuest.warLongName),
+        priority=mstQuest.priority,
         noticeAt=mstQuest.noticeAt,
         openedAt=mstQuest.openedAt,
         closedAt=mstQuest.closedAt,
@@ -664,6 +727,7 @@ def get_basic_quest_phase_from_raw(
         spotName=get_translation(lang, mstQuestPhase.spotName),
         warId=mstQuestPhase.warId,
         warLongName=get_translation(lang, mstQuestPhase.warLongName),
+        priority=mstQuestPhase.priority,
         noticeAt=mstQuestPhase.noticeAt,
         openedAt=mstQuestPhase.openedAt,
         closedAt=mstQuestPhase.closedAt,

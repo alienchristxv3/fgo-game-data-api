@@ -6,6 +6,7 @@
     "script": {},
     "eventId": 0,
     "eventGroupId": 0,
+    "isPresent": false,
     "id": 7103,
     "name": "ランサーモニュメント",
     "detail": "【霊基再臨素材】\nランサークラスを称えるモニュメント",
@@ -21,7 +22,11 @@
     "startedAt": 946652400,
     "endedAt": 1910876400,
     "useSkill": false,
+    "useAppendSkill": false,
     "useAscension": true,
-    "useCostume": false
+    "useCostume": false,
+    "mstItemSelect": [],
+    "mstGift": [],
+    "mstGiftAdd": []
   }
 }

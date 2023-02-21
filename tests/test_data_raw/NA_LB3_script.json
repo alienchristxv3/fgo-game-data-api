@@ -56,20 +56,47 @@
       ],
       "mstGift": [
         {
+          "sort_id": 0,
           "id": 320300,
           "type": 2,
           "objectId": 2,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "lv": 0,
+          "limitCount": 0
         },
         {
+          "sort_id": 1,
           "id": 320300,
           "type": 2,
           "objectId": 6538,
           "priority": 0,
-          "num": 1
+          "num": 1,
+          "lv": 0,
+          "limitCount": 0
+        },
+        {
+          "sort_id": 2,
+          "id": 320300,
+          "type": 2,
+          "objectId": 46,
+          "priority": 0,
+          "num": 1,
+          "lv": 0,
+          "limitCount": 0
+        },
+        {
+          "sort_id": 3,
+          "id": 320300,
+          "type": 1,
+          "objectId": 9770500,
+          "priority": 0,
+          "num": 2,
+          "lv": 1,
+          "limitCount": 0
         }
       ],
+      "mstGiftAdd": [],
       "phases": [
         1,
         2

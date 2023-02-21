@@ -1,11 +1,16 @@
-from enum import Enum
-from typing import Optional, Union
+from enum import StrEnum
+from typing import Any, Optional, Union
 
 from pydantic import BaseModel, HttpUrl
 
 from .base import BaseModelORJson
 from .enums import SvtClass, Trait
-from .gameenums import NiceBuffType, NiceClassRelationOverwriteType
+from .gameenums import (
+    NiceBuffConvertLimitType,
+    NiceBuffConvertType,
+    NiceBuffType,
+    NiceClassRelationOverwriteType,
+)
 
 
 class RepoInfo(BaseModelORJson):
@@ -13,7 +18,7 @@ class RepoInfo(BaseModelORJson):
     timestamp: int
 
 
-class Region(str, Enum):
+class Region(StrEnum):
     """Region Enum"""
 
     NA = "NA"
@@ -23,21 +28,21 @@ class Region(str, Enum):
     TW = "TW"
 
 
-class Language(str, Enum):
+class Language(StrEnum):
     """Language Enum"""
 
     en = "en"
     jp = "jp"
 
 
-class ReverseData(str, Enum):
+class ReverseData(StrEnum):
     """Reverse Data Detail Level"""
 
     basic = "basic"
     nice = "nice"
 
 
-class ReverseDepth(str, Enum):
+class ReverseDepth(StrEnum):
     """Reverse Data Depth"""
 
     function = "function"
@@ -45,9 +50,8 @@ class ReverseDepth(str, Enum):
     servant = "servant"
 
     def order(self) -> int:
-        # https://github.com/PyCQA/pylint/issues/2306
         self_value = str(self.value)
-        if self_value == "function":
+        if self.value == "function":
             return 1
         elif self_value == "skillNp":
             return 2
@@ -85,15 +89,46 @@ class NiceBuffRelationOverwrite(BaseModel):
     defSide: dict[SvtClass, dict[SvtClass, RelationOverwriteDetail]]
 
 
-class NiceBuffScript(BaseModel):
+class BuffConvertScript(BaseModel):
+    OverwritePopupText: list[str]
+
+
+class BuffConvert(BaseModel):
+    """Buff Convert
+
+    Due to a limitation in Pydantic and OpenAPI schema generation, `dict[str, Any]`
+    is used in place of either BasicBuff or NiceBuff
+    """
+
+    targetLimit: NiceBuffConvertLimitType
+    convertType: NiceBuffConvertType
+    targets: list[int] | list[NiceTrait] | list[dict[str, Any]]
+    convertBuffs: list[dict[str, Any]]
+    script: BuffConvertScript
+    effectId: int
+
+
+class BuffScript(BaseModel):
     checkIndvType: Optional[int] = None
     CheckOpponentBuffTypes: Optional[list[NiceBuffType]] = None
     relationId: Optional[NiceBuffRelationOverwrite] = None
     ReleaseText: Optional[str] = None
     DamageRelease: Optional[int] = None
     INDIVIDUALITIE: Optional[NiceTrait] = None
+    INDIVIDUALITIE_COUNT_ABOVE: int | None = None
     UpBuffRateBuffIndiv: Optional[list[NiceTrait]] = None
     HP_LOWER: Optional[int] = None
+    HP_HIGHER: int | None = None
+    CounterMessage: str | None = None
+    avoidanceText: str | None = None
+    gutsText: str | None = None
+    missText: str | None = None
+    AppId: int | None = None
+    IncludeIgnoreIndividuality: int | None = None
+    ProgressSelfTurn: int | None = None
+    TargetIndiv: NiceTrait | None = None
+    extendLowerLimit: int | None = None
+    convert: BuffConvert | None = None
 
 
 class ScriptLink(BaseModelORJson):

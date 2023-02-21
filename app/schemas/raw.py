@@ -39,6 +39,16 @@ class MstBuff(BaseModelORJson):
     maxRate: int  # 5000
 
 
+class MstBuffConvert(BaseModelORJson):
+    targetIds: list[int]
+    convertBuffIds: list[int]
+    script: dict[str, Any]
+    buffId: int
+    convertType: int
+    targetLimit: int
+    effectId: int
+
+
 class BuffEntityNoReverse(BaseModelORJson):
     mstBuff: MstBuff
 
@@ -164,6 +174,24 @@ class MstSkillAdd(BaseModelORJson):
     ruby: str
 
 
+class MstSkillGroup(BaseModelORJson):
+    id: int
+    skillId: int
+    lv: int
+
+
+class MstSkillGroupOverwrite(BaseModelORJson):
+    funcId: list[int]
+    svals: list[str]
+    skillGroupId: int
+    startedAt: int
+    endedAt: int
+    iconId: int
+    vals: str
+    skillDetailId: int
+    expandedFuncId: Optional[list[FunctionEntityNoReverse]] = None
+
+
 class SkillEntityNoReverse(BaseModelORJson):
     mstSkill: MstSkill
     mstSkillDetail: list[MstSkillDetail]
@@ -171,6 +199,8 @@ class SkillEntityNoReverse(BaseModelORJson):
     mstSkillAdd: list[MstSkillAdd]
     mstCommonRelease: list[MstCommonRelease]
     mstSkillLv: list[MstSkillLv]
+    mstSkillGroup: list[MstSkillGroup]
+    mstSkillGroupOverwrite: list[MstSkillGroupOverwrite]
     aiIds: Optional[dict[AiType, list[int]]] = None
 
 
@@ -359,6 +389,12 @@ class MstSvtCard(BaseModelORJson):
     cardId: int  # 5001,
     motion: int  # 50010,
     attackType: int  # 5001
+
+
+class MstSvtCardAdd(BaseModelORJson):
+    svtId: int
+    cardId: int
+    script: str
 
 
 class BasicMstSvtLimit(BaseModelORJson):
@@ -568,11 +604,42 @@ class CommandCodeEntity(BaseModelORJson):
     mstIllustrator: Optional[MstIllustrator] = None
 
 
+class MstGift(BaseModelORJson):
+    sort_id: int = 0
+    id: int  # 94024900
+    type: int  # 6
+    objectId: int  # 403000
+    priority: int  # 0
+    num: int  # 1
+    lv: Optional[int]
+    limitCount: Optional[int]
+
+
+class MstGiftAdd(BaseModelORJson):
+    priorGiftIconIds: list[int]
+    giftId: int
+    priority: int | None = None
+    condType: int
+    targetId: int
+    targetNum: int
+    priorGiftId: int
+    script: str
+
+
+class MstItemSelect(BaseModelORJson):
+    itemId: int
+    idx: int
+    candidateGiftId: int
+    requireNum: int
+    detail: str
+
+
 class MstItem(BaseModelORJson):
     individuality: list[int]  # [],
     script: dict[str, Any]  # {},
     eventId: int = 0  # 0,
     eventGroupId: int = 0  # 0,
+    isPresent: bool = False
     id: int  # 6505,
     name: str  # "Void's Dust",
     detail: str  # "\"Skill Up & Ascension Material\"\nDust that disperses when hollow shadows disappear.",
@@ -588,8 +655,12 @@ class MstItem(BaseModelORJson):
     startedAt: int  # 946684800,
     endedAt: int  # 1910908800
     useSkill: bool = False
+    useAppendSkill: bool = False
     useAscension: bool = False
     useCostume: bool = False
+    mstItemSelect: list[MstItemSelect] = []
+    mstGift: list[MstGift] = []
+    mstGiftAdd: list[MstGiftAdd] = []
 
 
 class MstSetItem(BaseModelORJson):
@@ -691,7 +762,7 @@ class ScriptJson(BaseModelORJson):
     overwriteName: Optional[str]
     overwritePriority: Optional[int]
     infos: list[ScriptJsonInfo] = []
-    conds: list[ScriptJsonCond] = []
+    conds: list[ScriptJsonCond] | None = []
     condAddItem: int = 0
     materialOverwriteName: Optional[str] = None
 
@@ -706,6 +777,7 @@ class MstSvtVoice(BaseModelORJson):
 
 class MstVoicePlayCond(BaseModelORJson):
     svtId: int
+    script: dict[str, Any] | None = None
     voicePrefix: int
     voiceId: str
     idx: int
@@ -787,16 +859,6 @@ class MstClassRelationOverwrite(BaseModelORJson):
     type: int  # 0
 
 
-class MstGift(BaseModelORJson):
-    id: int  # 94024900
-    type: int  # 6
-    objectId: int  # 403000
-    priority: int  # 0
-    num: int  # 1
-    lv: Optional[int]
-    limitCount: Optional[int]
-
-
 class MstBgm(BaseModelORJson):
     id: int  # 1
     fileName: str  # "BGM_BATTLE_1"
@@ -806,6 +868,7 @@ class MstBgm(BaseModelORJson):
     flag: int  # 0
     shopId: int  # 7000001
     logoId: int  # 1
+    script: str | None = None
 
 
 class MstBgmRelease(BaseModelORJson):
@@ -950,6 +1013,15 @@ class MstEventVoicePlay(BaseModelORJson):
     endedAt: int
 
 
+class MstEventRandomMission(BaseModelORJson):
+    missionId: int
+    eventId: int
+    missionRank: int
+    condType: int
+    condId: int
+    condNum: int
+
+
 class MstEventMission(BaseModelORJson):
     id: int
     flag: int
@@ -1089,12 +1161,161 @@ class MstTreasureBoxGift(BaseModelORJson):
     collateralUpperLimit: int
 
 
+class MstEventDigging(BaseModelORJson):
+    eventId: int
+    sizeX: int
+    sizeY: int
+    bgImageId: int
+    eventPointItemId: int
+    resettableDiggedNum: int
+    script: dict[str, Any]
+
+
+class MstEventDiggingBlock(BaseModelORJson):
+    id: int
+    eventId: int
+    imageId: int
+    commonConsumeId: int
+    objectId: int
+    diggingEventPoint: int
+    script: dict[str, Any]
+    consumeHintImageIds: list[int]
+    consumeHintItemNums: list[int]
+    hintEventPoints: list[int]
+
+
+class MstEventDiggingReward(BaseModelORJson):
+    id: int
+    eventId: int
+    giftId: int
+    iconId: int
+    rewardSize: int
+    script: dict[str, Any]
+
+
+class MstEventCooltimeReward(BaseModelORJson):
+    eventId: int
+    spotId: int
+    lv: int
+    name: str
+    commonReleaseId: int
+    cooltime: int
+    addEventPointRate: int
+    giftId: int
+    upperLimitGiftNum: int
+
+
+class MstEventQuestCooltime(BaseModelORJson):
+    eventId: int
+    questId: int
+    phase: int
+    cooltime: int
+    isEnabledInitial: bool
+
+
+class MstEventCampaign(BaseModelORJson):
+    targetIds: list[int]
+    warIds: list[int]
+    eventId: int
+    target: int
+    idx: int
+    value: int
+    calcType: int
+    entryCondMessage: str
+    createdAt: int | None = None
+
+
+class MstEventQuest(BaseModelORJson):
+    eventId: int
+    questId: int
+    phase: int
+    createdAt: int | None = None
+
+
+class MstEventBulletinBoard(BaseModelORJson):
+    id: int
+    eventId: int
+    message: str
+    probability: int | None = None
+
+
+class MstEventBulletinBoardRelease(BaseModelORJson):
+    bulletinBoardId: int
+    condType: int
+    condTargetId: int
+    condNum: int
+    condGroup: int
+
+
+class MstEventRecipe(BaseModelORJson):
+    voiceIds: list[str]
+    id: int
+    eventId: int
+    iconId: int
+    name: str
+    maxNum: int
+    eventPointItemId: int
+    eventPointNum: int
+    commonConsumeId: int
+    commonReleaseId: int
+    closedMessage: str
+
+
+class MstEventRecipeGift(BaseModelORJson):
+    recipeId: int
+    idx: int
+    eventId: int
+    giftId: int
+    displayOrder: int
+    topIconId: int
+
+
+class MstEventFortification(BaseModelORJson):
+    eventId: int
+    idx: int
+    name: str
+    x: int
+    y: int
+    rewardSceneX: int
+    rewardSceneY: int
+    maxFortificationPoint: int
+    workType: int
+    giftId: int
+    commonReleaseId: int
+
+
+class MstEventFortificationDetail(BaseModelORJson):
+    eventId: int
+    fortificationIdx: int
+    position: int
+    name: str
+    classId: int
+    commonReleaseId: int
+
+
+class MstEventFortificationSvt(BaseModelORJson):
+    eventId: int
+    fortificationIdx: int
+    position: int
+    type: int
+    svtId: int
+    limitCount: int
+    lv: int
+    commonReleaseId: int
+
+
 class MstCommonConsume(BaseModelORJson):
     id: int
     priority: int
     type: int
     objectId: int
     num: int
+
+
+class MstEventAlloutBattle(BaseModelORJson):
+    eventId: int
+    alloutBattleId: int
+    warId: int
 
 
 class MstEvent(BaseModelORJson):
@@ -1166,6 +1387,13 @@ class MstWarAdd(BaseModelORJson):
     endedAt: int
 
 
+class MstWarQuestSelection(BaseModelORJson):
+    warId: int
+    questId: int
+    shortCutBannerId: int
+    priority: int
+
+
 class MstMap(BaseModelORJson):
     script: dict[str, Any]
     id: int  # 100
@@ -1227,6 +1455,17 @@ class MstSpot(BaseModelORJson):
     activeTargetValue: int  # 0
     closedMessage: str  # ""
     flag: int  # 0
+
+
+class MstSpotAdd(BaseModelORJson):
+    spotId: int
+    priority: int
+    overrideType: int
+    targetId: int
+    targetText: str | None = None
+    condType: int
+    condTargetId: int
+    condNum: int
 
 
 class MstSpotRoad(BaseModelORJson):
@@ -1342,7 +1581,7 @@ class MstQuestPhase(BaseModelORJson):
 
 
 class MstQuestPhaseDetail(BaseModelORJson):
-    beforeActionVals: list[str]
+    beforeActionVals: list[str] | None
     afterActionVals: list[str]
     boardMessage: dict[str, Any]
     questId: int
@@ -1364,6 +1603,32 @@ class MstQuestMessage(BaseModelORJson):
     targetNum: int
     frequencyType: int
     displayType: int
+
+
+class MstQuestRestriction(BaseModelORJson):
+    questId: int
+    phase: int
+    restrictionId: int
+    frequencyType: int
+    dialogMessage: str
+    noticeMessage: str
+    title: str
+
+
+class MstQuestRestrictionInfo(BaseModelORJson):
+    script: dict[str, Any]
+    questId: int
+    phase: int
+    flag: int
+
+
+class MstRestriction(BaseModelORJson):
+    targetVals: list[int]
+    targetVals2: list[int] | None
+    id: int
+    name: str
+    type: int
+    rangeType: int
 
 
 class MstStage(BaseModelORJson):
@@ -1485,6 +1750,7 @@ class ServantEntity(BaseModelORJson):
     mstTreasureDevice: list[TdEntityNoReverse]
     mstSvtIndividuality: list[MstSvtIndividuality]
     mstSvtCard: list[MstSvtCard]
+    mstSvtCardAdd: list[MstSvtCardAdd]
     mstSvtLimit: list[MstSvtLimit]
     mstCombineSkill: list[MstCombineSkill]
     mstCombineLimit: list[MstCombineLimit]
@@ -1582,6 +1848,7 @@ class QuestEntity(BaseModelORJson):
     mstQuestRelease: list[MstQuestRelease]
     mstClosedMessage: list[MstClosedMessage]
     mstGift: list[MstGift]
+    mstGiftAdd: list[MstGiftAdd]
     phases: list[int]
     phasesWithEnemies: list[int] = []
     phasesNoBattle: list[int] = []
@@ -1599,6 +1866,9 @@ class QuestPhaseEntity(QuestEntity):
     npcFollowerRelease: list[NpcFollowerRelease]
     npcSvtFollower: list[NpcSvtFollower]
     npcSvtEquip: list[NpcSvtEquip]
+    mstQuestRestriction: list[MstQuestRestriction]
+    mstQuestRestrictionInfo: list[MstQuestRestrictionInfo]
+    mstRestriction: list[MstRestriction]
 
 
 class ScriptEntity(BaseModelORJson):
@@ -1621,6 +1891,7 @@ class EventEntity(BaseModelORJson):
     mstEventRewardScene: list[MstEventRewardScene]
     mstEventVoicePlay: list[MstEventVoicePlay]
     mstGift: list[MstGift]
+    mstGiftAdd: list[MstGiftAdd]
     mstShop: list[MstShop]
     mstShopRelease: list[MstShopRelease]
     mstShopScript: list[MstShopScript]
@@ -1630,6 +1901,7 @@ class EventEntity(BaseModelORJson):
     mstEventPointBuff: list[MstEventPointBuff]
     mstEventPointGroup: list[MstEventPointGroup]
     mstEventMission: list[MstEventMission]
+    mstEventRandomMission: list[MstEventRandomMission]
     mstEventMissionCondition: list[MstEventMissionCondition]
     mstEventMissionConditionDetail: list[MstEventMissionConditionDetail]
     mstEventTower: list[MstEventTower]
@@ -1639,14 +1911,30 @@ class EventEntity(BaseModelORJson):
     mstBoxGachaTalk: list[MstBoxGachaTalk]
     mstTreasureBox: list[MstTreasureBox]
     mstTreasureBoxGift: list[MstTreasureBoxGift]
+    mstEventDigging: MstEventDigging | None = None
+    mstEventDiggingBlock: list[MstEventDiggingBlock]
+    mstEventDiggingReward: list[MstEventDiggingReward]
+    mstEventCooltimeReward: list[MstEventCooltimeReward]
+    mstEventQuestCooltime: list[MstEventQuestCooltime]
+    mstEventFortification: list[MstEventFortification]
+    mstEventFortificationDetail: list[MstEventFortificationDetail]
+    mstEventFortificationSvt: list[MstEventFortificationSvt]
+    mstEventCampaign: list[MstEventCampaign]
+    mstEventQuest: list[MstEventQuest]
+    mstEventBulletinBoard: list[MstEventBulletinBoard]
+    mstEventBulletinBoardRelease: list[MstEventBulletinBoardRelease]
+    mstEventRecipe: list[MstEventRecipe]
+    mstEventRecipeGift: list[MstEventRecipeGift]
     mstItem: list[MstItem]
     mstCommonConsume: list[MstCommonConsume]
+    mstCommonRelease: list[MstCommonRelease]
     mstSvtVoice: list[MstSvtVoice]
     mstVoice: list[MstVoice]
     mstSvtGroup: list[MstSvtGroup]
     mstSubtitle: list[GlobalNewMstSubtitle]
     mstVoicePlayCond: list[MstVoicePlayCond]
     mstSvtExtra: list[MstSvtExtra]
+    mstSvtLimitAdd: list[MstSvtLimitAdd]
     mstBgm: list[BgmEntity]
 
 
@@ -1658,8 +1946,21 @@ class WarEntity(BaseModelORJson):
     mstBgm: list[MstBgm]
     mstMapGimmick: list[MstMapGimmick]
     mstSpot: list[MstSpot]
+    mstSpotAdd: list[MstSpotAdd]
     mstQuest: list[QuestEntity]
     mstSpotRoad: list[MstSpotRoad]
+    mstWarQuestSelection: list[MstWarQuestSelection]
+
+
+class ShopEntity(BaseModelORJson):
+    mstShop: MstShop
+    mstSetItem: list[MstSetItem]
+    mstShopRelease: list[MstShopRelease]
+    mstShopScript: MstShopScript | None
+    mstItem: list[MstItem]
+    mstGift: list[MstGift]
+    mstGiftAdd: list[MstGiftAdd]
+    mstCommonConsume: list[MstCommonConsume]
 
 
 class MasterMissionEntity(BaseModelORJson):
@@ -1668,6 +1969,7 @@ class MasterMissionEntity(BaseModelORJson):
     mstEventMissionCondition: list[MstEventMissionCondition]
     mstEventMissionConditionDetail: list[MstEventMissionConditionDetail]
     mstGift: list[MstGift]
+    mstGiftAdd: list[MstGiftAdd]
     mstQuest: list[MstQuestWithWar]
 
 

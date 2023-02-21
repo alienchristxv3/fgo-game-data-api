@@ -7,6 +7,7 @@ from ....schemas.gameenums import (
     COND_TYPE_NAME,
     VOICE_COND_NAME,
     VOICE_TYPE_NAME,
+    NiceVoiceCondType,
     SvtVoiceType,
     VoiceCondType,
 )
@@ -54,7 +55,7 @@ def get_nice_play_cond(playCond: MstVoicePlayCond) -> NiceVoicePlayCond:
         condGroup=playCond.condGroup,
         condType=COND_TYPE_NAME[playCond.condType],
         targetId=playCond.targetId,
-        condValue=playCond.condValues[0],
+        condValue=playCond.condValues[0] if playCond.condValues else 0,
         condValues=playCond.condValues,
     )
 
@@ -75,7 +76,7 @@ def get_nice_voice_cond(
     )
 
     voice_cond = NiceVoiceCond(
-        condType=VOICE_COND_NAME[cond.condType],
+        condType=VOICE_COND_NAME.get(cond.condType, NiceVoiceCondType.unknown),
         eventId=cond.eventId,
         value=cond_value,
         valueList=cond_value_list,
@@ -114,7 +115,7 @@ def get_nice_voice_line(
         text=[nullable_to_string(info.text) for info in script.infos],
         conds=[
             get_nice_voice_cond(info, costume_ids, mstSvtGroups)
-            for info in script.conds
+            for info in (script.conds if script.conds is not None else [])
         ],
         playConds=[
             get_nice_play_cond(play_cond)

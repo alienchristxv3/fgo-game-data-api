@@ -3,8 +3,8 @@ from collections import defaultdict
 from dataclasses import dataclass
 from typing import Any, Optional, Union
 
+from fastapi import HTTPException
 from fastapi_cache.decorator import cache
-from redis.asyncio import Redis  # type: ignore
 from sqlalchemy.ext.asyncio import AsyncConnection
 
 from ...config import Settings
@@ -12,33 +12,45 @@ from ...db.helpers import war
 from ...db.helpers.quest import get_questSelect_container
 from ...db.helpers.rayshift import get_rayshift_drops
 from ...rayshift.quest import get_quest_detail
+from ...redis import Redis
 from ...redis.helpers.quest import RayshiftRedisData, get_stages_cache, set_stages_cache
 from ...schemas.common import Language, Region, ScriptLink
-from ...schemas.enums import CLASS_NAME
+from ...schemas.enums import CLASS_NAME, STAGE_LIMIT_ACT_TYPE_NAME, SvtClass
 from ...schemas.gameenums import (
     COND_TYPE_NAME,
+    FREQUENCY_TYPE_NAME,
     QUEST_AFTER_CLEAR_NAME,
     QUEST_CONSUME_TYPE_NAME,
     QUEST_TYPE_NAME,
+    RESTRICTION_RANGE_TYPE_NAME,
+    RESTRICTION_TYPE_NAME,
     Quest_FLAG_NAME,
+    QuestType,
 )
 from ...schemas.nice import (
+    AssetURL,
     DeckType,
     EnemyDrop,
     NiceQuest,
     NiceQuestMessage,
     NiceQuestPhase,
+    NiceQuestPhaseRestriction,
     NiceQuestPhaseScript,
     NiceQuestRelease,
+    NiceRestriction,
     NiceStage,
+    NiceStageStartMovie,
     QuestEnemy,
     SupportServant,
 )
 from ...schemas.raw import (
     MstBgm,
     MstClosedMessage,
+    MstGift,
     MstQuestMessage,
     MstQuestRelease,
+    MstQuestRestriction,
+    MstRestriction,
     MstSpot,
     MstStage,
     MstWar,
@@ -47,10 +59,10 @@ from ...schemas.raw import (
     ScriptFile,
 )
 from .. import raw
-from ..utils import get_flags, get_traits_list, get_translation
+from ..utils import fmt_url, get_flags, get_traits_list, get_translation
 from .base_script import get_nice_script_link
 from .bgm import get_nice_bgm
-from .enemy import get_nice_drop, get_quest_enemies
+from .enemy import QuestEnemies, get_nice_drop, get_quest_enemies
 from .follower import get_nice_support_servants
 from .gift import get_nice_gift
 from .item import get_nice_item_amount_db
@@ -89,15 +101,49 @@ def get_nice_quest_message(message: MstQuestMessage) -> NiceQuestMessage:
     )
 
 
+def get_nice_quest_restriction(
+    quest_restriction: MstQuestRestriction, restriction: MstRestriction
+) -> NiceQuestPhaseRestriction:
+    return NiceQuestPhaseRestriction(
+        restriction=NiceRestriction(
+            id=restriction.id,
+            name=restriction.name,
+            type=RESTRICTION_TYPE_NAME[restriction.type],
+            rangeType=RESTRICTION_RANGE_TYPE_NAME[restriction.rangeType],
+            targetVals=restriction.targetVals,
+            targetVals2=restriction.targetVals2 if restriction.targetVals2 else [],
+        ),
+        frequencyType=FREQUENCY_TYPE_NAME[quest_restriction.frequencyType],
+        dialogMessage=quest_restriction.dialogMessage,
+        noticeMessage=quest_restriction.noticeMessage,
+        title=quest_restriction.title,
+    )
+
+
 def get_nice_stage(
-    region: Region, raw_stage: MstStage, enemies: list[QuestEnemy], bgms: list[MstBgm]
+    region: Region,
+    raw_stage: MstStage,
+    enemies: list[QuestEnemy],
+    bgms: list[MstBgm],
+    waveStartMovies: dict[int, list[NiceStageStartMovie]],
+    lang: Language,
 ) -> NiceStage:
-    bgm = get_nice_bgm(region, next(bgm for bgm in bgms if bgm.id == raw_stage.bgmId))
+    bgm = get_nice_bgm(
+        region, next(bgm for bgm in bgms if bgm.id == raw_stage.bgmId), lang
+    )
+
     return NiceStage(
         wave=raw_stage.wave,
         bgm=bgm,
         fieldAis=raw_stage.script.get("aiFieldIds", []),
         call=raw_stage.script.get("call", []),
+        enemyFieldPosCount=raw_stage.script.get("enemyFieldPosCount"),
+        enemyActCount=raw_stage.script.get("EnemyActCount"),
+        turn=raw_stage.script.get("turn"),
+        limitAct=STAGE_LIMIT_ACT_TYPE_NAME[raw_stage.script["LimitAct"]]
+        if "LimitAct" in raw_stage.script
+        else None,
+        waveStartMovies=waveStartMovies.get(raw_stage.wave, []),
         enemies=enemies,
     )
 
@@ -129,6 +175,12 @@ async def get_nice_quest(
         mstWar = await war.get_war_from_spot(conn, raw_quest.mstQuest.spotId)
     if not mstSpot:
         mstSpot = await war.get_spot_from_id(conn, raw_quest.mstQuest.spotId)
+    if mstSpot is None or mstWar is None:  # pragma: no cover
+        raise HTTPException(status_code=404, detail="Quest's spot not found")
+
+    gift_maps: dict[int, list[MstGift]] = defaultdict(list)
+    for gift in raw_quest.mstGift:
+        gift_maps[gift.id].append(gift)
 
     nice_data: dict[str, Any] = {
         "id": raw_quest.mstQuest.id,
@@ -154,7 +206,18 @@ async def get_nice_quest(
         "chapterId": raw_quest.mstQuest.chapterId,
         "chapterSubId": raw_quest.mstQuest.chapterSubId,
         "chapterSubStr": raw_quest.mstQuest.chapterSubStr,
-        "gifts": [get_nice_gift(gift) for gift in raw_quest.mstGift],
+        "giftIcon": AssetURL.items.format(
+            base_url=settings.asset_url,
+            region=region,
+            item_id=raw_quest.mstQuest.giftIconId,
+        )
+        if raw_quest.mstQuest.giftIconId != 0
+        else None,
+        "gifts": [
+            get_nice_gift(region, gift, raw_quest.mstGiftAdd, gift_maps)
+            for gift in raw_quest.mstGift
+            if gift.id == raw_quest.mstQuest.giftId
+        ],
         "releaseConditions": [
             get_nice_quest_release(release, raw_quest.mstClosedMessage)
             for release in raw_quest.mstQuestRelease
@@ -163,6 +226,7 @@ async def get_nice_quest(
         "phasesWithEnemies": sorted(raw_quest.phasesWithEnemies),
         "phasesNoBattle": sorted(raw_quest.phasesNoBattle),
         "phaseScripts": get_nice_all_scripts(region, raw_quest.allScripts),
+        "priority": raw_quest.mstQuest.priority,
         "noticeAt": raw_quest.mstQuest.noticeAt,
         "openedAt": raw_quest.mstQuest.openedAt,
         "closedAt": raw_quest.mstQuest.closedAt,
@@ -183,7 +247,7 @@ class DBQuestPhase:
     nice: NiceQuestPhase
 
 
-@cache()  # type: ignore
+@cache()
 async def get_nice_quest_phase_no_rayshift(
     conn: AsyncConnection,
     redis: Redis,
@@ -195,24 +259,49 @@ async def get_nice_quest_phase_no_rayshift(
     raw_quest = await raw.get_quest_phase_entity(conn, quest_id, phase)
     nice_data = await get_nice_quest(conn, region, raw_quest, lang)
 
+    aiNpcIds: list[int] = []
+    if "aiNpc" in raw_quest.mstQuestPhase.script:
+        aiNpcIds.append(raw_quest.mstQuestPhase.script["aiNpc"]["npcId"])
+    if "aiMultiNpc" in raw_quest.mstQuestPhase.script:
+        for aiNpc in raw_quest.mstQuestPhase.script["aiMultiNpc"]:
+            aiNpcIds.append(aiNpc["npcId"])
+
     support_servants: list[SupportServant] = []
-    if raw_quest.npcFollower:
-        support_servants = await get_nice_support_servants(
-            conn,
-            redis,
-            region,
-            raw_quest.npcFollower,
-            raw_quest.npcFollowerRelease,
-            raw_quest.npcSvtFollower,
-            raw_quest.npcSvtEquip,
-            lang,
+    if (
+        raw_quest.npcFollower
+        or "aiNpc" in raw_quest.mstQuestPhase.script
+        or "aiMultiNpc" in raw_quest.mstQuestPhase.script
+    ):
+        npcs = await get_nice_support_servants(
+            conn=conn,
+            redis=redis,
+            region=region,
+            npcFollower=raw_quest.npcFollower,
+            npcFollowerRelease=raw_quest.npcFollowerRelease,
+            npcSvtFollower=raw_quest.npcSvtFollower,
+            npcSvtEquip=raw_quest.npcSvtEquip,
+            lang=lang,
+            aiNpcIds=aiNpcIds,
         )
+        support_servants = npcs.support_servants
+        if "aiNpc" in raw_quest.mstQuestPhase.script and npcs.ai_npc is not None:
+            raw_quest.mstQuestPhase.script["aiNpc"]["npc"] = npcs.ai_npc[
+                raw_quest.mstQuestPhase.script["aiNpc"]["npcId"]
+            ]
+        if "aiMultiNpc" in raw_quest.mstQuestPhase.script:
+            for aiNpc in raw_quest.mstQuestPhase.script["aiMultiNpc"]:
+                aiNpc["npc"] = npcs.ai_npc[aiNpc["npcId"]]
+
+    restrictions = {
+        restriction.id: restriction for restriction in raw_quest.mstRestriction
+    }
 
     nice_data |= {
         "phase": raw_quest.mstQuestPhase.phase,
         "drops": [],
         "className": [
-            CLASS_NAME[class_id] for class_id in raw_quest.mstQuestPhase.classIds
+            CLASS_NAME.get(class_id, SvtClass.atlasUnmappedClass)
+            for class_id in raw_quest.mstQuestPhase.classIds
         ],
         "individuality": get_traits_list(raw_quest.mstQuestPhase.individuality),
         "qp": raw_quest.mstQuestPhase.qp,
@@ -230,6 +319,12 @@ async def get_nice_quest_phase_no_rayshift(
                 raw_quest.mstQuestMessage, key=lambda script: script.idx
             )
         ],
+        "restrictions": [
+            get_nice_quest_restriction(
+                quest_restriction, restrictions[quest_restriction.restrictionId]
+            )
+            for quest_restriction in raw_quest.mstQuestRestriction
+        ],
         "supportServants": support_servants,
         "stages": [],
     }
@@ -239,20 +334,28 @@ async def get_nice_quest_phase_no_rayshift(
             mstSpot = await war.get_spot_from_id(
                 conn, raw_quest.mstQuestPhaseDetail.spotId
             )
-            nice_data["spotId"] = raw_quest.mstQuestPhaseDetail.spotId
-            nice_data["spotName"] = get_translation(lang, mstSpot.name)
+            if mstSpot:
+                nice_data["spotId"] = raw_quest.mstQuestPhaseDetail.spotId
+                nice_data["spotName"] = get_translation(lang, mstSpot.name)
         nice_data["recommendLv"] = (
             raw_quest.mstQuestPhaseDetail.recommendLv or raw_quest.mstQuest.recommendLv
         )
         detail_mstWar = await war.get_war_from_spot(
             conn, raw_quest.mstQuestPhaseDetail.spotId
         )
-        nice_data["warId"] = detail_mstWar.id
-        nice_data["warLongName"] = get_translation(lang, detail_mstWar.longName)
+        if detail_mstWar:
+            nice_data["warId"] = detail_mstWar.id
+            nice_data["warLongName"] = get_translation(lang, detail_mstWar.longName)
         nice_data["consumeType"] = QUEST_CONSUME_TYPE_NAME[
             raw_quest.mstQuestPhaseDetail.consumeType
         ]
         nice_data["consume"] = raw_quest.mstQuestPhaseDetail.actConsume
+        nice_data["flags"] = sorted(
+            set(
+                nice_data["flags"]
+                + get_flags(raw_quest.mstQuestPhaseDetail.flag, Quest_FLAG_NAME)
+            )
+        )
 
     return DBQuestPhase(raw_quest, NiceQuestPhase.parse_obj(nice_data))
 
@@ -280,16 +383,27 @@ async def get_nice_quest_phase(
         redis, region, quest_id, phase, questSelect, lang
     )
 
+    def set_ai_npc_data(ai_npcs: dict[int, QuestEnemy] | None) -> None:
+        if ai_npcs is not None:
+            if db_data.nice.extraDetail.aiNpc is not None:
+                db_data.nice.extraDetail.aiNpc.detail = ai_npcs[
+                    db_data.nice.extraDetail.aiNpc.npc.npcId
+                ]
+            if db_data.nice.extraDetail.aiMultiNpc is not None:
+                for aiNpc in db_data.nice.extraDetail.aiMultiNpc:
+                    aiNpc.detail = ai_npcs[aiNpc.npc.npcId]
+
     if rayshift_data:
         db_data.nice.stages = rayshift_data.stages
         db_data.nice.drops = rayshift_data.quest_drops
+        set_ai_npc_data(rayshift_data.ai_npcs)
         return db_data.nice
 
     stages = sorted(db_data.raw.mstStage, key=lambda stage: stage.wave)
     save_stages_cache = True
 
     nice_quest_drops: list[EnemyDrop] = []
-    quest_enemies: list[list[QuestEnemy]] = [[]] * len(db_data.raw.mstStage)
+    quest_enemies = QuestEnemies(enemy_waves=[[]] * len(db_data.raw.mstStage))
     if stages:
         rayshift_quest_id = quest_id
         if questSelect is None:
@@ -300,9 +414,21 @@ async def get_nice_quest_phase(
         rayshift_quest_detail = await get_quest_detail(
             conn, region, rayshift_quest_id, phase, questSelect
         )
+
+        min_query_id: int | None = None
+        if (
+            db_data.raw.mstQuest.type in (QuestType.MAIN, QuestType.FREE)
+            and db_data.nice.warId < 1000
+        ) or db_data.nice.warId == 1002:
+            if region == Region.JP:
+                min_query_id = 154613  # 2021-08-01 10:00:00 UTC
+            elif region == Region.NA:
+                min_query_id = 1062363  # 2022-07-04 09:00:00 UTC
+
         rayshift_quest_drops = await get_rayshift_drops(
-            conn, rayshift_quest_id, phase, questSelect
+            conn, rayshift_quest_id, phase, questSelect, min_query_id
         )
+
         if rayshift_quest_detail:
             quest_enemies = await get_quest_enemies(
                 conn,
@@ -323,15 +449,42 @@ async def get_nice_quest_phase(
         else:
             save_stages_cache = False
 
+    set_ai_npc_data(quest_enemies.ai_npcs)
+
+    waveStartMovies: dict[int, list[NiceStageStartMovie]] = defaultdict(list)
+    if (
+        "waveStartMovie" in db_data.raw.mstQuestPhase.script
+        and "movieWave" in db_data.raw.mstQuestPhase.script
+    ):
+        for movie_name, wave in zip(
+            db_data.raw.mstQuestPhase.script["waveStartMovie"],
+            db_data.raw.mstQuestPhase.script["movieWave"],
+            strict=False,
+        ):
+            waveStartMovies[wave].append(
+                NiceStageStartMovie(
+                    waveStartMovie=fmt_url(
+                        AssetURL.movie,
+                        base_url=settings.asset_url,
+                        region=region,
+                        item_id=movie_name.removesuffix(".usm"),
+                    ),
+                )
+            )
+
     new_nice_stages = [
-        get_nice_stage(region, stage, enemies, db_data.raw.mstBgm)
-        for stage, enemies in zip(stages, quest_enemies)
+        get_nice_stage(
+            region, stage, enemies, db_data.raw.mstBgm, waveStartMovies, lang
+        )
+        for stage, enemies in zip(stages, quest_enemies.enemy_waves, strict=False)
     ]
     db_data.nice.stages = new_nice_stages
     db_data.nice.drops = nice_quest_drops
     if save_stages_cache:
         cache_data = RayshiftRedisData(
-            quest_drops=nice_quest_drops, stages=new_nice_stages
+            quest_drops=nice_quest_drops,
+            stages=new_nice_stages,
+            ai_npcs=quest_enemies.ai_npcs,
         )
         long_ttl = time.time() > db_data.nice.closedAt
         await set_stages_cache(

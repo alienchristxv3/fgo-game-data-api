@@ -4,6 +4,9 @@
   "name": "エリザベート・バートリー〔シンデレラ〕",
   "originalName": "エリザベート・バートリー〔シンデレラ〕",
   "ruby": "エリザベート・バートリー〔シンデレラ〕",
+  "battleName": "エリザベート",
+  "originalBattleName": "エリザベート",
+  "classId": 4,
   "className": "rider",
   "type": "svtMaterialTd",
   "flag": "ignoreCombineLimitSpecial",
@@ -63,7 +66,7 @@
     },
     {
       "id": 1000,
-      "name": "basedOnServant"
+      "name": "servant"
     },
     {
       "id": 2001,
@@ -115,6 +118,7 @@
   "hpBase": 0,
   "hpMax": 0,
   "relateQuestIds": [],
+  "trialQuestIds": [],
   "growthCurve": 4,
   "atkGrowth": [
     0

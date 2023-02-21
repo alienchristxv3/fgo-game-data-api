@@ -4,6 +4,9 @@
   "name": "Billy the Kid",
   "originalName": "Billy the Kid",
   "ruby": "Billy the Kid",
+  "battleName": "Billy",
+  "originalBattleName": "Billy",
+  "classId": 2,
   "className": "archer",
   "type": "normal",
   "flag": "normal",
@@ -101,7 +104,7 @@
     },
     {
       "id": 1000,
-      "name": "basedOnServant"
+      "name": "servant"
     },
     {
       "id": 2001,
@@ -163,36 +166,61 @@
   },
   "cardDetails": {
     "arts": {
+      "hitsDistribution": [
+        16,
+        33,
+        51
+      ],
       "attackIndividuality": [
         {
           "id": 3001,
           "name": "attackProjectile"
         }
-      ]
+      ],
+      "attackType": "one"
     },
     "buster": {
+      "hitsDistribution": [
+        10,
+        20,
+        30,
+        40
+      ],
       "attackIndividuality": [
         {
           "id": 3001,
           "name": "attackProjectile"
         }
-      ]
+      ],
+      "attackType": "one"
     },
     "quick": {
+      "hitsDistribution": [
+        33,
+        67
+      ],
       "attackIndividuality": [
         {
           "id": 3001,
           "name": "attackProjectile"
         }
-      ]
+      ],
+      "attackType": "one"
     },
     "extra": {
+      "hitsDistribution": [
+        9,
+        18,
+        27,
+        46
+      ],
       "attackIndividuality": [
         {
           "id": 3001,
           "name": "attackProjectile"
         }
-      ]
+      ],
+      "attackType": "one"
     }
   },
   "atkBase": 1279,
@@ -203,6 +231,7 @@
     91201001,
     94012501
   ],
+  "trialQuestIds": [],
   "growthCurve": 3,
   "atkGrowth": [
     1279,
@@ -304,7 +333,27 @@
     9083,
     9162,
     9246,
-    9325
+    9325,
+    9409,
+    9487,
+    9572,
+    9650,
+    9734,
+    9813,
+    9897,
+    9976,
+    10060,
+    10138,
+    10222,
+    10301,
+    10385,
+    10464,
+    10548,
+    10626,
+    10711,
+    10789,
+    10873,
+    10952
   ],
   "hpGrowth": [
     1711,
@@ -406,7 +455,27 @@
     12553,
     12662,
     12779,
-    12889
+    12889,
+    13005,
+    13115,
+    13232,
+    13341,
+    13458,
+    13567,
+    13684,
+    13793,
+    13910,
+    14019,
+    14136,
+    14245,
+    14362,
+    14471,
+    14588,
+    14697,
+    14814,
+    14923,
+    15040,
+    15149
   ],
   "bondGrowth": [
     4000,
@@ -525,7 +594,27 @@
     16514400,
     17596500,
     18855000,
-    20311500
+    20311500,
+    40623000,
+    60934500,
+    81246000,
+    101557500,
+    121869000,
+    142180500,
+    162492000,
+    182803500,
+    203115000,
+    223426500,
+    243738000,
+    264049500,
+    284361000,
+    304672500,
+    324984000,
+    345295500,
+    365607000,
+    385918500,
+    406230000,
+    426541500
   ],
   "expFeed": [
     9000,
@@ -627,7 +716,27 @@
     9960,
     9970,
     9980,
-    9990
+    9990,
+    10000,
+    10010,
+    10020,
+    10030,
+    10040,
+    10050,
+    10060,
+    10070,
+    10080,
+    10090,
+    10100,
+    10110,
+    10120,
+    10130,
+    10140,
+    10150,
+    10160,
+    10170,
+    10180,
+    10190
   ],
   "bondEquip": 9301080,
   "valentineEquip": [
@@ -741,7 +850,10 @@
           "name": "unknown"
         }
       ],
-      "limitCount": -1
+      "limitCount": -1,
+      "condType": "none",
+      "condId": 0,
+      "condNum": 0
     },
     {
       "idx": 8027301,
@@ -755,7 +867,10 @@
           "name": "unknown"
         }
       ],
-      "limitCount": -1
+      "limitCount": -1,
+      "condType": "none",
+      "condId": 0,
+      "condNum": 0
     }
   ],
   "svtChange": [],
@@ -777,7 +892,8 @@
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/7002.png",
             "background": "silver",
             "priority": 301,
-            "dropPriority": 5199
+            "dropPriority": 5199,
+            "itemSelects": []
           },
           "amount": 4
         }
@@ -800,7 +916,8 @@
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/7002.png",
             "background": "silver",
             "priority": 301,
-            "dropPriority": 5199
+            "dropPriority": 5199,
+            "itemSelects": []
           },
           "amount": 8
         },
@@ -812,6 +929,7 @@
             "type": "skillLvUp",
             "uses": [
               "skill",
+              "appendSkill",
               "ascension",
               "costume"
             ],
@@ -819,8 +937,9 @@
             "individuality": [],
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6513.png",
             "background": "silver",
-            "priority": 218,
-            "dropPriority": 8305
+            "priority": 220,
+            "dropPriority": 8305,
+            "itemSelects": []
           },
           "amount": 5
         }
@@ -843,7 +962,8 @@
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/7102.png",
             "background": "gold",
             "priority": 308,
-            "dropPriority": 5299
+            "dropPriority": 5299,
+            "itemSelects": []
           },
           "amount": 4
         },
@@ -855,6 +975,7 @@
             "type": "skillLvUp",
             "uses": [
               "skill",
+              "appendSkill",
               "ascension",
               "costume"
             ],
@@ -863,7 +984,8 @@
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6516.png",
             "background": "bronze",
             "priority": 201,
-            "dropPriority": 8101
+            "dropPriority": 8101,
+            "itemSelects": []
           },
           "amount": 20
         },
@@ -875,6 +997,7 @@
             "type": "skillLvUp",
             "uses": [
               "skill",
+              "appendSkill",
               "ascension",
               "costume"
             ],
@@ -882,8 +1005,9 @@
             "individuality": [],
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6501.png",
             "background": "silver",
-            "priority": 214,
-            "dropPriority": 8306
+            "priority": 216,
+            "dropPriority": 8306,
+            "itemSelects": []
           },
           "amount": 3
         }
@@ -906,7 +1030,8 @@
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/7102.png",
             "background": "gold",
             "priority": 308,
-            "dropPriority": 5299
+            "dropPriority": 5299,
+            "itemSelects": []
           },
           "amount": 8
         },
@@ -918,6 +1043,7 @@
             "type": "skillLvUp",
             "uses": [
               "skill",
+              "appendSkill",
               "ascension",
               "costume"
             ],
@@ -925,8 +1051,9 @@
             "individuality": [],
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6501.png",
             "background": "silver",
-            "priority": 214,
-            "dropPriority": 8306
+            "priority": 216,
+            "dropPriority": 8306,
+            "itemSelects": []
           },
           "amount": 6
         },
@@ -938,6 +1065,7 @@
             "type": "skillLvUp",
             "uses": [
               "skill",
+              "appendSkill",
               "ascension",
               "costume"
             ],
@@ -945,8 +1073,9 @@
             "individuality": [],
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6507.png",
             "background": "gold",
-            "priority": 232,
-            "dropPriority": 8400
+            "priority": 234,
+            "dropPriority": 8400,
+            "itemSelects": []
           },
           "amount": 5
         }
@@ -964,14 +1093,16 @@
             "originalName": "Gem of Archer",
             "type": "skillLvUp",
             "uses": [
-              "skill"
+              "skill",
+              "appendSkill"
             ],
             "detail": "\"Skill Up Material\"\nA bright stone glimmering with the power of an Archer.",
             "individuality": [],
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6002.png",
             "background": "bronze",
             "priority": 101,
-            "dropPriority": 6099
+            "dropPriority": 6099,
+            "itemSelects": []
           },
           "amount": 4
         }
@@ -987,14 +1118,16 @@
             "originalName": "Gem of Archer",
             "type": "skillLvUp",
             "uses": [
-              "skill"
+              "skill",
+              "appendSkill"
             ],
             "detail": "\"Skill Up Material\"\nA bright stone glimmering with the power of an Archer.",
             "individuality": [],
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6002.png",
             "background": "bronze",
             "priority": 101,
-            "dropPriority": 6099
+            "dropPriority": 6099,
+            "itemSelects": []
           },
           "amount": 8
         }
@@ -1010,14 +1143,16 @@
             "originalName": "Magic Gem of Archer",
             "type": "skillLvUp",
             "uses": [
-              "skill"
+              "skill",
+              "appendSkill"
             ],
             "detail": "\"Skill Up Material\"\nA bright stone glimmering with the great power of an Archer.",
             "individuality": [],
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6102.png",
             "background": "silver",
             "priority": 108,
-            "dropPriority": 6199
+            "dropPriority": 6199,
+            "itemSelects": []
           },
           "amount": 4
         }
@@ -1033,14 +1168,16 @@
             "originalName": "Magic Gem of Archer",
             "type": "skillLvUp",
             "uses": [
-              "skill"
+              "skill",
+              "appendSkill"
             ],
             "detail": "\"Skill Up Material\"\nA bright stone glimmering with the great power of an Archer.",
             "individuality": [],
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6102.png",
             "background": "silver",
             "priority": 108,
-            "dropPriority": 6199
+            "dropPriority": 6199,
+            "itemSelects": []
           },
           "amount": 8
         },
@@ -1052,6 +1189,7 @@
             "type": "skillLvUp",
             "uses": [
               "skill",
+              "appendSkill",
               "ascension",
               "costume"
             ],
@@ -1060,7 +1198,8 @@
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6516.png",
             "background": "bronze",
             "priority": 201,
-            "dropPriority": 8101
+            "dropPriority": 8101,
+            "itemSelects": []
           },
           "amount": 10
         }
@@ -1076,14 +1215,16 @@
             "originalName": "Secret Gem of Archer",
             "type": "skillLvUp",
             "uses": [
-              "skill"
+              "skill",
+              "appendSkill"
             ],
             "detail": "\"Skill Up Material\"\nA bright stone glimmering with the immense power of an Archer.",
             "individuality": [],
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6202.png",
             "background": "gold",
             "priority": 115,
-            "dropPriority": 6299
+            "dropPriority": 6299,
+            "itemSelects": []
           },
           "amount": 4
         },
@@ -1095,6 +1236,7 @@
             "type": "skillLvUp",
             "uses": [
               "skill",
+              "appendSkill",
               "ascension",
               "costume"
             ],
@@ -1103,7 +1245,8 @@
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6516.png",
             "background": "bronze",
             "priority": 201,
-            "dropPriority": 8101
+            "dropPriority": 8101,
+            "itemSelects": []
           },
           "amount": 20
         }
@@ -1119,14 +1262,16 @@
             "originalName": "Secret Gem of Archer",
             "type": "skillLvUp",
             "uses": [
-              "skill"
+              "skill",
+              "appendSkill"
             ],
             "detail": "\"Skill Up Material\"\nA bright stone glimmering with the immense power of an Archer.",
             "individuality": [],
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6202.png",
             "background": "gold",
             "priority": 115,
-            "dropPriority": 6299
+            "dropPriority": 6299,
+            "itemSelects": []
           },
           "amount": 8
         },
@@ -1138,6 +1283,7 @@
             "type": "skillLvUp",
             "uses": [
               "skill",
+              "appendSkill",
               "ascension",
               "costume"
             ],
@@ -1145,8 +1291,9 @@
             "individuality": [],
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6513.png",
             "background": "silver",
-            "priority": 218,
-            "dropPriority": 8305
+            "priority": 220,
+            "dropPriority": 8305,
+            "itemSelects": []
           },
           "amount": 4
         }
@@ -1163,6 +1310,7 @@
             "type": "skillLvUp",
             "uses": [
               "skill",
+              "appendSkill",
               "ascension",
               "costume"
             ],
@@ -1170,8 +1318,9 @@
             "individuality": [],
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6513.png",
             "background": "silver",
-            "priority": 218,
-            "dropPriority": 8305
+            "priority": 220,
+            "dropPriority": 8305,
+            "itemSelects": []
           },
           "amount": 7
         },
@@ -1183,6 +1332,7 @@
             "type": "skillLvUp",
             "uses": [
               "skill",
+              "appendSkill",
               "ascension",
               "costume"
             ],
@@ -1191,7 +1341,8 @@
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6505.png",
             "background": "bronze",
             "priority": 203,
-            "dropPriority": 8201
+            "dropPriority": 8201,
+            "itemSelects": []
           },
           "amount": 8
         }
@@ -1208,6 +1359,7 @@
             "type": "skillLvUp",
             "uses": [
               "skill",
+              "appendSkill",
               "ascension",
               "costume"
             ],
@@ -1216,7 +1368,8 @@
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6505.png",
             "background": "bronze",
             "priority": 203,
-            "dropPriority": 8201
+            "dropPriority": 8201,
+            "itemSelects": []
           },
           "amount": 24
         },
@@ -1228,6 +1381,7 @@
             "type": "skillLvUp",
             "uses": [
               "skill",
+              "appendSkill",
               "ascension",
               "costume"
             ],
@@ -1235,8 +1389,9 @@
             "individuality": [],
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6520.png",
             "background": "gold",
-            "priority": 237,
-            "dropPriority": 8402
+            "priority": 239,
+            "dropPriority": 8402,
+            "itemSelects": []
           },
           "amount": 10
         }
@@ -1252,14 +1407,16 @@
             "originalName": "Crystallized Lore",
             "type": "skillLvUp",
             "uses": [
-              "skill"
+              "skill",
+              "appendSkill"
             ],
             "detail": "\"Skill Up & Ascension Material\"\nA highly pure crystal of magic created\nwhen human history crosses a stream of Mana.\nIt can be said that it is the ingredient for materializing Heroic Spirits.",
             "individuality": [],
             "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6999.png",
             "background": "gold",
             "priority": 299,
-            "dropPriority": 8900
+            "dropPriority": 8900,
+            "itemSelects": []
           },
           "amount": 1
         }
@@ -1267,8 +1424,362 @@
       "qp": 5000000
     }
   },
-  "appendSkillMaterials": {},
+  "appendSkillMaterials": {
+    "1": {
+      "items": [
+        {
+          "item": {
+            "id": 6002,
+            "name": "Gem of Archer",
+            "originalName": "Gem of Archer",
+            "type": "skillLvUp",
+            "uses": [
+              "skill",
+              "appendSkill"
+            ],
+            "detail": "\"Skill Up Material\"\nA bright stone glimmering with the power of an Archer.",
+            "individuality": [],
+            "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6002.png",
+            "background": "bronze",
+            "priority": 101,
+            "dropPriority": 6099,
+            "itemSelects": []
+          },
+          "amount": 4
+        }
+      ],
+      "qp": 50000
+    },
+    "2": {
+      "items": [
+        {
+          "item": {
+            "id": 6002,
+            "name": "Gem of Archer",
+            "originalName": "Gem of Archer",
+            "type": "skillLvUp",
+            "uses": [
+              "skill",
+              "appendSkill"
+            ],
+            "detail": "\"Skill Up Material\"\nA bright stone glimmering with the power of an Archer.",
+            "individuality": [],
+            "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6002.png",
+            "background": "bronze",
+            "priority": 101,
+            "dropPriority": 6099,
+            "itemSelects": []
+          },
+          "amount": 8
+        }
+      ],
+      "qp": 100000
+    },
+    "3": {
+      "items": [
+        {
+          "item": {
+            "id": 6102,
+            "name": "Magic Gem of Archer",
+            "originalName": "Magic Gem of Archer",
+            "type": "skillLvUp",
+            "uses": [
+              "skill",
+              "appendSkill"
+            ],
+            "detail": "\"Skill Up Material\"\nA bright stone glimmering with the great power of an Archer.",
+            "individuality": [],
+            "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6102.png",
+            "background": "silver",
+            "priority": 108,
+            "dropPriority": 6199,
+            "itemSelects": []
+          },
+          "amount": 4
+        }
+      ],
+      "qp": 300000
+    },
+    "4": {
+      "items": [
+        {
+          "item": {
+            "id": 6102,
+            "name": "Magic Gem of Archer",
+            "originalName": "Magic Gem of Archer",
+            "type": "skillLvUp",
+            "uses": [
+              "skill",
+              "appendSkill"
+            ],
+            "detail": "\"Skill Up Material\"\nA bright stone glimmering with the great power of an Archer.",
+            "individuality": [],
+            "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6102.png",
+            "background": "silver",
+            "priority": 108,
+            "dropPriority": 6199,
+            "itemSelects": []
+          },
+          "amount": 8
+        },
+        {
+          "item": {
+            "id": 6522,
+            "name": "Fool's Chain",
+            "originalName": "Fool's Chain",
+            "type": "skillLvUp",
+            "uses": [
+              "skill",
+              "appendSkill",
+              "ascension",
+              "costume"
+            ],
+            "detail": "\"Skill Up & Ascension Material\"\nA chain created to bind down transient souls into this world, keeping them from ascending to heaven.",
+            "individuality": [],
+            "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6522.png",
+            "background": "bronze",
+            "priority": 204,
+            "dropPriority": 8102,
+            "itemSelects": []
+          },
+          "amount": 10
+        }
+      ],
+      "qp": 400000
+    },
+    "5": {
+      "items": [
+        {
+          "item": {
+            "id": 6202,
+            "name": "Secret Gem of Archer",
+            "originalName": "Secret Gem of Archer",
+            "type": "skillLvUp",
+            "uses": [
+              "skill",
+              "appendSkill"
+            ],
+            "detail": "\"Skill Up Material\"\nA bright stone glimmering with the immense power of an Archer.",
+            "individuality": [],
+            "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6202.png",
+            "background": "gold",
+            "priority": 115,
+            "dropPriority": 6299,
+            "itemSelects": []
+          },
+          "amount": 4
+        },
+        {
+          "item": {
+            "id": 6522,
+            "name": "Fool's Chain",
+            "originalName": "Fool's Chain",
+            "type": "skillLvUp",
+            "uses": [
+              "skill",
+              "appendSkill",
+              "ascension",
+              "costume"
+            ],
+            "detail": "\"Skill Up & Ascension Material\"\nA chain created to bind down transient souls into this world, keeping them from ascending to heaven.",
+            "individuality": [],
+            "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6522.png",
+            "background": "bronze",
+            "priority": 204,
+            "dropPriority": 8102,
+            "itemSelects": []
+          },
+          "amount": 20
+        }
+      ],
+      "qp": 1000000
+    },
+    "6": {
+      "items": [
+        {
+          "item": {
+            "id": 6202,
+            "name": "Secret Gem of Archer",
+            "originalName": "Secret Gem of Archer",
+            "type": "skillLvUp",
+            "uses": [
+              "skill",
+              "appendSkill"
+            ],
+            "detail": "\"Skill Up Material\"\nA bright stone glimmering with the immense power of an Archer.",
+            "individuality": [],
+            "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6202.png",
+            "background": "gold",
+            "priority": 115,
+            "dropPriority": 6299,
+            "itemSelects": []
+          },
+          "amount": 8
+        },
+        {
+          "item": {
+            "id": 6510,
+            "name": "Eternal Gear",
+            "originalName": "Eternal Gear",
+            "type": "skillLvUp",
+            "uses": [
+              "skill",
+              "appendSkill",
+              "ascension",
+              "costume"
+            ],
+            "detail": "\"Skill Up & Ascension Material\"\nDream of an eternal machine.\nA gear that spins forever once it starts turning.",
+            "individuality": [],
+            "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6510.png",
+            "background": "silver",
+            "priority": 217,
+            "dropPriority": 8302,
+            "itemSelects": []
+          },
+          "amount": 4
+        }
+      ],
+      "qp": 1250000
+    },
+    "7": {
+      "items": [
+        {
+          "item": {
+            "id": 6510,
+            "name": "Eternal Gear",
+            "originalName": "Eternal Gear",
+            "type": "skillLvUp",
+            "uses": [
+              "skill",
+              "appendSkill",
+              "ascension",
+              "costume"
+            ],
+            "detail": "\"Skill Up & Ascension Material\"\nDream of an eternal machine.\nA gear that spins forever once it starts turning.",
+            "individuality": [],
+            "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6510.png",
+            "background": "silver",
+            "priority": 217,
+            "dropPriority": 8302,
+            "itemSelects": []
+          },
+          "amount": 7
+        },
+        {
+          "item": {
+            "id": 6534,
+            "name": "Mystic Gunpowder",
+            "originalName": "Mystic Gunpowder",
+            "type": "skillLvUp",
+            "uses": [
+              "skill",
+              "appendSkill",
+              "ascension",
+              "costume"
+            ],
+            "detail": "\"Skill Up & Ascension Material\"\nCustom made gunpowder that ignites when the user focuses magical energy into it.\nSince it can generate a massive amount of firepower with only a small amount of magical energy, it's widely utilized as ammunition to hunt Demonic Beasts.",
+            "individuality": [],
+            "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6534.png",
+            "background": "bronze",
+            "priority": 208,
+            "dropPriority": 8105,
+            "itemSelects": []
+          },
+          "amount": 12
+        }
+      ],
+      "qp": 2500000
+    },
+    "8": {
+      "items": [
+        {
+          "item": {
+            "id": 6534,
+            "name": "Mystic Gunpowder",
+            "originalName": "Mystic Gunpowder",
+            "type": "skillLvUp",
+            "uses": [
+              "skill",
+              "appendSkill",
+              "ascension",
+              "costume"
+            ],
+            "detail": "\"Skill Up & Ascension Material\"\nCustom made gunpowder that ignites when the user focuses magical energy into it.\nSince it can generate a massive amount of firepower with only a small amount of magical energy, it's widely utilized as ammunition to hunt Demonic Beasts.",
+            "individuality": [],
+            "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6534.png",
+            "background": "bronze",
+            "priority": 208,
+            "dropPriority": 8105,
+            "itemSelects": []
+          },
+          "amount": 36
+        },
+        {
+          "item": {
+            "id": 6549,
+            "name": "Small Bell of Absolution",
+            "originalName": "Small Bell of Absolution",
+            "type": "skillLvUp",
+            "uses": [
+              "appendSkill"
+            ],
+            "detail": "\"Skill Up & Ascension Material\"\nThe tears of sinners. A small bell that is left behind after separation.",
+            "individuality": [],
+            "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6549.png",
+            "background": "bronze",
+            "priority": 209,
+            "dropPriority": 8106,
+            "itemSelects": []
+          },
+          "amount": 48
+        }
+      ],
+      "qp": 3000000
+    },
+    "9": {
+      "items": [
+        {
+          "item": {
+            "id": 6999,
+            "name": "Crystallized Lore",
+            "originalName": "Crystallized Lore",
+            "type": "skillLvUp",
+            "uses": [
+              "skill",
+              "appendSkill"
+            ],
+            "detail": "\"Skill Up & Ascension Material\"\nA highly pure crystal of magic created\nwhen human history crosses a stream of Mana.\nIt can be said that it is the ingredient for materializing Heroic Spirits.",
+            "individuality": [],
+            "icon": "https://assets.atlasacademy.io/GameData/NA/Items/6999.png",
+            "background": "gold",
+            "priority": 299,
+            "dropPriority": 8900,
+            "itemSelects": []
+          },
+          "amount": 1
+        }
+      ],
+      "qp": 5000000
+    }
+  },
   "costumeMaterials": {},
+  "coin": {
+    "summonNum": 15,
+    "item": {
+      "id": 20100001,
+      "name": "Servant Coin",
+      "originalName": "Servant Coin",
+      "type": "svtCoin",
+      "uses": [],
+      "detail": "\"Servant Enhancement Material\"\n A shard of a Servant's Spirit Origin",
+      "individuality": [],
+      "icon": "https://assets.atlasacademy.io/GameData/NA/Coins/201000.png",
+      "background": "silver",
+      "priority": 57,
+      "dropPriority": 1003,
+      "itemSelects": []
+    }
+  },
   "script": {},
   "skills": [
     {
@@ -2704,7 +3215,468 @@
       ]
     }
   ],
-  "appendPassive": [],
+  "appendPassive": [
+    {
+      "num": 100,
+      "priority": 1,
+      "skill": {
+        "id": 3001000,
+        "name": "Extra Attack Boost",
+        "originalName": "Extra Attack Boost",
+        "ruby": "",
+        "detail": "Increase Extra Attack Card's effectiveness by 30% for yourself ",
+        "unmodifiedDetail": "Increase Extra Attack Card's effectiveness by 30% for yourself [{0}]",
+        "type": "passive",
+        "icon": "https://assets.atlasacademy.io/GameData/NA/SkillIcons/skill_00301.png",
+        "coolDown": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "actIndividuality": [],
+        "script": {},
+        "extraPassive": [],
+        "skillAdd": [],
+        "functions": [
+          {
+            "funcId": 30003,
+            "funcType": "addStateShort",
+            "funcTargetType": "self",
+            "funcTargetTeam": "playerAndEnemy",
+            "funcPopupText": "Extra Attack Up",
+            "funcPopupIcon": "https://assets.atlasacademy.io/GameData/NA/BuffIcons/bufficon_302.png",
+            "functvals": [],
+            "funcquestTvals": [],
+            "funcGroup": [],
+            "buffs": [
+              {
+                "id": 30001,
+                "name": "Extra Attack Up",
+                "detail": "Increase Extra Attack Card effectiveness",
+                "icon": "https://assets.atlasacademy.io/GameData/NA/BuffIcons/bufficon_302.png",
+                "type": "upCommandall",
+                "buffGroup": 0,
+                "script": {},
+                "vals": [
+                  {
+                    "id": 3004,
+                    "name": "buffPositiveEffect"
+                  },
+                  {
+                    "id": 3006,
+                    "name": "buffIncreaseDamage"
+                  }
+                ],
+                "tvals": [
+                  {
+                    "id": 5000,
+                    "name": "canBeInBattle"
+                  },
+                  {
+                    "id": 4004,
+                    "name": "cardExtra"
+                  }
+                ],
+                "ckSelfIndv": [
+                  {
+                    "id": 4004,
+                    "name": "cardExtra"
+                  }
+                ],
+                "ckOpIndv": [],
+                "maxRate": 5000
+              }
+            ],
+            "svals": [
+              {
+                "Rate": 1000,
+                "Turn": -1,
+                "Count": -1,
+                "Value": 300,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Turn": -1,
+                "Count": -1,
+                "Value": 320,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Turn": -1,
+                "Count": -1,
+                "Value": 340,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Turn": -1,
+                "Count": -1,
+                "Value": 360,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Turn": -1,
+                "Count": -1,
+                "Value": 380,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Turn": -1,
+                "Count": -1,
+                "Value": 400,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Turn": -1,
+                "Count": -1,
+                "Value": 420,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Turn": -1,
+                "Count": -1,
+                "Value": 440,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Turn": -1,
+                "Count": -1,
+                "Value": 460,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Turn": -1,
+                "Count": -1,
+                "Value": 500,
+                "ShowState": -1
+              }
+            ]
+          }
+        ]
+      },
+      "unlockMaterials": [
+        {
+          "item": {
+            "id": 20100001,
+            "name": "Servant Coin",
+            "originalName": "Servant Coin",
+            "type": "svtCoin",
+            "uses": [],
+            "detail": "\"Servant Enhancement Material\"\n A shard of a Servant's Spirit Origin",
+            "individuality": [],
+            "icon": "https://assets.atlasacademy.io/GameData/NA/Coins/201000.png",
+            "background": "silver",
+            "priority": 57,
+            "dropPriority": 1003,
+            "itemSelects": []
+          },
+          "amount": 120
+        }
+      ]
+    },
+    {
+      "num": 101,
+      "priority": 1,
+      "skill": {
+        "id": 3002000,
+        "name": "Load Magical Energy",
+        "originalName": "Load Magical Energy",
+        "ruby": "",
+        "detail": "Begin battle with NP charged at 10% for yourself ",
+        "unmodifiedDetail": "Begin battle with NP charged at 10% for yourself [{0}]",
+        "type": "passive",
+        "icon": "https://assets.atlasacademy.io/GameData/NA/SkillIcons/skill_00601.png",
+        "coolDown": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "actIndividuality": [],
+        "script": {},
+        "extraPassive": [],
+        "skillAdd": [],
+        "functions": [
+          {
+            "funcId": 30005,
+            "funcType": "gainNp",
+            "funcTargetType": "self",
+            "funcTargetTeam": "player",
+            "funcPopupText": "NP Gain",
+            "functvals": [],
+            "funcquestTvals": [],
+            "funcGroup": [],
+            "buffs": [],
+            "svals": [
+              {
+                "Rate": 1000,
+                "Value": 1000,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Value": 1100,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Value": 1200,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Value": 1300,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Value": 1400,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Value": 1500,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Value": 1600,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Value": 1700,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Value": 1800,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Value": 2000,
+                "ShowState": -1
+              }
+            ]
+          }
+        ]
+      },
+      "unlockMaterials": [
+        {
+          "item": {
+            "id": 20100001,
+            "name": "Servant Coin",
+            "originalName": "Servant Coin",
+            "type": "svtCoin",
+            "uses": [],
+            "detail": "\"Servant Enhancement Material\"\n A shard of a Servant's Spirit Origin",
+            "individuality": [],
+            "icon": "https://assets.atlasacademy.io/GameData/NA/Coins/201000.png",
+            "background": "silver",
+            "priority": 57,
+            "dropPriority": 1003,
+            "itemSelects": []
+          },
+          "amount": 120
+        }
+      ]
+    },
+    {
+      "num": 102,
+      "priority": 1,
+      "skill": {
+        "id": 3006000,
+        "name": "Anti-Rider (ATK Up)",
+        "originalName": "Anti-Rider (ATK Up)",
+        "ruby": "",
+        "detail": "Increase ATK against [Rider] class by 20% for yourself ",
+        "unmodifiedDetail": "Increase ATK against [Rider] class by 20% for yourself [{0}]",
+        "type": "passive",
+        "icon": "https://assets.atlasacademy.io/GameData/NA/SkillIcons/skill_00300.png",
+        "coolDown": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "actIndividuality": [],
+        "script": {},
+        "extraPassive": [],
+        "skillAdd": [],
+        "functions": [
+          {
+            "funcId": 30021,
+            "funcType": "addStateShort",
+            "funcTargetType": "self",
+            "funcTargetTeam": "playerAndEnemy",
+            "funcPopupText": "ATK Up (Anti-Rider)",
+            "funcPopupIcon": "https://assets.atlasacademy.io/GameData/NA/BuffIcons/bufficon_300.png",
+            "functvals": [],
+            "funcquestTvals": [],
+            "funcGroup": [],
+            "buffs": [
+              {
+                "id": 30006,
+                "name": "ATK Up (Anti-Rider)",
+                "detail": "Increase ATK against [Rider] class",
+                "icon": "https://assets.atlasacademy.io/GameData/NA/BuffIcons/bufficon_300.png",
+                "type": "upAtk",
+                "buffGroup": 0,
+                "script": {},
+                "vals": [
+                  {
+                    "id": 3004,
+                    "name": "buffPositiveEffect"
+                  },
+                  {
+                    "id": 3006,
+                    "name": "buffIncreaseDamage"
+                  },
+                  {
+                    "id": 3027,
+                    "name": "buffAtkUp"
+                  }
+                ],
+                "tvals": [
+                  {
+                    "id": 103,
+                    "name": "classRider"
+                  }
+                ],
+                "ckSelfIndv": [],
+                "ckOpIndv": [
+                  {
+                    "id": 103,
+                    "name": "classRider"
+                  }
+                ],
+                "maxRate": 5000
+              }
+            ],
+            "svals": [
+              {
+                "Rate": 1000,
+                "Turn": -1,
+                "Count": -1,
+                "Value": 200,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Turn": -1,
+                "Count": -1,
+                "Value": 210,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Turn": -1,
+                "Count": -1,
+                "Value": 220,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Turn": -1,
+                "Count": -1,
+                "Value": 230,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Turn": -1,
+                "Count": -1,
+                "Value": 240,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Turn": -1,
+                "Count": -1,
+                "Value": 250,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Turn": -1,
+                "Count": -1,
+                "Value": 260,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Turn": -1,
+                "Count": -1,
+                "Value": 270,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Turn": -1,
+                "Count": -1,
+                "Value": 280,
+                "ShowState": -1
+              },
+              {
+                "Rate": 1000,
+                "Turn": -1,
+                "Count": -1,
+                "Value": 300,
+                "ShowState": -1
+              }
+            ]
+          }
+        ]
+      },
+      "unlockMaterials": [
+        {
+          "item": {
+            "id": 20100001,
+            "name": "Servant Coin",
+            "originalName": "Servant Coin",
+            "type": "svtCoin",
+            "uses": [],
+            "detail": "\"Servant Enhancement Material\"\n A shard of a Servant's Spirit Origin",
+            "individuality": [],
+            "icon": "https://assets.atlasacademy.io/GameData/NA/Coins/201000.png",
+            "background": "silver",
+            "priority": 57,
+            "dropPriority": 1003,
+            "itemSelects": []
+          },
+          "amount": 120
+        }
+      ]
+    }
+  ],
   "noblePhantasms": [
     {
       "id": 201001,
@@ -2716,6 +3688,9 @@
       "icon": "https://assets.atlasacademy.io/GameData/NA/Servants/Commands/201000/card_servant_np.png",
       "rank": "C++",
       "type": "Anti-Personnel",
+      "effectFlags": [
+        "attackEnemyOne"
+      ],
       "detail": "Apply Sure Hit for yourself (1 turn) + deal significant damage to a single enemy & decrease Critical Rate (3 turns) <effect increases with Overcharge> for a single enemy",
       "unmodifiedDetail": "Apply Sure Hit for yourself (1 turn) + deal significant damage to a single enemy [{0}] & decrease Critical Rate (3 turns) <effect increases with Overcharge> for a single enemy",
       "npGain": {
@@ -3487,6 +4462,9 @@
       "icon": "https://assets.atlasacademy.io/GameData/NA/Servants/Commands/201000/card_servant_np.png",
       "rank": "C+++",
       "type": "Anti-Personnel",
+      "effectFlags": [
+        "attackEnemyOne"
+      ],
       "detail": "Apply Sure Hit for yourself (1 turn) + deal significant damage to a single enemy ▲ & decrease Critical Rate ▲ (3 turns) <effect increases with Overcharge> for a single enemy",
       "unmodifiedDetail": "Apply Sure Hit for yourself (1 turn) + deal significant damage to a single enemy [{0}] [g][o]▲[/o][/g] & decrease Critical Rate [g][o]▲[/o][/g] (3 turns) <effect increases with Overcharge> for a single enemy",
       "npGain": {

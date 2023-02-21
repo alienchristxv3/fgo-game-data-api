@@ -1,11 +1,10 @@
 from typing import Optional
 
-from redis.asyncio import Redis  # type: ignore
-
 from ...config import Settings
 from ...schemas.base import BaseModelORJson
 from ...schemas.common import Language, Region
-from ...schemas.nice import EnemyDrop, NiceStage
+from ...schemas.nice import EnemyDrop, NiceStage, QuestEnemy
+from .. import Redis
 
 
 settings = Settings()
@@ -24,6 +23,7 @@ def get_redis_cache_key(
 class RayshiftRedisData(BaseModelORJson):
     quest_drops: list[EnemyDrop]
     stages: list[NiceStage]
+    ai_npcs: dict[int, QuestEnemy] | None = None
 
 
 async def get_stages_cache(

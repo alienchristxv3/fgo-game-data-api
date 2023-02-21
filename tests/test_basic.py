@@ -1,8 +1,11 @@
-# pylint: disable=R0201
 from dataclasses import dataclass
 
 import pytest
 from httpx import AsyncClient
+from redis.asyncio import Redis
+
+from app.core.basic import get_basic_svt
+from app.schemas.common import Region
 
 from .utils import get_response_data
 
@@ -71,7 +74,7 @@ cases_404 = [
     Case404("svt", "10098"),
     Case404("skill", "25689"),
     Case404("NP", "900205"),
-    Case404("function", "9000"),
+    Case404("function", "90000"),
     Case404("buff", "765"),
     Case404("MC", "62537"),
     Case404("CC", "8400111"),
@@ -117,15 +120,42 @@ async def test_int_overflow_basic(
     assert response.json()["detail"][-9:] == "not found"
 
 
+@dataclass
+class BasicSvtFaceCase:
+    region: Region
+    svt_id: int
+    svt_limit: int | None = None
+    face_suffix: str = ""
+
+
 @pytest.mark.asyncio
 class TestBasicSpecial:
+    async def test_basic_servant_face(self, redis: "Redis[bytes]") -> None:
+        basic_face_cases = [
+            BasicSvtFaceCase(Region.NA, 303800, None, "NA/Faces/f_3038000.png"),
+            BasicSvtFaceCase(Region.NA, 303800, 4, "NA/Faces/f_3038003.png"),
+            BasicSvtFaceCase(Region.NA, 303800, 11, "NA/Faces/f_3038300.png"),
+            BasicSvtFaceCase(Region.JP, 9100101, None, "JP/Enemys/99402402.png"),
+            BasicSvtFaceCase(Region.JP, 9100101, 2, "JP/Enemys/99402402.png"),
+            BasicSvtFaceCase(Region.JP, 9935900, None, "JP/Enemys/99359003.png"),
+            BasicSvtFaceCase(Region.JP, 404601, None, "JP/Faces/f_4046000.png"),
+            BasicSvtFaceCase(Region.JP, 9943860, 2, "JP/Faces/f_99438601.png"),
+        ]
+
+        for case in basic_face_cases:
+            basic_svt = await get_basic_svt(
+                redis, case.region, case.svt_id, case.svt_limit
+            )
+            assert basic_svt["face"].endswith(case.face_suffix)
+
     async def test_NA_not_integer(self, client: AsyncClient) -> None:
         response = await client.get("/basic/NA/servant/lkji")
         assert response.status_code == 422
 
     async def test_func_addState_no_buff(self, client: AsyncClient) -> None:
-        response = await client.get("/basic/JP/function/4086")
+        response = await client.get("/basic/NA/function/4086")
         assert response.status_code == 200
+        assert len(response.json()["buffs"]) == 0
 
     async def test_skill_reverse_passive(self, client: AsyncClient) -> None:
         response = await client.get("/basic/NA/skill/30650?reverse=True")

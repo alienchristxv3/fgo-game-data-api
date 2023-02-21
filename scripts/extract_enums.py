@@ -44,6 +44,18 @@ EXTRA_STR_NAME = {
     "NiceSvtFlag": {0: "NORMAL", 63: "GOETIA", 64: "MAT_DROP_RATE_UP_CE"},
     "NiceAiActNum": {-9999: "UNKNOWN"},
     "NicePurchaseType": {13: "KIARA_PUNISHER_RESET"},
+    "NiceVoiceCondType": {
+        27: "UNKNOWN_27",
+        30: "UNKNOWN_30",
+        32: "UNKNOWN_32",
+        34: "UNKNOWN_34",
+        35: "UNKNOWN_35",
+        37: "UNKNOWN_37",
+        38: "UNKNOWN_38",
+        40: "UNKNOWN_40",
+        -1: "UNKNOWN",
+    },
+    "NiceFrequencyType": {0: "NONE"},
 }
 
 
@@ -88,7 +100,7 @@ def out_strenum(
     input_dict: dict[int, str], nice_class: str, nice_class_title: str
 ) -> list[str]:
     strenum_lines = [
-        f"class {nice_class}(str, Enum):\n",
+        f"class {nice_class}(StrEnum):\n",
         f'    """{nice_class_title}"""\n',
         "\n",
     ]
@@ -409,6 +421,97 @@ ENUMS: list[tuple[str, str, str, str, str]] = [
         "Ai Condition Check",
         "AI_COND_CHECK_NAME",
     ),
+    (
+        "TreasureDvcEntity.EffectFlag",
+        "TreasureDeviceEffectFlag",
+        "NiceTdEffectFlag",
+        "Treasure Device Effect Flag",
+        "TREASURE_DEVICE_EFFECT_FLAG_NAME",
+    ),
+    (
+        "CombineAdjustTarget.TYPE",
+        "CombineAdjustTargetType",
+        "NiceCombineAdjustTarget",
+        "Combine Adjust Target Type",
+        "COMBINE_ADJUST_TARGET_TYPE_NAME",
+    ),
+    (
+        "EventCombineEntity.CalcType",
+        "EventCombineEntityCalcType",
+        "NiceEventCombineCalc",
+        "Event Combine Calc Type",
+        "EVENT_COMBINE_CALC_TYPE_NAME",
+    ),
+    (
+        "EventWorkType.Type",
+        "EventWorkType",
+        "NiceEventWorkType",
+        "Event Fortification Work Type",
+        "EVENT_WORK_TYPE_NAME",
+    ),
+    (
+        "EventFortificationDataLogic.SvtType",
+        "EventFortificationSvtType",
+        "NiceEventFortificationSvtType",
+        "Event Fortification Servant Type",
+        "EVENT_FORTIFICATION_SVT_TYPE_NAME",
+    ),
+    (
+        "ServantClassEntity.SupportGroupType",
+        "ServantClassSupportGroupType",
+        "NiceSvtClassSupportGroupType",
+        "Servant Class Support Group Type",
+        "SVT_CLASS_SUPPORT_GROUP_TYPE_NAME",
+    ),
+    (
+        "Restriction.Type",
+        "RestrictionType",
+        "NiceRestrictionType",
+        "Restriction Type",
+        "RESTRICTION_TYPE_NAME",
+    ),
+    (
+        "Restriction.RangeType",
+        "RestrictionRangeType",
+        "NiceRestrictionRangeType",
+        "Restriction Range Type",
+        "RESTRICTION_RANGE_TYPE_NAME",
+    ),
+    (
+        "ShopDetailEntity.FrequencyType",
+        "FrequencyType",
+        "NiceFrequencyType",
+        "Frequency Type",
+        "FREQUENCY_TYPE_NAME",
+    ),
+    (
+        "ServantCardEntity.CommandCardAttackType",
+        "CommandCardAttackType",
+        "NiceCommandCardAttackType",
+        "Command Card Attack Type",
+        "COMMAND_CARD_ATK_TYPE_NAME",
+    ),
+    (
+        "SpotAddEntity.SpotOverwriteType",
+        "SpotOverwriteType",
+        "NiceSpotOverwriteType",
+        "Spot Overwrite Type",
+        "SPOT_OVERWRITE_TYPE_NAME",
+    ),
+    (
+        "BuffConvertEntity.ConvertType",
+        "BuffConvertType",
+        "NiceBuffConvertType",
+        "Buff Convert Type",
+        "BUFF_CONVERT_TYPE_NAME",
+    ),
+    (
+        "BuffConvertEntity.BuffLimitType",
+        "BuffConvertLimitType",
+        "NiceBuffConvertLimitType",
+        "Buff Convert Limit Type",
+        "BUFF_CONVERT_LIMIT_TYPE_NAME",
+    ),
 ]
 
 
@@ -451,7 +554,7 @@ def main(dump_path: str, gameenums_path: str, typescript_path: str = "") -> None
         "# You shouldn't edit this file directly.\n",
         "\n",
         "\n",
-        "from enum import Enum, IntEnum\n",
+        "from enum import IntEnum, StrEnum\n",
         "\n",
         "\n",
     ]

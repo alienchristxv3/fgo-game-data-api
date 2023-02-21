@@ -12,7 +12,9 @@
           "tvals": [],
           "ckSelfIndv": [],
           "ckOpIndv": [],
-          "script": {},
+          "script": {
+            "ProgressSelfTurn": 1
+          },
           "id": 117,
           "buffGroup": 0,
           "type": 3,
@@ -65,6 +67,7 @@
           ],
           "mstSvtSkill": [
             {
+              "script": {},
               "strengthStatus": 99,
               "svtId": 101300,
               "num": 3,
@@ -305,6 +308,7 @@
           ],
           "mstSvtSkill": [
             {
+              "script": {},
               "strengthStatus": 0,
               "svtId": 502500,
               "num": 3,
@@ -525,6 +529,7 @@
           ],
           "mstSvtSkill": [
             {
+              "script": {},
               "strengthStatus": 0,
               "svtId": 500700,
               "num": 3,
@@ -538,6 +543,7 @@
               "flag": 0
             },
             {
+              "script": {},
               "strengthStatus": 0,
               "svtId": 9942010,
               "num": 3,
@@ -758,6 +764,7 @@
           ],
           "mstSvtSkill": [
             {
+              "script": {},
               "strengthStatus": 1,
               "svtId": 402700,
               "num": 2,
@@ -998,6 +1005,7 @@
           ],
           "mstSvtSkill": [
             {
+              "script": {},
               "strengthStatus": 99,
               "svtId": 402700,
               "num": 2,
@@ -1258,6 +1266,7 @@
           ],
           "mstSvtSkill": [
             {
+              "script": {},
               "strengthStatus": 0,
               "svtId": 103300,
               "num": 3,
@@ -1271,6 +1280,7 @@
               "flag": 0
             },
             {
+              "script": {},
               "strengthStatus": 0,
               "svtId": 9941180,
               "num": 3,
@@ -1557,6 +1567,48 @@
             "svt": [],
             "field": [
               94042220
+            ]
+          }
+        },
+        {
+          "mstSkill": {
+            "effectList": [],
+            "actIndividuality": [],
+            "script": {},
+            "id": 964536,
+            "type": 1,
+            "name": "Beauty of Spring Night",
+            "ruby": "-",
+            "maxLv": 1,
+            "iconId": 600,
+            "motion": 102
+          },
+          "mstSkillDetail": [],
+          "mstSvtSkill": [],
+          "mstSkillAdd": [],
+          "mstCommonRelease": [],
+          "mstSkillLv": [
+            {
+              "funcId": [
+                3367,
+                300
+              ],
+              "svals": [
+                "[1000,2,-1,20]",
+                "[1000,2,-1,1000]"
+              ],
+              "script": {},
+              "skillId": 964536,
+              "lv": 1,
+              "chargeTurn": 0,
+              "skillDetailId": 1,
+              "priority": 0
+            }
+          ],
+          "aiIds": {
+            "svt": [],
+            "field": [
+              803189
             ]
           }
         }

@@ -6,10 +6,11 @@ from sqlalchemy.ext.asyncio import AsyncConnection
 
 from ...config import Settings
 from ...schemas.common import Language, Region
-from ...schemas.enums import SKILL_TYPE_NAME
+from ...schemas.enums import SKILL_TYPE_NAME, SkillScriptCond
 from ...schemas.nice import (
     AssetURL,
     ExtraPassive,
+    NiceSelectAddInfoBtnCond,
     NiceSkill,
     NiceSkillAdd,
     NiceSkillReverse,
@@ -63,6 +64,27 @@ def get_nice_skill_add(
     ]
 
 
+def parse_skill_script_cond(cond: str) -> NiceSelectAddInfoBtnCond:
+    if ":" in cond:
+        cond_type, value = cond.split(":", maxsplit=2)
+        if cond_type in SkillScriptCond.__members__:
+            return NiceSelectAddInfoBtnCond(
+                cond=SkillScriptCond(cond_type), value=int(value)
+            )
+
+    return NiceSelectAddInfoBtnCond(cond=SkillScriptCond.NONE)
+
+
+def get_nice_skill_script(skill_script: dict[str, Any]) -> dict[str, Any]:
+    if SelectAddInfo := skill_script.get("SelectAddInfo"):
+        for button in SelectAddInfo["btn"]:
+            button["conds"] = [
+                parse_skill_script_cond(cond) for cond in button["conds"]
+            ]
+
+    return skill_script
+
+
 async def get_nice_skill_with_svt(
     conn: AsyncConnection,
     skillEntity: SkillEntityNoReverse,
@@ -98,11 +120,11 @@ async def get_nice_skill_with_svt(
             base_url=settings.asset_url, region=region, item_id=iconId
         )
 
-    if skillEntity.mstSkillDetail:
-        nice_skill["detail"] = strip_formatting_brackets(
-            skillEntity.mstSkillDetail[0].detail
-        )
-        nice_skill["unmodifiedDetail"] = skillEntity.mstSkillDetail[0].detail
+    for detail in skillEntity.mstSkillDetail:
+        if detail.id == skillEntity.mstSkill.id:
+            nice_skill["detail"] = strip_formatting_brackets(detail.detail)
+            nice_skill["unmodifiedDetail"] = detail.detail
+            break
 
     nice_skill["aiIds"] = skillEntity.aiIds
 
@@ -111,7 +133,10 @@ async def get_nice_skill_with_svt(
     ]
 
     nice_skill["script"] = {
-        scriptKey: [skillLv.script[scriptKey] for skillLv in skillEntity.mstSkillLv]
+        scriptKey: [
+            get_nice_skill_script(skillLv.script)[scriptKey]
+            for skillLv in skillEntity.mstSkillLv
+        ]
         for scriptKey in skillEntity.mstSkillLv[0].script
     }
 
@@ -137,6 +162,49 @@ async def get_nice_skill_with_svt(
             )
 
             nice_skill["functions"].append(nice_func)
+
+    if skillEntity.mstSkillGroup and skillEntity.mstSkillGroupOverwrite:
+        skill_groups: list[dict[str, Any]] = []
+        for group in skillEntity.mstSkillGroup:
+            overwrite = next(
+                overwrite
+                for overwrite in skillEntity.mstSkillGroupOverwrite
+                if overwrite.skillGroupId == group.id
+            )
+            overwrite_detail = next(
+                detail
+                for detail in skillEntity.mstSkillDetail
+                if detail.id == overwrite.skillDetailId
+            )
+            skill_groups.append(
+                {
+                    "level": group.lv,
+                    "skillGroupId": group.id,
+                    "startedAt": overwrite.startedAt,
+                    "endedAt": overwrite.endedAt,
+                    "icon": AssetURL.skillIcon.format(
+                        base_url=settings.asset_url,
+                        region=region,
+                        item_id=overwrite.iconId,
+                    )
+                    if overwrite.iconId != 0
+                    else None,
+                    "detail": strip_formatting_brackets(overwrite_detail.detail),
+                    "unmodifiedDetail": overwrite_detail.detail,
+                    "functions": [
+                        await get_nice_function(conn, region, function, [svals])
+                        for function, svals in zip(
+                            overwrite.expandedFuncId
+                            if overwrite.expandedFuncId
+                            else [],
+                            overwrite.svals,
+                            strict=False,
+                        )
+                    ],
+                }
+            )
+
+        nice_skill["groupOverwrites"] = skill_groups
 
     # .mstSvtSkill returns the list of SvtSkill with the same skill_id
     chosen_svts = [

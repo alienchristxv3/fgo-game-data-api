@@ -23,8 +23,10 @@ from .gameenums import (
     NiceFuncType,
     NiceGender,
     NiceItemType,
+    NicePayType,
     NiceQuestFlag,
     NiceQuestType,
+    NiceShopType,
     NiceSvtFlag,
     NiceSvtType,
 )
@@ -199,6 +201,8 @@ class SkillSearchParams:
     strengthStatus: Optional[list[int]] = Query(None)
     lvl1coolDown: Optional[list[int]] = Query(None)
     numFunctions: Optional[list[int]] = Query(None)
+    svalsContain: str | None = Query(None)
+    triggerSkillId: list[int] | None = Query(None)
 
     def hasSearchParams(self) -> bool:
         return any(
@@ -210,6 +214,8 @@ class SkillSearchParams:
                 self.strengthStatus,
                 self.lvl1coolDown,
                 self.numFunctions,
+                self.svalsContain is not None and self.svalsContain.strip() != "",
+                self.triggerSkillId,
             ]
         )
 
@@ -224,6 +230,8 @@ class SkillSearchParams:
         - **strengthStatus**: strengthening status. [1]
         - **lvl1coolDown**: Cooldown at level 1.
         - **numFunctions**: Number of functions in the skill.
+        - **svalsContain**: Skill's svals should contain this pattern.
+        - **triggerSkillId**: Trigger Skill IDs that are called by this skill.
 
         At least one of the parameter is required for the query.
 
@@ -244,6 +252,8 @@ class TdSearchParams:
     numFunctions: Optional[list[int]] = Query(None)
     minNpNpGain: Optional[int] = None
     maxNpNpGain: Optional[int] = None
+    svalsContain: str | None = Query(None)
+    triggerSkillId: list[int] | None = Query(None)
 
     def hasSearchParams(self) -> bool:
         return any(
@@ -256,6 +266,8 @@ class TdSearchParams:
                 self.numFunctions,
                 self.minNpNpGain is not None,
                 self.maxNpNpGain is not None,
+                self.svalsContain is not None and self.svalsContain.strip() != "",
+                self.triggerSkillId,
             ]
         )
 
@@ -270,6 +282,8 @@ class TdSearchParams:
         - **numFunctions**: number of functions the NP has.
         - **minNpNpGain**: NP gain of the NP is at least this value.
         - **maxNpNpGain**: NP gain of the NP is at most this value.
+        - **svalsContain**: NP's svals should contain this pattern.
+        - **triggerSkillId**: Trigger Skill IDs that are called by this skill.
 
         At least one of the parameter is required for the query.
         """
@@ -410,6 +424,8 @@ class QuestSearchQueryParams:
     enemySvtAiId: Optional[int] = None
     enemyTrait: list[Union[Trait, int]] = Query([])
     enemyClassName: list[SvtClass] = Query([])
+    enemySkillId: list[int] | None = Query(None)
+    enemyNoblePhantasmId: list[int] | None = Query(None)
 
     def hasSearchParams(self) -> bool:
         return any(
@@ -427,6 +443,8 @@ class QuestSearchQueryParams:
                 self.fieldAiId,
                 self.enemyTrait,
                 self.enemyClassName,
+                self.enemySkillId,
+                self.enemyNoblePhantasmId,
             ]
         )
 
@@ -447,6 +465,8 @@ class QuestSearchQueryParams:
         - **enemySvtAiId**: Enemy's servant AI ID.
         - **enemyTrait**: Enemy's Trait. Trait Enum or an Integer.
         - **enemyClassName**: Enemy's Class Name Enum.
+        - **enemySkillId**: Enemy's Skill, Passive Skill,
+        - **enemyNoblePhantasmId**: Enemy's NP
 
         At least one of the parameter is required for the query.
         """
@@ -458,6 +478,8 @@ class ScriptSearchQueryParams:
     region: Region
     query: str = Query(..., max_length=999)
     scriptFileName: str | None = Query(default=None, max_length=99)
+    warId: list[int] = Query([])
+    limit: int | None = Query(None, le=500)
 
     DESCRIPTION: ClassVar[str] = inspect.cleandoc(
         """
@@ -466,9 +488,35 @@ class ScriptSearchQueryParams:
         - **query**: search query https://groonga.org/docs/reference/grn_expr/query_syntax.html.
         (Queries starting with `column:` are not supported).
         - **scriptFileName**: The script name should contain this string.
+        - **warId**: War ID of the quest that with the script.
         For example: 30001 string for LB1 scripts or 9401 for interlude scripts.
         """
     )
 
     def hasSearchParams(self) -> bool:
         return 1 <= len(self.query.strip()) <= 999
+
+
+@dataclass
+class ShopSearchQueryParams:
+    region: Region
+    name: Optional[str] = Query(None, max_length=999)
+    eventId: list[int] = Query([])
+    type: list[NiceShopType] = Query([])
+    payType: list[NicePayType] = Query([])
+
+    def hasSearchParams(self) -> bool:
+        return any(
+            [
+                self.name,
+                self.eventId,
+                self.type,
+                self.payType,
+            ]
+        )
+
+    DESCRIPTION: ClassVar[str] = inspect.cleandoc(
+        """
+        Search and return the list of matched shop entities.
+        """
+    )

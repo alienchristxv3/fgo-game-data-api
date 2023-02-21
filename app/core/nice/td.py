@@ -6,15 +6,25 @@ from sqlalchemy.ext.asyncio import AsyncConnection
 
 from ...config import Settings
 from ...schemas.common import Language, Region
-from ...schemas.gameenums import CARD_TYPE_NAME
+from ...schemas.gameenums import CARD_TYPE_NAME, NiceTdEffectFlag
 from ...schemas.nice import AssetURL, NiceTd
 from ...schemas.raw import TdEntityNoReverse
-from ..raw import get_td_entity_no_reverse_many
+from ..raw import get_td_entity_no_reverse, get_td_entity_no_reverse_many
 from ..utils import get_np_name, get_traits_list, strip_formatting_brackets
 from .func import get_nice_function
+from .skill import get_nice_skill_script
 
 
 settings = Settings()
+
+
+def get_nice_td_effect_flag(effectFlag: int) -> NiceTdEffectFlag:
+    if effectFlag == 1:
+        return NiceTdEffectFlag.attackEnemyAll
+    elif effectFlag == 2:
+        return NiceTdEffectFlag.attackEnemyOne
+
+    return NiceTdEffectFlag.support
 
 
 async def get_nice_td(
@@ -33,6 +43,7 @@ async def get_nice_td(
         "ruby": tdEntity.mstTreasureDevice.ruby,
         "rank": tdEntity.mstTreasureDevice.rank,
         "type": tdEntity.mstTreasureDevice.typeText,
+        "effectFlags": [get_nice_td_effect_flag(tdEntity.mstTreasureDevice.effectFlag)],
         "individuality": get_traits_list(tdEntity.mstTreasureDevice.individuality),
     }
 
@@ -51,16 +62,18 @@ async def get_nice_td(
         "defence": [td_lv.tdPointDef for td_lv in tdEntity.mstTreasureDeviceLv],
     }
 
+    nice_td["script"] = {}
     if tdEntity.mstTreasureDeviceLv[0].script:
-        nice_td["script"] = {
-            scriptKey: [
-                tdLv.script[scriptKey] if tdLv.script else None
+        for script_key in tdEntity.mstTreasureDeviceLv[0].script:
+            nice_td["script"][script_key] = [
+                get_nice_skill_script(tdLv.script)[script_key] if tdLv.script else None
                 for tdLv in tdEntity.mstTreasureDeviceLv
             ]
-            for scriptKey in tdEntity.mstTreasureDeviceLv[0].script
-        }
-    else:
-        nice_td["script"] = {}
+    for script_key in ("tdTypeChangeIDs", "excludeTdChangeTypes"):
+        if script_key in tdEntity.mstTreasureDevice.script:
+            nice_td["script"][script_key] = tdEntity.mstTreasureDevice.script[
+                script_key
+            ]
 
     nice_td["functions"] = []
 
@@ -132,6 +145,22 @@ async def get_nice_td(
         }
         out_tds.append(out_td)
     return out_tds
+
+
+async def get_nice_td_from_id(
+    conn: AsyncConnection,
+    region: Region,
+    td_id: int,
+    lang: Language,
+) -> NiceTd:
+    raw_td = await get_td_entity_no_reverse(conn, td_id, expand=True)
+
+    svt_id = next((svt_id.svtId for svt_id in raw_td.mstSvtTreasureDevice), td_id)
+    nice_td = NiceTd.parse_obj(
+        (await get_nice_td(conn, raw_td, svt_id, region, lang))[0]
+    )
+
+    return nice_td
 
 
 @dataclass(eq=True, frozen=True)

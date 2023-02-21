@@ -5,16 +5,29 @@ from sqlalchemy.ext.asyncio import AsyncConnection
 from ....config import Settings
 from ....schemas.common import Language, Region
 from ....schemas.gameenums import EVENT_TYPE_NAME, NiceSvtVoiceType, NiceVoiceCondType
-from ....schemas.nice import AssetURL, NiceEvent, NiceVoiceGroup
+from ....schemas.nice import (
+    AssetURL,
+    NiceEvent,
+    NiceEventCooltime,
+    NiceVoiceCond,
+    NiceVoiceGroup,
+)
 from ....schemas.raw import MstGift
 from ... import raw
 from ...utils import fmt_url, get_translation
 from ..bgm import get_nice_bgm_entity_from_raw
+from ..gift import GiftData
 from ..item import get_nice_item_from_raw
 from ..svt.voice import get_nice_voice_group
+from .bulletin_board import get_nice_bulletin_board
+from .campaign import get_nice_campaign, get_nice_event_quest
+from .cooltime import get_nice_event_cooltime
+from .digging import get_nice_digging
+from .fortification import get_nice_fortification
 from .lottery import get_nice_lottery
-from .mission import get_nice_missions
+from .mission import get_nice_missions, get_nice_random_mission
 from .point import get_nice_pointBuff, get_nice_pointGroup
+from .recipe import get_nice_recipe
 from .reward import get_nice_reward
 from .reward_scene import get_nice_event_reward_scene
 from .shop import get_nice_shop
@@ -24,6 +37,25 @@ from .voice_play import get_nice_event_voice_play
 
 
 settings = Settings()
+
+
+def conds_related_to_event(voice_conds: list[NiceVoiceCond], event_id: int) -> bool:
+    for voice_cond in voice_conds:
+        if (
+            voice_cond.condType
+            in {
+                NiceVoiceCondType.eventNoend,
+                NiceVoiceCondType.eventEnd,
+                NiceVoiceCondType.eventPeriod,
+                NiceVoiceCondType.eventShopPurchase,
+                NiceVoiceCondType.spacificShopPurchase,
+                NiceVoiceCondType.eventMissionAction,
+            }
+            and voice_cond.value == event_id
+        ):
+            return True
+
+    return False
 
 
 async def get_nice_event(
@@ -47,12 +79,16 @@ async def get_nice_event(
     }
 
     common_consumes = {consume.id: consume for consume in raw_event.mstCommonConsume}
+    common_releases = {release.id: release for release in raw_event.mstCommonRelease}
+
+    gift_data = GiftData(raw_event.mstGiftAdd, gift_maps)
 
     missions = get_nice_missions(
+        region,
         raw_event.mstEventMission,
         raw_event.mstEventMissionCondition,
         raw_event.mstEventMissionConditionDetail,
-        gift_maps,
+        gift_data,
     )
 
     nice_bgms = {
@@ -96,23 +132,12 @@ async def get_nice_event(
         known_voice_ids[voice_play.guideImageId] |= set(voice_play.voiceIds)
         known_voice_ids[voice_play.guideImageId] |= set(voice_play.confirmVoiceIds)
 
-    shop_voice_conds = {
-        NiceVoiceCondType.eventNoend,
-        NiceVoiceCondType.eventEnd,
-        NiceVoiceCondType.eventPeriod,
-        NiceVoiceCondType.eventShopPurchase,
-        NiceVoiceCondType.spacificShopPurchase,
-        NiceVoiceCondType.eventMissionAction,
-    }
-
     event_voices: list[NiceVoiceGroup] = []
     for voice_group in voice_groups:
         event_voice_lines = [
             voice_line
             for voice_line in voice_group.voiceLines
-            if {
-                voice_line_cond.condType for voice_line_cond in voice_line.conds
-            }.intersection(shop_voice_conds)
+            if conds_related_to_event(voice_line.conds, event_id)
             or known_voice_ids.get(voice_group.svtId, set()).intersection(voice_line.id)
         ]
         if event_voice_lines and voice_group.type != NiceSvtVoiceType.treasureDevice:
@@ -167,16 +192,20 @@ async def get_nice_event(
                 raw_event.mstSetItem,
                 shop_scripts,
                 item_map,
+                gift_data,
+                raw_event.mstCommonConsume,
                 raw_event.mstShopRelease,
             )
             for shop in raw_event.mstShop
         ],
         rewards=[
-            get_nice_reward(region, reward, event_id, gift_maps)
+            get_nice_reward(region, reward, event_id, gift_data)
             for reward in raw_event.mstEventReward
         ],
         rewardScenes=[
-            get_nice_event_reward_scene(region, reward_scene, nice_bgms)
+            get_nice_event_reward_scene(
+                region, reward_scene, nice_bgms, raw_event.mstSvtLimitAdd
+            )
             for reward_scene in raw_event.mstEventRewardScene
         ],
         pointGroups=[
@@ -188,9 +217,13 @@ async def get_nice_event(
             for pointBuff in raw_event.mstEventPointBuff
         ],
         missions=missions,
+        randomMissions=[
+            get_nice_random_mission(random_mission)
+            for random_mission in raw_event.mstEventRandomMission
+        ],
         towers=[
             get_nice_event_tower(
-                region, tower, raw_event.mstEventTowerReward, gift_maps
+                region, tower, raw_event.mstEventTowerReward, gift_data
             )
             for tower in raw_event.mstEventTower
         ],
@@ -200,7 +233,7 @@ async def get_nice_event(
                 lottery,
                 raw_event.mstBoxGachaBase,
                 raw_event.mstBoxGachaTalk,
-                gift_maps,
+                gift_data,
                 item_map,
                 raw_event.mstEventRewardScene,
                 voice_groups,
@@ -209,9 +242,75 @@ async def get_nice_event(
         ],
         treasureBoxes=[
             get_nice_treasure_box(
-                box, raw_event.mstTreasureBoxGift, gift_maps, common_consumes
+                region,
+                box,
+                raw_event.mstTreasureBoxGift,
+                gift_data,
+                common_consumes,
+                raw_event.mstCommonConsume,
             )
             for box in raw_event.mstTreasureBox
+        ],
+        bulletinBoards=[
+            get_nice_bulletin_board(
+                bulletin_board, raw_event.mstEventBulletinBoardRelease
+            )
+            for bulletin_board in raw_event.mstEventBulletinBoard
+        ],
+        recipes=[
+            get_nice_recipe(
+                region=region,
+                recipe=recipe,
+                recipe_gifts=raw_event.mstEventRecipeGift,
+                raw_consumes=raw_event.mstCommonConsume,
+                raw_releases=raw_event.mstCommonRelease,
+                item_map=item_map,
+                gift_data=gift_data,
+            )
+            for recipe in raw_event.mstEventRecipe
+        ],
+        digging=get_nice_digging(
+            region,
+            raw_event.mstEventDigging,
+            raw_event.mstEventDiggingBlock,
+            raw_event.mstEventDiggingReward,
+            item_map=item_map,
+            gift_data=gift_data,
+            common_consumes=common_consumes,
+            raw_consumes=raw_event.mstCommonConsume,
+        )
+        if raw_event.mstEventDigging
+        else None,
+        cooltime=NiceEventCooltime(
+            rewards=[
+                get_nice_event_cooltime(
+                    region,
+                    cooltime,
+                    gift_data,
+                    common_releases[cooltime.commonReleaseId],
+                    raw_releases=raw_event.mstCommonRelease,
+                )
+                for cooltime in raw_event.mstEventCooltimeReward
+            ]
+        )
+        if raw_event.mstEventCooltimeReward
+        else None,
+        fortifications=[
+            get_nice_fortification(
+                region,
+                fortification,
+                raw_event.mstEventFortificationDetail,
+                raw_event.mstEventFortificationSvt,
+                gift_data,
+                raw_event.mstCommonRelease,
+            )
+            for fortification in raw_event.mstEventFortification
+        ],
+        campaignQuests=[
+            get_nice_event_quest(quest) for quest in raw_event.mstEventQuest
+        ],
+        campaigns=[
+            get_nice_campaign(campaign) for campaign in raw_event.mstEventCampaign
         ],
         voicePlays=[
             get_nice_event_voice_play(voice_play, voice_groups)

@@ -2,16 +2,17 @@ from typing import Iterable, Optional
 
 import orjson
 from fastapi import HTTPException
-from redis.asyncio import Redis  # type: ignore
 from sqlalchemy.ext.asyncio import AsyncConnection
 
 from ..data.custom_mappings import EXTRA_CHARAFIGURES
 from ..data.shop import get_shop_cost_item_id
-from ..db.helpers import ai, event, fetch, item, quest, script, skill, svt, td
+from ..db.helpers import ai, event, fetch, item, quest, script, skill, svt, td, war
+from ..redis import Redis
 from ..redis.helpers.reverse import RedisReverse, get_reverse_ids
 from ..schemas.common import Region, ReverseDepth
 from ..schemas.enums import FUNC_VALS_NOT_BUFF, DetailMissionCondType
-from ..schemas.gameenums import BgmFlag, CondType, PurchaseType, VoiceCondType
+from ..schemas.gameenums import BgmFlag, CondType, PayType, PurchaseType, VoiceCondType
+from ..schemas.nice import COSTUME_LIMIT_NO_LESS_THAN
 from ..schemas.raw import (
     EXTRA_ATTACK_TD_ID,
     AiCollection,
@@ -47,11 +48,27 @@ from ..schemas.raw import (
     MstEquipExp,
     MstEquipSkill,
     MstEvent,
+    MstEventAlloutBattle,
+    MstEventBulletinBoard,
+    MstEventBulletinBoardRelease,
+    MstEventCampaign,
+    MstEventCooltimeReward,
+    MstEventDigging,
+    MstEventDiggingBlock,
+    MstEventDiggingReward,
+    MstEventFortification,
+    MstEventFortificationDetail,
+    MstEventFortificationSvt,
     MstEventMission,
     MstEventMissionCondition,
     MstEventMissionConditionDetail,
     MstEventPointBuff,
     MstEventPointGroup,
+    MstEventQuest,
+    MstEventQuestCooltime,
+    MstEventRandomMission,
+    MstEventRecipe,
+    MstEventRecipeGift,
     MstEventReward,
     MstEventRewardScene,
     MstEventRewardSet,
@@ -61,6 +78,7 @@ from ..schemas.raw import (
     MstFunc,
     MstFuncGroup,
     MstGift,
+    MstGiftAdd,
     MstIllustrator,
     MstItem,
     MstMap,
@@ -70,12 +88,14 @@ from ..schemas.raw import (
     MstShopRelease,
     MstShopScript,
     MstSpot,
+    MstSpotAdd,
     MstSpotRoad,
     MstSvt,
     MstSvtAdd,
     MstSvtAppendPassiveSkill,
     MstSvtAppendPassiveSkillUnlock,
     MstSvtCard,
+    MstSvtCardAdd,
     MstSvtChange,
     MstSvtCoin,
     MstSvtComment,
@@ -98,6 +118,7 @@ from ..schemas.raw import (
     MstVoice,
     MstWar,
     MstWarAdd,
+    MstWarQuestSelection,
     MysticCodeEntity,
     QuestEntity,
     QuestPhaseEntity,
@@ -109,6 +130,7 @@ from ..schemas.raw import (
     ReversedSkillTdType,
     ScriptEntity,
     ServantEntity,
+    ShopEntity,
     SkillEntity,
     SkillEntityNoReverse,
     TdEntity,
@@ -327,6 +349,15 @@ async def get_svt_scripts(
     return await fetch.get_all_multiple(conn, MstSvtScript, ids)
 
 
+async def get_event_allout(
+    conn: AsyncConnection, event_ids: Iterable[int]
+) -> list[MstEventAlloutBattle]:
+    if not event_ids:
+        return []
+
+    return await fetch.get_all_multiple(conn, MstEventAlloutBattle, event_ids)
+
+
 async def get_voice_from_svtVoice(
     conn: AsyncConnection, mstSvtVoices: list[MstSvtVoice]
 ) -> list[MstVoice]:
@@ -346,7 +377,7 @@ async def get_voice_group_from_svtVoice(
         cond.value
         for svt_voice in mstSvtVoices
         for script_json in svt_voice.scriptJson
-        for cond in script_json.conds
+        for cond in (script_json.conds if script_json.conds is not None else [])
         if cond.condType == VoiceCondType.SVT_GROUP
     }
     return await fetch.get_all_multiple(conn, MstSvtGroup, group_ids)
@@ -365,6 +396,7 @@ async def get_servant_entity(
 
     mstSvtIndividuality = await fetch.get_all(conn, MstSvtIndividuality, servant_id)
     mstSvtCard = await fetch.get_all(conn, MstSvtCard, servant_id)
+    mstSvtCardAdd = await fetch.get_all(conn, MstSvtCardAdd, servant_id)
     mstSvtLimit = await fetch.get_all(conn, MstSvtLimit, servant_id)
     mstCombineSkill = await fetch.get_all(conn, MstCombineSkill, svt_db.combineSkillId)
     mstCombineLimit = await fetch.get_all(conn, MstCombineLimit, svt_db.combineLimitId)
@@ -395,7 +427,7 @@ async def get_servant_entity(
 
     costume_chara_ids = [limit.battleCharaId for limit in mstSvtLimitAdd]
     mstSvtScript = await svt.get_svt_script(
-        conn, [servant_id] + costume_chara_ids + EXTRA_CHARAFIGURES.get(servant_id, [])
+        conn, [servant_id, *costume_chara_ids, *EXTRA_CHARAFIGURES.get(servant_id, [])]
     )
 
     skill_ids = [
@@ -411,7 +443,13 @@ async def get_servant_entity(
     mstTreasureDevice = await get_td_entity_no_reverse_many(conn, td_ids, expand)
 
     item_ids: set[int] = set()
-    for combine in mstCombineLimit + mstCombineSkill + mstCombineAppendPassiveSkill + mstCombineCostume + mstSvtAppendPassiveSkillUnlock:  # type: ignore
+    for combine in (
+        mstCombineLimit
+        + mstCombineSkill
+        + mstCombineAppendPassiveSkill
+        + mstCombineCostume
+        + mstSvtAppendPassiveSkillUnlock
+    ):
         item_ids.update(combine.itemIds)
     if mstSvtCoin is not None:
         item_ids.add(mstSvtCoin.itemId)
@@ -439,6 +477,7 @@ async def get_servant_entity(
         mstSvt=svt_db,
         mstSvtIndividuality=mstSvtIndividuality,
         mstSvtCard=mstSvtCard,
+        mstSvtCardAdd=mstSvtCardAdd,
         mstSvtLimit=mstSvtLimit,
         mstCombineSkill=mstCombineSkill,
         mstCombineLimit=mstCombineLimit,
@@ -480,13 +519,19 @@ async def get_servant_entity(
             )
         }
         svt_entity.mstSvt.expandedClassPassive = [
-            expand_skills[skill_id] for skill_id in svt_entity.mstSvt.classPassive
+            expand_skills[skill_id]
+            for skill_id in svt_entity.mstSvt.classPassive
+            if skill_id in expand_skills
         ]
         svt_entity.expandedExtraPassive = [
-            expand_skills[skill.skillId] for skill in mstSvtPassiveSkill
+            expand_skills[skill.skillId]
+            for skill in mstSvtPassiveSkill
+            if skill.skillId in expand_skills
         ]
         svt_entity.expandedAppendPassive = [
-            expand_skills[skill.skillId] for skill in mstSvtAppendPassiveSkill
+            expand_skills[skill.skillId]
+            for skill in mstSvtAppendPassiveSkill
+            if skill.skillId in expand_skills
         ]
 
     if lore:
@@ -630,13 +675,24 @@ async def get_war_entity(conn: AsyncConnection, war_id: int) -> WarEntity:
     if not war_db:
         raise HTTPException(status_code=404, detail="War not found")
 
+    quest_selections = await fetch.get_all(conn, MstWarQuestSelection, war_id)
+
     maps = await fetch.get_all(conn, MstMap, war_id)
     map_ids = [event_map.id for event_map in maps]
 
     spots = await fetch.get_all_multiple(conn, MstSpot, map_ids)
     spot_ids = [spot.id for spot in spots]
+    spot_adds = await fetch.get_all_multiple(conn, MstSpotAdd, spot_ids)
 
     quests = await quest.get_quest_by_spot(conn, spot_ids)
+
+    quest_selection_ids = [selection.questId for selection in quest_selections]
+    selection_quests = await quest.get_quest_entity(conn, quest_selection_ids)
+    selection_spot_ids = {quest.mstQuest.spotId for quest in selection_quests}
+    selection_spots = await war.get_spot_from_ids(conn, selection_spot_ids)
+
+    quests += selection_quests
+    spots += selection_spots
 
     bgm_ids = [war_map.bgmId for war_map in maps] + [war_db.bgmId]
     bgms = await fetch.get_all_multiple(conn, MstBgm, bgm_ids)
@@ -651,8 +707,10 @@ async def get_war_entity(conn: AsyncConnection, war_id: int) -> WarEntity:
         mstMapGimmick=await fetch.get_all_multiple(conn, MstMapGimmick, map_ids),
         mstBgm=bgms,
         mstSpot=spots,
+        mstSpotAdd=spot_adds,
         mstQuest=quests,
         mstSpotRoad=spot_roads,
+        mstWarQuestSelection=quest_selections,
     )
 
 
@@ -688,9 +746,10 @@ async def get_master_mission_entity(
 
     conds = await fetch.get_all_multiple(conn, MstEventMissionCondition, mission_ids)
     cond_detail_ids = [
-        cond.targetIds[0]
+        target_id
         for cond in conds
         if cond.condType == CondType.MISSION_CONDITION_DETAIL
+        for target_id in cond.targetIds
     ]
 
     cond_details = await fetch.get_all_multiple(
@@ -698,7 +757,11 @@ async def get_master_mission_entity(
     )
 
     gift_ids = {mission.giftId for mission in missions}
-    gifts = await fetch.get_all_multiple(conn, MstGift, gift_ids)
+
+    gift_adds = await fetch.get_all_multiple(conn, MstGiftAdd, gift_ids)
+    replacement_gift_ids = {gift.priorGiftId for gift in gift_adds}
+
+    gifts = await fetch.get_all_multiple(conn, MstGift, gift_ids | replacement_gift_ids)
 
     quest_ids = get_quest_ids_in_conds(conds, cond_details)
     quests = await quest.get_many_quests_with_war(conn, quest_ids)
@@ -709,6 +772,7 @@ async def get_master_mission_entity(
         mstEventMissionCondition=conds,
         mstEventMissionConditionDetail=cond_details,
         mstGift=gifts,
+        mstGiftAdd=gift_adds,
         mstQuest=quests,
     )
 
@@ -723,9 +787,10 @@ async def get_event_entity(conn: AsyncConnection, event_id: int) -> EventEntity:
 
     conds = await fetch.get_all_multiple(conn, MstEventMissionCondition, mission_ids)
     cond_detail_ids = [
-        cond.targetIds[0]
+        target_id
         for cond in conds
         if cond.condType == CondType.MISSION_CONDITION_DETAIL
+        for target_id in cond.targetIds
     ]
 
     cond_details = await fetch.get_all_multiple(
@@ -750,6 +815,16 @@ async def get_event_entity(conn: AsyncConnection, event_id: int) -> EventEntity:
 
     reward_scenes = await fetch.get_all(conn, MstEventRewardScene, event_id)
 
+    costume_limits = [
+        svt.SvtLimit(svt_id=svt_id, limit=limit)
+        for reward_scene in reward_scenes
+        for svt_id, limit in zip(
+            reward_scene.guideImageIds, reward_scene.guideLimitCounts, strict=False
+        )
+        if limit >= COSTUME_LIMIT_NO_LESS_THAN
+    ]
+    mstSvtLimitAdd = await svt.get_svt_limit_add(conn, costume_limits)
+
     voice_ids = (
         {voice_play.guideImageId for voice_play in voice_plays}
         | {gacha_talk.guideImageId for gacha_talk in gacha_talks}
@@ -771,6 +846,9 @@ async def get_event_entity(conn: AsyncConnection, event_id: int) -> EventEntity:
         if shop.purchaseType == PurchaseType.SET_ITEM
     ]
     set_items = await item.get_mstSetItem(conn, set_item_ids)
+    shop_consume_ids = {
+        shop.itemIds[0] for shop in shops if shop.payType == PayType.COMMON_CONSUME
+    }
 
     shop_ids = [shop.id for shop in shops]
     shop_scripts = await fetch.get_all_multiple(conn, MstShopScript, shop_ids)
@@ -784,22 +862,94 @@ async def get_event_entity(conn: AsyncConnection, event_id: int) -> EventEntity:
     box_gift_ids = {box.treasureBoxGiftId for box in treasure_boxes}
     box_gifts = await fetch.get_all_multiple(conn, MstTreasureBoxGift, box_gift_ids)
 
-    consume_ids = {box.commonConsumeId for box in treasure_boxes}
-    common_consumes = await fetch.get_all_multiple(conn, MstCommonConsume, consume_ids)
+    digging = await fetch.get_one(conn, MstEventDigging, event_id)
+    if digging:
+        digging_blocks = await fetch.get_all(conn, MstEventDiggingBlock, event_id)
+        digging_rewards = await fetch.get_all(conn, MstEventDiggingReward, event_id)
+        digging_gift_ids = {reward.giftId for reward in digging_rewards}
+        digging_consume_ids = {block.commonConsumeId for block in digging_blocks}
+    else:
+        digging_blocks = []
+        digging_rewards = []
+        digging_gift_ids = set()
+        digging_consume_ids = set()
+
+    event_cooltimes = await fetch.get_all(conn, MstEventCooltimeReward, event_id)
+    cooltime_release_ids = {cooltime.commonReleaseId for cooltime in event_cooltimes}
+
+    bulletins = await fetch.get_all(conn, MstEventBulletinBoard, event_id)
+    bulletin_ids = {bulletin.id for bulletin in bulletins}
+    bulletin_releases = await fetch.get_all_multiple(
+        conn, MstEventBulletinBoardRelease, bulletin_ids
+    )
+
+    recipes = await fetch.get_all(conn, MstEventRecipe, event_id)
+    recipe_ids = {recipe.id for recipe in recipes}
+    recipe_gifts = await fetch.get_all_multiple(conn, MstEventRecipeGift, recipe_ids)
+    recipe_release_ids = {recipe.commonReleaseId for recipe in recipes}
+
+    fortifications = await fetch.get_all(conn, MstEventFortification, event_id)
+    fortification_details = await fetch.get_all(
+        conn, MstEventFortificationDetail, event_id
+    )
+    fortification_servants = await fetch.get_all(
+        conn, MstEventFortificationSvt, event_id
+    )
+    fortification_gift_ids = {fortification.giftId for fortification in fortifications}
+    fortification_release_ids = (
+        {fortification.commonReleaseId for fortification in fortifications}
+        | {detail.commonReleaseId for detail in fortification_details}
+        | {svt.commonReleaseId for svt in fortification_servants}
+    )
+
+    common_release_ids = (
+        cooltime_release_ids | recipe_release_ids | fortification_release_ids
+    )
+    common_releases = await fetch.get_all_multiple(
+        conn, MstCommonRelease, common_release_ids
+    )
+
+    common_consume_ids = (
+        shop_consume_ids
+        | digging_consume_ids
+        | {box.commonConsumeId for box in treasure_boxes}
+        | {recipe.commonConsumeId for recipe in recipes}
+    )
+    common_consumes = await fetch.get_all_multiple(
+        conn, MstCommonConsume, common_consume_ids
+    )
 
     gift_ids = (
-        {reward.giftId for reward in rewards}
+        {shop.targetIds[0] for shop in shops if shop.purchaseType == PurchaseType.GIFT}
+        | {
+            set_item.targetId
+            for set_item in set_items
+            if set_item.purchaseType == PurchaseType.GIFT
+        }
+        | {reward.giftId for reward in rewards}
         | {mission.giftId for mission in missions}
         | {tower_reward.giftId for tower_reward in tower_rewards}
         | {box.targetId for box in gacha_bases}
         | {box.extraGiftId for box in treasure_boxes}
         | {treasure_box_gift.giftId for treasure_box_gift in box_gifts}
+        | {cooltime.giftId for cooltime in event_cooltimes}
+        | {recipe_gift.giftId for recipe_gift in recipe_gifts}
+        | digging_gift_ids
+        | fortification_gift_ids
     )
-    gifts = await fetch.get_all_multiple(conn, MstGift, gift_ids)
 
-    item_ids = {get_shop_cost_item_id(shop) for shop in shops} | {
-        lottery.payTargetId for lottery in box_gachas
-    }
+    gift_adds = await fetch.get_all_multiple(conn, MstGiftAdd, gift_ids)
+    replacement_gift_ids = {gift.priorGiftId for gift in gift_adds}
+
+    gifts = await fetch.get_all_multiple(conn, MstGift, gift_ids | replacement_gift_ids)
+
+    item_ids = (
+        {get_shop_cost_item_id(shop) for shop in shops}
+        | {lottery.payTargetId for lottery in box_gachas}
+        | {recipe.eventPointItemId for recipe in recipes}
+    )
+    if digging:
+        item_ids |= {digging.eventPointItemId}
     mstItem = await get_multiple_items(conn, item_ids)
 
     bgm_ids = {reward_scene.bgmId for reward_scene in reward_scenes} | {
@@ -816,12 +966,16 @@ async def get_event_entity(conn: AsyncConnection, event_id: int) -> EventEntity:
         mstShopScript=shop_scripts,
         mstShopRelease=shop_releases,
         mstGift=gifts,
+        mstGiftAdd=gift_adds,
         mstSetItem=set_items,
         mstEventReward=rewards,
         mstEventRewardSet=await fetch.get_all(conn, MstEventRewardSet, event_id),
         mstEventPointGroup=await fetch.get_all(conn, MstEventPointGroup, event_id),
         mstEventPointBuff=await fetch.get_all(conn, MstEventPointBuff, event_id),
         mstEventMission=missions,
+        mstEventRandomMission=await fetch.get_all(
+            conn, MstEventRandomMission, event_id
+        ),
         mstEventMissionCondition=conds,
         mstEventMissionConditionDetail=cond_details,
         mstEventTower=await fetch.get_all(conn, MstEventTower, event_id),
@@ -831,14 +985,32 @@ async def get_event_entity(conn: AsyncConnection, event_id: int) -> EventEntity:
         mstBoxGachaTalk=gacha_talks,
         mstTreasureBox=treasure_boxes,
         mstTreasureBoxGift=box_gifts,
+        mstEventDigging=digging,
+        mstEventDiggingBlock=digging_blocks,
+        mstEventDiggingReward=digging_rewards,
+        mstEventCooltimeReward=event_cooltimes,
+        mstEventQuestCooltime=await fetch.get_all(
+            conn, MstEventQuestCooltime, event_id
+        ),
+        mstEventFortification=fortifications,
+        mstEventFortificationDetail=fortification_details,
+        mstEventFortificationSvt=fortification_servants,
+        mstEventQuest=await fetch.get_all(conn, MstEventQuest, event_id),
+        mstEventCampaign=await fetch.get_all(conn, MstEventCampaign, event_id),
+        mstEventBulletinBoard=bulletins,
+        mstEventBulletinBoardRelease=bulletin_releases,
+        mstEventRecipe=recipes,
+        mstEventRecipeGift=recipe_gifts,
         mstItem=mstItem,
         mstCommonConsume=common_consumes,
+        mstCommonRelease=common_releases,
         mstSvtVoice=mstSvtVoice,
         mstVoice=mstVoice,
         mstSvtGroup=mstSvtGroup,
         mstSubtitle=mstSubtitle,
         mstVoicePlayCond=mstVoicePlayCond,
         mstSvtExtra=mstSvtExtra,
+        mstSvtLimitAdd=mstSvtLimitAdd,
         mstBgm=mstBgm,
     )
 
@@ -999,3 +1171,116 @@ async def get_all_bgm_entities(
         out_entities.append(bgm_entity)
 
     return out_entities
+
+
+async def get_shop_entities(
+    conn: AsyncConnection, shops: list[MstShop]
+) -> list[ShopEntity]:
+    shop_scripts = await fetch.get_all_multiple(
+        conn, MstShopScript, [shop.id for shop in shops]
+    )
+    shop_script_map = {script.shopId: script for script in shop_scripts}
+    shop_releases = await fetch.get_all_multiple(
+        conn, MstShopRelease, [shop.id for shop in shops]
+    )
+
+    item_ids = {get_shop_cost_item_id(shop) for shop in shops}
+    common_consume_ids = {
+        consume_id
+        for shop in shops
+        if shop.payType == PayType.COMMON_CONSUME
+        for consume_id in shop.itemIds
+    }
+    mstItem = await get_multiple_items(conn, item_ids)
+    item_map = {item.id: item for item in mstItem}
+
+    common_consumes = await fetch.get_all_multiple(
+        conn, MstCommonConsume, common_consume_ids
+    )
+
+    set_item_ids = {
+        set_id
+        for shop in shops
+        if shop.purchaseType == PurchaseType.SET_ITEM
+        for set_id in shop.targetIds
+    }
+    all_set_items = await item.get_mstSetItem(conn, set_item_ids)
+
+    all_gift_ids = {
+        gift_id
+        for shop in shops
+        if shop.purchaseType == PurchaseType.GIFT
+        for gift_id in shop.targetIds
+    }
+    all_gift_ids |= {
+        set_item.targetId
+        for set_item in all_set_items
+        if set_item.purchaseType == PurchaseType.GIFT
+    }
+
+    all_gift_adds = await fetch.get_all_multiple(conn, MstGiftAdd, all_gift_ids)
+    replacement_gift_ids = {gift.priorGiftId for gift in all_gift_adds}
+
+    all_gifts = await fetch.get_all_multiple(
+        conn, MstGift, all_gift_ids | replacement_gift_ids
+    )
+
+    entities: list[ShopEntity] = []
+    for shop in shops:
+        item_id = get_shop_cost_item_id(shop)
+        set_items = (
+            [set_item for set_item in all_set_items if set_item.id in shop.targetIds]
+            if shop.purchaseType == PurchaseType.SET_ITEM
+            else []
+        )
+        gift_ids = (
+            set(shop.targetIds) if shop.purchaseType == PurchaseType.GIFT else set()
+        )
+        for set_item in set_items:
+            if set_item.purchaseType == PurchaseType.GIFT:
+                gift_ids.add(set_item.targetId)
+        gift_adds = [
+            gift_add for gift_add in all_gift_adds if gift_add.giftId in gift_ids
+        ]
+        gift_ids |= {gift.priorGiftId for gift in gift_adds}
+        gifts = [gift for gift in all_gifts if gift.id in gift_ids]
+        entities.append(
+            ShopEntity(
+                mstShop=shop,
+                mstSetItem=set_items,
+                mstShopRelease=[
+                    release for release in shop_releases if release.shopId == shop.id
+                ],
+                mstShopScript=shop_script_map.get(shop.id),
+                mstItem=[item_map[item_id]] if item_id in item_map else [],
+                mstCommonConsume=[
+                    consume for consume in common_consumes if consume.id in shop.itemIds
+                ]
+                if shop.payType == PayType.COMMON_CONSUME
+                else [],
+                mstGift=gifts,
+                mstGiftAdd=gift_adds,
+            )
+        )
+    return entities
+
+
+async def get_raw_mstShop(conn: AsyncConnection, shop_id: int) -> MstShop:
+    shop = await fetch.get_one(conn, MstShop, shop_id)
+
+    if not shop:
+        raise HTTPException(status_code=404, detail="Shop not found")
+
+    return shop
+
+
+async def get_shop_entity(conn: AsyncConnection, shop_id: int) -> ShopEntity:
+    shop = await get_raw_mstShop(conn, shop_id)
+    return (await get_shop_entities(conn, [shop]))[0]
+
+
+async def get_common_releases(
+    conn: AsyncConnection, release_ids: Iterable[int]
+) -> list[MstCommonRelease]:
+    releases = await fetch.get_all_multiple(conn, MstCommonRelease, release_ids)
+    return releases

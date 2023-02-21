@@ -1,5 +1,5 @@
 import re
-from typing import Any, Optional, Union
+from typing import Any, Optional
 
 from fastapi import HTTPException
 from pydantic import HttpUrl
@@ -28,6 +28,7 @@ EVENT_DROP_FUNCTIONS = {
     FuncType.EVENT_POINT_RATE_UP,
     FuncType.EVENT_DROP_UP,
     FuncType.EVENT_DROP_RATE_UP,
+    FuncType.EVENT_FORTIFICATION_POINT_UP,
 }
 EVENT_FUNCTIONS = EVENT_DROP_FUNCTIONS | {
     FuncType.ENEMY_ENCOUNT_COPY_RATE_UP,
@@ -50,12 +51,20 @@ LIST_DATAVALS = {
     "DamageRates",
     "OnPositions",
     "OffPositions",
+    "NotTargetSkillIdArray",
+    "CopyTargetFunctionType",
+    "CopyTargetBuffType",
 }
+STRING_DATAVALS = {"PopValueText"}
+STRING_LIST_DATAVALS = {"ApplyValueUp"}
+
+
+DataValType = dict[str, int | str | list[int] | list[str]]
 
 
 async def parse_dataVals(
     conn: AsyncConnection, datavals: str, functype: int
-) -> dict[str, Union[int, str, list[int]]]:
+) -> DataValType:
     error_message = f"Can't parse datavals: {datavals}"
     INITIAL_VALUE = -98765
     # Prefix to be used for temporary keys that need further parsing.
@@ -65,11 +74,13 @@ async def parse_dataVals(
     # The prefix should be something unlikely to be a dataval key.
     prefix = "aa"
 
-    output: dict[str, Union[int, str, list[int]]] = {}
+    output: DataValType = {}
     if datavals != "[]":
         datavals = remove_brackets(datavals)
         array = re.split(r",\s*(?![^\[\]]*])", datavals)
         for i, arrayi in enumerate(array):
+            if arrayi == "":
+                continue
             text = ""
             value = INITIAL_VALUE
             try:
@@ -90,7 +101,11 @@ async def parse_dataVals(
                         text = "Target"
                     elif i == 3:
                         text = "Correction"
-                elif functype in {FuncType.ADD_STATE, FuncType.ADD_STATE_SHORT}:
+                elif functype in {
+                    FuncType.ADD_STATE,
+                    FuncType.ADD_STATE_SHORT,
+                    FuncType.ADD_FIELD_CHANGE_TO_FIELD,
+                }:
                     if i == 0:
                         text = "Rate"
                     elif i == 1:
@@ -167,7 +182,9 @@ async def parse_dataVals(
                         # using DUMMY_PREFIX + ... and parse it later
                         dependMstFunc = await fetch.get_one(conn, MstFunc, int(output["DependFuncId"]))  # type: ignore
                         if not dependMstFunc:
-                            raise HTTPException(status_code=500, detail=error_message)
+                            raise HTTPException(
+                                status_code=500, detail=error_message
+                            ) from None
                         vals_value = await parse_dataVals(
                             conn, array2[1], dependMstFunc.funcType
                         )
@@ -175,16 +192,24 @@ async def parse_dataVals(
                     elif array2[0] in LIST_DATAVALS:
                         try:
                             output[array2[0]] = [int(i) for i in array2[1].split("/")]
-                        except ValueError:
-                            raise HTTPException(status_code=500, detail=error_message)
+                        except ValueError as err:
+                            raise HTTPException(
+                                status_code=500, detail=error_message
+                            ) from err
+                    elif array2[0] in STRING_LIST_DATAVALS:
+                        output[array2[0]] = array2[1].split("/")
+                    elif array2[0] in STRING_DATAVALS:
+                        output[array2[0]] = array2[1]
                     else:
                         try:
                             text = array2[0]
                             value = int(array2[1])
-                        except ValueError:
-                            raise HTTPException(status_code=500, detail=error_message)
+                        except ValueError as err:
+                            raise HTTPException(
+                                status_code=500, detail=error_message
+                            ) from err
                 else:
-                    raise HTTPException(status_code=500, detail=error_message)
+                    raise HTTPException(status_code=500, detail=error_message) from None
 
             if text:
                 output[text] = value

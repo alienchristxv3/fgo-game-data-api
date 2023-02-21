@@ -1,11 +1,12 @@
 import asyncio
-from asyncio.events import AbstractEventLoop
+import platform
+from asyncio.events import AbstractEventLoop, AbstractEventLoopPolicy
 from typing import AsyncGenerator, Generator
 
 import pytest
 from asgi_lifespan import LifespanManager
 from httpx import AsyncClient
-from redis.asyncio import Redis  # type: ignore
+from redis.asyncio import Redis
 from sqlalchemy.ext.asyncio import AsyncConnection, create_async_engine
 
 from app.config import Settings
@@ -22,7 +23,11 @@ def event_loop() -> Generator[AbstractEventLoop, None, None]:
     Create an instance of the default event loop for each test case.
     https://github.com/pytest-dev/pytest-asyncio/issues/171
     """
-    loop = asyncio.get_event_loop_policy().new_event_loop()
+    if platform.system() == "Windows":
+        policy: AbstractEventLoopPolicy = asyncio.WindowsSelectorEventLoopPolicy()
+    else:
+        policy = asyncio.get_event_loop_policy()
+    loop = policy.new_event_loop()
     yield loop
     loop.close()
 
@@ -37,7 +42,7 @@ async def client() -> AsyncGenerator[AsyncClient, None]:
 @pytest.fixture(scope="session")
 async def na_db_conn() -> AsyncGenerator[AsyncConnection, None]:
     engine = create_async_engine(
-        settings.data[Region.NA].postgresdsn.replace("postgresql", "postgresql+asyncpg")
+        settings.data[Region.NA].postgresdsn.replace("postgresql", "postgresql+psycopg")
     )
     connection = await engine.connect()
     try:
@@ -48,6 +53,6 @@ async def na_db_conn() -> AsyncGenerator[AsyncConnection, None]:
 
 
 @pytest.fixture(scope="session")
-async def redis() -> AsyncGenerator[Redis, None]:
+async def redis() -> AsyncGenerator["Redis[bytes]", None]:
     async with Redis.from_url(settings.redisdsn) as redis_client:
         yield redis_client

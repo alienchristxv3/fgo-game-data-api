@@ -8,7 +8,9 @@ from ..schemas.raw import (
     MstAi,
     MstAiAct,
     MstBuff,
+    MstBuffConvert,
     MstClassRelationOverwrite,
+    MstCombineAppendPassiveSkill,
     MstCombineCostume,
     MstCombineLimit,
     MstCombineSkill,
@@ -20,7 +22,10 @@ from ..schemas.raw import (
     MstEventMissionCondition,
     MstEventMissionConditionDetail,
     MstFunc,
+    MstGift,
+    MstGiftAdd,
     MstItem,
+    MstItemSelect,
     MstShop,
     MstShopRelease,
     MstShopScript,
@@ -47,43 +52,46 @@ PydanticModel = TypeVar("PydanticModel", bound=BaseModelORJson)
 
 
 MODEL_FILE_NAME: dict[Type[BaseModelORJson], str] = {
-    MstEvent: "mstEvent",
-    MstShop: "mstShop",
-    MstSkill: "mstSkill",
-    MstSvt: "mstSvt",
-    MstSvtLimitAdd: "mstSvtLimitAdd",
-    MstSvtComment: "mstSvtComment",
-    MstSvtExtra: "mstSvtExtra",
-    MstSvtSkill: "mstSvtSkill",
-    MstShopRelease: "mstShopRelease",
-    MstShopScript: "mstShopScript",
-    MstWar: "mstWar",
-    MstEventMissionCondition: "mstEventMissionCondition",
-    MstEventMissionConditionDetail: "mstEventMissionConditionDetail",
+    MstAi: "mstAi",
+    MstAiAct: "mstAiAct",
     MstBuff: "mstBuff",
     MstClassRelationOverwrite: "mstClassRelationOverwrite",
-    MstItem: "mstItem",
-    MstCombineSkill: "mstCombineSkill",
-    MstCombineLimit: "mstCombineLimit",
+    MstCombineAppendPassiveSkill: "mstCombineAppendPassiveSkill",
     MstCombineCostume: "mstCombineCostume",
-    MstSvtCostume: "mstSvtCostume",
-    MstAi: "mstAi",
-    MstFunc: "mstFunc",
-    MstBuff: "mstBuff",
+    MstCombineLimit: "mstCombineLimit",
+    MstCombineSkill: "mstCombineSkill",
     MstCommandCode: "mstCommandCode",
     MstCommandCodeSkill: "mstCommandCodeSkill",
     MstEquip: "mstEquip",
     MstEquipSkill: "mstEquipSkill",
+    MstEvent: "mstEvent",
+    MstEventMissionCondition: "mstEventMissionCondition",
+    MstEventMissionConditionDetail: "mstEventMissionConditionDetail",
     MstFunc: "mstFunc",
+    MstGift: "mstGift",
+    MstGiftAdd: "mstGiftAdd",
+    MstItem: "mstItem",
+    MstItemSelect: "mstItemSelect",
+    MstShop: "mstShop",
+    MstShopRelease: "mstShopRelease",
+    MstShopScript: "mstShopScript",
+    MstSkill: "mstSkill",
     MstSkillLv: "mstSkillLv",
+    MstSvt: "mstSvt",
     MstSvtAppendPassiveSkill: "mstSvtAppendPassiveSkill",
+    MstSvtComment: "mstSvtComment",
+    MstSvtCostume: "mstSvtCostume",
+    MstSvtExtra: "mstSvtExtra",
+    MstSvtLimitAdd: "mstSvtLimitAdd",
     MstSvtPassiveSkill: "mstSvtPassiveSkill",
-    MstAiAct: "mstAiAct",
-    MstTreasureDevice: "mstTreasureDevice",
-    MstTreasureDeviceLv: "mstTreasureDeviceLv",
+    MstSvtSkill: "mstSvtSkill",
     MstSvtTreasureDevice: "mstSvtTreasureDevice",
     MstSvtVoice: "mstSvtVoice",
+    MstTreasureDevice: "mstTreasureDevice",
+    MstTreasureDeviceLv: "mstTreasureDeviceLv",
     MstVoice: "mstVoice",
+    MstWar: "mstWar",
+    MstBuffConvert: "mstBuffConvert",
 }
 
 
@@ -91,6 +99,11 @@ def load_master_data(
     gamedata_path: DirectoryPath, model: Type[PydanticModel]
 ) -> list[PydanticModel]:
     file_name = MODEL_FILE_NAME[model]
-    with open(gamedata_path / "master" / f"{file_name}.json", "rb") as fp:
+    file_loc = gamedata_path / "master" / f"{file_name}.json"
+
+    if not file_loc.exists():
+        return []
+
+    with open(file_loc, "rb") as fp:
         data = orjson.loads(fp.read())
     return [model.parse_obj(item) for item in data]

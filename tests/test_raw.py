@@ -1,4 +1,3 @@
-# pylint: disable=R0201
 import pytest
 from httpx import AsyncClient
 
@@ -58,7 +57,7 @@ test_cases_dict: dict[str, tuple[str, str]] = {
         "NA/function/300?expand=True&reverse=True",
         "NA_function_300_reverse_expand",
     ),
-    "function_JP_unknown_buff_id": ("JP/function/4085", "JP_function_4085"),
+    "function_NA_unknown_buff_id": ("NA/function/4086", "NA_function_4086"),
     "buff_NA": ("NA/buff/200", "NA_buff_200"),
     "buff_NA_reverse": ("NA/buff/190?reverse=True", "NA_buff_190_reverse"),
     "item_JP": ("JP/item/7103", "JP_item_Lancer_Monument"),
@@ -74,6 +73,11 @@ test_cases_dict: dict[str, tuple[str, str]] = {
     "bgm_JP_with_shop": ("JP/bgm/138?lang=en", "JP_BGM_Shinjuku"),
     "bgm_NA_without_shop": ("NA/bgm/33", "NA_BGM_battle_10"),
     "script_NA": ("NA/script/0300030510", "NA_LB3_script"),
+    "shop_NA": ("NA/shop/80276219", "shop_valentine_script"),
+    "eventAlloutBattle_JP": (
+        "JP/eventAlloutBattle?eventId=80363",
+        "eventAlloutBattle_JP",
+    ),
 }
 
 
@@ -94,7 +98,7 @@ cases_404_dict = {
     "svt": "9321362",
     "skill": "25689",
     "NP": "900205",
-    "function": "9000",
+    "function": "90000",
     "buff": "765",
     "item": "941234",
     "MC": "62537",
@@ -108,6 +112,7 @@ cases_404_dict = {
     "bgm": "319028",
     "mm": "312341",
     "script": "faSdanosd",
+    "shop": "1238712",
 }
 
 
@@ -261,6 +266,10 @@ class TestServantSpecial:
         data = response.json()
         assert data.get("mstMasterMission") is not None
         assert len(data["mstEventMission"]) > 0
+
+    async def test_empty_eventAlloutBattle(self, client: AsyncClient) -> None:
+        response = await client.get("/raw/JP/eventAlloutBattle")
+        assert len(response.json()) == 0
 
 
 def test_get_quest_id_from_conds() -> None:
